@@ -1,0 +1,145 @@
+
+/* anticruftiness */
+
+* {
+	margin : 0;
+	padding : 0;
+	border : 0;
+	}
+
+/*
+ *	fixes a bug in Mozilla
+ *	thanks to Carey Evans
+ *	snarfed via Zeldman
+ */
+
+html { 
+	min-width : 800px;
+	}
+
+body {
+	background-color : #FFF;
+	font-family : 'lucida grande', helvetica, arial, sans-serif;
+	font-size : 12px;
+	line-height : 1.5em;
+	color : #333;
+	text-align : center;
+	}
+	
+#wrapper {
+	width : 900px;
+	margin : 0 auto;
+	text-align : left;
+	}
+
+#header {
+	margin : 0 50px;
+	}
+	
+#footer {
+	margin : 50px 100px;
+	border-top : 1px dotted #666;
+	}
+
+#header ul {
+	margin : 10px 0 50px 50px;
+	}
+	
+#footer ul {
+	margin : 20px 0;
+	}
+
+#header li,
+#footer li {
+	display : inline;
+	margin : 0 10px 0 0;
+	}
+
+#header a,
+#footer a {
+	background : transparent;
+	}
+
+#content {
+	margin : 0 100px;
+	}
+
+#content img {
+	float: right;
+	margin: 20px 0 0 20px;
+	}
+
+#mouse p {
+	font-size : 10px;
+	margin : 0.2em 0;
+	}
+
+#mouse ul {
+	font-size : 10px;
+	margin : 0.2em 0 1.5em 0;
+	}
+
+p {
+	margin : 1.2em 0;
+	}
+	
+em {
+	font-family : georgia, times, serif;
+	font-style : italic;
+	}	
+
+h1 {
+	font-family : 'gill sans', helvetica, arial, sans-serif;
+	font-weight : normal;
+	font-size : 2.25em;
+	color : #033;
+	}
+
+h2 {
+	margin : 40px 0 0 0;
+	padding : 0 0 10px 0;
+	border-bottom : 1px dotted #666;
+	font-family : 'gill sans', helvetica, arial, sans-serif;
+	font-weight : normal;
+	font-size : 1.5em;
+	}
+	
+h3 {
+	margin : 20px 0 0 0;
+	font-family : 'gill sans', helvetica, arial, sans-serif;
+	font-weight : normal;
+	font-size : 1.5em;
+	color : #699;
+	}
+
+h4 {
+	margin : 20px 0 0 0;
+	}
+
+dt {
+	margin : 20px 0 0 0;
+	}
+
+ul {
+	list-style-type : disc;
+	}
+
+dd, li {
+	margin : 10px 25px;
+	}
+
+code {
+	color : #930;
+	}
+
+a:link, a:visited {
+	color : #366;
+	text-decoration : underline;
+	}
+
+a:hover, a:visited:hover, a:active {
+	color : #000;
+	background : #9CC;
+	text-decoration : none;
+	}
+	

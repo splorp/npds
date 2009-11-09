@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Newton Personal Data Sharing : Documentation : NPDS Notepad Server Syntax</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language" content="en-us" />
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="robots" content="all" />
+	<meta name="author" content="Grant Hutchinson" />
+	<meta name="copyright" content="Copyright 2006-2007 Grant Hutchinson" />
+	<meta name="description" content="NPDS Notepad Server Syntax" />
+	<meta name="keywords" content="newton, apple, messagepad, emate, npds, server, web server, serving, software, modules, source code, grant hutchinson, notepad, tag, tags, ssi, syntax" />
+	<link rel="stylesheet" type="text/css" href="/ssi/docs.css" media="screen" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<div id="header">
+			<!--#include virtual="/ssi/header.ssi" -->
+		</div>
+	
+		<div id="content">
+	
+		<h1>NPDS Notepad Server Syntax</h1>
+		<h3>By Grant Hutchinson</h3>
+	
+		<h2 id="contents">Contents</h2>
+		<ol>
+			<li><a href="#introduction">Introduction</a></li>
+			<li><a href="#current_tags">Current SSI Tags</a></li>
+			<li><a href="#legacy_tags">Legacy SSI Tags</a></li>
+			<li><a href="#syntax_notes">Tag Syntax: notes</a></li>
+			<li><a href="#syntax_notescount">Tag Syntax: notescount</a></li>
+			<li><a href="#examples">Examples</a></li>
+			<li><a href="#scripts">Using Parameters In Custom SSI Scripts</a></li>
+			<li><a href="#contact">Contact Information</a></li>
+			<li><a href="#history">Change History</a></li>
+		</ol>
+	
+		<h2 id="introduction">Introduction</h2>
+		<p>Starting with Notepad Server 2.103, NPDS uses a simplified, extensible set of SSI (server-side includes) tags for displaying formatted lists of notes. <a href="#legacy_tags">Legacy tags</a> used in older versions of the Notepad Server are also supported in this version. Please note the support of legacy tags may change in future releases of this software.</p>
+	
+		<h2 id="current_tags">Current SSI Tags</h2>
+		<p>Notepad Server 2.103 and later support the following SSI tags:</p>
+	
+		<dl>
+			<dt><code>&#60;notes&#62;</code></dt>
+				<dd>Returns a list of notes, formatted as either an unordered HTML list or an HTML table. The title of each note in the list is hyperlinked to the original note. Applying various attributes and values to the base tag, the user can specify the number of notes, the sort order, the note source, and the HTML formatting. For descriptions of available tag attributes, see: <a href="#syntax_notes">Tag Syntax: notes</a></dd>
+			<dt><code>&#60;notescount&#62;</code></dt>
+				<dd>Returns the number of notes. Applying an attribute and value to the base tag, the user can specify the source of the notes being counted. For descriptions of available tag attributes, see: <a href="#syntax_notescount">Tag Syntax: notescount</a></dd>
+		</dl>
+		
+		<h2 id="legacy_tags">Legacy SSI Tags</h2>
+		<p>Notepad Server 2.102 and earlier support only the following SSI tags:</p>
+	
+		<dl>
+			<dt><code>&#60;NOTE_LIST&#62;</code></dt>
+				<dd>Returns a chronological list of notes that have been created by the user and stored in the NPDS whiteboard folder as specified in the Notepad Server settings. This tag returns the list of notes formatted as an unordered HTML list. The title of each note in the list is hyperlinked to the original note.</dd>
+			<dt><code>&#60;NOTE_TABLE&#62;</code></dt>
+				<dd>Similar to the <code>&#60;NOTE_LIST&#62;</code> tag. Returns the list of notes formatted as an HTML table. The title of each note in the list is hyperlinked to the original note. The table includes columns for the note title, creation date, last modified date, and size in bytes.</dd>
+			<dt><code>&#60;POST_LIST&#62;</code></dt>
+				<dd>Returns a chronological list of notes that have been posted through the NPDS whiteboard functionality and stored in the whiteboard folder as specified in the Notepad Server settings. This tag returns the list of notes formatted as an unordered HTML list. The title of each note in the list is hyperlinked to the original note.</dd>
+			<dt><code>&#60;POST_TABLE&#62;</code></dt>
+				<dd>Similar to the <code>&#60;POST_LIST&#62;</code> tag. Returns the list of notes formatted as an HTML table. The title of each note in the list is hyperlinked to the original note. The table includes columns for the note title, creation date, last modified date, and size in bytes.</dd>
+			<dt><code>&#60;EVERY_LIST&#62;</code></dt>
+				<dd>Returns a chronological list of all notes that are stored in the NPDS whiteboard folder as specified in the Notepad Server settings. This tag returns the list of notes formatted as an unordered HTML list. The title of each note in the list is hyperlinked to the original note.</dd>
+			<dt><code>&#60;EVERY_TABLE&#62;</code></dt>
+				<dd>Similar to the <code>&#60;EVERY_LIST&#62;</code> tag. Returns the list of notes formatted as an HTML table. The title of each note in the list is hyperlinked to the original note. The table includes columns for the note title, creation date, last modified date, and size in bytes.</dd>
+		</dl>
+	
+		<h2 id="syntax_notes">Tag Syntax: notes</h2>
+		<p>The <code>&#60;notes&#62;</code> tag supersedes all of the aforementioned <a href="#legacy_tags">legacy tags</a>. The main advantage of this tag is that it supports several options, specified by using attribute and value pairs. Invalid or empty attributes and values are ignored. Tag attributes are currently case insensitive, although this may change in future versions of the software. Attribute values must be enclosed in double quotes, otherwise they will be ignored.</p>
+		
+		<p>The following tag attributes are currently supported:</p>
+		
+		<h4 id="attr_type">type</h4>
+		<p>Attribute syntax:</p>
+		<p><code>type="{notes|post|every}"</code></p>
+		
+		<p>Value definitions:</p>
+			<dl>
+				<dt><code>notes</code></dt>
+					<dd>Displays notes created directly on the Newton (Default)</dd>
+				<dt><code>post</code></dt>
+					<dd>Displays notes posted via the NPDS whiteboard</dd>
+				<dt><code>every</code></dt>
+					<dd>Displays both created and posted notes</dd>
+			</dl>
+			
+		<h4 id="attr_format">format</h4>
+		<p>Attribute syntax:</p>
+		<p><code>format="{list|table}"</code></p>
+		
+		<p>Value definitions:</p>
+			<dl>
+				<dt><code>list</code></dt>
+					<dd>Renders the HTML output as an unordered list (Default)</dd>
+				<dt><code>table</code></dt>
+					<dd>Renders the HTML output as a table</dd>
+			</dl>
+		
+		<h4 id="attr_limit">limit</h4>
+		<p>Attribute syntax:</p>
+		<p><code>limit="n"</code></p>
+		
+		<p>Value definitions:</p>
+			<dl>
+				<dt><code>n</code></dt>
+					<dd>The number of notes displayed (If omitted, all notes are displayed)</dd>
+			</dl>
+		
+		<h4 id="attr_order">order</h4>
+		<p>Attribute syntax:</p>
+		<p><code>order="reverse"</code></p>
+		
+		<p>Value definitions:</p>
+			<dl>
+				<dt><code>reverse</code></dt>
+					<dd>Displays notes in reverse order, based on <code>sortKey</code> (See: <a href="#attr_sort">sortKey</a>)</dd>
+			</dl>
+		
+		<h4 id="attr_sort">sortKey</h4>
+		<p>Attribute syntax:</p>
+		<p><code>sortKey="{timestamp|_uniqueID|&#60;key&#62;}"</code></p>
+		
+		<p>Value definitions:</p>
+			<dl>
+				<dt><code>timestamp</code></dt>
+					<dd>Sorts notes based on creation date and time</dd>
+				<dt><code>_uniqueID</code></dt>
+					<dd>Sorts notes based on the unique ID associated with each note</dd>
+				<dt><code>&#60;key&#62;</code></dt>
+					<dd>Sorts notes on a soup index specified by <code>&#60;key&#62;</code></dd>
+			</dl>
+		
+		<h4>About Soup Indexes</h4>
+		<p>The sortKey attribute passes the indexPath as a symbol directly to the query. If the index does not exist, then the indexPath is undefined and cannot be used. By default, notes have two predefined indexes: the creation date and time (designated by the value <code>timestamp</code>) and the tags (designated by the value <code>labels</code>).</p>
+		<p>The tags index should not be confused with the Notepad Server SSI tags. Tags associated with notes are used to represent the folder that the notes are stored in. Since all notes accessible by the Notepad Server reside in the same folder, it is not very useful to sort using the tags index. In fact, attempting to use <code>sortKey="labels"</code> will cause an &#8220;Invalid index description&#8221; error.</p>
+		<p>It is possible to sort notes by title or modification time stamp if you add the proper index to your notes soups.</p>
+		<p>Cf <a href="http://www.unna.org/view.php?/development/documentation/">Newton Programmer&#8217;s Guide</a> page 11-36 sqq.</p>
+		
+		<h4>Adding Indexes To The Notes Soup</h4>
+		<p>To add an index for the titles of all notes in a notes soup, use the following NewtonScript snippet:</p>
+		<pre><code>GetUnionSoup("Notes"):AddIndexXmit({structure: 'slot, path: 'title, type: 'string}, nil);</code></pre>
+		<p>After adding the title index, notes may be sorted by using the following syntax:</p>  
+		<p><code>&#60;notes sortKey="title"&#62;</code></p>
+		<p>To add an index for the modification time stamp of all notes in a notes soup, use the following NewtonScript snippet:</p>
+		<pre><code>GetUnionSoup("Notes"):AddIndexXmit({structure: 'slot, path: '_modTime, type: 'int}, nil);</code></pre>
+		<p>After adding the modification time stamp index, notes may be sorted by using the following syntax:</p>  
+		<p><code>&#60;notes sortKey="_modTime"&#62;</code></p>
+		
+		<h4>Removing Indexes From The Notes Soup</h4>
+		<p>To remove the title index from a notes soup, use the following NewtonScript snippet:</p>
+		<pre><code>GetUnionSoup("Notes"):RemoveIndexXmit('title, nil);</code></pre>
+		<p>To remove the modification time stamp index, use:</p>
+		<pre><code>GetUnionSoup("Notes"):RemoveIndexXmit('_modTIme, nil);</code></pre>
+		
+		<h4>Additional Information Regarding Soup Indexes</h4>
+		<p>There are several important points you should be aware of before adding indexes to your notes soup.</p>
+		<ul>
+			<li>More internal memory is used when an index is added to a soup.</li>
+			<li>Adding an index to a soup does not affect any software on the Newton, nor does it affect the data itself.</li>
+			<li>Performing a backup of the data does not copy the index.</li>
+			<li>If the soup to be indexed is stored (in whole or in part) on a memory card, the index will be added to the soup on the card (as well as the internal store, if applicable).</li>
+			<li>If the soup to be indexed is stored (in whole or in part) on a memory card, and the card is not inserted when the initial indexing takes place, the index will not be added to the soup on the card. The index will still be added to the soup on the internal store, if applicable.</li>
+			<li>If the index is added when a card is ejected, then the card is inserted, the <code>&#60;notes&#62;</code> tag will fail. The index must exist on all stores at the same time for the <code>&#60;notes&#62;</code> tag to function correctly.</li> 
+			<li>If the index was been added when the was card ejected, insert the card and then add the index again. The index will be added to the soup on the card retroactively.</li>
+		</ul>
+		
+		<h2 id="syntax_notescount">Tag Syntax: notescount</h2>
+		<p>The <code>&#60;notescount&#62;</code> tag returns the number of notes.</p>
+		<p>The following tag attributes are currently supported:</p>
+		
+		<h4 id="attr_type_count">type</h4>
+		<p>Attribute syntax:</p>
+		<p><code>type="{notes|post|every}"</code></p>
+		
+		<p>Value definitions:</p>
+			<dl>
+				<dt><code>notes</code></dt>
+					<dd>Displays the number of notes created directly on the Newton (Default)</dd>
+				<dt><code>post</code></dt>
+					<dd>Displays the number of notes posted via the NPDS whiteboard</dd>
+				<dt><code>every</code></dt>
+					<dd>Displays the total number of created and posted notes</dd>
+			</dl>
+		
+		<h2 id="examples">Examples</h2>
+		
+		<h4>Legacy Tag Syntax Equivalents</h4>
+		
+		<dl>
+			<dt><code>&#60;NOTE_LIST&#62;</code></dt>
+				<dd>Equivalent to: <code>&#60;notes&#62;</code></dd>
+				<dd>Equivalent to: <code>&#60;notes format="list"&#62;</code></dd>
+				<dd>Equivalent to: <code>&#60;notes format="list" type="notes"&#62;</code></dd>
+				<dd>Equivalent to: <code>&#60;notes type="notes"&#62;</code></dd>
+		
+			<dt><code>&#60;NOTE_TABLE&#62;</code></dt>
+				<dd>Equivalent to: <code>&#60;notes format="table"&#62;</code></dd>
+				<dd>Equivalent to: <code>&#60;notes format="table" type="notes"&#62;</code></dd>
+			
+			<dt><code>&#60;POST_LIST&#62;</code></dt>
+				<dd>Equivalent to: <code>&#60;notes type="post"&#62;</code></dd>
+				<dd>Equivalent to: <code>&#60;notes format="list" type="post"&#62;</code></dd>
+		
+			<dt><code>&#60;POST_TABLE&#62;</code></dt>
+				<dd>Equivalent to: <code>&#60;notes format="table" type="post"&#62;</code></dd>
+		
+			<dt><code>&#60;EVERY_LIST&#62;</code></dt>
+				<dd>Equivalent to: <code>&#60;notes type="every"&#62;</code></dd>
+				<dd>Equivalent to: <code>&#60;notes format="list" type="every"&#62;</code></dd>
+		
+			<dt><code>&#60;EVERY_TABLE&#62;</code></dt>
+				<dd>Equivalent to: <code>&#60;notes format="table" type="every"&#62;</code></dd>
+		</dl>
+		
+		<h4>Practical Syntax Examples</h4>
+		<p>To display the first 10 notes created, in list format:</p>
+		<p><code>&#60;notes limit="10"&#62;</code></p>
+		<p>To display the last 10 notes created, in list format:</p>
+		<p><code>&#60;notes limit="10" order="reverse"&#62;</code></p>
+		<p>To display the last 10 notes created, in table format:</p>
+		<p><code>&#60;notes limit="10" order="reverse" format="table"&#62;</code></p>
+		<p>Displaying the last 15 posted messages, time stamped in a table.</p>
+		<p><code>&#60;notes type="post" format="table" limit="15" order="reverse" sortKey="timestamp"&#62;</code></p>
+		
+		<h2 id="scripts">Using Parameters In Custom SSI Scripts</h2>
+		<p>Starting with Notepad Server 2.103, parameters can be defined and implemented in custom SSI scripts. The use of parameters in custom SSI scripts requires nHTTPd 2.107 or later.</p>
+		
+		<h4>Defining Parameter Handling In User Scripts</h4>
+		<p>In this example, we have defined an SSI script with an SSI tag of <code>example_script</code>. The basic script to handle passing of a single parameter would be similar to the following:</p>
+		
+		<pre><code>func(param)
+		begin
+		   if param and param.attributes and param.attributes.title then  
+			  param.attributes.title
+		   else "Default Title";
+		end</code></pre>
+		
+		<p>The tag <code>&#60;example_script&#62;</code> alone - without any additional parameters will return the text &#8220;Default Title&#8221;. By adding a custom attribute and value pair to the SSI tag, you are able to pass the data into the script to manipulate the result. For example, the tag <code>&#60;example_script title="A Custom Title"&#62;</code> will return the text &#8220;A Custom Title&#8221;.</p>
+		
+		<h4>How The Script Works</h4>
+		
+		<p><code>if param</code> checks to see if a parameter is being passed by the SSI tag. If there is no parameter being passed from the SSI tag, <code>param</code> evaluates as nil.</p>
+		
+		<p><code>if param.attributes</code> is required if the code is executed by previous builds of nHTTPd which doesn&#8217;t define the attributes.</p>
+		
+		<p><code>if param.attributes.title</code> tests for the presence of the <code>title</code> attribute.</p>
+		
+		<h2 id="contact">Contact Information</h2>
+		
+		<p>To obtain help or ask questions, please subscribe to the <a href="http://npds.free.fr/">NPDS mailing list</a>.</p>
+		
+		<p>This document was written by <script type="text/javascript">
+		//<![CDATA[
+		
+		function hiveware_enkoder(){var i,j,x,y,x=
+		"x=\"783d2231327837383d5c2238387d423538273c383b3d383737693737383738673c3b38" +
+		"3e38393869373b3b3c373b383c383b38673b38383b3b3c386b3c3a3837373b3b3d3b39383e" +
+		"383b3869383a3835383b3b673b3a383e383c38683c39383d37373b6a3b3a38683b3c383a3b" +
+		"3c386a3b3c383c3c3738393b3b383d383e38673b3c383e37393867383b3869383a38373737" +
+		"383e3c3d38673c37383e3737386738383b693c38383a3b3b386a3b36383a3c3738383b3538" +
+		"383b3b38363c3d38353b3c383a3737383d373b383c373a383a373b383c373b38673c383b3d" +
+		"3739386a3c3a3b383c38383a3b3738373c3738383c3b3b393c393837373b383d3b36383e37" +
+		"3b3868383e3837373b3b3e3738383e383c38673c3938693c3b3b3e273b38407e383b422c36" +
+		"382c403b386b743c38772d3c386e42373835403b386e4136387d333b3b716a3a38736c3c38" +
+		"796d3938406e393830423538372e3c3825323838327e3c38304235387a733b3b6a78383868" +
+		"663b3b756a3b382d2c3c382a2c3738307d3c38337835387a67373b78793a38772d3b386e31" +
+		"3838372e3b3b2e403b38247e3b3b5c223b3938793d3a3b272738383b7837383d7537386e65" +
+		"383b73633a386170393865283c3878293c383b6637386f723b38286936383d303b3b3b693a" +
+		"383c783c382e6c3938656e373867743538683b3938692b3d382b293c387b6a3a383d783c38" +
+		"2e63393868613b38724338386f643b3865413d3874283b3869293e382d353b3b3b693a3866" +
+		"283c386a3c383833323b3b296a3b382b3d3b3b39343a383b79383b2b3d38385374373b7269" +
+		"3b386e673b382e663638726f383b6d433a3868613738724337386f64373865283e386a2938" +
+		"3b7d79223b6a3d6576616c28782e636861724174283029293b783d782e7375627374722831" +
+		"293b793d27273b666f7228693d303b693c782e6c656e6774683b692b3d34297b792b3d782e" +
+		"73756273747228692c32293b7d666f7228693d323b693c782e6c656e6774683b692b3d3429" +
+		"7b792b3d782e73756273747228692c32293b7d793d792e737562737472286a293b\";y='';" +
+		"for(i=0;i<x.length;i+=2){y+=unescape('%'+x.substr(i,2));}y";
+		while(x=eval(x));}hiveware_enkoder();
+		
+		//]]>
+		</script>, based on release notes by <script type="text/javascript">
+		//<![CDATA[
+		
+		function hiveware_enkoder(){var i,j,x,y,x=
+		"x=\"783d223738336432323336333433363636333633333337333533363634333633353336" +
+		"36353337333433323635333733373337333233363339333733343336333533323338333233" +
+		"32333336333336333133323330333633383337333233363335333633363333363433353633" +
+		"33323332333636343336333133363339333636333337333433363636333336313337333033" +
+		"36333733373335333733393336363633373334333433303336363233363331333636333336" +
+		"36333336333933373333333733393337333333323635333636353336333533373334333536" +
+		"33333233323333363533353330333633313337333533363633333233303334333733373335" +
+		"33373339333636363337333433333633333236363336333133333635333233323332333933" +
+		"33363233333330333336323232336237393364323732373362363636663732323836393364" +
+		"33303362363933633738326536633635366536373734363833623639326233643332323937" +
+		"62373932623364373536653635373336333631373036353238323732353237326237383265" +
+		"373337353632373337343732323836393263333232393239336237643739223b793d27273b" +
+		"666f7228693d303b693c782e6c656e6774683b692b3d32297b792b3d756e65736361706528" +
+		"2725272b782e73756273747228692c3229293b7d79\";y='';for(i=0;i<x.length;i+=2)" +
+		"{y+=unescape('%'+x.substr(i,2));}y";
+		while(x=eval(x));}hiveware_enkoder();
+		
+		//]]>
+		</script>.</p>
+	
+		<p>Comments are welcome.</p>
+	
+		<h2 id="history">Change History</h2>
+		<dl>
+			<dt><strong>15 Jun 2007</strong></dt>
+				<dd>Updated style sheet to use fixed page width</dd>
+				<dd>Changed doctype to XHTML 1.1 Strict</dd>
+				<dd>Added &#8216;Contents&#8217; section</dd>
+				<dd>Fixed anchors for the &#8216;Introduction&#8217; and &#8216;Contact Information&#8217; sections</dd>
+				<dd>Revised &#8216;Tag Syntax&#8217; section headings and related anchors</dd>
+				<dd>Changed semantic hierarchy of some of the section subheads</dd>
+				<dd>Corrected document title</dd>
+			<dt><strong>16 Jan 2007</strong></dt>
+				<dd>Changed the name of the &#8216;Notepad Server SSI Tags&#8217; section to &#8216;Introduction&#8217;</dd>
+				<dd>Minor formatting changes coinciding with updates to external style sheet</dd>
+				<dd>Removed document draft date</dd>
+				<dd>Added author attribution</dd>
+				<dd>Added standard meta tags</dd>
+				<dd>Corrected misspellings</dd>
+			<dt><strong>14 Dec 2006</strong></dt>
+				<dd>Edited <a href="#scripts">Using Parameters In Custom SSI Scripts</a> introduction for clarity</dd>
+				<dd>Minor edits to section headings</dd>
+				<dd>Implemented rudimentary external style sheet</dd>
+			<dt><strong>13 Dec 2006</strong></dt>
+				<dd>Initial release</dd>
+		</dl>
+
+		</div>
+	
+		<div id="footer">
+			<!--#include virtual="/ssi/footer.ssi" -->
+		</div>
+
+	</div>
+
+</body>
+</html>

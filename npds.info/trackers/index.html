@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Newton Personal Data Sharing : Tracker Servers</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language" content="en-us" />
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="robots" content="all" />
+	<meta name="author" content="Paul Guyot, Victor Rehorst, Matt Vaughn, Grant Hutchinson" />
+	<meta name="copyright" content="Copyright 2002-2007 Paul Guyot, Victor Rehorst, Matt Vaughn, Grant Hutchinson" />
+	<meta name="description" content="Newton Personal Data Sharing Server Trackers" />
+	<meta name="keywords" content="newton, apple, messagepad, emate, http, npds, file sharing, data sharing, server, web server, serving, tracker, tracking, download, packages, software, modules, source code, lightyear media, paul guyot, victor rehorst, matt vaughn, ray rischpater, adam tow, grant hutchinson, yoichi takezawa" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<style type="text/css" media="screen">@import "/ssi/main.css";</style>
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<div id="header">
+			<!--#include virtual="/ssi/header.ssi" -->
+		</div>
+	
+		<div id="content">
+	
+		<h1>NPDS Tracker Servers</h1>
+	
+		<h2 id="about">What is a Tracker Server?</h2>
+		<p>Tracker servers provide a continually updated list of NPDS-enabled Newtons currently online and operating. Only NPDS servers that are properly registered using the <a href="/modules/#trackerclient">Tracker Client</a> module with appear listed on a tracker server.</p>
+		<p>Most of the time, there are at least a couple of tracker servers running. Occasionally, there is only a single tracker operating. Since tracker servers share their registration records in a network with each other, it&#8217;s always nice to have more than one up and running at any given time.</p>
+	
+		<h2 id="port">Port Number</h2>
+		<p>The NPDS development team has been assigned an official port number by <a href="http://www.iana.org/assignments/port-numbers">IANA</a> for NPDS Tracker servers. The port to be used going forward is 3680. It is recommended that you update your <a href="/modules/#trackerclient">Tracker Client</a> settings to use this port number, as old port numbers will be phased out.</p>
+	
+		<h2 id="list">Tracker Server List</h2>
+		<p>This is a list of Tracker Servers currently being operated and maintained by the NPDS commmunity.</p>
+		<p>If you would like to operate your own tracker server, please let us know.</p>
+	
+		<ul>
+			<li><strong>Continuity</strong> operated by Paul Guyot and hosted by Bill Shamam<br />
+			<!--<a href="http://npds-tracker.continuity.cx:3680/">http://npds-tracker.continuity.cx:3680/</a><br />
+			<a href="http://npds-tracker.continuity.cx:8080/">http://npds-tracker.continuity.cx:8080/</a> (Use if behind a firewall)-->
+			Temporarily offline.<br />&nbsp;<br /></li>
+			<li><strong>Misato</strong> operated by Victor Rehorst<br />
+			<a href="http://misato.chuma.org:3680/">http://misato.chuma.org:3680/</a><br />
+			<a href="http://misato.chuma.org:8080/">http://misato.chuma.org:8080/</a> (Use if behind a firewall)<br />
+			<a href="http://chuma.is-a-geek.org:3680/">http://chuma.is-a-geek.org:3680/</a><br />
+			<a href="http://chuma.is-a-geek.org:8080/">http://chuma.is-a-geek.org:8080/</a> (Use if behind a firewall)<br />&nbsp;<br /></li>
+			<li><strong>Capetracker</strong> operated by David Schultz<br />
+			<a href="http://capetracker.no-ip.org:3680/">http://capetracker.no-ip.org:3680/</a><br />&nbsp;<br /></li>
+			-->
+			<li><strong>Newtontracker</strong> operated by David Schultz<br />
+			<a href="http://newtontracker.no-ip.org:3680/">http://newtontracker.no-ip.net:3680/</a><br />
+			<a href="http://newtontracker.no-ip.org:3680/">http://newtontracker.no-ip.org:3680/</a><br />&nbsp;<br /></li>
+			<!--
+			<li><strong>J3ff</strong> operated by Jeff Henry<br />
+			<a href="http://j3ff.dyndns.org:3680/">http://j3ff.dyndns.org:3680/</a><br />&nbsp;<br /></li>
+			<li><strong>Xonxion</strong> operated by Manuel Probsthain<br />
+			<a href="http://npds-traq.xonxion.net:3680/">http://npds-traq.xonxion.net:3680/</a><br />
+			<a href="http://npds-traq.xonxion.net:8080/">http://npds-traq.xonxion.net:8080/</a> (Use if behind a firewall)<br />&nbsp;<br /></li>
+			<li><strong>Mymacs</strong> operated by Dan Claessens<br />
+			<a href="http://www.mymacs.net:3680/">http://www.mymacs.net:3680/</a></li>
+			-->
+		</ul>
+	
+		<h2 id="list">Individual NPDS Servers</h2>
+		<p>In addition to the NPDS-enabled Newtons listed on the tracker servers, there are often other independent servers which do not or cannot get tracked. This can be caused port filtering or other firewall restrictions on the host network. Regardless of the cause, we&#8217;ll try to list those servers here.</p>
+
+		<ul>
+			<li><strong>Paul Filmer</strong><br />
+			<a href="http://newton.nsf.gov/">http://newton.nsf.gov/</a></li>
+		</ul>
+		
+		</div>
+	
+		<div id="footer">
+			<!--#include virtual="/ssi/footer.ssi" -->
+		</div>
+
+	</div>
+
+</body>
+</html>

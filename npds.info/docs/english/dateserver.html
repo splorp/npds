@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+   <TITLE>Datebook Server</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H2><IMG SRC="../images/shots/dateserv.gif" WIDTH=90 HEIGHT=90 ALIGN=left>Datebook
+Server</H2>
+
+<P><B>Path: </B>accessible via<FONT COLOR="#000099">
+/dates/index.html</FONT>
+
+<P><B>SSI:</B> <FONT COLOR="#000099">&lt;DATES&gt;</FONT>
+
+<P><B>Sample Output:</B> <A HREF="../example/dateserv.html" TARGET="_blank">DateServ
+Default Page</A>
+
+<P>DateServ makes items in your Dates database available over the WWW
+in a number of formats. To do this, it reads directly from the Dates
+soup, so any 3rd party applications that alter or extend the Dates
+application may cause you problems. <I>However, there are no reports
+of major conflict so forge ahead!</I>
+
+<P><B>DateServ supports two modes of access:</B>
+
+<OL>
+   <LI>A direct path to your day's and week's agenda</LI>
+   
+   <LI>A forms-based query that returns any range of dates up to 31
+   days in length.</LI>
+</OL>
+
+<P>The paths to the day and week view are, respectively,
+<FONT COLOR="#3333CC">/dates/day.html </FONT>and
+<FONT COLOR="#3333CC">/dates/week.html </FONT>The reason these items
+are pre-specified is to allow DateServ to pre-cache them when NPDS
+starts up. This minimizes time required for a request for these items
+to be served.
+
+<H4>Using Direct Path Access:</H4>
+
+<P>Example: You want to link to your weekly agenda from a page in
+your Notepad. You'd insert this HTML code<BR>
+<FONT COLOR="#3333CC">&lt;A HREF="/dates/week.html"&gt;</FONT>Weekly
+Agenda<FONT COLOR="#3333CC">&lt;/A&gt;<BR>
+</FONT>somewhere in that note.
+
+<H3>A Special SSI Tag:</H3>
+
+<P>Speaking of embedding things, you can also directly embed the
+Daily Agenda (as a table) by using the
+<FONT COLOR="#3333FF">&lt;AGENDA_DAY&gt;</FONT> Server Side Include
+under Notepad Server. When the note containing this tag is served up,
+a table containing the day's agenda will be inserted into the note's
+HTML.
+
+<H3>Configuring DateServ:</H3>
+
+<OL>
+   <LI><B>Week Length: </B>The week overview returned by DateServ is
+   configurable. Open DateServ in the Extras Drawer and you'll see
+   that you can select which day of the week is the "First" day of
+   the week view and you can set the length of the week returned as
+   well. I like to set it to a 6 day week starting on Monday so that
+   my day off (Sunday) is hidden from view.</LI>
+   
+   <LI><B>Event Classes:</B> Although <I>my</I> schedule is an open
+   book, you may prefer NOT to show<I> Events, Meetings, or
+   ToDo's.</I> You may select each class of Calendar entry for WWW
+   display by tapping in the appropriate checkboxes. Note that
+   turning off any Calendar event class <I>turns off ALL instances of
+   that class.</I> There is <I>no support </I>for filtering by
+   priority, folder, store, etc at present.</LI>
+   
+   <LI><B>Meeting Length: </B>Since some people's meetings are
+   indefinite in length, you may choose to NOT show the end time for
+   meetings by de-selecting Show Duration under the Show Meetings
+   checkbox.</LI>
+   
+   <LI><B>Use Javascript: </B>You'll notice that when you click on a
+   meeting or event, you get a nice little pop-up windoid with the
+   pertinent information for that event. If, due to personal
+   preference or security restrictions you do not wish to use this
+   function, de-select this box.<BR>
+   Clicking on links to your Datebook entries will then simply open
+   new browser windows without use of Javascript.</LI>
+   
+   <LI><B>Use Pre-Caching:</B> On a MP130 or a fast Newt with a lot
+   of events, you may want to pre-create the day and week overview
+   and store them in the cache after they are accessed so that they
+   are accessible more readily. These files usually take up about 1
+   and 4 K respectively and are removed when they expire (usually 30
+   minutes to an hour).</LI>
+   
+   <LI><B>Active:</B> NPDS Plugins are dynamically
+   loadable/unloadable. If you wish to turn on or off service of
+   Dates data, open DateServ and de-check this box. To turn Dates
+   back on, re-check it. You no longer need to freeze most NPDS
+   plugins to de-activate them.</LI>
+</OL>
+
+<H3>FAQ for DateServ:</H3>
+
+<P>Q: I just added a meeting to this week's schedule and it hasn't
+shown up yet. Why?
+
+<P>A: The daily and weekly overview are cached files. Your new event
+will show up in an hour or so after the cached version of day.html or
+week.html has expired.
+
+<P>Q: How can I prevent access to my Dates data from outside my
+intranet, LAN, etc?
+
+<P>A: At present you cannot. However, though NPDS 2.0 has barely
+shipped, the next version of NPDS will support basic password
+protection and IP range restriction for enhanced security of you
+sensitive data.
+
+<P>Q: Can I post to the Datebok from the Web?
+
+<P>A: Not yet. I decided to wait for better security before
+implementing this feature in a publicly available package. MY Newton
+allows posting via the web ;-)
+
+<P>Q: Can I change the format of DateServ's output?
+
+<P>A: No, but if you're enterprising you can hack the source any way
+you want. The HTML templates and constructor scripts are well
+delimited and fairly modular.
+
+<P>Q: Do you have any support for MoreInfo?
+
+<P>A: No. I can't do it without reverse engineering the MoreInfo
+software which is not legal. Silverware is welcome to add support to
+the DateServ source for its product.
+
+<P>
+</BODY>
+</HTML>

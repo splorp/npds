@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+   <TITLE>Chapter 2</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">The Simplest Possible Script</FONT></H1>
+
+<H2><FONT FACE="Verdana">Introduction:</FONT></H2>
+
+<P><FONT FACE="Verdana"><IMG SRC="images/EditorIcon.GIF" WIDTH=74 HEIGHT=102 ALIGN=right>NPDS
+Scripts run as simple functions. They are compiled and evaluated
+every time a page containing a link to one is served. They can be
+immensely easy and simple to write or you can really hot-dog with
+them and make your Newton act much more like a big-iron
+server.</FONT>
+
+<P><FONT FACE="Verdana">This tutorial is written assuming you'll type
+these scripts in yourself but I can understand a reluctance to do
+that! So, you can download a folder containing all these scripts in
+installer-package format. Just connect to your Newton and install
+them and they'll appear in your Script Editor!</FONT>
+
+<BLOCKQUOTE><FONT FACE="Courier New">Download Script Installers:
+   </FONT><A HREF="downloads/scripties.zip"><FONT FACE="Courier New">scripties.zip</FONT></A><FONT FACE="Courier New">
+   (16k ZIP)</FONT></BLOCKQUOTE>
+
+<H2><FONT FACE="Verdana">Down to Business...</FONT></H2>
+
+<P><FONT FACE="Verdana">We'll start your foray into NPDS Scripting
+with the simplest type of script: one that just returns a static
+value. In the construction of NPDS, I made extensive use of
+pre-defined SSI like these so that apps such as DateServ and CardServ
+could have access to all the shared prefs like Color, Font, and so
+on.</FONT>
+
+<P><FONT FACE="Verdana">You can easily create these types of includes
+and use them to substitute whole chunks of data or just one or two
+small things. Examples from the NPDS Manual of these types of
+includes would be the CREDITS tag which subs in a hyperlinked "Served
+by NewtonOS Personal Data Sharing" and the DEF_COLR tag which returns
+the default background color for all your NPDS pages.</FONT>
+
+<P><FONT FACE="Verdana">So, in this example, we're going to define a
+tag that will sub in a special color when accessed. Open up the
+script editor and tap the Shiny New Script Icon so that you have a
+nice template to work on. Before writing any new code, tap on the
+script info field and enter the name and defined SSI for this
+Script.</FONT>
+
+<BLOCKQUOTE><FONT FACE="Verdana"><B>Name: </B>Lightyear Purple</FONT>
+   
+   <P><FONT FACE="Verdana"><B>SSI: </B>LYPURP</FONT></BLOCKQUOTE>
+
+<P><FONT FACE="Verdana">I'd suggest NOT making it active yet, though.
+Close the info slip and let's continue.</FONT>
+
+<H2><FONT FACE="Verdana">Writing The Script</FONT></H2>
+
+<P><FONT FACE="Verdana">One constant in the way I write a script is
+to define a local variable to catch my text output. I almost always
+use "theOut" so that I can glance at my code in any application and
+know that <B>theOut</B> is the destination for the text I am
+creating. So, we write:</FONT>
+
+<P><FONT FACE="Verdana"><CODE>local theOut;</CODE></FONT>
+
+<P><FONT FACE="Verdana">Let's stuff a hex color value for
+"</FONT><FONT FACE="Verdana" COLOR="#CC66CC">Lightyear
+Purple</FONT><FONT FACE="Verdana">" into theOut. A quick trip to my
+</FONT><A HREF="colortab.html" TARGET="_blank"><FONT FACE="Verdana">Color
+Picker</FONT></A><FONT FACE="Verdana"> shows me that
+</FONT><FONT SIZE="+2" FACE="Verdana" COLOR="#CC66CC"><B>this
+color</B></FONT><FONT FACE="Verdana" COLOR="#CC66CC">
+</FONT><FONT FACE="Verdana">is equal to the HTML hex code "#CC66CC".
+So, I'll write:</FONT>
+
+<P><FONT FACE="Verdana"><CODE>theOut:= "#CC66CC";</CODE></FONT>
+
+<P><FONT FACE="Verdana">Now, we want to return this value to the NPDS
+substitution engine so we'll write</FONT>
+
+<P><FONT FACE="Verdana"><CODE>return theOut;</CODE></FONT>
+
+<P><FONT FACE="Verdana">Go ahead and tap "Evaluate". You'll see that
+when NPDS encounters this tag &lt;LYPURP&gt; inline somewhere in a
+block of text, it will substitute the text value "#CC66CC" in place
+of &lt;LYPURP&gt;.</FONT>
+
+<H2><FONT FACE="Verdana">Final Script:</FONT></H2>
+
+<H2><TABLE BORDER=1 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> Lightyear Purple
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> LYPURP
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE><CODE>local theOut;</CODE>
+            
+            <P><CODE>theOut:= "#CC66CC";</CODE>
+            
+            <P><CODE>return theOut;</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+</H2>
+
+<H2><FONT FACE="Verdana">Why Would You Do This?</FONT></H2>
+
+<P><FONT FACE="Verdana">It seems like overkill to write a script like
+this for a lousy old color, but what if you had 40 pages in your
+Notepad, used this color in all of them, and wanted to change the
+color because you realized it looked like that sweater that your 3rd
+grade teacher wore the day she made you wear the dunce hat. Since
+Newton's Notepad lacks a search and replace, what would you
+do?</FONT>
+
+<P><FONT FACE="Verdana">Here's another idea: We're returning just a
+simple little thing in this example, but what if it was a bit more
+substantial? Consider beging able to put your favorite web graphic
+anywhere in your Notepad Server by just making and including a SSI
+that returns:</FONT>
+
+<P><CODE>&lt;IMG SRC =
+http://www.life.uiuc.edu/~mwvaugh/lightyear/images/sdifft.gif"
+ALIGN=LEFT BORDER=0 WIDTH=128 HEIGHT=48&gt; </CODE>
+
+<P><FONT FACE="Verdana">or something like that.. Catching on yet? At
+this level, Simple Scripting Architecture saves you a lot of
+typing.</FONT>
+
+<P><FONT FACE="Verdana">To further drive my point home, consider if
+you had to change the location of that graphic to another server and
+you'd hand-coded it into 10 different pages.. you'd be glad you did
+it the SSI way.</FONT>
+
+<CENTER><FONT FACE="Verdana">
+
+<HR>
+
+Next -&gt; </FONT><A HREF="script2.html"><FONT FACE="Verdana">A
+Dynamically-Valued Script</FONT></A></CENTER>
+</BODY>
+</HTML>

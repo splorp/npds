@@ -1,0 +1,8 @@
+// Battery SSI
+// I think this one comes from the standard NPDS package.
+// It just reads the battery level as a percentage.
+
+func(inUndocumentedRequestFrame)
+begin
+	return "Battery:" && NumberStr(BatteryStatus(0).batteryCapacity) & "%";
+end

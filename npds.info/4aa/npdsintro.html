@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+   <TITLE>Introducing: NPDS 2.0x</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">NPDS 2.0x for the Developer</FONT></H1>
+
+<H2><FONT FACE="Verdana">Introduction</FONT></H2>
+
+<P><FONT FACE="Verdana">Before diving into writing plugins, I'm going
+to spend this column giving your a brief overview of how NPDS is
+constructed. This will help you if you decide to download the source
+code and modify it or hack around in it.</FONT>
+
+<H2><FONT FACE="Verdana">Modular Architecture</FONT></H2>
+
+<P><FONT FACE="Verdana">NPDS is based around nHTTPd 2.02 which is
+both a server and an enviroment for turning Newton data into HTML.
+nHTTPd itself does the grunt work of serving off the Newton while its
+component plugins do the high-level stuff. So how does it all work?
+Let's walk through installation, registration, activation, and access
+of a data plugin, specifically, NoteServ.</FONT>
+
+<P><FONT FACE="Verdana">Noteserv is an application but it allows
+little user interaction beyond setting its preferences. When it's
+installed onto a Newton with nHTTPd present, it registers itself with
+the Plugin Registry and denotes itself as active or inactive. When
+nHTTPd is opened, it sends an Activate() message to all plugins that
+are listed as active in the registry. In response, the plugins
+register their name, application symbol, virttual folder (/html/,
+/dates/, etc) and a small completion script that accepts a
+communications endpoint plus the current HTTP request and passes it
+to the plugin app for processing. At the time nHTTPd is actually
+Started, it sends another message to each registered plugin
+"StartupScript()" that tells them that the server is going online.
+This allows them to do any pre-processing they need to before
+requests are accepted via HTTP.</FONT>
+
+<P><FONT FACE="Verdana">Let's move now to what happens when a request
+is received by nHTTPd: it parses the request and breaks it into a
+frame with slots for the virtual folder, the requested filename, the
+raw request, and any form data that's been submitted. This data is
+passed, along with a reference to the current communications
+endpoint, to the CompletionScript for the plugin that's registered to
+handle requests for the given virtual folder. Inside the
+CompletionScript, the request is submitted to the plugin application
+and the results are output into the communications endpoint. So, you
+can see that what we have is two servers for each transaction.. the
+HTTP server and a data translation server.</FONT>
+
+<P><FONT FACE="Verdana">However, much of the work of translating can
+actually be done by nHTTPd. When a file is created, for instance, the
+current plugin requests that nHTTPd create an HTML template into
+which the body of the file will be placed. Other functions, such as
+the Hyperlinker and Percent-Escape translator are also handled by
+nHTTPd. The CGI system is handled by nHTTPd as are all the server
+side includes.</FONT>
+
+<H2><FONT FACE="Verdana">Conclusion</FONT></H2>
+
+<P><FONT FACE="Verdana">You'll learn more about the built-in
+abilities of nHTTPd as we write the Calls plugin but for now, I
+suggest that you learn NPDS Scripting as a precursor to more
+heavy-duty programming that we'll embark upon next time.</FONT>
+</BODY>
+</HTML>

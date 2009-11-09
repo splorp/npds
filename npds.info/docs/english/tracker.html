@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+   <TITLE>NPDS Tracker</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><A NAME=Top></A>NPDS Tracker Client</H1>
+
+<H2>Introduction</H2>
+
+<P><IMG SRC="../images/shots/tracker.gif" WIDTH=74 HEIGHT=102 ALIGN=left>What
+if you had a Newton WWW Server and nobody came? I mean, maybe they
+would want to, but how are they going to know your IP address?
+
+<P><I>We have a solution</I>. When you go online, your Newton can now
+register with a tracker. People who want to find Newtons online
+simply visit the tracker and they'll find a link to your Newton if
+its still active.
+
+<P>NPDS Tracker consists of two applications that communicate with
+each other.. Tracker Client (which is a NPDS plugin) and Tracker
+Server which is a MacOS CGI/daemon hybrid.
+
+<P>When NPDS starts up, Tracker Client is activated by the NPDS
+architecture and told to register. It sends, using a special
+protocol, information needed to find your Newton on the net as well
+as a description of your Server. The Tracker Server records this
+information for later use. Your NPDS continues to start up and that's
+it, from your Newton's end of things.
+
+<P>On the other end of things, Tracker Server is busy. People who
+want a hyperlinked list of Newton servers are accessing it with their
+WWW browsers while it is also constantly monitoring the status of
+each Newton that has registered with it. If a set period elapses
+where Tracker Server can't connect to your Newt and retrieve a
+special page (served by Tracker Client), it is removed from the list
+of active Newton servers. The ususal period for this expiration is 45
+minutes to one hour and a Newton is usually given 3 chances to
+respond before being removed.
+
+<H2><A NAME=Install></A>Installation</H2>
+
+<P>Use you favorite package installer to load Tracker Client onto the
+same store as all the other NPDS components. If you wish, install a
+NPDS Tracker Configuration package to pre-set all the prefs for you.
+Once Tracker Client is configured, it functions automatically on
+server startup.
+
+<H2>Configuration</H2>
+
+<P><IMG SRC="../images/shots/tracker2.gif" WIDTH=224 HEIGHT=253 ALIGN=right>Manually
+setting up Tracker Client is also easy:
+
+<UL>
+   <LI>Tap on its icon and enter the IP (or DNS name, but IP is
+   STRONGLY preferred) of the Tracker Server you're going to be
+   using.</LI>
+   
+   <LI>In the next line, enter the Tracker Newton port number
+   supplied to you with the tracker's IP address. Make sure to get
+   this right!
+   
+   <UL>
+      <LI><B>A list of active Tracker Server can be found at<BR>
+      </B><A HREF="http://bushlab4.life.uiuc.edu/trackers.html" TARGET="_blank"><B>http://bushlab4.life.uiuc.edu/trackers.html</B></A></LI>
+   </UL>
+   </LI>
+   
+   <LI>Write in a description of your Newton server (up to 45
+   characters).</LI>
+   
+   <LI>Enter the path to the tracker CGI on the Tracker Server.</LI>
+   
+   <LI>Enter the HTTP port of the Tracker Server. It's usually
+   80.</LI>
+   
+   <LI>Finally, tap on the <B>Save Prefs</B> button. <I>(DON'T
+   FORGET!)</I></LI>
+</UL>
+
+<P>You'll notice you also have a checkbox called "Register With A
+Tracker". If this box is unchecked when NPDS starts up, Tracker
+Client will NOT log into its specified Tracker Server.
+
+<P>You can easily remove yourself from a Tracker (after an expiration
+period has elapsed) by de-selecting this checkbox. Conversely, if you
+are running your server and decide after starting it up that you DO
+want to be on the tracker, turn this on and tap the "UP" icon at the
+bottom of the window to manually transmit your data to the Tracker
+Server.
+
+<P>The Slash-Circle icon is for cancelling a connection that seems to
+have gone awry. I have never needed to use it but it's still there in
+case of emergency.
+
+<H2>Testing</H2>
+
+<P>Once you're ready to go, open up nHTTPd and start it up as usual.
+The status line will progress from <B>IDLE</B> to <B>INIT</B> and
+pause for a bit. A NIE status dialog will pop open twice (that's
+Tracker doing its job), then the status line will read <B>READY</B>
+and you'll be all set. To verify that your server has registered,
+point your browser to
+<FONT COLOR="#0000CC"><TT>http://your.newton.net/traq/</TT></FONT>
+and you'll see a page pointing you to the tracker. Click the link and
+see what develops: if all went well, your Newton is listed happily on
+the tracker!
+
+<H3>Verification by Tracker Server:</H3>
+
+<P><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=4>
+   <TR>
+      <TD>
+         <CENTER><FONT SIZE="-1"><IMG SRC="../images/shots/connected.gif" WIDTH=35 HEIGHT=33 ALIGN=bottom><BR>
+         Connected</FONT></CENTER>
+      </TD>
+      <TD WIDTH="80%">
+         <P>After a few minutes (15-30 minutes), Tracker Server will
+         come by and ask for a special response from the /traq/
+         directory. If its request is fulfilled, your Newton's lease
+         on life at the tracker will be renewed for one expiration
+         cycle.
+         
+         <P>You'll know this has happened because the status icon of
+         nHTTPd will change from the standard <B>Connected</B> icon
+         to the <B>Tracked </B>icon.
+         
+         <P>This verification will continue until your Newton no
+         longer responds to requests from the Tracker Server.
+      </TD>
+      <TD>
+         <CENTER><FONT SIZE="-1"><IMG SRC="../images/shots/tracked.gif" WIDTH=32 HEIGHT=32 ALIGN=bottom><BR>
+         Tracked</FONT></CENTER>
+      </TD>
+   </TR>
+</TABLE>
+
+<H2><A NAME=Trouble></A>Troubleshooting</H2>
+
+<P>No major problems have been reported. If you're on a long time,
+NPDS can tend to slow down, or if you have a very active server. In
+either of these cases, you may find yourself wrongly removed from the
+Tracker. To get back online, just open the Tracker client and tap the
+UP icon.
+
+<H2><A NAME=YownTracker></A>Running Your Own Tracker</H2>
+
+<P>The Tracker server is a CGI that runs under any MacOS Web Server
+that supports the standard Mac CGI model (Personal Web Sharing,
+WebSTAR, NetPresenz, etc). It'll run on a 68K but due to some minor
+glitches, it's not supported on that platform. If you're interested,
+email me at <A HREF="mailto:matvon@kagi.com">matvon@kagi.com</A> and
+perhaps we can get you set up.
+</BODY>
+</HTML>

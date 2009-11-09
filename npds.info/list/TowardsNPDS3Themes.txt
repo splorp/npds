@@ -1,0 +1,1353 @@
+------- start of digest (RFC 934 encapsulation) --------------
+
+
+Date: Tue, 12 Feb 2002 11:05:53 +0100
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Towards NPDS 3: themes and structure
+
+
+Hi all,
+
+Just a thought I had under the shower (why would I take showers if I 
+hadn't crazy thoughts there?).
+
+NPDS 3 will not simply be a new kernel. It should be a real 
+improvement of NPDS, more personal and easier to use.
+
+It could come with a set of themes (css, templates) of personal data server
+i.e. new user would just have to install the various packages, do a 
+quick setup of the server (port, admin password, name & other tracker 
+client information), choose a theme and the Newton will automatically 
+serve pages according to this theme. Of course, it has to be 
+gorgious, follow W3C standards and readable with Newtscape/NetHopper.
+
+A theme would be a set of css, template files & pictures giving a 
+style to the server. For example I thought there could be one making 
+the server look like a Newton (with the NotePad decoration and so on).
+
+In fact, there would be integrated a theme prefs where you would 
+choose between package-themes coming with NPDS (or from third 
+parties), and personal theme, directly from NotePad/binary servers, 
+thus allowing full customization of all that.
+
+What do you think?
+
+and
+
+If you think it's a good idea, are there any volunteering & talented 
+webdesigners wishing to make some static pseudo-NPDS server following 
+a given theme?
+
+Also, I think we should discuss about the structure of NPDS-3 
+servers. There are things we should keep as is, I think, and things 
+that should change or be replaced.
+
+I guess that we need:
+* some functionality like the pager (the pager has to be entirely 
+redesigned, for example it should store pages in a soup and open 
+itself automatically after a restart if it wasn't closed)
+Maybe the pager soup could simply be In/OutBox?
+* some functionality to simply serve pages (from the 
+NotePad/NewtWorks), with inline graphics (so you can serve very 
+simply a note)
+* the dates and cardfile servers (probably need some little changes 
+and they should benefit from new techs such as HTTP authentication)
+* some way to serve screen shots
+* the tracker client of course
+
+The big thing I would like to discuss with you is the Note-posting 
+capability and forum-like (or guest-book like) feature. I have 
+several ideas, but maybe I should listen from your suggestions first.
+
+Paul
+- -- 
+Home page: http://www.kallisys.com/
+Newton-powered WebServer: http://newt.dyndns.org:8080/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Tue, 12 Feb 2002 12:10:03 +0100
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+From: Cheezy <mo.cheez@wanadoo.fr>
+
+
+GO! GO! GO!
+
+;o)
+
+Cheezy
+
+Le mardi 12 fŽvrier 2002, ˆ 11:05 , Paul Guyot a Žcrit :
+
+> Hi all,
+>
+> Just a thought I had under the shower (why would I take showers if I 
+> hadn't crazy thoughts there?).
+> [...] What do you think?
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Tue, 12 Feb 2002 09:12:27 -0500
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+From: David Abramowitz <underdog@erols.com>
+
+
+Sounds great, Paul. I'd be happy to help out in any way possible.
+
+- Dave
+
+On 2/12/02 5:05 AM, "Paul Guyot" <pguyot@kallisys.net> wrote:
+
+> Hi all,
+> 
+> Just a thought I had under the shower (why would I take showers if I
+> hadn't crazy thoughts there?).
+> 
+> NPDS 3 will not simply be a new kernel. It should be a real
+> improvement of NPDS, more personal and easier to use.
+> 
+> It could come with a set of themes (css, templates) of personal data server
+> i.e. new user would just have to install the various packages, do a
+> quick setup of the server (port, admin password, name & other tracker
+> client information), choose a theme and the Newton will automatically
+> serve pages according to this theme. Of course, it has to be
+> gorgious, follow W3C standards and readable with Newtscape/NetHopper.
+> 
+> A theme would be a set of css, template files & pictures giving a
+> style to the server. For example I thought there could be one making
+> the server look like a Newton (with the NotePad decoration and so on).
+> 
+> In fact, there would be integrated a theme prefs where you would
+> choose between package-themes coming with NPDS (or from third
+> parties), and personal theme, directly from NotePad/binary servers,
+> thus allowing full customization of all that.
+> 
+> What do you think?
+> 
+> and
+> 
+> If you think it's a good idea, are there any volunteering & talented
+> webdesigners wishing to make some static pseudo-NPDS server following
+> a given theme?
+> 
+> Also, I think we should discuss about the structure of NPDS-3
+> servers. There are things we should keep as is, I think, and things
+> that should change or be replaced.
+> 
+> I guess that we need:
+> * some functionality like the pager (the pager has to be entirely
+> redesigned, for example it should store pages in a soup and open
+> itself automatically after a restart if it wasn't closed)
+> Maybe the pager soup could simply be In/OutBox?
+> * some functionality to simply serve pages (from the
+> NotePad/NewtWorks), with inline graphics (so you can serve very
+> simply a note)
+> * the dates and cardfile servers (probably need some little changes
+> and they should benefit from new techs such as HTTP authentication)
+> * some way to serve screen shots
+> * the tracker client of course
+> 
+> The big thing I would like to discuss with you is the Note-posting
+> capability and forum-like (or guest-book like) feature. I have
+> several ideas, but maybe I should listen from your suggestions first.
+> 
+> Paul
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+Date: Tue, 12 Feb 2002 09:42:32 -0700
+From: Grant Hutchinson <grant@splorp.com>
+
+
+>Just a thought I had under the shower (why would I take showers if I 
+>hadn't crazy thoughts there?).
+
+Crazy thoughts? Not likely. You must have some spare time coming up, 
+Paul. Your Newton-based activity level has popped up again.
+
+>NPDS 3 will not simply be a new kernel. It should be a real 
+>improvement of NPDS, more personal and easier to use.
+
+Yes. Oh, yes.
+
+>It could come with a set of themes (css, templates) of personal data server
+>i.e. new user would just have to install the various packages, do a 
+>quick setup of the server (port, admin password, name & other tracker 
+>client information), choose a theme and the Newton will automatically 
+>serve pages according to this theme. Of course, it has to be 
+>gorgious, follow W3C standards and readable with Newtscape/NetHopper.
+
+I am liking where this is heading. Online weblogging and self-publishing 
+products like Blogger, Movable Type, and Radio Userland work this way. 
+All of them have the capability of using predesigned themes or custom 
+user-defined ones, which can be selected on the fly. Radio Userland, in 
+fact, also operates as a local HTTP server as well, so you can see 
+exactly what you're going to get once the site is published.
+
+Creating a set of page templates (perhaps identifying and separating out 
+common page elements such as headers, footers, navigation bars, copyright 
+notices, etc. into individual include files), style sheets, and 
+associated graphic files would be a fairly easy task. Making sure that 
+they validate in terms of W3C HTML (or XHTML) and CSS, would be a given.
+
+I would be willing to create several base templates and themes for the 
+project. First of all, I would need to document all of the various types 
+of templates required (error pages vs. content display pages; CardServ 
+vs. NoteServ pages; posting forms, confirmation notices, etc.) I don't 
+suppose that there is any documentation of what pages currently get 
+generated by NPDS is there? Of course, if we're redeveloping the entire 
+base of NPDS services and functions, then the page and template list will 
+be different.
+
+>A theme would be a set of css, template files & pictures giving a 
+>style to the server. For example I thought there could be one making 
+>the server look like a Newton (with the NotePad decoration and so on).
+
+Paul, is there going to be any issue with NPDS 3.0 serving up multiple 
+files from the soup for a given page? Potentially, there could be a dozen 
+or two file associated with any given theme-based page served up. Just 
+wondering.
+
+>If you think it's a good idea, are there any volunteering & talented 
+>webdesigners wishing to make some static pseudo-NPDS server following 
+>a given theme?
+
+Hello. Let me introduce myself... :)
+
+>I guess that we need:
+>* some functionality like the pager (the pager has to be entirely 
+>redesigned, for example it should store pages in a soup and open 
+>itself automatically after a restart if it wasn't closed)
+>Maybe the pager soup could simply be In/OutBox?
+
+I don't use the pager very much, but I suppose I would if some changes 
+were made. That being said, I'd like to see a larger Newton-side 
+interface for one. Again, I like the idea of using the In/Out box as the 
+interface to the pager soup. It just seems that many of the NPDS 
+components maintain their own way of handling files and content. The more 
+of these that can be combined into the common system wide interfaces such 
+as Notes or In/Out, the better.
+
+>* some functionality to simply serve pages (from the 
+>NotePad/NewtWorks), with inline graphics (so you can serve very 
+>simply a note)
+
+Is there any way we can improve the way NPDS distinguishes between a 
+plain text (or lightly styled, like bolded or sized text...) note from 
+one that contains pure HTML content? Specifically, I guess I'm interested 
+to see how intelligent NPDS can be in terms of parsing the content of a 
+note and how it wraps that content in a template. Does this make sense?
+
+>* the dates and cardfile servers (probably need some little changes 
+>and they should benefit from new techs such as HTTP authentication)
+
+Authentication would be useful for allowing the admin to control server 
+functions or plug-in prefs. I like the idea of a web-based remote admin 
+system for all components of the server.
+
+>* some way to serve screen shots
+
+No argument here. How about live-streaming animated gifs? :)
+
+>The big thing I would like to discuss with you is the Note-posting 
+>capability and forum-like (or guest-book like) feature. I have 
+>several ideas, but maybe I should listen from your suggestions first.
+
+I would be interested specifically in different ways of displaying the 
+posted notes. Sort order, with time stamping, number of posts listed 
+using the SSI tag, etc. Being able to thread a series of posts, or at 
+having a reply to a post directly linked to the original somehow would be 
+useful.
+
+Here's a couple other things to consider:
+
+* server logging and reporting
+* integration of NPDS Watcher
+* web-based binary file uploading
+* Notes folder browser
+
+Whew.
+
+g.
+
+......................................................................
+
+Grant Hutchinson                       Interface Considerations & Toys
+
+Live video served fresh since 1996.    http://www.splorp.com/cam/
+Now fortified with daily ramblings.    http://www.splorp.com/blog/
+Newton. It's the Palm with a brain.    http://www.splorp.com/newton/
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Tue, 12 Feb 2002 22:00:39 +0100
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+
+
+>Creating a set of page templates (perhaps identifying and separating out
+>common page elements such as headers, footers, navigation bars, copyright
+>notices, etc. into individual include files), style sheets, and
+>associated graphic files would be a fairly easy task. Making sure that
+>they validate in terms of W3C HTML (or XHTML) and CSS, would be a given.
+
+Once again, Grant, I have to take the dictionary to learn a new 
+expression you're using. Except that this time, I did not find 
+anything into any of my dicts. What do you mean "[It] would be a 
+given."? Maybe something is missing there?
+
+(BTW, I quite enjoy having to learn new expressions).
+
+>I would be willing to create several base templates and themes for the
+>project. First of all, I would need to document all of the various types
+>of templates required (error pages vs. content display pages; CardServ
+>vs. NoteServ pages; posting forms, confirmation notices, etc.) I don't
+>suppose that there is any documentation of what pages currently get
+>generated by NPDS is there? Of course, if we're redeveloping the entire
+>base of NPDS services and functions, then the page and template list will
+>be different.
+
+I thought that we could work together on this. I mean, we could all 
+say what kind of interface we want from the features (hence my list 
+that you completed & commented).
+
+>Paul, is there going to be any issue with NPDS 3.0 serving up multiple
+>files from the soup for a given page? Potentially, there could be a dozen
+>or two file associated with any given theme-based page served up. Just
+>wondering.
+
+Why are you talking about files?
+And what kind of problems could there be?
+
+I guess you mean something like: "is it possible to make several soup 
+requests to send a single resource over HTTP?" the answer is it is 
+technically what NPDS already does in some cases (for example when it 
+displays the list of notes, it makes a query on the Note soup and 
+then iterates on the results to display the list).
+
+>Hello. Let me introduce myself... :)
+
+Do you have some kind of reference? ;)
+I think that there are other web designer professional with a NPDS 
+server and talented amateurs. I am probably the worst HTML coder on 
+this list, that's why I'm looking for talents ;)
+
+>I don't use the pager very much, but I suppose I would if some changes
+>were made. That being said, I'd like to see a larger Newton-side
+>interface for one. Again, I like the idea of using the In/Out box as the
+>interface to the pager soup. It just seems that many of the NPDS
+>components maintain their own way of handling files and content. The more
+>of these that can be combined into the common system wide interfaces such
+>as Notes or In/Out, the better.
+
+The In/Out idea was actually Nicolas Zinovieff's.
+
+>Is there any way we can improve the way NPDS distinguishes between a
+>plain text (or lightly styled, like bolded or sized text...) note from
+>one that contains pure HTML content?
+
+Of course. This should be linked with a clear 
+Notes-serving/HTML-serving/Templates/Admin-notes-editing/Bulletin-board 
+policy.
+It is currently quite a mess, so ideas are welcome. Especially 
+something allowing us to distinguish between a post and a note from 
+the NotePad interface (maybe using the routing button or something, 
+ideas are welcome and encouraged).
+
+>Specifically, I guess I'm interested
+>to see how intelligent NPDS can be in terms of parsing the content of a
+>note and how it wraps that content in a template. Does this make sense?
+
+It fits what I've been thinking about. I don't have any clear 
+solution yet, but there is work to be done for sure.
+
+>Authentication would be useful for allowing the admin to control server
+>functions or plug-in prefs. I like the idea of a web-based remote admin
+>system for all components of the server.
+
+Sounds great, doesn't it?
+
+BTW, I can see two not-too-boring ways to communicate dreams of a 
+software. Designing mockups (such as pseudo-static NPDS websites I 
+was talking about) and drafting documentation. Both are easy to use 
+for the coding process. Of course, we can also draft specifications 
+if you prefer it the more-official way.
+
+>  >* some way to serve screen shots
+>
+>No argument here. How about live-streaming animated gifs? :)
+
+Let's put it at the bottom of the list after Victor's idea of a RGB & 
+HSV sliders ;)
+
+>I would be interested specifically in different ways of displaying the
+>posted notes. Sort order, with time stamping, number of posts listed
+>using the SSI tag, etc.
+
+BTW, about SSIs (and it's linked to your request). One of the great 
+weaknesses of SSIs I guess is the fact that they can't take 
+arguments. No-one uses the "unused" argument in their scripts, don't 
+you?
+(I also thought of inline NewtonScript directly in page for server-side code).
+
+>Being able to thread a series of posts, or at
+>having a reply to a post directly linked to the original somehow would be
+>useful.
+
+It's what I call Bulletin Board-feature. I think that we all see the 
+Notes-posting capability this way, don't we?
+
+>* server logging and reporting
+
+Oh yeah, I forgot this part. One of the thing that isn't reliable on 
+the current hacked version, and that will be very easy to add with 
+the new kernel.
+
+>* integration of NPDS Watcher
+
+What do you mean?
+
+>* web-based binary file uploading
+
+FTP server?
+
+>* Notes folder browser
+
+Just like showing index? Nice idea.
+
+Paul
+- -- 
+Home page: http://www.kallisys.com/
+Newton-powered WebServer: http://newt.dyndns.org:8080/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+Date: Tue, 12 Feb 2002 16:02:31 -0700
+From: "Grant [Lint Trap] Hutchinson" <grant@splorp.com>
+
+
+>>Creating a set of page templates (perhaps identifying and separating out
+>>common page elements such as headers, footers, navigation bars, copyright
+>>notices, etc. into individual include files), style sheets, and
+>>associated graphic files would be a fairly easy task. Making sure that
+>>they validate in terms of W3C HTML (or XHTML) and CSS, would be a given.
+>
+>Once again, Grant, I have to take the dictionary to learn a new 
+>expression you're using. Except that this time, I did not find 
+>anything into any of my dicts. What do you mean "[It] would be a 
+>given."? Maybe something is missing there?
+
+Sorry about that. I keep forgetting that I need to try to write without 
+using as many English mannerisms as I usually do. "[It] would be a 
+given." basically means that it "would be assumed" that this is the way 
+we would do it. In other words, I would assume that we would make all of 
+the HTML and CSS valid according to the W3C standards.
+
+>>I would be willing to create several base templates and themes for the
+>>project. First of all, I would need to document all of the various types
+>>of templates required (error pages vs. content display pages; CardServ
+>>vs. NoteServ pages; posting forms, confirmation notices, etc.) I don't
+>>suppose that there is any documentation of what pages currently get
+>>generated by NPDS is there? Of course, if we're redeveloping the entire
+>>base of NPDS services and functions, then the page and template list will
+>>be different.
+>
+>I thought that we could work together on this. I mean, we could all 
+>say what kind of interface we want from the features (hence my list 
+>that you completed & commented).
+
+Agreed.
+
+>>Paul, is there going to be any issue with NPDS 3.0 serving up multiple
+>>files from the soup for a given page? Potentially, there could be a dozen
+>>or two file associated with any given theme-based page served up. Just
+>>wondering.
+>
+>Why are you talking about files?
+>And what kind of problems could there be?
+>
+>I guess you mean something like: "is it possible to make several soup 
+>requests to send a single resource over HTTP?" the answer is it is 
+>technically what NPDS already does in some cases (for example when it 
+>displays the list of notes, it makes a query on the Note soup and 
+>then iterates on the results to display the list).
+
+Yes, this is what I meant. I guess I shouldn't have used the term 
+"files", but instead the term "requests". I was concerned whether or not 
+NPDS could actually serve a single web page that consisted of several 
+(and possibly dozens) or separate images and other bits from the soup.
+
+>>Hello. Let me introduce myself... :)
+>
+>Do you have some kind of reference? ;)
+
+Sorry, no reference. I just wanted to make sure that everyone knew that I 
+was interested in this part of the development.
+
+>I think that there are other web designer professional with a NPDS 
+>server and talented amateurs. I am probably the worst HTML coder on 
+>this list, that's why I'm looking for talents ;)
+
+Oh, I'm sure a few people would pop out of the woodwork. Perhaps Andreas 
+Linkvist could help out in this manner.
+
+>>Is there any way we can improve the way NPDS distinguishes between a
+>>plain text (or lightly styled, like bolded or sized text...) note from
+>>one that contains pure HTML content?
+>
+>Of course. This should be linked with a clear 
+>Notes-serving/HTML-serving/Templates/Admin-notes-editing/Bulletin-board 
+>policy.
+>It is currently quite a mess, so ideas are welcome. Especially 
+>something allowing us to distinguish between a post and a note from 
+>the NotePad interface (maybe using the routing button or something, 
+>ideas are welcome and encouraged).
+
+I think about this further.
+
+>>Specifically, I guess I'm interested to see how intelligent NPDS can be
+>>in terms of parsing the content of a note and how it wraps that content
+>>in a template. Does this make sense?
+>
+>It fits what I've been thinking about. I don't have any clear 
+>solution yet, but there is work to be done for sure.
+
+Good. We're thinking about the same thing.
+
+>BTW, I can see two not-too-boring ways to communicate dreams of a 
+>software. Designing mockups (such as pseudo-static NPDS websites I 
+>was talking about) and drafting documentation. Both are easy to use 
+>for the coding process. Of course, we can also draft specifications 
+>if you prefer it the more-official way.
+
+In regards to "pseudo-static NPDS websites", do you mean building mockup 
+pages and serving them on an NPDS server? Or just on any server so they 
+approximately what we would like the future of NPDS to be?
+
+>>>* some way to serve screen shots
+>>
+>>No argument here. How about live-streaming animated gifs? :)
+>
+>Let's put it at the bottom of the list after Victor's idea of a RGB & 
+>HSV sliders ;)
+
+Ha!
+
+>>I would be interested specifically in different ways of displaying the
+>>posted notes. Sort order, with time stamping, number of posts listed
+>>using the SSI tag, etc.
+>
+>BTW, about SSIs (and it's linked to your request). One of the great 
+>weaknesses of SSIs I guess is the fact that they can't take 
+>arguments. No-one uses the "unused" argument in their scripts, don't 
+>you? (I also thought of inline NewtonScript directly in page for
+>server-side code).
+
+Ooh, I feel like there's going to be a lot of documentation to describe 
+how to do this...
+
+>>Being able to thread a series of posts, or at
+>>having a reply to a post directly linked to the original somehow would be
+>>useful.
+>
+>It's what I call Bulletin Board-feature. I think that we all see the 
+>Notes-posting capability this way, don't we?
+
+Yes.
+
+>>* server logging and reporting
+>
+>Oh yeah, I forgot this part. One of the thing that isn't reliable on 
+>the current hacked version, and that will be very easy to add with 
+>the new kernel.
+
+Lovely.
+
+>>* integration of NPDS Watcher
+>
+>What do you mean?
+
+Well, I am going to assume that the new NPDS will be more stable and 
+robust than the current version. This would make it less necessary to 
+have something like NPDS Watcher monitoring the process and restarting 
+the Newton when thing go wrong. However, if such a monitor is deemed to 
+be a requirement, why can't we build some sort of auto-restart mechanism 
+into the NPDS package itself? I'm just asking a question. There may be 
+several reason why this is a dumb idea.
+
+>>* web-based binary file uploading
+>
+>FTP server?
+
+I suppose that would be the most logical way of looking at it. Being able 
+to upload a binary file (sound, package, image, whatever...) using an 
+authenticated web interface would be useful.
+
+>>* Notes folder browser
+>
+>Just like showing index? Nice idea.
+
+That's what I was thinking.
+
+g.
+
+......................................................................
+
+Grant Hutchinson                       Interface Considerations & Toys
+
+Live video served fresh since 1996.    http://www.splorp.com/cam/
+Now fortified with daily ramblings.    http://www.splorp.com/blog/
+Newton. It's the Palm with a brain.    http://www.splorp.com/newton/
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Tue, 12 Feb 2002 17:17:02 -0800
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+From: Josh Burker <senorwences@mac.com>
+
+
+
+On Tuesday, February 12, 2002, at 02:05  AM, Paul Guyot wrote:
+>
+
+> What do you think?
+>
+
+All the ideas about the next incarnation of NPDS have sounded great to 
+me.
+
+I will be happy to help with the documentation.
+
+Josh Burker
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 03:14:24 -0600
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+From: John Skinner <john@johnskinner.net>
+
+
+I like the all comments so far and would like to add a few to the
+discussion. (sorry if it's long, I got carried away)
+
+Yes I agree on: File uploading/downloading, Bulletin Board style threaded
+note posting/reading.
+
+And these...
+
+--
+
+(1.) LAYOUT: I really like the idea of having some sort of Page templates or
+themes.
+
+We could have reference to the different "Themes" in the documentation
+(pdf?) with little pictures so one could see/predict the layout (without;
+having to change it, browse to it from an external browser and look, and
+back and forth).
+
+It seems it would make more sense to have them be CSS so they would be
+incorporated into every page that is viewed from the NPDS server. Like on
+Grant's page with his navigation bar at the top, or Paul's NPDS server now,
+he has the Newton logo .gif file as a background on (I think) every page. It
+doesn't have to be CSS, but some similar principle. This would help to give
+continuity to the site if it were on every page.
+
+It would be nice to have it done in frames, but then we would be excluding
+browsing to it from Newton browsers like NetHopper/Newt's Cape wouldn't we?
+
+If we used frames, we could have it load like a navigation bar into one
+frame on first load, then only load following pages in the main window.
+Maybe this could be done somehow with CSS though, I don't know. Thoughts?
+
+NOTE: I'm a novice web designer, but I would be willing to make a couple of
+simple "Themes"!
+
+--
+
+(2.) WEBPAGER: I also agree on storing the received pages into somewhere
+like the In/Out store.
+
+I also agree with Grant that the interface should be bigger. Maybe full
+screen even.
+
+I know that in a older version number of the WebPager, you could reply
+directly to a page (from someone that sent it from a Newton running NPDS) by
+tapping on the little button that looks like a Newton. The only awkward part
+of this was that it had to open NetHopper and download the senders
+"WebPager" page from their NPDS server.
+
+I know it seems like a lot, but it would be nice if it could operate similar
+to AOL's Instant Messenger or other chat program. Instead of loading the
+web page of the sender's "WebPager" in a browser, maybe the reply could be
+composed in a new, different frame of the WebPager window. Then it could be
+sent directly to the sender's WebPager program. Thoughts?
+
+--
+
+(3.) REMOTE ADMIN: (To re-enable) The ability to post to any directory, not
+just the default "Whiteboard" area.
+
+Right now you can remotely shutdown the NPDS server. It would be nice if you
+could also reboot your Newton remotely. Maybe by somehow triggering some
+NewtScript to have NPDS Watcher to do it.
+
+
+(4.) REBOOTING: I think all of us would like to have the option to have all
+of NPDS start minimized in the "Star" menu upon reboot.
+
+(Speaking of this; Hey Grant, let me know if you ever get that "CardCloser"
+to work on Newton OS 2.x)
+
+Reading what Grant said about having a web-based remote admin system: THIS
+IS A LONG SHOT, but it might be possible with a modified Steve Weyer's
+NewtVNC! Right now, the two things stopping us are: In the current version
+there is no JAVA web-based connection to the server like in the real VNC,
+and the server mode only listens for a connection for a handful of seconds.
+We could ask Steve if it would be possible to put the JAVA web interface in
+a version or as an add-on to WABA. Then (getting longer and longer...) we
+could have a link on the current Admin page that would trigger a NewtScript
+to tell NewtVNC to listen for a connection. I realize after writing this
+that this will be on the bottom of the list, ha ha.
+
+
+P.S. I got my best geek friend Newtonized and the two of us are learning
+NewtonScript to help the Newton Community!
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 13:06:20 +0100
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+
+
+À (At) 16:02 -0700 12/02/02, Grant [Lint Trap] Hutchinson écrivait (wrote) :
+>Sorry about that. I keep forgetting that I need to try to write without
+>using as many English mannerisms as I usually do.
+
+Actually, if you're writing to me, it's just fine (and this list is 
+officially English-speaking).
+
+>Yes, this is what I meant. I guess I shouldn't have used the term
+>"files", but instead the term "requests". I was concerned whether or not
+>NPDS could actually serve a single web page that consisted of several
+>(and possibly dozens) or separate images and other bits from the soup.
+
+This is not at all a problem, you can trust me.
+
+>Sorry, no reference. I just wanted to make sure that everyone knew that I
+>was interested in this part of the development.
+
+I thought you were a professional web designer.
+
+>In regards to "pseudo-static NPDS websites", do you mean building mockup
+>pages and serving them on an NPDS server? Or just on any server so they
+>approximately what we would like the future of NPDS to be?
+
+On any server. In a nutshell, let's dream folks ;)
+
+>Ooh, I feel like there's going to be a lot of documentation to describe
+>how to do this...
+
+Probably. But a new interface would definitely make easy to implement 
+the domain SSI for Paul Filmer.
+
+>Well, I am going to assume that the new NPDS will be more stable and
+>robust than the current version. This would make it less necessary to
+>have something like NPDS Watcher monitoring the process and restarting
+>the Newton when thing go wrong. However, if such a monitor is deemed to
+>be a requirement, why can't we build some sort of auto-restart mechanism
+>into the NPDS package itself? I'm just asking a question. There may be
+>several reason why this is a dumb idea.
+
+Indeed, we need a watcher, especially considering that other things 
+could bring the server down. I am not sure it has to be specifically 
+included into the server, although it's not really a module but 
+rather a function.
+
+Paul
+- -- 
+Home page: http://www.kallisys.com/
+Newton-powered WebServer: http://newt.dyndns.org:8080/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 13:28:40 +0100
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+
+
+À (At) 3:14 -0600 13/02/02, John Skinner écrivait (wrote) :
+
+>We could have reference to the different "Themes" in the documentation
+>(pdf?) with little pictures so one could see/predict the layout (without;
+>having to change it, browse to it from an external browser and look, and
+>back and forth).
+
+Of course ;)
+
+>It would be nice to have it done in frames, but then we would be excluding
+>browsing to it from Newton browsers like NetHopper/Newt's Cape wouldn't we?
+
+Actually, I'm not very fond of frames as they're (a) not supported by 
+many browsers including NetHopper/Newt's Cape and (b) apparently 
+dropped with HTML 4.0.
+
+>Maybe this could be done somehow with CSS though, I don't know.
+
+This and many other things can be done with CSS.
+I'm just an amateur HTML coder and more interested in the languages 
+than the visual aspects of things, but as I see it, CSS is a way to 
+have the thing look nice under modern browsers (supporting CSS, 
+basically) and keep the thing readable in Lynx/NetHopper/Newt's Cape 
+& Co.
+
+>I also agree with Grant that the interface should be bigger. Maybe full
+>screen even.
+
+So should be the script editor (it's a pain when you try to write 
+cgis during university naps on databases).
+
+>I know that in a older version number of the WebPager, you could reply
+>directly to a page (from someone that sent it from a Newton running NPDS) by
+>tapping on the little button that looks like a Newton. The only awkward part
+>of this was that it had to open NetHopper and download the senders
+>"WebPager" page from their NPDS server.
+
+You can still do it. What it opens depends on which browser are 
+installed, but I agree that there should be an included way to answer 
+as you describe it.
+
+>(4.) REBOOTING: I think all of us would like to have the option to have all
+>of NPDS start minimized in the "Star" menu upon reboot.
+
+Alright, alright.
+
+>Reading what Grant said about having a web-based remote admin system: THIS
+>IS A LONG SHOT, but it might be possible with a modified Steve Weyer's
+>NewtVNC! Right now, the two things stopping us are: In the current version
+>there is no JAVA web-based connection to the server like in the real VNC,
+>and the server mode only listens for a connection for a handful of seconds.
+>We could ask Steve if it would be possible to put the JAVA web interface in
+>a version or as an add-on to WABA. Then (getting longer and longer...) we
+>could have a link on the current Admin page that would trigger a NewtScript
+>to tell NewtVNC to listen for a connection. I realize after writing this
+>that this will be on the bottom of the list, ha ha.
+
+Er, I'm not sure I understand exactly what you're thinking about.
+You want to trigger VNC from NPDS? (there is no need for any line of 
+Java there)
+Trigger NPDS from VNC? (neither)
+
+Paul
+- -- 
+Home page: http://www.kallisys.com/
+Newton-powered WebServer: http://newt.dyndns.org:8080/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+Date: Wed, 13 Feb 2002 08:04:28 -0700
+From: "Grant [Lint Trap] Hutchinson" <grant@splorp.com>
+
+
+In a previous message, Paul Guyot typed vigorously:
+
+>>Yes, this is what I meant. I guess I shouldn't have used the term
+>>"files", but instead the term "requests". I was concerned whether or not
+>>NPDS could actually serve a single web page that consisted of several
+>>(and possibly dozens) or separate images and other bits from the soup.
+>
+>This is not at all a problem, you can trust me.
+
+Excellent. This makes the develop of themes extremely flexible. Not that 
+I would encourage overdoing the design of a theme just for the sake of 
+the design. We will still need to consider the file size of the various 
+components that make up a theme. The less bloated we get, the better.
+
+>>Sorry, no reference. I just wanted to make sure that everyone knew that I
+>>was interested in this part of the development.
+>
+>I thought you were a professional web designer.
+
+Erm. Yes. I am. I guess I was being a bit too indirect. In fact it was a 
+reference to my ability to create web -based designs. Sign me up!
+
+>>In regards to "pseudo-static NPDS websites", do you mean building mockup
+>>pages and serving them on an NPDS server? Or just on any server so they
+>>approximately what we would like the future of NPDS to be?
+>
+>On any server. In a nutshell, let's dream folks ;)
+
+I understand now. This method certainly makes it easier to prototype 
+ideas.
+
+>>Ooh, I feel like there's going to be a lot of documentation to describe
+>>how to do this...
+>
+>Probably. But a new interface would definitely make easy to implement 
+>the domain SSI for Paul Filmer.
+
+Let me see if I understand this. We would be getting rid of the concept 
+of the script editor to create custom SSI tags, by replacing it with the 
+ability to have NPDS parse and execute the NS code directly from the HTML 
+(or noteserved pages). Is this correct?
+
+>>Well, I am going to assume that the new NPDS will be more stable and
+>>robust than the current version. This would make it less necessary to
+>>have something like NPDS Watcher monitoring the process and restarting
+>>the Newton when thing go wrong. However, if such a monitor is deemed to
+>>be a requirement, why can't we build some sort of auto-restart mechanism
+>>into the NPDS package itself? I'm just asking a question. There may be
+>>several reason why this is a dumb idea.
+>
+>Indeed, we need a watcher, especially considering that other things 
+>could bring the server down. I am not sure it has to be specifically 
+>included into the server, although it's not really a module but 
+>rather a function.
+
+Now I've got it. I guess I was just curious to see if their were any 
+benefits or efficiencies to combined the Watcher with another component 
+of NPDS.
+
+g.
+
+......................................................................
+
+Grant Hutchinson                       Interface Considerations & Toys
+
+Live video served fresh since 1996.    http://www.splorp.com/cam/
+Now fortified with daily ramblings.    http://www.splorp.com/blog/
+Newton. It's the Palm with a brain.    http://www.splorp.com/newton/
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 09:16:59 -0600
+From: John Skinner <john@johnskinner.net>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+
+
+
+Paul Guyot wrote:
+
+Er, I'm not sure I understand exactly what you're thinking about.
+You want to trigger VNC from NPDS? (there is no need for any line of
+Java there)
+Trigger NPDS from VNC? (neither)
+
+
+I'll try to explain better Paul.
+
+JAVA...      The regular VNC software that you get for Windows, Mac, 
+Linux and other OSs has a JAVA web browser interface incorporated into 
+it, allowing one to access the VNC server from a standard JAVA enabled 
+web browser. Otherwise, the only way to connect to a VNC server is by 
+downloading and installing a OS specific VNC client on your computer. 
+Right now, the only way to connect to NewtVNC is by using standard VNC 
+client software.
+In order for NewtVNC to be able to accept incomming connections from a 
+WEB BROWSER instead of a VNC client, there would have to be the JAVA 
+based web browser interface added to NewtVNC.
+
+Triggering......         The current NewtVNC has a "listen" button to 
+start to listen for incomming connections, but it times-out after about 
+15 seconds. So, you can't have your NewtVNC in server mode all day 
+waiting for connections. I thought that maybe we could incorporate a 
+link into a web page served by NPDS, that could somehow make the NewtVNC 
+program start to listenfor a connection. Then, when you try to connect 
+to it right after clicking this link, you would be within the timeout 
+period and be able to connect.
+
+Do any of these ramblings make it more clear, or did I just complicate it?
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 10:26:52 -0500
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+From: Matt Vaughn <matt.vaughn@mindspring.com>
+
+
+I've been following this thread closely but haven't had time to reply. 
+However, I saw something that made me cringe and had to put in mi dos 
+centavos.
+
+>>
+>
+> Let me see if I understand this. We would be getting rid of the concept
+> of the script editor to create custom SSI tags, by replacing it with the
+> ability to have NPDS parse and execute the NS code directly from the HTML
+> (or noteserved pages). Is this correct?
+
+I considered and rejected inline newtonscript at one point since not too 
+many users of NPDS could write Newtonscript, and in fact, I even had a 
+rough extension to Notepad Server that could run arbitrary Newtonscript 
+posted from the web, so it can be done. I was considering using it as some 
+sort of remote administration  tool. Anyway, if you implement inline 
+execution, you need a tight security policy with this. Otherwise, I could 
+post a note containing RATHER malicious Newtonscript and your Newton could 
+be rendered nearly unusable. The big problem is that everything runs with 
+full read-write-execute permissions in the Newtonscript environment. You 
+need to be REALLY sure that nothing can slip in from outside to sabotage 
+your machine.
+
+All this said, I think it's a great idea, provided it's properly 
+implemented. Another thing is that passing variables to server side 
+includes CAN be done. I simply was too lazy to write the parser that would 
+take the SSI tag, parse out the variable(s), and pass them to the script. 
+However, it can be done. The unused variable that's in every NPDS SSI 
+function declaration is required by the onboard NS compiler (for some 
+arcane reason), but it doesn't have to be unused, it just has to be in the 
+function declaration, Actually, if I remember correctly, you can even have 
+more than one variable in that declaration, but there has to be at least 
+one.
+
+Also, the SSI code can be modified so that it functions outside a page, 
+acting more like a CGI. If I remember right, there's a tag in the SSI soup 
+for the "name" of the SSI. If someone had time, he could write a wrapper 
+that would be able to call the SSI function as an executable, knowing the 
+name of the SSI. Thus, you could do things like http://my.npds.com/cgi-bin/
+MySpecialScript and return a full dynamically generated page.
+
+I also agree with Paul's assertion that the interface for Script Editor 
+needs to be revised. It fits nicely on my old MP130 but not on your fancy 
+MP2x00 screens.
+
+Oh man, you guys are making me hanker to get out my old Newt and start 
+coding for it again (now that I have a job and a degree)
+
+Cheers,
+
+Matt
+
+--
+
+Matthew W. Vaughn, Ph.D.
+Cold Spring Harbor Laboratory
+1 Bungtown Road
+Cold Spring Harbor, NY 11724
+
+"Plant hackers have root access!"
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+From: "Filmer, Paul E." <pfilmer@nsf.gov>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+Date: Wed, 13 Feb 2002 13:42:38 -0500
+
+
+
+> >>* integration of NPDS Watcher
+> >
+> >What do you mean?
+> 
+> Well, I am going to assume that the new NPDS will be more stable and 
+> robust than the current version. This would make it less necessary to 
+> have something like NPDS Watcher monitoring the process and restarting 
+> the Newton when thing go wrong. However, if such a monitor is deemed to 
+> be a requirement, why can't we build some sort of auto-restart mechanism 
+> into the NPDS package itself? I'm just asking a question. There may be 
+> several reason why this is a dumb idea.
+> 
+	I'll chime in here -- despite the beauty of the Watcher
+(..beholder?), it still seems to defeat my server, and as soon as I leave,
+something crashes it, and it often restarts without establishing a
+connection.  So there it sits, thinking it is connected, and since there are
+no queries, it never resets again, and I find it the next time I am in the
+office in this unconnected, but ever-so-ready to serve state.
+
+	My work-around is a simple Stop-Start cycle (which also sometimes
+requires a "Connect" tap), which I would love to be able to do automatically
+from within Watcher or whatever it evolves to.
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+Date: Wed, 13 Feb 2002 11:45:58 -0700
+From: "Grant [Lint Trap] Hutchinson" <grant@splorp.com>
+
+
+In a previous message, Paul Guyot typed vigorously:
+
+>>It would be nice to have it done in frames, but then we would be excluding
+>>browsing to it from Newton browsers like NetHopper/Newt's Cape wouldn't we?
+>
+>Actually, I'm not very fond of frames as they're (a) not supported by 
+>many browsers including NetHopper/Newt's Cape and (b) apparently 
+>dropped with HTML 4.0.
+
+I certainly understand John's point about making the web pages refresh or 
+change faster by minimizing the amount of content reloading by using 
+frames. However, this kind of efficiency offered by frames is rather 
+misplaced. Since you are actually loading more HTML with a frames based 
+interface than than single page design, you end up sending more data to 
+the client at any given time. For a design the has a navbar, main content 
+area, and perhaps a footer - the client actually has to request four html 
+pages including the frameset wrapper in order to display the page. Oof!
+
+To Paul's point, as far as I can determine, the W3C has not dropped 
+frames as part of either the current HTML 4.01 or XHTML 1.0 
+recommendations.
+
+>>Maybe this could be done somehow with CSS though, I don't know.
+>
+>This and many other things can be done with CSS.
+>I'm just an amateur HTML coder and more interested in the languages 
+>than the visual aspects of things, but as I see it, CSS is a way to 
+>have the thing look nice under modern browsers (supporting CSS, 
+>basically) and keep the thing readable in Lynx/NetHopper/Newt's Cape 
+>& Co.
+
+Amen. Let's spread the word to the masses.
+
+>>I know that in a older version number of the WebPager, you could reply
+>>directly to a page (from someone that sent it from a Newton running NPDS) by
+>>tapping on the little button that looks like a Newton. The only awkward part
+>>of this was that it had to open NetHopper and download the senders
+>>"WebPager" page from their NPDS server.
+>
+>You can still do it. What it opens depends on which browser are 
+>installed, but I agree that there should be an included way to answer 
+>as you describe it.
+
+Is there anything we could do using server push from NPDS (or the pager 
+component) back to the desktop browser to refresh the web page with the 
+response? Maybe this is too complex for discussion right now.
+
+>>(4.) REBOOTING: I think all of us would like to have the option to have all
+>>of NPDS start minimized in the "Star" menu upon reboot.
+>
+>Alright, alright.
+
+And Paul caves in to public pressure. ;)
+
+g.
+
+......................................................................
+
+Grant Hutchinson                       Interface Considerations & Toys
+
+Live video served fresh since 1996.    http://www.splorp.com/cam/
+Now fortified with daily ramblings.    http://www.splorp.com/blog/
+Newton. It's the Palm with a brain.    http://www.splorp.com/newton/
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+Date: Wed, 13 Feb 2002 11:51:17 -0700
+From: "Grant [Lint Trap] Hutchinson" <grant@splorp.com>
+
+
+In a previous message, Matt Vaughn typed vigorously:
+
+>I also agree with Paul's assertion that the interface for Script Editor 
+>needs to be revised. It fits nicely on my old MP130 but not on your fancy 
+>MP2x00 screens. Oh man, you guys are making me hanker to get out my old
+>Newt and start coding for it again (now that I have a job and a degree)
+
+Matt, if you're serious about getting back into the game, I'd be willing 
+to send you one of my extra "lightly-used and previously loved..." 
+MP2100s for you to mess around with. Free. Gratis. No money down. Let me 
+know if this sounds like something you'd want to do. It'd be great to 
+have back on the front lines and contributing to the code again.
+
+g.
+
+......................................................................
+
+Grant Hutchinson                       Interface Considerations & Toys
+
+Live video served fresh since 1996.    http://www.splorp.com/cam/
+Now fortified with daily ramblings.    http://www.splorp.com/blog/
+Newton. It's the Palm with a brain.    http://www.splorp.com/newton/
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 20:56:43 +0100
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+
+
+>Let me see if I understand this. We would be getting rid of the concept
+>of the script editor to create custom SSI tags, by replacing it with the
+>ability to have NPDS parse and execute the NS code directly from the HTML
+>(or noteserved pages). Is this correct?
+
+Actually, I thought about having both systems.
+
+Paul
+- -- 
+Home page: http://www.kallisys.com/
+Newton-powered WebServer: http://newt.dyndns.org:8080/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 20:58:24 +0100
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+
+
+>In order for NewtVNC to be able to accept incomming connections from 
+>a WEB BROWSER instead of a VNC client, there would have to be the 
+>JAVA based web browser interface added to NewtVNC.
+
+I see. This is rather part of VNC than NPDS.
+
+>Then, when you try to connect to it right after clicking this link, 
+>you would be within the timeout period and be able to connect.
+
+This can be done with a simple SSI with NPDS 2.x.
+
+Paul
+- -- 
+Home page: http://www.kallisys.com/
+Newton-powered WebServer: http://newt.dyndns.org:8080/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 21:00:37 +0100
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+
+
+>I considered and rejected inline newtonscript at one point since not 
+>too many users of NPDS could write Newtonscript, and in fact, I even 
+>had a rough extension to Notepad Server that could run arbitrary 
+>Newtonscript posted from the web, so it can be done. I was 
+>considering using it as some sort of remote administration  tool. 
+>Anyway, if you implement inline execution, you need a tight security 
+>policy with this. Otherwise, I could post a note containing RATHER 
+>malicious Newtonscript and your Newton could be rendered nearly 
+>unusable. The big problem is that everything runs with full 
+>read-write-execute permissions in the Newtonscript environment. You 
+>need to be REALLY sure that nothing can slip in from outside to 
+>sabotage your machine.
+
+Of course, inline NewtonScript is subject to a clear definition of 
+what is a posted note and what is not.
+
+>Another thing is that passing variables to server side includes CAN 
+>be done. I simply was too lazy to write the parser that would take 
+>the SSI tag, parse out the variable(s), and pass them to the script. 
+>However, it can be done. The unused variable that's in every NPDS 
+>SSI function declaration is required by the onboard NS compiler (for 
+>some arcane reason),
+
+I can't see where, but I trust you.
+
+>but it doesn't have to be unused, it just has to be in the function 
+>declaration
+
+It is currently some NPDS-core frame that is passed as the argument.
+
+Paul
+- -- 
+Home page: http://www.kallisys.com/
+Newton-powered WebServer: http://newt.dyndns.org:8080/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Wed, 13 Feb 2002 21:08:31 +0100
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3: themes and structure
+
+
+>To Paul's point, as far as I can determine, the W3C has not dropped
+>frames as part of either the current HTML 4.01 or XHTML 1.0
+>recommendations.
+
+Actually, I deduced this from the division in three DTDs, strict, 
+transitional and frameset in this order. But I can't find any 
+statement of the W3C saying that they consider frames obsoletes.
+
+>Is there anything we could do using server push from NPDS (or the pager
+>component) back to the desktop browser to refresh the web page with the
+>response? Maybe this is too complex for discussion right now.
+
+Actually, this can only be done by not closing the connection, and 
+only with browsers supporting it. Or with some Java applet.
+
+Paul
+- -- 
+Home page: http://www.kallisys.com/
+Newton-powered WebServer: http://newt.dyndns.org:8080/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+--------------------------------------------------------------
+
+

@@ -1,0 +1,61 @@
+// New Posts SSI
+// Copyright (c) 2002 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script will put a list of the 3 (this can be customized) last posts
+// sent to the server.
+
+func(inUndocumentedRequestFrame)
+begin
+	// Array of the soup entries.
+	local array theEntries := [];
+	// Cursor on the soups, representing a query on the posts.
+	local frame theCursor := GetUnionSoup("Notes"):query({tagspec: {equal: ['|NPDS.Board|]}, indexPath: 'timestamp});
+	// Entry to iterate on this cursor.
+	local frame someEntry := theCursor:entry();
+
+	// Let's add all entries to the array.
+	while( someEntry ) do
+	begin
+		AddArraySlot(theEntries, someEntry);
+		someEntry := theCursor:next();
+	end;
+
+	// We'll get most recent first.
+	theEntries:= sort(theEntries, '|>|, 'timestamp);
+
+	// Result with the list of posts.
+	local string theResult := "<p><b>No post present.</b></p>\n";
+	
+	// How many entries do we have?
+	local int theLength := length( theEntries );
+	if (theLength > 0) then
+	begin
+		// We have at least one entry. Put the header.
+		theResult := "<p><b>Most recent posts:</b></p>\n<ul>\n";
+		
+		// Number of entries we actually want minus one. Change
+		// this value if you want more than 3 entries.
+		local int theCount := 2;
+		// Change this value as well.
+		if (theLength < 3) then
+			theCount := theLength - 1;
+		
+		// Iterate on the entries.
+		for indexEntries := 0 to theCount do
+		begin
+			someEntry := theEntries[ indexEntries ];
+			// Title of the note.
+			local string theTitle := someEntry.title;
+			// and it can be empty. Use the date if it is.
+			if not StrFilled(theTitle)
+			then theTitle := "Note:" && ShortDate(someEntry.timeStamp);
+			// New line in the list.
+			theResult := theResult & "	<li><a href=\"/html/" & NumberStr(EntryStore(someEntry).signature) & "$" & NumberStr(someEntry._uniqueID) & ".nsd\">" & titre & "</a>\n";
+		end;
+		// End of the list.
+		theResult := theResult & "</ul>";
+	end;
+	
+	return theResult;
+end

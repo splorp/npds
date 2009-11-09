@@ -1,0 +1,10 @@
+// Statistics SSI
+//
+// This script gets the statistics from the NPDS server module
+// and return them between <pre> and </pre> tags.
+// I'm not sure if this still works.
+
+func(inUndocumentedRequestFrame)
+begin
+	return "<pre>" &  GetRoot().|nHTTPd:ALLPEN|:LogToTextFile(nil) & "</pre>";
+end

@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+   <TITLE>Making Script Packages for Distribution</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Making Script Packages For
+Distribution</FONT></H1>
+
+<P><FONT FACE="Verdana">If all goes well and NPDS takes off in the
+remaining Newton community, perhaps we'll see a trade in neat scripts
+that run under the NPDS SSA. In order to facilitate this, I have made
+it pretty easy to roll a script you write into a script package like
+the ones that come with this issue of </FONT><FONT SIZE="+2" FACE="Impact"><B>4&#149;AA</B></FONT><FONT FACE="Verdana">,.
+All you need is a a copy of the Newton Toolkit for Mac or Windows and
+a good script. Go install NTK if you have not already, learn how to
+connect the Inspector to your Newton, then come back to this
+page.</FONT>
+
+<P><FONT FACE="Verdana">OK. You're back. Download the proper NTK
+Project (</FONT><A HREF="downloads/NTKMAC.hqx"><FONT FACE="Verdana">Mac</FONT></A><FONT FACE="Verdana">
+| </FONT><A HREF="downloads/NTKWIN.ZIP"><FONT FACE="Verdana">Windows</FONT></A><FONT FACE="Verdana">)
+and decompress it. Make a copy of this folder on your desktop. Now
+connect your Newton to the NTK Inspector and open the NPDS script
+editor. Flip through the list of scripts until you get to the one you
+want to share.</FONT>
+
+<P><FONT FACE="Verdana">In the inspector, type "</FONT><FONT FACE="Courier">GetRoot().|Editor:MAVON|:ScriptToInspector();</FONT><FONT FACE="Verdana">"
+and hit ENTER (not return). You'll get a text dump of your script
+file. Copy and paste this into a decent text editor. I use BBEdit on
+the Macintosh and I am sure there's a good one on the PC end of
+things. You need to search and replace every quotation mark <B>"</B>
+with a backslash-quotation mark <B>"\ </B>This is because the
+quotation mark is a special character under Newtonscript.</FONT>
+
+<P><FONT FACE="Verdana">Switch back to NTK and open the copy of the
+<B>project file</B> you made on the desktop. You'll get a window with
+the source file listed in it. Double-click on the source file and
+you'll see the following text inside it:</FONT>
+
+<BLOCKQUOTE><CODE>local script:= </CODE>
+   
+   <P><CODE>{name: "Script Name",</CODE>
+   
+   <P><CODE>active: TRUE,</CODE>
+   
+   <P><CODE>static: NIL,</CODE>
+   
+   <P><CODE>ssitag: "SSI",</CODE>
+   
+   <P><CODE>text: ""};</CODE></BLOCKQUOTE>
+
+<P><FONT FACE="Verdana">Edit the <B>name </B>to be the name of your
+script as it shows in the Script Editor's Info line, assign a SSI tag
+to this script, and then switch to your text editor. Copy the altered
+script text and paste it between the quotation marks of the <B>text
+</B>slot. Now save in case something goes awry.</FONT>
+
+<P><IMG SRC="images/pkg.GIF" WIDTH=32 HEIGHT=32 ALIGN=left><FONT FACE="Verdana">To
+create your script package, choose build package from the Project
+menu of NTK. A package will appear in the Script Template folder. You
+can now go and rename the package to whatever you wish.</FONT>
+
+<P><FONT FACE="Verdana">To test the installability of your new
+script, choose "Install Package" from the Project Menu. You'll get a
+dialog on your Newton informing you of your success. Some warning is
+in order here as you will now have two copies of the same script in
+your Script Soup. This can have unanticipated results. Delete one as
+soon as you are sure this whole process worked.</FONT>
+
+<P><FONT FACE="Verdana">Happy Scripting and I hope to see some cool
+scripts!</FONT>
+</BODY>
+</HTML>

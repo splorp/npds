@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+   <TITLE>Document Template</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Initialize NPDS</FONT></H1>
+
+<P><FONT FACE="Verdana">OK.. this isn't a script per se but since you
+can directly execute Newtonscript code in the Script Editor, I am
+using the Editor to set certain variables within the NPDS environment
+so that I can test out how my other scripts that depend on things
+like IP address, Browser version, etc work without having to actually
+set up an internet connection and connect to a page where these
+scripts have been inlined. The bottom line is that you can write NPDS
+CGI applications on the bus or subway in the morning!</FONT>
+
+<P><FONT FACE="Verdana">What we're doing is filling values to the
+"Request Frame" that NPDS uses to track all the variables for a given
+HTTP transaction. Make sure that you do NOT call this script from the
+HTTP server or the connection will die and probably take NPDS down
+with it. But otherwise, it's a useful tool.</FONT>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> Initialize NPDS
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> <STRIKE>XXXX</STRIKE>
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE>// This isn't a real SSI Script but a debugging
+            // tool. You can set the NPDS Environ however<BR>
+            // you need to test your scripts
+            
+            <P>//First, warm up NPDS..<BR>
+            //Defines all the static SSI values
+            
+            <P><CODE>|NPDS|:InitializeStaticVars();</CODE>
+            
+            <P>//Client address values
+            
+            <P><CODE>local myip:= "127.0.0.1";<BR>
+            local mydns:= "localhost";</CODE>
+            
+            <P>//User-agent (Browser) Data
+            
+            <P><CODE>local mybrowser:= "Mozilla/4.5.1 (MSIE 4.5
+            Macintosh)";</CODE>
+            
+            <P>//URL Requested
+            
+            <P><CODE>local mypath:="/html/index.html";</CODE>
+            
+            <P>//Stuff our values into the NPDS request frame
+            
+            <P><CODE>|NPDS|.CURRENT_HTTP_REQUEST.ip:=
+            myip;|NPDS|.CURRENT_HTTP_REQUEST.dns:=
+            mydns;|NPDS|.CURRENT_HTTP_REQUEST.agent:= mybrowser;<BR>
+            |NPDS|.CURRENT_HTTP_REQUEST.request:= myPath;</CODE>
+            
+            <P>//Press <B>Evaluate </B>and go check out a script that
+            uses one of these values</BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+   <TITLE>Linking</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Inter-Application Linking</FONT></H1>
+
+<H2><FONT FACE="Verdana"><A NAME=Sorry></A>Apologies for
+Arcanity</FONT></H2>
+
+<P><FONT FACE="Verdana">What you're about to see is arcane and may
+look to you like I have ported DOS to the Newton. But a lot of you
+have asked me how to make links between objects under NPDS so I am
+going to show you how I would do it. We'll use an example from which
+you can abstract what you wish.</FONT>
+
+<H2><FONT FACE="Verdana"><A NAME=vCard></A>Creating a link to YOUR
+vCard</FONT></H2>
+
+<P><FONT FACE="Verdana">When you move your cursor over a link to NPDS
+data, you see a long, seemingly nonsensical URL. However, it's not
+quite the gibberish it seems to be. I developed a standard reference
+scheme for retrieving soup entries and the data required for this
+process is encoded within the URL. If I were to do a search for "Joe"
+on my Newton's Cardfile, I'd get 3 cards with links to the following
+6 "files"</FONT>
+
+<P><CODE>/cards/2230468$7.vcd, /cards/2230468$7.htm</CODE>
+
+<P><CODE>/cards/2230468$45.vcd, /cards/2230468$45.htm</CODE>
+
+<P><CODE>/cards/-336767$10.vcd, /cards/-336767$10.htm</CODE>
+
+<P><FONT FACE="Verdana">If you examine these filenames, you can see
+the pseudo directory "cards" specifies what plugin handles tis
+request and within the actual filename part, you see a large number
+separated by a $ from a smaller number. These values represent the
+identity of the RAM (internal or card) device where this entry is
+found and the unique Newton soup ID code which is always an integer,
+respectively. An extension is appended ".htm" or ".vcd" and as you
+can guess, I make use of extensions to help specify how NPDS should
+display this entry. When possible, I try to map the extension to a
+standard Windows file extension.</FONT>
+
+<P><FONT FACE="Verdana">These values are static unless you re-file
+the original reference, in which case the store ID would change. What
+this means is that you can link directly to any soup entry that we
+support under NPDS.</FONT>
+
+<P><FONT FACE="Verdana">To illustrate this, let's over-ride the
+built-in USR_NAME server-side include with one that not only returns
+your name but a link to your vCard. To get your own vCard URI
+address, you need to fire up your server and do a search for your own
+name. Copy the link location of your vCard and verify that you
+<U>can</U> retrieve your vCard by entering that URI into the Location
+field of your browser. Now begins the fun..</FONT>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> vCard + Name
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> USR_NAME
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE><CODE>local theOut:= "";</CODE>
+            
+            <P><CODE>local theName:= GetUserConfig('name);</CODE>
+            
+            <P><CODE>local vCard:= "/cards/8675309$4.vcd";</CODE>
+            
+            <P><CODE>return "&lt;A TARGET = \"_blank\" HREF=\""
+            </CODE>
+            
+            <P><CODE>&amp; vCard &amp; "&gt;" &amp; theName &amp;
+            "&lt;/A&gt;";</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+
+<P><FONT FACE="Verdana">OK. We're done. It was that easy. If you want
+to stop over-riding the built-in USR_NAME tag, turn this script off.
+If you want to return the HTML version of your name card, change the
+end of the URI from ".vcd" to ".htm".</FONT>
+
+<P><FONT FACE="Verdana">There is, of course, a problem with this
+simple script. If you change owner cards, the vCard link won't point
+to the right person. You could add some code to catch different User
+Names and return the appropriate vCard link but you're on your own
+for that one.</FONT>
+
+<P>
+</BODY>
+</HTML>

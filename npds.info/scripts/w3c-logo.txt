@@ -1,0 +1,10 @@
+// W3C Logo SSI
+// Copyright (c) 2002 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script displays the W3C Valid HTML 4.0 logo with a link to the validator.
+
+func(inUndocumentedRequestFrame)
+begin
+	return "<a href=\"http://validator.w3.org/check?uri=http%3A%2F%2FSERVER_NAME:SERVER_PORTREQUEST_URI\"><img border=\"0\" src=\"http://www.w3.org/Icons/valid-html40\" alt=\"Valid HTML 4.0!\" height=\"31\" width=\"88\"></a>";
+end

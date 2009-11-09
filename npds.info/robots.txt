@@ -1,0 +1,5 @@
+# robots.txt for http://npds.free.fr/
+# created 28 January 2003
+# updated 28 January 2003
+
+User-agent: *

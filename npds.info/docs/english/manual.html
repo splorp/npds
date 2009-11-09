@@ -1,0 +1,2402 @@
+<HTML>
+<HEAD>
+   <TITLE>Manual</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<P><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><IMG SRC="../images/sdifftext.gif" WIDTH=157 HEIGHT=27 ALIGN=left><IMG SRC="../images/newtonos.gif" WIDTH=158 HEIGHT=31 ALIGN=right>
+      </TD>
+   </TR>
+</TABLE>
+
+<H1>Introducing.. NewtonOS Personal Data Sharing</H1>
+
+<H2><A NAME=What></A>What is NewtonOS Personal Data Sharing?</H2>
+
+<P>NPDS is as much a concept as anything else. When the Newton was
+conceived and then sold a fundamental tenet of its design was its
+portability. Yet, never during the course of its short and brilliant
+lifetime was it actually PORTABLE.
+
+<BLOCKQUOTE>You could connect to any desktop.. as long as NCU or NBU
+   or Xport was installed.
+   
+   <P>You could print out information.. if you had a compatible
+   printer.
+   
+   <P>You could let others see your schedule.. if they had a fax to
+   send it to.. or a Newton of their own.
+   
+   <P><I>Etcetera, Ad Nauseum, Ad infinitum...</I></BLOCKQUOTE>
+
+<P><IMG SRC="../images/npdslogo.jpg" ALT="NPDS Logo" WIDTH=200 HEIGHT=198 ALIGN=right>NPDS
+was designed to address some of these shortcomings and also as a
+proof of concept that PDAs should have HTTP servers embedded in them
+as a means of communicating with the outside world.
+
+<P>So, to answer the original question: "<I>What is Newton Personal
+Data Sharing?</I>"
+
+<P>NewtonOS Personal Data Sharing is a suite of software for the
+Newton that allows you to transparently share Notes, Calendar
+Entries, and Cardfile entries with clients on the WWW. It's a
+<B>battery powered webserver</B> that sports features often reserved
+for "big iron" servers.. <I>scriptability, security, dymamic content
+generation, instant messenging</I>, etc..
+
+<H2><A NAME=Why></A>Why Do I Want To Use It?</H2>
+
+<UL>
+   <LI>You're frequently away from your Newton and still want access
+   to all your vital information (NPDS lets you do this.)</LI>
+   
+   <LI>All your friends have Pilots and WinCE machines.. and you want
+   to make them green (This will.)</LI>
+   
+   <LI>You've wanted a web site for a long time but never had a place
+   to put one (Why not carry it in your briefcase?)</LI>
+   
+   <LI>You're an <I>&uuml;bergeek</I> on the bleeding edge of
+   technology and you love to try cool software. (Hint: this
+   qualifies as cool software.)</LI>
+</UL>
+
+<H2><A NAME=System></A>What Do I Need To Run It?</H2>
+
+<OL>
+   <LI>NewtonOS 2.x on a MP130 or better (MP2x00 recommended),
+   running NIE 1.1 or later.</LI>
+   
+   <LI>Up to 32K Heap if you're running it hard.</LI>
+   
+   <LI>A static IP is <I>suggested</I> but not at all required since
+   the advent of the NPDS Tracker.</LI>
+</OL>
+
+<P>Approximately <B>256 K </B>of either* Internal or Card RAM for all
+the NPDS Components and Soups.<BR>
+<I>*Keep all components of NPDS on the same store if possible.</I>
+
+<H1>
+
+<HR>
+
+<IMG SRC="../images/shots/nhttpd.gif" WIDTH=72 HEIGHT=80 ALIGN=right>Basic
+Instructions:</H1>
+
+<H2><A NAME=Install></A>Installation:</H2>
+
+<UL>
+   <LI>First, use your package installer of choice to install nHTTPd
+   but do not install the other components yet.</LI>
+   
+   <LI>Close your desktop connection, open the Extras drawer, then
+   tap the the nHTTPd Icon to open it. This performs some
+   initialization functions required for the rest of the NPDS System
+   to function.</LI>
+   
+   <LI>Now use your package installer to load your choice of these
+   plugins and extensions.</LI>
+</UL>
+
+<P><TABLE BORDER=0 CELLPADDING=4>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Package</B></FONT>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Function</B></FONT>
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Required</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>NoteServ</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Makes the Notepad Available on the WWW
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>YES</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>DateServ</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Makes your Calendar Available on the WWW
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>RECOMMENDED</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>CardServ</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Makes your Names File Available on the WWW
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>RECOMMENDED</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>Tracker Client</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Enables you to sign on to a Tracker when online
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>OPTIONAL</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>Web*Pager</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Recieve Instant messages from Visitors to your Newton
+         (urlCop is required with Web*Pager)
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>RECOMMENDED</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>NPDS Setup</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Configuration options for the NPDS Suite
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>YES</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>Script Editor</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Write and edit custom Server-Side Scripts for NPDS
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>OPTIONAL</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>GIFServer</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Serve Screenshots off of your Newton
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>OPTIONAL</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>GIFMaker</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Extension needed for GIFServer
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>OPTIONAL</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>urlCop</B>
+      </TD>
+      <TD VALIGN=top WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Extension needed for Web*Pager to reply to Web*Pages
+      </TD>
+      <TD VALIGN=top WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>YES*</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="15%" BGCOLOR="#CCCCCC">
+         <P><B>Scripts</B>
+      </TD>
+      <TD WIDTH="55%" BGCOLOR="#CCCCCC">
+         <P>Example embedded NPDS Scripts for your pages
+      </TD>
+      <TD WIDTH="20%" BGCOLOR="#CCCCCC">
+         <P><FONT SIZE="-1" COLOR="#000066"><B>OPTIONAL</B></FONT>
+      </TD>
+   </TR>
+</TABLE>
+
+<H2><A NAME=Serve></A>Serving Your First Web Page:</H2>
+
+<P><IMG SRC="../images/shots/nhttpd2.gif" WIDTH=141 HEIGHT=163 ALIGN=right><B>Starting
+Up</B>
+
+<OL>
+   <LI>I assume you will be using NoteServ to serve HTML Pages. We
+   need to configure that plugin before we start up NPDS.
+   
+   <OL>
+      <LI TYPE="a">Decide upon one folder in your Notepad that you
+      want to use to hold the Notes you'll make available on the WWW.
+      You can change it later.</LI>
+      
+      <LI>Make sure there's at least one text-only note filed in that
+      folder.</LI>
+      
+      <LI>Open <A HREF="noteserv.html"><B>NoteServ</B></A> and use
+      the folder picker to select the desired folder. <I>(By default,
+      it's set to "Personal")</I></LI>
+   </OL>
+   </LI>
+   
+   <LI>Open nHTTPd and establish a connection to the WWW by tapping
+   the <FONT SIZE="+1"><B>Start</B> </FONT>button <FONT FACE="Geneva">(A)</FONT>
+   
+   <P>When the connection is established, your server's IP address
+   will show up in the area marked "<B>Not Assigned</B>" in the
+   illustration on the right<B> </B><FONT FACE="Geneva">(D).</FONT><B>
+   </B>The status indicator<B> </B><FONT FACE="Geneva">(B)</FONT><B>
+   </B>will change from "<B>IDLE</B>" to "<B>INIT</B>", pause while
+   the other parts of the server start up, then proceed to
+   "<B>RDY</B>". You'll also notice the <B>Start</B> button has been
+   replaced by a <B>Stop</B> button.</LI>
+   
+   <LI>You're now ready to access your Newton WWW server from a web
+   browser. In a browser of your choice, go to
+   <TT>http://insert.server.ip.here/</TT> and you'll see the default
+   page for Notepad Server. Somewhere in there, you'll see a link to
+   the note that's filed in the WWW folder of the Notepad. Go ahead
+   and click on it and see the that contents of that note appear in
+   your browser. You have just served a web page off of your
+   Newton!!!!</LI>
+   
+   <LI>Before doing much more with NPDS, I suggest you read the short
+   chapters on Notepad Server, DateServ, and so on, so that you can
+   begin to tap the full capability of your handheld WWW Server but
+   for now, you are completely and totally ONLINE!</LI>
+</OL>
+
+<P><B>Shutting Down</B>
+
+<BLOCKQUOTE>To shut down your server, tap the <B>Stop</B> button
+   <FONT FACE="Geneva">(A)</FONT>. A slip will come up telling yout
+   that the server is disconnecting.
+   
+   <P>If it doesn't go away in 30 seconds, then the connection
+   actually <I>has </I>been dropped: the operating system just forgot
+   to tell the slip about it <I>(Bug Alert) </I>You may go ahead and
+   close the slip by tapping its close-box.</BLOCKQUOTE>
+
+<H4>Other nHTTPd User Interface Items:</H4>
+
+<BLOCKQUOTE><B>Hit Counter </B><FONT FACE="Geneva">(C)</FONT>: Offers
+   a display of the total number of files served since the last
+   install of nHTTPd.
+   
+   <P><B>Info Button </B><FONT FACE="Geneva">(E)</FONT><B>:</B> Under
+   this button you can find the Cache Manager, as well as the
+   Standard "About", "Help", and "Prefs" entries.
+   
+   <P><B>Plugin Menu </B><FONT FACE="Geneva">(F)</FONT><B>:</B>
+   Pop-up access to the Prefs/Application screen of all installed
+   Plugins. When it is first tapped, there will be a short delay
+   while the names of all plugins are collected. Don't Panic.
+   
+   <P><B>Notify Star: </B><I>(Not shown in screenshot)</I> Tap the
+   star and nHTTPd will minimize to a small blinking star at the top
+   of your Newton screen.
+   
+   <P><B>Recent Hosts:</B> If Access Logging and DNS Lookup are
+   turned on, tapping the Status Indicator <FONT FACE="Geneva">(B)</FONT>
+   will give you a popup list of the last ten unique clients to visit
+   your server since you started it up.</BLOCKQUOTE>
+
+<H2><A NAME=Remove></A>Removing NPDS:</H2>
+
+<P>OK. So things didn't work out and you want this thing off of your
+Newton. Let me tell you how to make sure ALL the data from the NPDS
+installation is gone.
+
+<OL>
+   <LI>Remove all the packages.</LI>
+   
+   <LI>In your storage folder in the Extensions drawer, select
+   <B>NPDS Cache </B>and Delete all the items. This, as you can
+   guess, will remove all your GIFs, cached HTML bits, and other
+   large stored data structures.</LI>
+   
+   <LI>Next, tap <B>NPDS Scripts </B>and <B>NPDS Log</B> in the
+   Storage drawer and Delete those items. Those are CGI scripts and
+   Log entries, respectively.</LI>
+   
+   <LI>To be complete, use a prefs-cleaner like *<A HREF="http://www.standalone.com/">Standalone</A>'s
+   Prefs Cleaner to remove these entries from your Prefs soup.
+   
+   <UL>
+      <LI><B><TT>nHTTPd:ALLPEN</TT></B></LI>
+      
+      <LI><B><TT>pHTML:MAVON</TT></B></LI>
+      
+      <LI><B><TT>pDATES:MAVON</TT></B></LI>
+      
+      <LI><B><TT>pCARDS:MAVON</TT></B></LI>
+      
+      <LI><B><TT>HTTPConfig:MAVON</TT></B></LI>
+      
+      <LI><B><TT>pGIFS:MAVON</TT></B></LI>
+      
+      <LI><B><TT>pPAGER:MAVON</TT></B></LI>
+      
+      <LI><B><TT>NPDS:MAVON</TT></B></LI>
+   </UL>
+   </LI>
+</OL>
+
+<P><FONT SIZE="-1">*Standalone Software:
+http://www.standalone.com/</FONT>
+
+<H1>
+
+<HR>
+
+Using Notepad Server</H1>
+
+<H2><IMG SRC="../images/shots/noteserv.gif" WIDTH=82 HEIGHT=76 ALIGN=right><B>Introduction:</B></H2>
+
+<P>NoteServ is simple extension with a lot of power behind it. Any
+note you write and file in a specially selected folder will be made
+available on the WWW when nHTTPd is active. These Notes can be
+
+<UL>
+   <LI>regular old <B>plaintext notes</B></LI>
+   
+   <LI><B>checklists</B>,</LI>
+   
+   <LI>or <B>outllines</B>.</LI>
+</UL>
+
+<P>and NoteServ will dish them up just the same, turning them from
+Notes to Web pages behind the scenes. You don't have to do a thing!
+
+<P>You're not limited to boring old notes, either. You can also serve
+up fancy hybrid HTML/text notes, straight HTML notes, or run CGI
+scripts from within your Notes. Information on how to do these tasks
+is in the <A HREF="advanced.html">"Advanced" Chapter</A>.
+
+<P>However, let me STRESS once again that you don't need to mess with
+the advanced stuff at all to make NoteServ and NPDS work for YOU.
+It's designed to be simple for the casual user but powerful for the
+super-user.
+
+<P>We've established that making Notes available to WWW visitors is
+as simple as writing down some text in a Note and filing that Note in
+the folder you have selected to be your WWW directory. There's no
+length limit on these notes other than the length imposed by the
+Newton Operating System.
+
+<P>Let's discuss some special features of <B>NoteServ</B> you can use
+to GREATLY enhance the content of your served Notes that don't
+require any work on your part.
+
+<H2>Posting Notes Via A Web Browser</H2>
+
+<P>NoteServ contains two services for submitting notes remotely via a
+WWW browser. Users can post to the directory designated as the WWW
+service directory. These are special notes and will be designated via
+an internal mechanism as being client posted. You, the administrator,
+can post notes using a separate service. You can post to any folder
+on your Newton (allowing you to send data to your Newt that's NOT
+available on the Web). You'll need to know your admin password and be
+able to limit your Notes to around 2048 bytes but other than that
+you're set. So how do these work?
+
+<H3>Client Posting</H3>
+
+<P>If you point the browser to
+<FONT COLOR="#0033FF"><U>http://your.newton.com/html/postnote.html
+</U></FONT>you'll get the Whiteboard for Public Users screen which
+contains a form for submitting Name, Title, and Note Text. One can
+easily embed this URL with the text "Whiteboard" by inserting the
+Server Side Include &lt;NOTE_POST&gt; where you want a link to the
+Public Whiteboard.
+
+<H3>Admin Posting</H3>
+
+<P>There is no SSI for this path (though you could write one..). To
+get to it, point to
+<FONT COLOR="#0033FF"><U>/html/admin-post.html</U></FONT> Once there,
+enter the title and text of the note, choose a folder, and enter your
+admin password. Your note will be posted into that folder.
+
+<H2>LiveLinks:</H2>
+
+<P>Within note, any properly formatted URL will automatically be
+turned into a <I>clickable link.</I> For example, if you write
+<FONT SIZE="+1" FACE="Comic Sans MS"><B>http://www.apple.com/</B></FONT><FONT FACE="Comic Sans MS">
+</FONT>in a Note, it will be displayed on the client's web browser as
+<A HREF="http://www.apple.com/">http://www.apple.com/</A> The same is
+true for <FONT COLOR="#0033CC">gopher,</FONT>
+<FONT COLOR="#0033CC">ftp, mailto:</FONT>, and even
+<FONT COLOR="#0033CC">hotline</FONT> addresses. This is great for
+making lists of hyperlinks, etc for later viewing or sharing.
+
+<H2>Appearance Options:</H2>
+
+<P>You can apply preferences to the way NPDS formats your Notes. In
+the Appearance Panel of <B>NPDS Setup</B> program, you'll find
+several variables that you can set. You can specify
+
+<UL>
+   <LI>default font face,</LI>
+   
+   <LI>font size,</LI>
+   
+   <LI>background color</LI>
+   
+   <LI>"highlight color"</LI>
+</UL>
+
+<P>In addition, to facilitate display of non-American ASCII
+characters you may wish to specify a MIME character set.
+
+<H2>Variables:</H2>
+
+<P>Quickly,<B> NoteServ</B> supports a range of special variables
+called <I>Server Side Includes.</I> Basically, they're stand-ins for
+common things like your Name, City, etc as well as for specialized
+functions like a Search Form for your Notepad that are replaced an
+instant before a page containing them is sent to a WWW Client. We'll
+talk about these in later sections of the Manual but I thought I'd
+introduce them to you early on since they are a core NPDS concept.
+
+<P>
+
+<HR>
+
+<H1><IMG SRC="../images/shots/dateserv.gif" WIDTH=90 HEIGHT=90 ALIGN=left>Datebook
+Server</H1>
+
+<P><B>Path: </B>accessible via<FONT COLOR="#000099">
+/dates/index.html</FONT>
+
+<P><B>SSI:</B> <FONT COLOR="#000099">&lt;DATES&gt;</FONT>
+
+<P><B>Sample Output:</B> <A HREF="../example/dateserv.html" TARGET="_blank">DateServ
+Default Page</A>
+
+<P>DateServ makes items in your Dates database available over the WWW
+in a number of formats. To do this, it reads directly from the Dates
+soup, so any 3rd party applications that alter or extend the Dates
+application may cause you problems. <I>However, there are no reports
+of major conflict so forge ahead!</I>
+
+<P><B>DateServ supports two modes of access:</B>
+
+<OL>
+   <LI>A direct path to your day's and week's agenda</LI>
+   
+   <LI>A forms-based query that returns any range of dates up to 31
+   days in length.</LI>
+</OL>
+
+<P>The paths to the day and week view are, respectively,
+<FONT COLOR="#3333CC">/dates/day.html </FONT>and
+<FONT COLOR="#3333CC">/dates/week.html </FONT>The reason these items
+are pre-specified is to allow DateServ to pre-cache them when NPDS
+starts up. This minimizes time required for a request for these items
+to be served.
+
+<H4>Using Direct Path Access:</H4>
+
+<P>Example: You want to link to your weekly agenda from a page in
+your Notepad. You'd insert this HTML code<BR>
+<FONT COLOR="#3333CC">&lt;A HREF="/dates/week.html"&gt;</FONT>Weekly
+Agenda<FONT COLOR="#3333CC">&lt;/A&gt;<BR>
+</FONT>somewhere in that note.
+
+<H3>A Special SSI Tag:</H3>
+
+<P>Speaking of embedding things, you can also directly embed the
+Daily Agenda (as a table) by using the
+<FONT COLOR="#3333FF">&lt;AGENDA_DAY&gt;</FONT> Server Side Include
+under Notepad Server. When the note containing this tag is served up,
+a table containing the day's agenda will be inserted into the note's
+HTML.
+
+<H3>Configuring DateServ:</H3>
+
+<OL>
+   <LI><B>Week Length: </B>The week overview returned by DateServ is
+   configurable. Open DateServ in the Extras Drawer and you'll see
+   that you can select which day of the week is the "First" day of
+   the week view and you can set the length of the week returned as
+   well. I like to set it to a 6 day week starting on Monday so that
+   my day off (Sunday) is hidden from view.</LI>
+   
+   <LI><B>Event Classes:</B> Although <I>my</I> schedule is an open
+   book, you may prefer NOT to show<I> Events, Meetings, or
+   ToDo's.</I> You may select each class of Calendar entry for WWW
+   display by tapping in the appropriate checkboxes. Note that
+   turning off any Calendar event class <I>turns off ALL instances of
+   that class.</I> There is <I>no support </I>for filtering by
+   priority, folder, store, etc at present.</LI>
+   
+   <LI><B>Meeting Length: </B>Since some people's meetings are
+   indefinite in length, you may choose to NOT show the end time for
+   meetings by de-selecting Show Duration under the Show Meetings
+   checkbox.</LI>
+   
+   <LI><B>Use Javascript: </B>You'll notice that when you click on a
+   meeting or event, you get a nice little pop-up windoid with the
+   pertinent information for that event. If, due to personal
+   preference or security restrictions you do not wish to use this
+   function, de-select this box.<BR>
+   Clicking on links to your Datebook entries will then simply open
+   new browser windows without use of Javascript.</LI>
+   
+   <LI><B>Use Pre-Caching:</B> On a MP130 or a fast Newt with a lot
+   of events, you may want to pre-create the day and week overview
+   and store them in the cache after they are accessed so that they
+   are accessible more readily. These files usually take up about 1
+   and 4 K respectively and are removed when they expire (usually 30
+   minutes to an hour).</LI>
+   
+   <LI><B>Active:</B> NPDS Plugins are dynamically
+   loadable/unloadable. If you wish to turn on or off service of
+   Dates data, open DateServ and de-check this box. To turn Dates
+   back on, re-check it. You no longer need to freeze most NPDS
+   plugins to de-activate them.</LI>
+</OL>
+
+<H3>FAQ for DateServ:</H3>
+
+<P>Q: I just added a meeting to this week's schedule and it hasn't
+shown up yet. Why?
+
+<P>A: The daily and weekly overview are cached files. Your new event
+will show up in an hour or so after the cached version of day.html or
+week.html has expired.
+
+<P>Q: How can I prevent access to my Dates data from outside my
+intranet, LAN, etc?
+
+<P>A: At present you cannot. However, though NPDS 2.0 has barely
+shipped, the next version of NPDS will support basic password
+protection and IP range restriction for enhanced security of you
+sensitive data.
+
+<P>Q: Can I post to the Datebok from the Web?
+
+<P>A: Not yet. I decided to wait for better security before
+implementing this feature in a publicly available package. MY Newton
+allows posting via the web ;-)
+
+<P>Q: Can I change the format of DateServ's output?
+
+<P>A: No, but if you're enterprising you can hack the source any way
+you want. The HTML templates and constructor scripts are well
+delimited and fairly modular.
+
+<P>Q: Do you have any support for MoreInfo?
+
+<P>A: No. I can't do it without reverse engineering the MoreInfo
+software which is not legal. Silverware is welcome to add support to
+the DateServ source for its product.
+
+<P>
+
+<HR>
+
+<H1><IMG SRC="../images/shots/cardserv.gif" WIDTH=88 HEIGHT=86 ALIGN=left>CardFile
+Server</H1>
+
+<P><B>Path:</B> accessible via
+<FONT COLOR="#0000CC">/cards/index.html</FONT>
+
+<P><B>SSI:</B> <FONT COLOR="#0000CC">&lt;CARDS&gt;</FONT>
+
+<P><B>Sample Output: </B><A HREF="../example/cardserv.html" TARGET="_blank">CardServ
+Default Page</A> | <A HREF="../example/cardsearch.html" TARGET="_blank">CardServ
+Search Result</A>
+
+<P>CardServ allows users to search the Names (Cardfile) database,
+receive a ranked list of entries matching your search terms, then
+view any of those entries in one of two ways:
+
+<UL>
+   <LI>As a formatted HTML Page</LI>
+   
+   <LI>As a <A HREF="http://imc.org/pdi/" TARGET="_blank">Versit
+   vCard</A> for import into a vCard-capable Address Book such as
+   that which ships with Netscape Communicator 3.x and higher.</LI>
+</UL>
+
+<P>You can access CardServ via the inserting the URL path
+<FONT COLOR="#3333CC">/cards/index.html </FONT>or by embedding its
+SSI<FONT COLOR="#3333CC">, </FONT> or you can have the actual search
+form embedded in a note by using the SSI tag
+<FONT COLOR="#3333CC">&lt;NAME_SEARCH&gt;.</FONT>
+
+<H3>Configuring CardServ</H3>
+
+<P><B>Show Notes: </B>Since many of us store provate information in
+the Notes of our Name cards, un-check the "<I>Show Notes</I>" box to
+keep this information hidden. It is set to <B>TRUE </B>by default
+until you change it the first time.
+
+<P><B>Active:</B> NPDS Plugins are dynamically loadable/unloadable.
+If you wish to turn on or off service of Names data, open CardServ
+and de-check this box. To turn Names back on, re-check it. You no
+longer need to freeze most NPDS plugins to de-activate them.
+
+<H3>FAQ for CardServ</H3>
+
+<P>Q: I don't use Netscape Communicator. How can I utilize the
+wonderful vCard standard?
+
+<P>A: Well, some programs support importing of vCard data from a text
+file. You may choose to download a person's vCard to disk then import
+it manually. Other than that, I don't know. I wrote CardServ for my
+own use.
+
+<P>Q: Can I use CardServ as a sync tool with a Pilot or my desktop
+computer?
+
+<P>A: In its current state, no. Future development may head that way
+here in Lightyear Land or someone may decide to implement it on their
+own. One-way transmission of massive amounts Cards data is more
+likely to come soon than two-way syncing. For example, early
+experiemental builds of CardServ had an LDAP server built in as the
+query system for the Card file which supported transfer of the whole
+Cardfile as an LDAP database.
+
+<P>Q: How can I prevent access to my Names data from outside my
+intranet, LAN, etc?
+
+<P>A: At present you cannot. However, though NPDS 2.0 has barely
+shipped, the next version of NPDS will support basic password
+protection and IP range restriction for enhanced security of you
+sensitive data.
+
+<P>Q: Can I post to the Cardfile from the Web?
+
+<P>A: Not yet. I decided to wait for better security before
+implementing this feature in a publicly available package. MY Newton
+allows posting via the web ;-) so it's on it's way.
+
+<H2><IMG SRC="../images/shots/pager.gif" WIDTH=90 HEIGHT=90 ALIGN=left><IMG SRC="../images/shots/newpager.gif" ALT="Web*Pager" WIDTH=218 HEIGHT=254 ALIGN=right>WebPager</H2>
+
+<P><B>Path: </B>accessible via the path
+<FONT COLOR="#3333CC">/pager/</FONT>
+
+<P><B>SSI:</B> <FONT COLOR="#0000CC">&lt;PAGER&gt;</FONT>
+
+<P>Web*Pager brings AOL and ICQ style instant messenging to the
+Newton. Visitors to your NPDS server can send you a "Page" which will
+pop up in this pager-type applet on your Newton.
+
+<P>The backlight will flash, a tone will sound, and then, if you have
+Macintalk installed, the message will be <B>SPOKEN OUT LOUD!!! </B>
+
+<P>You can also respond to <I>some</I> pages sent from other Newtons.
+
+<P><B>Interface:</B>
+
+<P>In the screenshot on the right, the buttons along the bottom of
+the "Pager" are info, Delete, Back, Forward, Save, Reply, Close.
+
+<P>You can also scroll up and down in a Page as well as select and
+copy Page text to the Clipboard.
+
+<P><B>Two Way Paging</B>
+
+<P>Note the Newt Button next to the Save icon in the screenshot. This
+button appears when the sender of the page is using a Newton Browser.
+
+<P>The assumption is that he/she is also running NPDS. If you tap the
+Newt Button, your browser will launch and access the sender's copy of
+Web*Pager via NPDS. Voila, you can reply to the message from your
+browser. I know this is a hack, but it's the best I can do for
+freeware! I am working on pager clients for MacOS and (maybe) Win32
+and information on these will become available later.
+
+<BLOCKQUOTE><B>urlCop</B>: Don't forget to install urlCop or two-way
+   paging won't work. For those of you who don't know, urlCop is
+   somewhat like Internet Config for the Mac. It provides a
+   system-level URL handler.</BLOCKQUOTE>
+
+<H4>Configuring Web*Pager</H4>
+
+<P>The option to speak or not speak is controlled by an entry you'll
+find under Web*Pager's <B>info button</B> since some of you will not
+want a chatty Newton...
+
+<P>
+
+<HR>
+
+<H1><A NAME=Top></A>NPDS Tracker Client</H1>
+
+<H2>Introduction</H2>
+
+<P><IMG SRC="../images/shots/tracker.gif" WIDTH=74 HEIGHT=102 ALIGN=left>What
+if you had a Newton WWW Server and nobody came? I mean, maybe they
+would want to, but how are they going to know your IP address?
+
+<P><I>We have a solution</I>. When you go online, your Newton can now
+register with a tracker. People who want to find Newtons online
+simply visit the tracker and they'll find a link to your Newton if
+its still active.
+
+<P>NPDS Tracker consists of two applications that communicate with
+each other.. Tracker Client (which is a NPDS plugin) and Tracker
+Server which is a MacOS CGI/daemon hybrid.
+
+<P>When NPDS starts up, Tracker Client is activated by the NPDS
+architecture and told to register. It sends, using a special
+protocol, information needed to find your Newton on the net as well
+as a description of your Server. The Tracker Server records this
+information for later use. Your NPDS continues to start up and that's
+it, from your Newton's end of things.
+
+<P>On the other end of things, Tracker Server is busy. People who
+want a hyperlinked list of Newton servers are accessing it with their
+WWW browsers while it is also constantly monitoring the status of
+each Newton that has registered with it. If a set period elapses
+where Tracker Server can't connect to your Newt and retrieve a
+special page (served by Tracker Client), it is removed from the list
+of active Newton servers. The ususal period for this expiration is 45
+minutes to one hour and a Newton is usually given 3 chances to
+respond before being removed.
+
+<H2><A NAME=Install></A>Installation</H2>
+
+<P>Use you favorite package installer to load Tracker Client onto the
+same store as all the other NPDS components. If you wish, install a
+NPDS Tracker Configuration package to pre-set all the prefs for you.
+Once Tracker Client is configured, it functions automatically on
+server startup.
+
+<H2>Configuration</H2>
+
+<P><IMG SRC="../images/shots/tracker2.gif" WIDTH=224 HEIGHT=253 ALIGN=right>Manually
+setting up Tracker Client is also easy:
+
+<UL>
+   <LI>Tap on its icon and enter the IP (or DNS name, but IP is
+   STRONGLY preferred) of the Tracker Server you're going to be
+   using.</LI>
+   
+   <LI>In the next line, enter the Tracker Newton port number
+   supplied to you with the tracker's IP address. Make sure to get
+   this right!
+   
+   <UL>
+      <LI><B>A list of active Tracker Server can be found at<BR>
+      </B><A HREF="http://bushlab4.life.uiuc.edu/trackers.html" TARGET="_blank"><B>http://bushlab4.life.uiuc.edu/trackers.html</B></A></LI>
+   </UL>
+   </LI>
+   
+   <LI>Write in a description of your Newton server (up to 45
+   characters).</LI>
+   
+   <LI>Enter the path to the tracker CGI on the Tracker Server.</LI>
+   
+   <LI>Enter the HTTP port of the Tracker Server. It's usually
+   80.</LI>
+   
+   <LI>Finally, tap on the <B>Save Prefs</B> button. <I>(DON'T
+   FORGET!)</I></LI>
+</UL>
+
+<P>You'll notice you also have a checkbox called "Register With A
+Tracker". If this box is unchecked when NPDS starts up, Tracker
+Client will NOT log into its specified Tracker Server.
+
+<P>You can easily remove yourself from a Tracker (after an expiration
+period has elapsed) by de-selecting this checkbox. Conversely, if you
+are running your server and decide after starting it up that you DO
+want to be on the tracker, turn this on and tap the "UP" icon at the
+bottom of the window to manually transmit your data to the Tracker
+Server.
+
+<P>The Slash-Circle icon is for cancelling a connection that seems to
+have gone awry. I have never needed to use it but it's still there in
+case of emergency.
+
+<H2>Testing</H2>
+
+<P>Once you're ready to go, open up nHTTPd and start it up as usual.
+The status line will progress from <B>IDLE</B> to <B>INIT</B> and
+pause for a bit. A NIE status dialog will pop open twice (that's
+Tracker doing its job), then the status line will read <B>READY</B>
+and you'll be all set. To verify that your server has registered,
+point your browser to
+<FONT COLOR="#0000CC"><TT>http://your.newton.net/traq/</TT></FONT>
+and you'll see a page pointing you to the tracker. Click the link and
+see what develops: if all went well, your Newton is listed happily on
+the tracker!
+
+<H3>Verification by Tracker Server:</H3>
+
+<P><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=4>
+   <TR>
+      <TD>
+         <CENTER><FONT SIZE="-1"><IMG SRC="../images/shots/connected.gif" WIDTH=35 HEIGHT=33 ALIGN=bottom><BR>
+         Connected</FONT></CENTER>
+      </TD>
+      <TD WIDTH="80%">
+         <P>After a few minutes (15-30 minutes), Tracker Server will
+         come by and ask for a special response from the /traq/
+         directory. If its request is fulfilled, your Newton's lease
+         on life at the tracker will be renewed for one expiration
+         cycle.
+         
+         <P>You'll know this has happened because the status icon of
+         nHTTPd will change from the standard <B>Connected</B> icon
+         to the <B>Tracked </B>icon.
+         
+         <P>This verification will continue until your Newton no
+         longer responds to requests from the Tracker Server.
+      </TD>
+      <TD>
+         <CENTER><FONT SIZE="-1"><IMG SRC="../images/shots/tracked.gif" WIDTH=32 HEIGHT=32 ALIGN=bottom><BR>
+         Tracked</FONT></CENTER>
+      </TD>
+   </TR>
+</TABLE>
+
+<H2><A NAME=Trouble></A>Troubleshooting</H2>
+
+<P>No major problems have been reported. If you're on a long time,
+NPDS can tend to slow down, or if you have a very active server. In
+either of these cases, you may find yourself wrongly removed from the
+Tracker. To get back online, just open the Tracker client and tap the
+UP icon.
+
+<H2><A NAME=YownTracker></A>Running Your Own Tracker</H2>
+
+<P>The Tracker server is a CGI that runs under any MacOS Web Server
+that supports the standard Mac CGI model (Personal Web Sharing,
+WebSTAR, NetPresenz, etc). It'll run on a 68K but due to some minor
+glitches, it's not supported on that platform. If you're interested,
+email me at <A HREF="mailto:matvon@kagi.com">matvon@kagi.com</A> and
+perhaps we can get you set up.
+
+<P>
+
+<HR>
+
+<H1>GIFMaker</H1>
+
+<P><I>This is the Read Me file for GIFMaker written by its author,
+Brian Ogilvie.</I>
+
+<P><IMG SRC="../images/shots/gifmkr.gif" ALT="GIFMaker" WIDTH=82 HEIGHT=76 ALIGN=right>GIFMaker
+is a Newton extension that allows you to create GIF images of all or
+part of the Newton screen. By using GIFServe you can make your
+Newton-based web page unique! Once you are serving GIFs from your
+Newton, you can save the GIFs in your desktop browser using the usual
+Save Image command.
+
+<P>With GIFMaker, you can set the foreground and background colors by
+tapping on the GIFMaker icon in the Extensions folder of the Extras
+Drawer. A set of sliders for Red, Green, and Blue for each of
+foreground and background are provided. The default is black images
+on a white background.
+
+<P><A NAME=GIFServer></A>To use GIFServer with Newton Personal Data
+Sharing, just access:
+
+<P><FONT COLOR="#0033FF"><TT>http://your.newtons.ip.addr/screen/anyname.gif</TT></FONT>
+
+<P><I>The GIF format is owned by Compuserve while the LZW compression
+used in GIFs is patented by Unisys Corp. Toad Hollow Software Co.
+acknowledges the great generosity of these firms in making the GIF
+format and the LZW compression available royalty free for freeware
+programs such as GIFMaker.</I>
+
+<P>If you are a Newton programmer and are interested in writing
+programs that use GIFMaker, please contact Toad Hollow at the address
+below. All programs using GIFMaker must be freeware.
+
+<P>Toad Hollow's other Newton applications are also available on our
+web page including the Holidays series, Jewish Holidays (1996-2001),
+TMap (a map of the Boston Subway), Freedom Trail (a guide to Boston's
+historic walking trail), and The Elements of Style, a re-publishing
+of the 1918 edition of William Strunk's little black book of grammar,
+with full hypertext links!
+
+<P><B><TT>Brian K. Ogilvie<BR>
+Toad Hollow Software Co.</TT></B><TT><BR>
+</TT><A HREF="mailto:toadhollow@pobox.com"><TT>toadhollow@pobox.com</TT></A><TT><BR>
+</TT><A HREF="http://www.pobox.com/~toadhollow/"><TT>http://www.pobox.com/~toadhollow/</TT></A>
+
+<H1>
+
+<HR>
+
+<A NAME=Top></A>Advanced nHTTPd Options:</H1>
+
+<H2><A NAME=Cache></A>The Cache Manager:</H2>
+
+<P>Although still in its developmental stages, the NPDS Cache manager
+(available from nHTTPd's Info Button as well as anywhere you see a
+spyglass icon) allows you to browse the NPDS cache to see what's in
+there and delete things you think should be gone.
+
+<P>Before you randomly delete, know that nHTTPd<I> already
+</I>manages the cache by deleting expired entries every time it shuts
+down.
+
+<P>The Cache Manager is fairly simple in function now. The name of
+the entry, its creator, date of creation, and any miscellaneous
+developer included data is displayed on the left and a preview is
+displayed on the right.
+
+<P>You can move forward and back through the cache using the arrows
+and delete entries using the trash button. Close the Cache Browser by
+tapping its close box.
+
+<H2><A NAME=Admin></A><IMG SRC="../images/shots/newconfig.gif" WIDTH=239 HEIGHT=241 ALIGN=right>Administering
+Your Server:</H2>
+
+<H3><A NAME=Options></A>NPDS Setup:</H3>
+
+<P>NPDS Setup sports a new multi-panel interface similar to that
+found on desktop applications. The main areas for configuration are
+as follows.
+
+<OL>
+   <LI><B>Content<BR>
+   </B>Control such aspects as Font, Color, MIME-type, Style
+   Sheet</LI>
+   
+   <LI><B>Admin<BR>
+   </B>Various Administrative functions: default path and
+   such...</LI>
+   
+   <LI><B>Security<BR>
+   </B>Set passwords, HTTP Port, etc.</LI>
+   
+   <LI><B>Log<BR>
+   </B>Configure NPDS' Access Logging function</LI>
+</OL>
+
+<P><B>Apply Button:</B> If NPDS is running and you need to change
+configuration settings, press this button after editing the
+preferences to apply the changes you've made to NPDS without
+restarting the server!&nbsp;
+
+<H4>Content</H4>
+
+<P><TABLE BORDER=0 BGCOLOR="#EEEEEE">
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Color- Back: </B>The background color preferred for
+         pages served by NPDS
+      </TD>
+      <TD VALIGN=top>
+         <P><B>Color-</B> <B>Hilite: </B>A second color preferred for
+         highlighting things like table cells, etc.
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Font Face:</B> Default font for pages served by NPDS.
+         You can choose from several other commonly installed fonts
+         as well.
+      </TD>
+      <TD VALIGN=top>
+         <P><B>Font Size:</B> Default font size (relative). Span is
+         from 1 (smallest) to 7 (largest)
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top>
+         <P><B>MIME: </B>This popup allows you to select different
+         MIME character sets to facilitate display of non-American
+         ASCII characters
+      </TD>
+      <TD VALIGN=top>
+         <P>
+      </TD>
+   </TR>
+   <TR>
+      <TD>
+         <P><B>Insert Style Sheet:</B> Inserts NPDS' <A HREF="stylesheet.html">Cascading
+         Style Sheet </A>into the header of all NPDS HTML documents.
+      </TD>
+      <TD>
+         <P><B>Edit CSS: </B>Opens an editor where you can edit the
+         <A HREF="stylesheet.html">Cascading Style Sheet</A> used by
+         NPDS to format its HTML documents.
+      </TD>
+   </TR>
+</TABLE>
+
+<H4>Admin</H4>
+
+<P><TABLE BORDER=0 BGCOLOR="#EEEEEE">
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Default Path:</B> The URL Path defined as "HOME"
+         
+         <P>This is where users willbe directed when they request
+         <FONT COLOR="#0000CC">http://your.newton.net/</FONT>
+      </TD>
+      <TD VALIGN=top>
+         <P><B>Edit MOTD: </B>You can provide a Message of the Day
+         for your visitors here.
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Zero Counter </B>Set your Hit Counter to Zero. Useful
+         if you want to log hits by the day.
+      </TD>
+      <TD VALIGN=top>
+         <P><B>Connection-Show NIE Connect Slip:</B> Select this to
+         show a NIE Slip Each time you start your Server.
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Latency: </B>Since all content generated by NPDS is
+         dynamic, we guess at how long it's going to take to transmit
+         a document to a WWW client.
+         
+         <P>This number represents milliseconds of latency after
+         commencing transmission of TCP/IP data before the connection
+         is destroyed. If you have a fast machine and a good
+         connection you can likely set this to around 500.
+         
+         <P>If you start getting a lot of partial pages sent, bump it
+         upwards about 50 msec at a time.
+      </TD>
+      <TD VALIGN=top>
+         <P>
+      </TD>
+   </TR>
+</TABLE>
+
+<H4>Security</H4>
+
+<P><TABLE BORDER=0 BGCOLOR="#EEEEEE">
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Passwords- Admin: </B>Administrator password for stuff
+         like remote shutdown and log access.
+      </TD>
+      <TD VALIGN=top>
+         <P><B>Passwords- Client: </B>Client password for stuff like
+         note, date, and contact posting. <I>Not yet implemented.</I>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Random: </B>For both admin and client, NPDS can create
+         a password at server startup and notify you of it with a
+         Dialog box. For the truly paranoid...
+      </TD>
+      <TD VALIGN=top>
+         <P><B>Port:</B> The TCP port on which NPDS listens for
+         connections. Standard is 80 but firewalls and stuff can
+         require you to use other numbers.
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Remote Admin: </B>If this is unchecked, no remote
+         access to /cfg/ is allowed.
+      </TD>
+      <TD VALIGN=top>
+         <P><B>Allow SSI in Posted Content: </B>A potential problem
+         exists in NoteServ in that if someone were to post a
+         malicious note with a truckload of SSI's, he could take down
+         the server.
+         
+         <P>If this is <I>unchecked</I> then SSI in Notes less than 1
+         day old posted from the web are not evaluated.
+         
+         <P>This allows YOU time to look at the newly posted data and
+         see if anyone has posted like 50 &lt;AGENDA_DAY&gt; tags.
+         
+         <P><I>Not yet implemented.</I>
+      </TD>
+   </TR>
+</TABLE>
+
+<H4>Log</H4>
+
+<P><TABLE BORDER=0 BGCOLOR="#EEEEEE">
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Keep a Log of HTTP Requests: </B>Obvious.
+      </TD>
+      <TD VALIGN=top>
+         <P><B># Requests: </B>Requests are recorded by host IP
+         address. As new requests come in from a host, they are
+         recorded. This value sets the maxmimum number of requests
+         recorded per host. When max # is reached, the record rolls
+         over and starts removing the oldest from memory.
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Expire Log Entries: </B>How long (Minutes) do you want
+         to keep log entries before they are purged. The NPDS Logging
+         scheme is designed to give a log of recent transactions but
+         by turning this value up you can stretch this out to 8 hours
+         of logging.
+      </TD>
+      <TD VALIGN=top>
+         <P><B>Newton Clicks on HTTP Request: </B>Do you want a
+         pleasant tapping sound to notify you of incoming
+         connections?
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top>
+         <P><B>Resolve IP Addresses to Hostnames: </B>An expensive
+         luxury... When a new IP accesses your Newton, you can set
+         this to look up its DNS entry. This gives a more human
+         readable value in the logfiles but costs up to 3 seconds of
+         activity.
+      </TD>
+      <TD VALIGN=top>
+         <P>
+      </TD>
+   </TR>
+</TABLE>
+
+<H3><A NAME=AdminRemote></A>Remote Administration:</H3>
+
+<P>Connect to your server's <FONT COLOR="#0033CC">/cfg/
+</FONT>directory and a default page will be served where you will be
+presented two options:
+
+<OL>
+   <LI><B>NPDS Log</B></LI>
+   
+   <LI><B>NPDS Shutdown</B></LI>
+</OL>
+
+<P>Invoke either function by entering the current Administrator
+password in the <B>Password</B> text field and hitting 'Return'.
+
+<P><A NAME=Log></A><B>NPDS Log </B>will take entries logged according
+to your Logging preferences and generate a tab-delimited log file.
+Currently, only sorting by <B>host</B> is supported though other
+sortings are planned.
+
+<P><A NAME=Kill></A><B>NPDS Shutdown</B> will shut down your NPDS
+server from the remote location your accessing from, whether it be
+your desktop computer or a terminal halfway across the state. No
+option for restarting at a future time is planned so <I>be sure</I>
+you want to shut NPDS down when you do so!
+
+<H1>
+
+<HR>
+
+Advanced NPDS Topics:</H1>
+
+<H2><A NAME=HTML></A>Using HTML With Notepad Server</H2>
+
+<H3>Introduction:</H3>
+
+<P>NPDS is designed to generate and serve Web content without your
+having any knowledge of HTML or Newtonscript, but it's also able to
+act as a much more traditional HTTP server in that if Notes you store
+in your selected WWW folder are written in strict HTML* they'll be
+served as "files" without any significant changes in their formatting
+or content.
+
+<P><FONT SIZE="-1">* NPDS automatically detects whether a page is
+HTML or plaintext by looking for the presence of any of the following
+tags: </FONT><FONT SIZE="-1" COLOR="#003399">&lt;HTML&gt;,
+&lt;HEAD&gt;, &lt;BODY&gt;,
+&lt;FRAMESET&gt;</FONT><FONT SIZE="-1" COLOR="#3333CC">.
+</FONT><FONT SIZE="-1">You can, of course, fool the parser with a
+phony tag, but why would you want to do that?</FONT>
+
+<H3><B>Naming: </B></H3>
+
+<P>Although your Notes may indeed be HTML files, they don't have to
+be named according to traditional file-naming protocols since
+NoteServ <B>doesn't usually use </B>the file name to retrieve a given
+Note. (Appendix: <A HREF="naming.html"><B>The NPDS Pseudo-Filename
+System</B></A> covers how NPDS handles files and folders)
+
+<P><B>Example: </B>
+
+<P>If you have a note about your train collection and it's written in
+HTML because you need a nicely formatted table of all the types of
+engines you have, you can name the Note "My Train Collection" and
+that's perfectly OK. Its URL when displayed in the list of Notes will
+be something like
+<FONT COLOR="#003399">/html/123456$007.nsd</FONT><FONT COLOR="#3333CC">
+</FONT>where
+<FONT COLOR="#666699">"</FONT><FONT COLOR="#003399">123456$007.nsd</FONT><FONT COLOR="#666699">"</FONT>
+is a special identifier NPDS uses to retrieve your particular Note.
+
+<P>Now, there's a <I>neat trick</I> you can do here... the Note is
+actually a container for a HTML object. What this means is that you
+write out your HTML page, give it a title between the
+<FONT COLOR="#003399">&lt;TITLE&gt;&lt;/TITLE&gt;</FONT> tags, then
+turn around and give the Note that contains it another title, quite
+likely the same one you put in the HTML.
+
+<P>If you want to logically link these two titles, put the following
+Server Side Include (SSI) <B>&lt;NOTE_TITLE&gt;</B> in between the
+&lt;TITLE&gt; tags in the HTML. When the page is served, the Note
+title will be substituted into the space between TITLE tags.
+
+<P>In our "My Train Collection" example: A note containing the HTML
+document is made. In the HEAD of the HTML doc is this code:
+<FONT COLOR="#3333CC">&lt;TITLE&gt;</FONT><FONT COLOR="#003399"><B>&lt;NOTE_TITLE&gt;</B></FONT><FONT COLOR="#3333CC">&lt;/TITLE&gt;.
+</FONT>The Note is titled "My Trains Collection." Now when the page
+is served, the name of the Note is substituted in place of the Server
+Side Include:
+<FONT COLOR="#3333CC">&lt;TITLE&gt;</FONT><FONT COLOR="#003399"><B>My
+Train
+Collection</B></FONT><FONT COLOR="#3333CC">&lt;/TITLE&gt;</FONT>
+
+<H2><A NAME=SSI></A>Server Side Includes: NPDS Extensions to
+HTML</H2>
+
+<P>As you've seen with the previous example, serving Pages and Data
+from your Newton doesn't have to be a static experience. You can
+create living, dynamic documents by writing into your notes variables
+called Server Side Includes (SSI). These variables are detected when
+a Note is served and substituted with specific data. You can put in
+variables for things as mundane as your name and email address to
+things a bit cooler like your daily schedule! You can also use SSI to
+access the NPDS formatting preferences. In later sections, you'll
+even find that you can write Newtonscripts to create your own custom
+SSI.
+
+<H4><A NAME=Table></A>Here, grouped by type, are the Server Side
+Includes currently supported in NPDS and the data they
+represent.</H4>
+
+<P>To use any of these extensions to standard HTML, enclose them in
+<FONT SIZE="+1"><B>&lt; &gt;</B></FONT> like so
+<FONT SIZE="+1"><B>&lt;CUSTOM_TAG&gt;</B></FONT>
+
+<P><A HREF="#User">User Data</A> | <A HREF="#Content">Content
+Variables</A> | <A HREF="#Prefs">Preference</A>s | <A HREF="#Paths">Paths</A>
+
+<P><TABLE BORDER=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD VALIGN=top COLSPAN=3 BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B><A NAME=User></A>User
+         Environment Variables</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_POST: Postal Zone
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_REGION: Current State/Province
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>TIME: Current Date/Time
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_TELE: Default Telephone
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>EMAIL: Current Default Email Address as mailto: hyperlink
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>USR_CITY: Current City
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_NAME: Name of Current Owner
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_ADDR: Current Street Address
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+   </TR>
+</TABLE>
+<BR>
+<TABLE BORDER=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD VALIGN=top COLSPAN=3 BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B><A NAME=Content></A>NPDS Content
+         Variables</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>NOTE_LIST: List of Notes Filed in your selected WWW
+         folder
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>POST_LIST: List of Notes posted via the WWW
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>NOTE_POST: Insert a link to /html/postnote.html where you
+         can post Notes to your Newton from a browser.<BR>
+         *<FONT SIZE="-1">This obsoletes functionality of the old
+         <I>Whiteboard</I> plugin and its SSI tag "POST"</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>NAME_SEARCH: Inserts a form for searching the Names
+         database.
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>AGENDA_DAY: Inserts a table containing the day's Events,
+         Meetings, ToDos.
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>NOTE_SEARCH: Inserts a form for searching the Notepad and
+         returning a ranked list of hits.
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>NOTE_TABLE: Table view of Notes sorted in ascending order
+         by creation date
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>POST_TABLE: Table view of WWW-posted Notes sorted in
+         ascending order by creation date
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>EVERY_TABLE: Table view of Both WWW-posted and Your Notes
+         sorted in ascending order by creation date
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>EVERY_LIST: List of Both WWW-posted and Your Notes
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+   </TR>
+</TABLE>
+<BR>
+<TABLE BORDER=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD VALIGN=top COLSPAN=3 BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B><A NAME=Prefs></A>NPDS-Wide
+         Preference Variables</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>DEF_FONT: Font face defined as default
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>DEF_SIZE: Default Font Size
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>DEF_COLR: Background color
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>HI_COLR: Preferred Background Highlight color
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>MOTD: Admin's Message of the day to his/her visitors
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>HOME: Inserts a hyperlink to the page defined by admin as
+         the "Home" page.
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>INSULT: This is a special treat for you, Thou artless,
+         beef-witted hedge pig.
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>COUNTER: Hit Counter
+      </TD>
+   </TR>
+</TABLE>
+<BR>
+<TABLE BORDER=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD VALIGN=top COLSPAN=3 BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B><A NAME=Paths></A>Content Path
+         Variables</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>NOTEPAD: Returns a link to NoteServ's /html/index.html
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>CALENDAR: Returns a link to DateServ's /dates/index.html
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>CARDFILE: Returns a link to the CardFile Server default
+         page /cards/index.html
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>PAGER: Returns a link to WebPager's form-based paging
+         interface (/pager/index.html)
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>CFG: Returns a link to the NPDS Administrator page
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+   </TR>
+</TABLE>
+
+<P><A NAME=Example></A><B>Real World Example:</B> You've written some
+pages in HTML and you want want the email address that associates
+with your current owner card available on each page. Since you have 5
+email addresses, this could be a problem, except that you know about
+the &lt;EMAIL&gt; tag. Insert it where you want your email address to
+go and the address will always be that of the current owner of the
+Newton.
+
+<P><A NAME=CustomSSI></A><B>Writing You Own Custom Server Side
+Includes:</B>
+
+<P>Version 2.0 of NPDS contains the <I>Simple Scripting Architecture
+</I>which allows you to write Newtonscripts that return substantial
+chunks of text and can be inlined into any NPDS Content by assigning
+then their own Server Side Includes. For more details and some
+examples, see the manual section on the "<A HREF="scripting.html">Simple
+Scripting Architecture</A>".
+
+<H2><A NAME=Custom></A>Making Your Own Default Page for Notepad
+Server:</H2>
+
+<P>When a client accesses the /html/ directory, NoteServ (actually
+most HTTP servers do) serves a built-in file called
+"<FONT COLOR="#3333CC">index.html</FONT>". You can easily over-ride
+the "index.html" that NoteServ delivers, though. Here's how.
+
+<OL>
+   <LI>Create a note and give it the title "<B>index.html</B>". Make
+   sure it's filed in your selected WWW directory. You can also open
+   NoteServ and tap the "<B>index.html</B>" button to create a
+   template version of the built-in index page in your web service
+   folder which you can then modify to your hearts content.</LI>
+   
+   <LI>Use <A HREF="http://www.w3.org/" TARGET="_blank">standard
+   HTML</A> 4.0 and any Server Side Includes you wish to create a
+   properly formatted and syntactically-correct home page.</LI>
+   
+   <LI>Keep in mind that most of the formatting will be done when the
+   <A HREF="stylesheet.html">NPDS Style Sheet</A> is applied to your
+   page so don't go crazy with FONT tags and such.</LI>
+   
+   <LI>Any time you change the folder that NoteServ looks in to find
+   pages to serve, you need to re-file this custom note or the
+   built-in <FONT COLOR="#3333CC">index.html</FONT> file will be
+   served instead</LI>
+   
+   <LI>&nbsp;</LI>
+</OL>
+
+<H1>
+
+<HR>
+
+The NPDS Cascading Style Sheet</H1>
+
+<P>New in this version of NPDS is a revamped HTML engine that
+generates nearly perfect HTML 4.0 code. A new paradigm in
+presentation of web content is to send the information <I>separate
+from </I>the formatting. This allows immense flexibility on the part
+of the author, the server, and the browser in the way content is
+presented.
+
+<P>All the font and style information has been stripped from the HTML
+created by NPDS. This data is now expected to be contained in a
+Cascading Style Sheet, which is a declaration of how the various
+elements of a page should be rendered. A definitive reference on
+style sheets can be found at the <A HREF="http://www.w3.org/Styles/" TARGET="_blank">W3
+web site</A> but I'll briefly describe what this means to you in the
+rest of this section.
+
+<H2>A Basic Style Sheet</H2>
+
+<P>A typical style sheet looks something like this:
+
+<BLOCKQUOTE><FONT SIZE="-1" COLOR="#003399"><CODE>&lt;STYLE
+   TYPE="text/css"&gt;</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#003300"><CODE>&lt;!--</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>BODY {</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>BACKGROUND-COLOR:
+   #ffffff;</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>FONT-FAMILY: Chicago,
+   sans-serif;</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>FONT-SIZE:
+   MEDIUM}</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>EM { FONT-STYLE: italic
+   }</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>H1 { FONT-SIZE: X-LARGE,
+   </CODE></FONT>
+   
+   <BLOCKQUOTE><FONT SIZE="-1" COLOR="#660000"><CODE>BACKGROUND-COLOR:
+      #66cc99, </CODE></FONT>
+      
+      <P><FONT SIZE="-1" COLOR="#660000"><CODE>FONT-FAMILY: Charcoal
+      }</CODE></FONT></BLOCKQUOTE>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>H2 { FONT-SIZE: LARGE
+   }</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>STRONG { FONT-WEIGHT:
+   bold }</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>TD.HILITE {
+   BACKGROUND-COLOR: #dddddd }</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#660000"><CODE>CODE { FONT-FAMILY:
+   Courier, monospace }</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#003300"><CODE>--&gt;</CODE></FONT>
+   
+   <P><FONT SIZE="-1" COLOR="#003399"><CODE>&lt;/STYLE&gt;</CODE></FONT></BLOCKQUOTE>
+
+<P>You can have this data inline within the web page or it can be
+imported as a separate file. If you view the source of a NPDS web
+page, you'll see our style sheet up in the HEADer region of the
+source. This style sheet is inserted into all HTML generated by NPDS
+(if this function is turned on).
+
+<P>The power of this approach, you may be able to see is that all
+instances of say, H1, will have a large font, a background color of
+light green, and be rendered in the font face "Charcoal". Note also
+the TD.HILITE element: this is a special class of the TD element that
+has a colored background. I actually use this element to highlight
+the elements in DateServ.
+
+<P>NPDS extends this power by using the formatting Server Side
+Includes in its default style sheet. This way, the style sheet can be
+re-written by either hand-coding it or more easily, by interacting
+with the NPDS Setup application.
+
+<H2>Editing or Configuring Use of the Style Sheet</H2>
+
+<P>Under the Content tab of the nHTTPd Preference application, you'll
+find two controls for the Style Sheet. You can turn Style Sheets on
+or off if you wish and you can also open a window in which you can
+edit the style sheet used by NPDS.
+
+<H3>The Style Sheet Editor</H3>
+
+<P>The CSS editor is a floating window that you can scroll around in.
+Three buttons adorn the bottom of the window:
+
+<OL>
+   <LI><B>Default:</B> Restore the Style Sheet to the built-in
+   default</LI>
+   
+   <LI><B>Revert:</B> Erase all changes you have made since the last
+   time you saved the Style Sheet</LI>
+   
+   <LI><B>Save:</B> Finalize Changes you've made to the Style
+   Sheet.</LI>
+</OL>
+
+<P>If you are editing the style sheet with NPDS still running, make
+sure to tap the <B>Apply </B>button in the main NPDS Setup
+application in order to load the new style sheet into NPDS' memory.
+
+<H2>Browser Support for Cascading Style Sheets</H2>
+
+<P>Ironically, our NPDS servers are more compliant with W3 standards
+than are a siginificant fraction of desktop or handheld WWW browsers.
+Versions of Navigator before 4.x can't understand them and the
+implementation under MSIE 3.x was buggy and inconsistent. Mileage may
+vary with other browsers. Therefore, NPDS detects whether a user is
+visiting with a CSS-enabled browser and will NOT transmit the CSS
+data if the browser is too old to understand it.
+
+<P>As of this version of NPDS, MSIE 4.x, 5.x, and Mozilla 4.x are
+considered CSS-enabled and are sent the data. If you use another
+browser that is truly CSS compliant, please email me the User Agent
+field for it and I'll add it to the list of enabled browsers.
+
+<H1>
+
+<HR>
+
+NPDS Simple Scripting Architecture</H1>
+
+<H2><IMG SRC="../images/shots/EditorIcon.gif" WIDTH=74 HEIGHT=102 ALIGN=left><A NAME=Intro></A>Introduction</H2>
+
+<P>During development of NPDS 2.0, I recieved a constant stream of
+requests for custom <A HREF="advanced.html#SSI">Server Side
+Includes</A>. However, since every SSI added means additional parsing
+time, I couldn't very well add in lots of neat (but often of dubious
+usefulness) items like temperature, Longitude &amp; Latitude, owner's
+Birthday, and so on, since not everyone would use them.
+
+<P>My answer to providing custom SSI is the <I>NPDS Simple Scripting
+Architecture</I>.
+
+<P>I've added the ability to link text-based scripts to user-defined
+HTML extensions. These scripts can return text values (most common)
+and/or can execute actions on the host machine. All that is required
+is a minimum of Newtonscript knowledge and the ability to follow the
+example scripts packaged with <B>Script Editor.</B>
+
+<H2><IMG SRC="../images/shots/editor.gif" WIDTH=242 HEIGHT=324 ALIGN=right><A NAME=Editor></A>Script
+Editor</H2>
+
+<P>On the right is a screenshot of your interface to NPDS Scripting,
+the Script Editor. The UI elements are as follows:
+
+<UL>
+   <LI><B>Script Info:</B> Tapping in the light gray box will opena
+   slip where you can define script name, its SSI, and whether the
+   script is active</LI>
+   
+   <LI><B>Script Length: </B>A visual cue to show you how close to
+   the limit of <I>4096 bytes</I> your script text is.</LI>
+   
+   <LI><B>Number</B> (on the far right): Count of scripts in the
+   Script Soup</LI>
+   
+   <LI><B>Dog-ear Fold</B> (Bottom Left): Flip through your scripts.
+   Gray-ish is forward, white is backward.</LI>
+   
+   <LI><B>Shiny Script: </B>Create a new template script</LI>
+   
+   <LI><B>Trash Can:</B> Delete current script (not reversible)</LI>
+   
+   <LI><B>Evaluate: </B>Invokes the actual compiler in nHTTPd and
+   returns either the text value or any error message your script
+   generates. It also reports how many ticks your script takes to
+   execute.</LI>
+   
+   <LI><B>Keyboard: </B>Pops open a keyboard to type with.</LI>
+   
+   <LI><B>Close Box:</B> Quit Script Editor</LI>
+   
+   <LI><B>Scrolling:</B> You can scroll up and down in a given
+   script. The overview button returns to the top of the page.</LI>
+</UL>
+
+<H2><A NAME=Writing></A>Writing Scripts</H2>
+
+<P>A NPDS Script is cast as a standard Newtonscript function that
+returns some value. Since most of what NPDS is used for is
+text-based, most NPDS Scripts should return Text. In this example,
+we're going to retrieve the version of NewtonOS in use on this
+Newton.
+
+<P>1. Open Script Editor and tap the "New Script" Button.
+
+<P>2. Enter the Following Text (<I>Note that some of it is already
+written for you on the Notepad</I>)
+
+<BLOCKQUOTE><FONT COLOR="#006600"><CODE>func(</CODE></FONT><FONT COLOR="#990000"><CODE>nullvar</CODE></FONT><FONT COLOR="#006600"><CODE>)</CODE></FONT>
+   
+   <P><FONT COLOR="#006600"><CODE>begin</CODE></FONT>
+   
+   <BLOCKQUOTE><FONT COLOR="#006600"><CODE>local
+      </CODE></FONT><CODE>theOutput</CODE><FONT COLOR="#006600"><CODE>:=
+      </CODE></FONT><CODE>"NewtonOS ROM
+      Version:"</CODE><FONT COLOR="#006600"><CODE> &amp;&amp;
+      Gestalt(0x1000003).ROMversionstring;</CODE></FONT>
+      
+      <P><FONT COLOR="#006600"><CODE>return
+      </CODE></FONT><CODE>theOutput</CODE><FONT COLOR="#006600"><CODE>;</CODE></FONT></BLOCKQUOTE>
+   
+   <P><FONT COLOR="#006600"><CODE>end</CODE></FONT></BLOCKQUOTE>
+
+<P>3. Tap on the "Script Info" Box and enter a Name and SSI for this
+script. If you wish it to be available to NPDS right away, tap the
+"Script Is Active" checkbox. You may activate and inactivate scripts
+at will simply by changing the value of this checkbox. For purpose of
+explaining how to use this script, I am going to assume you gave it
+the SSI value "VERSION".
+
+<P>4. Let's try this function out. Tap the "<B>Evaluate</B>" button.
+You'll get a window that should give you either the text output of
+your function (or a cryptic error message and the Newtonscript Error
+Code).
+
+<P>5. To use this function in your WWW content, place the "HTML" code
+&lt;VERSION&gt; wherever you wish to return the value of this script.
+When that page is served, you'll see that the text that was returned
+when you evaluated the script is subsituted in place of the
+&lt;VERSION&gt; tag. To turn off this script, open it under the
+script editor, tap the information line, and un-check the "Script is
+Active" box.
+
+<H3>Your Example Worked. What Do I Need to Know to Write My Own
+SSI?</H3>
+
+<P><B>Dummy Variable</B>
+
+<P>Look at the head of the script: "<I>func(nullvar)</I>". The
+<B>nullvar</B> is a dummy variable that is required by NPDS's
+Compiler. You can change its name, but the fact remains that a NPDS
+Script must accept <B>ONE and ONLY ONE</B> argument. You cannot pass
+your own arguments to your script. (There is a way around this that
+I'll mention later)
+
+<P><B>Script Length</B>
+
+<P>There is a limit on the length of NPDS Scripts to encourage you to
+write FAST and efficient code and currently that limit is 4096 Bytes.
+
+<P><B>Compiler Variables</B>
+
+<P>4096 Bytes isn't a lot, especially in light of the fact that in
+order to command, for instance, nHTTPd, you usually need lengthy code
+like
+
+<P><CODE>GetRoot().|nHTPd:ALLPEN|</CODE>
+
+<P>In anticipation of this, and also to save some typing, the NPDS
+Compiler supports symbols that stand for specific expressions.
+
+<P><TABLE BORDER=0 CELLPADDING=4>
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Compiler Variable</B></FONT>
+      </TD>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Actual Value</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>|NPDS|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GetRoot().|nHTTPd:ALLPEN|
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>|NoteServ|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GetRoot().|pHTML:MAVON|
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>|DateServ|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GetRoot().|pDATES:MAVON|
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>|CardServ|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GetRoot().|pCARDS:MAVON|
+      </TD>
+   </TR>
+</TABLE>
+
+<H4>CGI Environment Variables</H4>
+
+<P>If you've ever programmed in Perl, you'll recognize the names of
+these variables. These are the standard names for specific values
+that pertain to HTTP transactions on your server. To use these, place
+them in your script in the same context as you would a string. For
+instance, if you wanted to create a fully qualified URL to your
+server's DateServ, you could use the SERVER_NAME and SERVER_PORT
+variables like so:
+
+<P><FONT COLOR="#003399"><CODE>"http://SERVER_NAME:SERVER_PORT/dates"</CODE></FONT>
+
+<P>Notice that the variables aren't treated in any special manner.
+They will be substituted in at script-compile time with appropriate
+values.
+
+<P><TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Environment Variable</B></FONT>
+      </TD>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>String Returned</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SERVER_SOFTWARE
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><B>nHTTPd/2.02 (Newton)</B>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SERVER_NAME
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>IP Address of Server
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SERVER_PROTOCOL
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><B>HTTP/1.0</B>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GATEWAY_INTERFACE
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><B>CGI/1.0 (NPDS_SSA)</B>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SERVER_PORT
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Current Server Port
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>REMOTE_ADDR
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Client IP Address
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>REMOTE_HOST
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Client DNS (If Resolved*)
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>HTTP_USER_AGENT
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Client Browser
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SCRIPT_NAME
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Name of the currently executing script
+      </TD>
+   </TR>
+</TABLE>
+
+<H4>Script Execution Time</H4>
+
+<P>When you Evaluate a script, also present in the results window
+will be a count of Ticks required for compiling and execution of your
+code. Script Editor will complain if your code takes longer than 360
+Ticks (6 Seconds) to Execute.
+
+<P>While there is no limit on the size of function you create, keep
+in mind that when a NPDS Script is invoked, it is parsed, compiled,
+and evaluated on the fly during service of the page that invokes it.
+A script that takes 360 Ticks to run will add 6 seconds to the 1-4
+seconds its takes NPDS to serve a page for a total of up to 10
+seconds. Many browsers will time out at 10 seconds and close their
+connections. Hence the suggestion of keeping your scripts short and
+sweet...
+
+<P>If you want real POWER, learn the NPDS API and write your own
+custom plugins. With my user proto and documentation you can create a
+simple NPDS plugin in an afternoon, with the limiting step being your
+ability to write your own data generation functions.
+
+<P><B>Limit on Output Size</B>
+
+<P>There is no longer a limit on output size. You're limited only by
+the free heap on your Newton. I'd suggest not generating more than
+about 2000 bytes, though.&nbsp;
+
+<H2><A NAME=FAQ></A>FAQ</H2>
+
+<P>Q: How many Scripts should I keep active at a given time?
+
+<P>A: Well, when a script is "Active", NPDS output is scanned for the
+presence of the SSI assigned to that scripts. This takes a couple of
+ticks per SSI. Not until an instance of the SSI is found is the
+script actually evaluated. However, since we're trying to keep things
+fast, I'd suggest no more than 10-12 User scripts active at any given
+time.
+
+<P>Q: How do I access the name of the file being requested?
+
+<P>A: During HTTP Request, nHTTPd fills a slot in its base frame
+called <B><CODE>CURRENT_HTTP_REQUEST </CODE></B>with the following
+data frame:
+
+<BLOCKQUOTE><CODE>{ip: user's IP address (string),</CODE>
+   
+   <P><CODE>path: the directory and filename requested
+   (string),</CODE>
+   
+   <P><CODE>time: HTTP formatted time of the request,</CODE>
+   
+   <P><CODE>request: the path and filename of the request,</CODE>
+   
+   <P><CODE>dns: the DNS value of the user's IP (if defined),</CODE>
+   
+   <P><CODE>agent: the browser the client is using}</CODE></BLOCKQUOTE>
+
+<P>To access these items, use the following code:
+
+<P><B><CODE>|NPDS|.CURRENT_HTTP_REQUEST.</CODE><I><CODE>slot</CODE></I></B>
+
+<P>Q: What is that "Script Returns a Static Value" option?
+
+<P>A: NPDS keeps its speed despite the additional features I keep
+adding by doing a lot of pre-processing and cacheing. Some of NPDS'
+own SSI are evaluated at Startup and are held in memory throughout
+the lifetime of the session.
+
+<P>This option within the Scripting Architecture will be similar in
+function, but is not yet implemented. If you have scripts that will
+return a static value (say, the Latitude and Longitude of your City),
+you can check this option and when support for pre-evaluation is
+included in NPDS, your scripts will run much faster since they can be
+pre-compiled and evaluated when the server starts up.
+
+<P>Q: I hit <B>Evaluate </B>and get an exception.. I am sure my code
+is OK. and all I did was try to do something using NPDS..
+
+<P>A: It's good policy to keep nHTTPd open (but minimized) when
+you're writing scripts. You'll get better results without having to
+do some sneaky stuff to fool the system into thinking its open. See
+if this helps..
+
+<P>Q: Can I use these scripts as real CGIs (Programs that can be
+accessed directly by a HTTP request)?
+
+<P>A: Not yet. Some issues remain with getting this up and going in
+an easy to use and secure manner. But it's a definite goal. For now,
+you can define a pretty complicated SSI tag and use it as the total
+content of a note. Remember that you can generate a pretty large and
+complex chunk of text from one of these SSIs.
+
+<H1>
+
+<HR>
+
+Troubleshooting NPDS 2.0</H1>
+
+<H2>The Brute-Force Approach</H2>
+
+<H3>NPDS Wiper</H3>
+
+<P><IMG SRC="../images/shots/wiper.gif" ALT="NPDS Wiper" WIDTH=64 HEIGHT=96 BORDER=0 ALIGN=left><IMG SRC="../images/dogbert.gif" ALT="Demons" WIDTH=128 HEIGHT=120 ALIGN=right>One
+of the most common bugs in NPDS is corrupt or incompatible
+preferences for any of the installed components. This is due in part
+to the complexity of inter-module communication and in part to my
+relative inexperience with the NewtonOS. When confusion strikes, the
+best thing to do is Nuke the prefs entries. Since there are a LOT of
+installed prefs, I wrote NPDS Wiper to batch-erase all NPDS
+preferences.
+
+<P>To use NPDS Wiper, tap its icon, then choose "Clear". After a
+second, you'll be given the option to Reset. You should do allow the
+Newton to do so. (Choose 'Yes')
+
+<P><FONT COLOR="#003399"><B>WARNING:</B></FONT> If you erase the
+prefs but do not allow the Newton to reboot itself, NPDS will fail
+horribly if you try to start it up. It <B>REQUIRES</B> its
+preferences and they won't be re-initialized until all the packages
+are re-activated by a restart.
+
+<H3>Soup Cleaning</H3>
+
+<P>Sometimes, the soups that hold NPDS bits and pieces get messed up.
+Shut everything down and open your Storage folder in the Extras
+Drawer. You can tap on these two script and delete their entries:
+<B>NPDS Cache</B> and <B>NPDS Log</B>
+
+<H2>More Subtle Approaches</H2>
+
+<P>Please refer to this section in the Online Version of the Manual
+so that you can keep abreast of any new techniques for
+troubleshooting and optimizing NPDS Performance.
+
+<H1>
+
+<HR>
+
+What's New in NPDS 2.02?</H1>
+
+<P><FONT COLOR="#0033CC"><TT>Revision Date: April 22,
+1999</TT></FONT>
+
+<H2><A NAME=nHTTPd></A>nHTTPd</H2>
+
+<OL>
+   <LI>Bugs Fixed:
+   
+   <OL>
+      <LI>Screwy Logging behavior fixed</LI>
+      
+      <LI>Limit on size of Script-generated text removed. Now limited
+      only by free RAM!</LI>
+      
+      <LI>Fixed Browser detection algos to be actually useful.</LI>
+      
+      <LI>Javascript is only inserted if it's needed.</LI>
+      
+      <LI>SERVER_NAME now returns server IP address to scripts</LI>
+      
+      <LI>Fixed Screen Rotation Bug</LI>
+      
+      <LI>Brought HTTP Header transmission syntax into RFC20068
+      compliance</LI>
+      
+      <LI>Various oversights in error-trapping addressed</LI>
+   </OL>
+   </LI>
+   
+   <LI>Features Added:
+   
+   <OL>
+      <LI>Revised HTML engine uses HTML 4.0 and Style Sheets</LI>
+      
+      <LI>Added Support for most CGI Environment variables in
+      Scripting Architecture</LI>
+      
+      <LI>Cleaned up API interface and added some more direct access
+      to facilitate</LI>
+      
+      <LI>Added "Apply" function to NPDS Config to allow changing of
+      settings without shutting down the server.</LI>
+   </OL>
+   </LI>
+</OL>
+
+<H2><A NAME=NoteServ></A>Notepad Server (NoteServ)</H2>
+
+<OL>
+   <LI>Bugs fixed:
+   
+   <OL>
+      <LI>May have fixed the reluctance of NoteServ to let you change
+      the index.html file while the server is active</LI>
+      
+      <LI>Fixed a bug where Carriage Return - Linefeeds in the text
+      of a note would shut down the HTTP connection</LI>
+   </OL>
+   </LI>
+   
+   <LI>Features Added:
+   
+   <OL>
+      <LI>Publicly announced the admin-post method of adding Notes by
+      administrator</LI>
+      
+      <LI>HTML 4.0/CSS Support</LI>
+   </OL>
+   </LI>
+</OL>
+
+<H2><A NAME=DateServ></A>Datebook Server (DateServ)</H2>
+
+<OL>
+   <LI>Bugs Fixed:
+   
+   <OL>
+      <LI>None</LI>
+   </OL>
+   </LI>
+   
+   <LI>Features Added:
+   
+   <OL>
+      <LI>HTML 4.0/CSS Support</LI>
+   </OL>
+   </LI>
+</OL>
+
+<H2><A NAME=CardServ></A>CardFile Server (CardServ)</H2>
+
+<OL>
+   <LI>Bugs Fixed
+   
+   <OL>
+      <LI>Errors in vCard and HTML Formatting of non-person entries
+      addressed</LI>
+   </OL>
+   </LI>
+   
+   <LI>Features Added:
+   
+   <OL>
+      <LI>HTML 4.0/CSS Support</LI>
+   </OL>
+   </LI>
+</OL>
+
+<H2><A NAME=Pager></A>Web*Pager</H2>
+
+<OL>
+   <LI>Bugs Fixed:
+   
+   <OL>
+      <LI>Added support for Nethopper 2.x and its lame forms
+      implementation</LI>
+   </OL>
+   </LI>
+   
+   <LI>Features Added:
+   
+   <OL>
+      <LI>Visual confirmation of messages sent by administrators of
+      NPDS Trackers</LI>
+      
+      <LI>HTML 4.0/CSS Support</LI>
+   </OL>
+   </LI>
+</OL>
+
+<H2><A NAME=Tracker></A>NPDS Tracker</H2>
+
+<OL>
+   <LI>Bugs Fixed:
+   
+   <OL>
+      <LI>None</LI>
+   </OL>
+   </LI>
+   
+   <LI>Features Added:
+   
+   <OL>
+      <LI>Added support for auto-configuration packages to allow
+      instant configuration for a given tracker</LI>
+      
+      <LI>Data fields now have memory of past values</LI>
+      
+      <LI>HTML 4.0/CSS Support</LI>
+   </OL>
+   </LI>
+</OL>
+
+<H1>
+
+<HR>
+
+Contact Information</H1>
+
+<H2><A NAME=Bug></A>File a Bug Report</H2>
+
+<P>Mail me at <A HREF="mailto:matvon@kagi.com">matvon@kagi.com</A>
+with bugs and snafus. Please include such information as platform,
+method of internet connectivity, language of your Newton, etc and
+also if possibe, a BugTrap log.
+
+<H2><A NAME=Report></A>Read The Latest Bug Report</H2>
+
+<P><A HREF="http://bushlab4.life.uiuc.edu/bugreport20.html">http://bushlab4.life.uiuc.edu/bugreport20.html</A>
+
+<H1>
+
+<HR>
+
+Appendix: The NPDS Pseudo-Filename System</H1>
+
+<P><I>How To Be a Card-Based Computer in a Disk-Based World</I>
+
+<P>The Web is very much organized around the idea of "files" and
+"paths" and "directories" yet the Newton has no concept of these
+things. All storage on a Newton is in a single meta-store and divided
+into smaller units called soups. Soups are composed of entries. The
+Newton paradigm is much more fluid and adaptive than the fixed
+directory sructure of standard CLI -type filesystems but since we're
+trying to emulate the latter, some conventions have been established.
+
+<P>Newton Data is accessed via directories like in a standard
+filesystem, but NPDS uses the folder name (/dates/, /html/, etc) to
+determine which plugin to use to create data for service to the WWW.
+No physical information is encoded in the directory name.
+
+<P>Thusly: All NPDS Directories are one level deep. In other words,
+by default, all items in the /dates/ directory are the same level in
+the tree. There's no support for additional layers in the emulated
+filesystem and developers are welcome to use any subdirectory scheme
+they wish to implement.
+
+<P>NPDS paths look like: "<B>/html/224567867$967.xxx</B>"
+
+<P>What is encoded here is:
+
+<P><FONT SIZE="-1"><CODE>|NPDSPluginPath|/|NewtonStoreSignature|$|SoupEntryUniqueID|optionaldata|.|extension|</CODE></FONT>
+
+<P>This path, combining the directory, store, soup entry ID, and
+extension allow NPDS plugins to return the requested item just like
+it was being served off a big ol' Hard Disk.
+
+<H1>
+
+<HR>
+
+Legal Miscellania</H1>
+
+<P>While I'm not too jazzed about all this legal stuff, it has to be
+in here to keep everybody happy, safe, and legal.
+
+<H2>Lightyear Media:</H2>
+
+<P>NPDS refers to nHTTPd, NoteServ, DateServ, Web*Pager, CardServ,
+Tracker Client, Script Editor, NPDS Setup,
+
+<P>Lightyear Media provides this software free of charge but is happy
+to accept donations for it.
+
+<P>You may redistribute all components of NPDS as you wish as long as
+the entire manual is included. You may not charge for this software,
+but you may charge distrbution fees if it is distributed on fixed
+media.
+
+<P>You may use this software in for-profit ventures without further
+licensing but you are encouraged to compensate the authors in a
+manner proportional to the value you derive from it.
+
+<P>Support is provided at the discretion of the authors. No liability
+for lost data or damaged hardware resulting from installation of this
+software is held by Lightyear Media or the authors. Adopters are
+encouraged to back up important data before installing NPDS.
+
+<H2>Trademark Ownership:</H2>
+
+<P>Newton, eMate, NewtonOS are trademarks of Apple Computer and are
+used at its discretion.
+
+<P>NewtonOS Personal Data Sharing (NPDS), NoteServ, CardServ,
+DateServ, BitGrabber, and Web*Pager are trademarks of Matthew Vaughn.
+All NPDS icons are trademarks of Lightyear Media and may not be used
+without permission.
+
+<P>nHTTPd is derived from Gnu Public License source code and is not
+trademarked.
+
+<H2>Gnu Public License:</H2>
+
+<P>Core functionality of NPDS is based on code derived from
+GPL-protected sources. Aspects of licensing of NPDS not specified in
+the statement of Lightyear Media may be covered by GPL.
+
+<H1>
+
+<HR>
+
+Credits</H1>
+
+<P><I>NewtonOS Personal Data Sharing is dedicated to my loving wife,
+Allison</I>
+
+<P><B>Couldn't Have Done It Without:</B>
+
+<P><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=4>
+   <TR>
+      <TD VALIGN=top>
+         <P>Mom and Dad V.
+         
+         <P>Mom and Dad A.
+         
+         <P>Jon and Liss L.
+         
+         <P>Dan B.
+         
+         <P>Todd W.
+         
+         <P>Sis V.
+         
+         <P>Daisy Cat and Lilly Cat
+      </TD>
+      <TD VALIGN=top>
+         <P>Brian Ogilvie<BR>
+         (for working on NPDS plugz)
+         
+         <P>Steve Weyer<BR>
+         (for making Newtscape)
+         
+         <P>Ray Rischpater<BR>
+         (for coming up with the first nHTTPd)
+      </TD>
+      <TD VALIGN=top>
+         <P>Brent "Full Time" D.
+         
+         <P>Craig "Debug" M.
+         
+         <P>John "Destruction Testing" O.
+         
+         <P>John S.
+         
+         <P>Jean-Louis "One More Feature" V.
+         
+         <P>Marcus S.
+         
+         <P>Doug L. and the rest of MSPUG
+      </TD>
+   </TR>
+</TABLE>
+
+<P><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><IMG SRC="../images/sdifftext.gif" WIDTH=157 HEIGHT=27 ALIGN=left><IMG SRC="../images/newtonos.gif" WIDTH=158 HEIGHT=31 ALIGN=right>
+      </TD>
+   </TR>
+</TABLE>
+</BODY>
+</HTML>

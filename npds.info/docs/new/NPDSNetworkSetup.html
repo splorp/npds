@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<title>NPDS Network Setup</title>
+	<meta name="generator" content="BBEdit 7.0.1">
+	<style type="text/css">
+	<!--
+		.note { color:#FF0000; }
+		.right { text-align: right; }
+		.center { text-align: center; }
+	-->
+	</style>
+</head>
+<body>
+
+	<h1>NPDS Network Setup</h1>
+	<h3>Draft (20060425)</h3>
+	
+	<h2>Introduction</h2>
+	
+	<p>This document explains how to set up NPDS in a private network, i.e. if your Newton shares your Internet access with other machines. If your Newton is connected directly to the Internet (or if you gave it a public IP), you don't need a particular setup. This document is also intended for users who want their Newton to be available to the Internet.</p>
+
+	<p>Please note that to make NPDS work you will need full access to the router, i.e. to the machine that is connected to the Internet. This is the case at home but you might have to convince the sysadmin at work. Please also note that this won't work with Internet Service Provider who don't offer a "Full IP" internet access, such as AOL.</p>
+
+	<p>You will need to configure the router and to be honest this is one of the most tricky part of this setup. We give various examples. Please note that the router doesn't need to be a dedicated device (like an Airport base station), it can be your main computer.</p>
+
+	<p>Additionally, since this document assumes that you want to share your Internet access among several computers, it assumes that you want to do so over Ethernet which is the only possible way (well, this probably can be done over LocalTalk as well). Hence it assumes that you have a NewtonOS 2.1 device (i.e. a MP2x00 or an eMate 300) and an Ethernet or compatible card (e.g. 802.11b) that works with your Newton. Ethernet cards require NIE 2.0 which requires NewtonOS 2.1. So there is no way to share your Internet connection with a MP1x0 <span class="note">(I think)</span></p>
+
+	<p>This document is also intended for people with little or no knowledge of networking. Don't hesitate to ask on the NPDS mailing list for help or clarification (see the last part of this How-To).</p>
+
+	<p>Please read the document carefully before you begin and execute the steps in the order of the document. Some steps only apply to particular network configuration.</p>
+
+	<h2>Accessing the Internet</h2>
+	
+	<p>The first step of the NPDS Network Setup is to access the internet from your Newton. NPDS is a server, but you need to access the Internet as a client first for two reasons:</p>
+
+	<ul>
+		<li>NPDS includes Internet clients (such as the Tracker client and the statistic name resolving), and you probably want them to work</li>
+		<li>It's much easier to setup your Newton as an Internet client than as an Internet server and in fact to set it up as a server requires first that you do set it up as a client.</li>
+	</ul>
+	
+	<p><small>In fact, NPDS core only works as a server. Some users in the past didn't configure their Newton as a client (i.e. it wasn't able to access the Internet completely). These users had an advanced networking knowledge and had very good reasons for doing so. If you really want to do so and you need help, ask on the NPDS mailing list.</small></p>
+
+	<h3>Setting up NIE 2.0</h3>
+
+	<p>For an Internet access over Ethernet on your Newton, you need:</p>
+	
+	<ul>
+		<li>A Newton device running NewtonOS 2.1</li>
+		<li>A Newton compatible Ethernet (or an 802.11) card. Check the list on the Newton Ethernet page:<br>
+			<a href="http://www.chuma.org/newton/ethernet/">http://www.chuma.org/newton/ethernet/</a>)</li>
+		<li>The Lantern API, aka Newton Devices. You can find it here:<br>
+			<a href="http://www.unna.org/unna/apple/software/Internet/NIE2/ENETSUP/newtdev.pkg">http://www.unna.org/unna/apple/software/Internet/NIE2/ENETSUP/newtdev.pkg</a></li>
+		<li>The driver for your Ethernet card. Check the Newton Ethernet Page.</li>
+		<li>Newton Internet Enabler 2.0 core that you can find here:<br>
+			<a href="http://www.unna.org/unna/apple/software/Internet/NIE2/REGPKGS/inetenbl.pkg">http://www.unna.org/unna/apple/software/Internet/NIE2/REGPKGS/inetenbl.pkg</a></li>
+		<li>NIE Ethernet Support:<br>
+			<a href="http://www.unna.org/unna/apple/software/Internet/NIE2/ENETSUP/enetsup.pkg">http://www.unna.org/unna/apple/software/Internet/NIE2/ENETSUP/enetsup.pkg</a></li>
+		<li>Internet Setup to configure your Internet access (you can freeze or delete it afterwards):<br>
+			<a href="http://www.unna.org/unna/apple/software/Internet/NIE2/REGPKGS/inetstup.pkg">http://www.unna.org/unna/apple/software/Internet/NIE2/REGPKGS/inetstup.pkg</a></li>
+	</ul>
+	
+	<p>Install the packages in this order. Except some weirdness with the 3Com, once you have installed Newton Devices and the Newton Driver, a popup window should appear when you insert your Ethernet card.</p>
+	
+	<h3>Setting up the router to let the Newton access the Internet</h3>
+	
+	<p>You also need to setup your local network to let the Newton access the Internet and to setup your Newton accordingly.</p>
+
+	<h4>General notes</h4>
+
+	<p>For NPDS to work properly, you shouldn't allocate an address dynamically to your Newton, i.e. you should perform a manual setup instead of a DHCP or self-setup (i.e. ZeroConf). You might be able to serve pages with a dynamic setup, but it has to be rather stable.</p>
+
+	<p>The router machine should be configured for doing NAT, i.e. for letting your Newton access the Internet. Most hardware routers are configured like this out of the box. You need a special router software on your computer if you mean to use it as the router (this is included in most Unices).</p>
+
+	<h4>Airport (hardware) base setup</h4>
+	
+	<p>You need to enable NAT on your hardware Airport base using Airport Admin Utility. You also need to tell it to distribute IP addresses. Here is a sample setup:</p>
+
+	<p class="center"><img src="AirportBaseSetup.jpg" alt="Airport hardware base setup" width="653" height="502"></p>
+
+	<p>Airport bases allows static IPs in the range 10.0.1.51-10.0.1.something for Ethernet clients and 10.0.1.200-10.0.1.254 for Wireless clients. Setup your Newton accordingly. The submask is 255.255.255.0. The gateway is 10.0.1.1.</p>
+
+	<p>If your Airport connects to the Internet via DHCP, you can find the DNS servers of your Internet Service Providers in the Internet Tab of the Airport Admin Utility. If your Aiport connects to the Internet by other means, consult your ISP to know which DNS servers you should use. Configure your Newton to use these servers.</p>
+	
+	<h4>Airport (software) base setup (MacOS &lt; X)</h4>
+	
+	<p class="note">To be written</p>
+
+	<h4>MacOS setup with IPNetRouter</h4>
+	
+	<p class="note">To be written</p>
+
+	<h4>MacOS X setup</h4>
+	
+	<p class="note">To be written</p>
+
+	<h4>Unix setup with ipf</h4>
+	
+	<p class="note">To be written</p>
+
+	<h4>NetBSD setup with ipnat</h4>
+	
+	<p>First, checkout the manual (<a href="http://www.netbsd.org/Documentation/">http://www.netbsd.org/Documentation/</a>) for basic network settings.</p>
+
+	<p>Setup your LAN (assign 192.168.1.1 to the router and 192.168.1.2 to 192.168.1.254 to the inside computers, for example) on one interface. Setup your internet connexion on a different interface.</p>
+
+	<p>in /etc/rc.conf, insert "<code>ipnat=YES</code>"</p>
+	
+	<p>in /etc/ipnat.conf, insert:<br>
+	<code>map &lt;out if&gt; 192.168.1.0/24 -&gt; 0/32</code><br>
+	where &lt;out if&gt; is the name of the outside interface (tlp0, rl1, en2, etc...)</p>
+
+	<p>If you reboot, the NAT will be activated. If you do not want to reboot, just type <code>/etc/rc.d/ipnat start</code>.</p>
+
+	<p>There you are, you LAN accesses the web through your NetBSD with ipnat.</p>
+
+	<h4>D-Link DI-713p</h4>
+	
+	<p>Connect to the D-Link router's IP address using your browser.  This is usually done by typing 192.168.0.1 into the browser's address.</p>
+
+	<p>A login screen appears.  For my D-Link DI-713p, you type in the system password only.  The default system password is "admin" (no quotes).</p>
+
+	<p>Note -- Most other routers require a username and a password.  For a D-Link DI-614, you must type in a username and password.  The default username is "administrator" (no quotes), the default password is blank (that is, type nothing into the password field).</p>
+
+	<p>An information screen appears.</p>
+	
+	<p class="center"><img src="D-LinkDI-713p-InfoScreen.jpg" width="797" height="550" alt="D-Link DI-713p Setup Info Screen"></p>
+	
+	<p>Click the DHCP link at the bottom (it's circled in green in the screen shot). Check that the DHCP server is enabled and the IP addresses that are reserved for dynamic assignment and those that are reserved for static assignment.</p>
+
+	<p>For this router, the dynamic addresses pool extends from 192.168.0.100 through 192.168.0.199.  Addresses below ".100" are not dynamic, they are static IP addresses. Choose a static address for your Newton, like 192.168.0.17.</p>
+
+	<p class="center"><img src="D-LinkDI-713p-DHCP.jpg" width="695" height="550" alt="D-Link DI-713p Setup Info Screen"></p>
+
+	<h4>Testing the result</h4>
+	
+	<p>Once you have setup your Newton to share your Internet access, test the result using Internet clients such as Newtscape, SimpleMail or NetHopper. I suggest NetHopper because it requires no special configuration (unless you have to use an HTTP proxy) and it displays the Newton Internet Enabler dialogs so you can easily figure out what is going wrong.</p>
+
+	<h2>Installing NPDS and accessing it from your private network</h2>
+	
+	<p>The next step is to install NPDS and try to access it from another computer in your private network (this is to check that everything works).</p>
+
+	<p>Install NPDS core package (nHTTPd) from <a href="http://npds.free.fr">http://npds.free.fr</a>. Also install the configuration package if you want to fine tune the NPDS server. Other packages won't hurt except the tracker client that will try to connect to the tracker server and we'll configure it later. Freeze it, disable it or delete it for the moment.</p>
+
+	<p>Press the start button on NPDS core package. The Newton will automatically start and serve pages on default port (or any port you might have configured in the preferences). Then type your Newton's private IP (what the NPDS core package displays, i.e. 10.0.1.203) in a browser running on a computer on your local network. Some browsers require that you put http:// at the beginning to work. Put a colon followed by the port if it isn't 80 (e.g. if it is 8080).</p>
+
+	<p>The URL would therefore be something like:</p>
+	<ul>
+		<li>http://192.168.4.26</li>
+		<li>http://10.0.1.203:8080</li>
+	</ul>
+	
+	<p>If you get a page in your browser then NPDS works. Congratulation. Next step is to make it available on the Internet.</p>
+
+	<h2>Make your Newton be available on the Internet</h2>
+	
+	<h3>Configuring your router</h3>
+
+	<p>To make your Newton available on the Internet, you need to tell your router to forward requests to your Newton. This is called port mapping.</p>
+
+	<p>Let's say that you want your Newton to serve on port 8080 and configured it accordingly (in the preferences, Admin tab, TCP/IP Prefs). You need to tell the router to map any request on port 8080 to your Newton (on port 8080). Please note that for the moment, you need the external port to be the same as the internal port. This shouldn't be a problem. If it is, ask me, I'll make the required changes to support different ports.</p>
+
+	<p>This setup depends on your router.</p>
+
+	<h4>Airport (hardware) base setup</h4>
+	
+	<p>To map ports with Airport, you need to click the Port Mapping tab and then add a new entry. Enter the port (in both public and private fields) and the private IP of your Newton like below:</p>
+
+	<p class="center"><img src="AirportBasePortMapping.jpg" alt="Airport Base Port Mapping" width="349" height="186"></p>
+
+	<p>Save the changes and the Airport Admin Utility will restart the Airport base.</p>
+	
+	<h4>Airport (software) base setup (MacOS &lt; X)</h4>
+	
+	<p class="note">To be written</p>
+
+	<h4>MacOS setup with IPNetRouter</h4>
+	
+	<p class="note">To be written</p>
+
+	<h4>MacOS X setup</h4>
+	
+	<p class="note">To be written</p>
+
+	<h4>Unix setup with ipf</h4>
+	
+	<p class="note">To be written</p>
+
+	<h4>NetBSD setup with ipnat</h4>
+	
+	<p>In /etc/ipnat.conf, insert:<br>
+<code>rdr &lt;out if&gt; any port &lt;incoming port&gt; -&gt; &lt;newton address&gt; port &lt;port&gt; tcp</code><br>
+where &lt;out if&gt; is the name of the outside interface, &lt;incoming port&gt; the public port to forward to the newton, &lt;newton address&gt; the newt address (no kidding? ;) and &lt;port&gt; the port the newt is listening on.</p>
+
+	<p>Restart your ipnat (with "<code>/etc/rc.d/ipnat restart</code>") and you are done with the config.</p>
+
+	<h4>Linksys WRT54G</h4>
+	
+	<p>Victor Rehorst provided us with this screen shot of his router's port forwarding setup in a browser. His Newton's private IP is 172.16.3.25 and it serves web pages on port 8080.</p>
+	
+	<p class="center"><img src="LinksysWRT54G.jpg" width="827" height="645" alt="Linksys WRT54G port forwarding setup"></p>
+	
+	<h4>D-Link DI-713p</h4>
+	
+	<p>In the information screen, click on the Advanced button, it is circled in red in the first screen shot.  At the advance tab, we set up the router to allow in-bound internet traffic to reach the NPDS server.  One of the recommended port to use for NPDS is 8080, so I have entered that port in the "Virtual Server" list.  I have also entered my NPDS Newton's fixed IP address there, so that the router knows which computer will receive the inbound traffic.  In my case, I set my Newton's Internet Setup program to use the fixed IP address 192.168.0.17.  Therefore, I typed in 17 next to the port 8080.  You also must check the "Enabled" column to make this work.</p>
+
+	<p class="center"><img src="D-LinkDI-713p-VirtualServer.jpg" width="690" height="510" alt="D-LinkDI-713p port forwarding setup"></p>
+
+	<p>You must save this router change, scroll down to the bottom of the screen and click the Save button.</p>
+
+	<p class="center"><img src="D-LinkDI-713p-Save.jpg" width="705" height="550" alt="D-LinkDI-713p port forwarding setup - save button"></p>
+
+	<p>The router respond with the message "You must reboot to make the change active".  There are two ways to reboot,
+a) pull the power plug out and then put it back in, or
+b) use the reboot command.  You can reach reboot command by clicking on the Basic button, and then clicking on the Tools button.</p>
+
+	<p class="center"><img src="D-LinkDI-713p-Reboot.jpg" width="705" height="550" alt="D-LinkDI-713p reboot button"></p>
+
+	<h3>Testing the result</h3>
+
+	<p>The next step is to test the result. Since you are inside the network, you will need to ask someone to test it for you. Fortunately, there are servers that can do this for you. I suggest to use W3C's validator (<a href="http://validator.w3.org">http://validator.w3.org</a>). In the URI field, put http://, then your public IP, i.e. the external IP of your router, and finally a colon and the port number if it's not 80. If the validator tells you that the server isn't reachable, check the tracker's settings. If it tells you that the page complies (or doesn't, you should only have warnings with a default NPDS installation, though), then your Newton was accessed. Check that the hit counter increased (or that your Newton made a tick if the sound is on).</p>
+
+	<p>I want to insist on the concept of public IP. Your router has two IPs, an internal IP and an external IP. The internal IP is a private one, it looks like your Newton's IP. You can read your public IP on various websites, like for example <a href="http://checkip.dyndns.org/">http://checkip.dyndns.org/</a>. Note that if you have a proxy, this might give you your proxy's IP. You might want to try <a href="http://checkip.dyndns.org:8245/">http://checkip.dyndns.org:8245/</a>.</p>
+
+	<h2>Registering to the tracker server</h2>
+	
+	<p>The last step is to register your Newton to the tracker server so Newton fans can find and visit your Newton. To do so, install the Tracker client. There is a special setting for Newtons sharing the Internet connection: check the Newton is in a LAN checkbox and enter your router's public IP in the Public IP field.</p>
+
+	<p>If your router connects to the Internet via DHCP, its address might change. And therefore you will have to update the tracker client settings to register the proper IP.</p>
+
+	<p>Instead, you can put a domain name in the Public IP field and update that name when your IP changes. There are dynamic domain name services on the Internet like dyndns (<a href="http://www.dyndns.org/">http://www.dyndns.org/</a>). Install an automatic IP update client on one of the machines on your network (like the router if it's a computer), tell it to get the IP externally (unless it's the router) and put the dynamic domain name in the Public IP field.</p>
+
+	<p>In the end, you should have a tracker client setup like this one:</p>
+	
+	<p class="center"><img src="TrackerClientSetup.gif" alt="Tracker Client Setup" width="248" height="343"></p>
+
+	<p>Please use a tracker server running a recent version of the tracker server software (&gt;= 0.1.31). These recent servers will return an error if you tried to register with a private IP and therefore prevent you from doing this mistake without realizing it.</p>
+
+	<p>Finally, you normally cannot access your Newton from the tracker server page on your private LAN unless you hacked some files on your desktop computer. This is normal. Use the private IP instead.</p>
+
+	<h2>Contact information</h2>
+	
+	<p>To obtain help, please subscribe the <a href="http://npds.free.fr/">NPDS mailing list</a> and ask there.</p>
+	
+	<p>This document was written by <a href="mailto:pguyot@kallisys.net">Paul Guyot</a>, Nicolas Zinovieff (NetBSD setup) and Allen Russell (D-Link router setup) <span class="note">put your name here ;)</span>. Comments are welcome.</p>
+
+	<h2>Change history</h2>
+	<ul>
+		<li>25 Apr 2006 - Minor formatting and syntax changes</li>
+		<li>22 Mar 2004 - Added D-Link 713p setup and Linksys WRT54G screen shot (thanks Allen &amp; Victor)</li>
+		<li>08 Jan 2003 - Added NetBSD setup details (merci Nicolas)</li>
+		<li>08 Jan 2003 - Initial release</li>
+	</ul>
+
+	<hr>
+	
+	<table summary="W3 icons">
+		<tr>
+			<td>
+				<a href="http://validator.w3.org/check/referer">
+					<img style="border:0;width:88px;height:31px"
+					src="http://www.w3.org/Icons/valid-html401"
+					alt="Valid HTML 4.01!" height="31" width="88">
+				</a>
+			</td>
+			<td>
+				<a href="http://jigsaw.w3.org/css-validator/">
+					<img style="border:0;width:88px;height:31px"
+					src="http://jigsaw.w3.org/css-validator/images/vcss" 
+					alt="Valid CSS!" height="31" width="88">
+				</a>
+       		</td>
+		</tr>
+	</table>
+</body>
+</html>

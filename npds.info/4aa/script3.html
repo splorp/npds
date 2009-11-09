@@ -1,0 +1,164 @@
+<HTML>
+<HEAD>
+   <TITLE>Chapter 4</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Making Choices</FONT></H1>
+
+<BLOCKQUOTE><A HREF="script4.html"><FONT FACE="Verdana">Next -&gt;
+   Responding to Client-Side Data</FONT></A></BLOCKQUOTE>
+
+<P><FONT FACE="Verdana">Now it starts to get good... In this section,
+I'm going to show you how to return different values from your script
+in response to specific conditions. You can use this kind of script
+to do all sorts of nifty stuff. In this case, we're going to set up a
+script that returns a greeting based upon the time of day.</FONT>
+
+<P><FONT FACE="Verdana">In order to tackle this, we're going to need
+more research than we did in the last chapter. To pull this off, we
+need to</FONT>
+
+<OL>
+   <LI><FONT FACE="Verdana">Figure out how to determine the time of
+   day</FONT></LI>
+   
+   <LI><FONT FACE="Verdana">Divide the day up into parts.</FONT></LI>
+   
+   <LI><FONT FACE="Verdana">Return the correct response depending on
+   the time</FONT></LI>
+</OL>
+
+<H3><FONT FACE="Verdana">Time of Day</FONT></H3>
+
+<P><FONT FACE="Verdana">Because it is localized to so many languages,
+the NewtonOS has a really powerful system for dealing with dates and
+times. Newton keeps time in one of two ways:</FONT>
+
+<UL>
+   <LI><FONT FACE="Verdana">Time in Minutes</FONT><A HREF="#1"><FONT FACE="Verdana"><SUP>1</SUP></FONT></A><FONT FACE="Verdana">:
+   Integer number of minutes since midnight, January 1,
+   1904</FONT></LI>
+   
+   <LI><FONT FACE="Verdana">Time in Seconds</FONT><A HREF="#2"><FONT FACE="Verdana"><SUP>2</SUP></FONT></A><FONT FACE="Verdana">:
+   Integer number of seconds since midnight, January 1,
+   1993</FONT></LI>
+</UL>
+
+<P><FONT FACE="Verdana">For our purposes, we'll use Time In Minutes
+since it's the most general and we don't need seconds
+resolution.</FONT>
+
+<P><FONT FACE="Verdana"><I>Time in Minutes</I> is pretty useless to
+humans: We're best at dealing with values like day, week, month,
+hours, and so on. In every language, the word for these values is
+different so the core of the Newton date system is the Date
+Frame</FONT><A HREF="#3"><FONT FACE="Verdana"><SUP>3</SUP></FONT></A><FONT FACE="Verdana">
+which is a frame containing month, week, day, hour, minute, etc as
+integers.</FONT>
+
+<P><FONT FACE="Verdana">You create a date frame with this kind of
+Newtonscript: <CODE>Date(integer time in seconds)</CODE></FONT>
+
+<P><FONT FACE="Verdana">To get today's date, we'd do
+<CODE>Date(Time());</CODE></FONT>
+
+<P><FONT FACE="Verdana">which returns on March 9, 1999 3:18 PM this
+date frame:</FONT>
+
+<BLOCKQUOTE><CODE>{<BR>
+   year: 1999,<BR>
+   month: 3,<BR>
+   Date: 9,<BR>
+   dayOfWeek: 2,<BR>
+   hour: 15,<BR>
+   minute: 18,<BR>
+   second: 0,<BR>
+   daysInMonth: 31<BR>
+   }</CODE></BLOCKQUOTE>
+
+<P><FONT FACE="Verdana">To access just the hour slot of the frame,
+you'd use <CODE>Date(time()).hour </CODE>and that's just what we'll
+do.</FONT>
+
+<H3><FONT FACE="Verdana">Dividing the Day Into Parts</FONT></H3>
+
+<P><FONT FACE="Verdana">Here are out rules for dividing the day
+up:</FONT>
+
+<OL>
+   <LI><FONT FACE="Verdana">If the hour slot is between 5 and 11 it's
+   Morning</FONT></LI>
+   
+   <LI><FONT FACE="Verdana">If the hour slot is between 12 and 17
+   it's Afternoon</FONT></LI>
+   
+   <LI><FONT FACE="Verdana">If the hour slot is between 18 and 4 it's
+   Evening</FONT></LI>
+</OL>
+
+<H2><FONT FACE="Verdana">Greetings, Visitor!</FONT></H2>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> Greetings
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> TIMEGREET
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE>//Allocate the second part of the greeting<BR>
+            <CODE>local theGreet;</CODE>
+            
+            <P>//Store the current hour in a variable<BR>
+            <CODE>local theHour:= Date(time()).hour;</CODE>
+            
+            <P>//Simple set of if..then..else statements<BR>
+            //Refer to the <U>Newtonscript Programming
+            Language</U><A HREF="#4"><SUP>4</SUP></A><BR>
+            //for full syntax and usage information<CODE><BR>
+            if theHour &gt; 4 and theHour &lt; 12 then</CODE>
+            
+            <BLOCKQUOTE><CODE>theGreet:= "Morning";</CODE></BLOCKQUOTE>
+            
+            <P><CODE>else</CODE>
+            
+            <P><CODE>if theHour &gt; 11 and theHour &lt; 18
+            then</CODE>
+            
+            <BLOCKQUOTE><BLOCKQUOTE><CODE>theGreet:=
+                  "Afternoon";</CODE></BLOCKQUOTE></BLOCKQUOTE>
+            
+            <P><CODE>else</CODE>
+            
+            <P><CODE>if theHour &gt; 17 or theHour &lt; 5 then</CODE>
+            
+            <BLOCKQUOTE><CODE>theGreet:= "Evening";</CODE></BLOCKQUOTE>
+            
+            <P>//Return our greeting<CODE><BR>
+            return "Good" &amp;&amp; theGreet;</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+
+<P><FONT FACE="Verdana"><A NAME=1></A>1.NPR: 17-21<BR>
+<A NAME=2></A>2.NPR: 17-22<BR>
+<A NAME=3></A>3.NPR: 17-27<BR>
+<A NAME=4></A>4.NPL: 3-1 to 3-3</FONT>
+
+<CENTER><FONT FACE="Verdana">
+
+<HR>
+
+</FONT><A HREF="script4.html"><FONT FACE="Verdana">Next -&gt;
+Responding to Client-Side Data</FONT></A></CENTER>
+</BODY>
+</HTML>

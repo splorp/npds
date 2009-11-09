@@ -1,0 +1,10 @@
+// New Credits SSI
+// Copyright (c) 2002 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This is a simple script meant to override the CREDITS SSI. Just call it CREDITS.
+
+func(inUndocumentedRequestFrame)
+begin
+	return "<a href=\"http://npds.free.fr\"><img src=\"/bin/images/serve-npds.gif\" alt=\"Powered by NPDS\" border=\"0\"></a>"
+end

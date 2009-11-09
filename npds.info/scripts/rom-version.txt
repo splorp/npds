@@ -1,0 +1,8 @@
+// ROM Version SSI
+// I think this one comes from the standard NPDS package.
+// It just gets the ROM version string from Gestalt and displays it.
+
+func(inUndocumentedRequestFrame)
+begin
+	return "" & Gestalt(0x1000003).ROMVersionString;
+end

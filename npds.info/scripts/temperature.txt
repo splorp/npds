@@ -1,0 +1,8 @@
+// Temperature SSI
+// I think this one comes from the standard NPDS package.
+// It just reads the temperature and displays it (in Celsius).
+
+func(inUndocumentedRequestFrame)
+begin
+	return floor(BatteryStatus(0).ambientTemp) && "&deg;C";
+end

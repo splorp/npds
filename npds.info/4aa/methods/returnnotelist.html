@@ -1,0 +1,94 @@
+<HTML>
+<!--This file created 3/17/99 7:19 AM by Claris Home Page version 3.0-->
+<HEAD>
+   <TITLE>ReturnNoteList</TITLE>
+   <META NAME=GENERATOR CONTENT="Claris Home Page 3.0">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1>ReturnNoteList</H1>
+
+<P>ReturnNoteList accepts the following arguments and syntax (and is
+not too forgiving yet!):
+
+<P><B>ReturnNoteList(sort, owner, format)</B>
+
+<P><B>sort </B>is a frame
+
+<BLOCKQUOTE>{<BR>
+   order: <I>symbol</I>,<BR>
+   criteria: <I>symbol</I><BR>
+   }</BLOCKQUOTE>
+
+<P><B>owner </B>is the application that owns the notes you want to
+return. This is a NPDS-specific slot and is currently only
+<I>non-existent</I> or equal to the symbol <B>'|pHTML:MAVON|</B> .
+All you need to know to use this slot is:
+
+<P><TABLE BORDER=0 CELLPADDING=4 WIDTH="66%">
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Value</B></FONT>
+      </TD>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Notes Returned</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>NIL
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Notes Written By You
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>'|pHTML:MAVON|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Notes Posted From The Web
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>'all
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Both Classes of Note
+      </TD>
+   </TR>
+</TABLE>
+
+<P><B>format </B>is a symbol that specifies the formatting of the
+HTML note list you create using ReturnNoteList()
+
+<P><TABLE BORDER=0 CELLPADDING=4 WIDTH="66%">
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Value</B></FONT>
+      </TD>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Format</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>'list
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Notes Titles Returned As Unordered List
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>'table
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Notes Titles Returned In a Table
+      </TD>
+   </TR>
+</TABLE>
+
+<P>Source
+</BODY>
+</HTML>

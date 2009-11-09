@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+   <TITLE>Chapter 3</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">A Dynamically-Valued Script</FONT></H1>
+
+<BLOCKQUOTE><A HREF="script3.html"><FONT FACE="Verdana">Next -&gt;
+   Making Choices</FONT></A></BLOCKQUOTE>
+
+<P><FONT FACE="Verdana">A second use of Server Side Includes is to
+return values that cannot be determined when you write the page.
+Because the Simple Scripting Architecture gives you full access to
+the internals of the Newton Operating System, you can do any number
+of awesome things. In this chapter, I'll walk through a script that
+can return the free heap value. You can follow the RAM status of your
+server as well as show off to those guys with 128M of RAM and buggy
+servers that you can run a good ship in under 300K of RAM!</FONT>
+
+<P><FONT FACE="Verdana">We'll walk through this simpler example first
+and then in later chapters, we'll do some other stuff with the Newton
+Operating System.</FONT>
+
+<P><FONT FACE="Verdana">You'll note that for the next couple
+sections, I'll reference various Newton Programming documents and
+books. This is to get you familiar with looking things up in these
+resources if you're not already. I have provided a link to them for
+you to </FONT><A HREF="http://www.life.uiuc.edu/~mwvaugh/pdf/" TARGET="_blank"><FONT FACE="Verdana">download
+them to your hard drive</FONT></A><FONT FACE="Verdana"> for your
+personal reference.</FONT>
+
+<H2><FONT FACE="Verdana">Background</FONT></H2>
+
+<P><FONT FACE="Verdana">Before we write, we need to assemble the
+requisite Newtonscript commands to do what we need. In the Newton
+Programmer's Reference, we find that all you have to do to see the
+heap value is invoke the Stats()</FONT><A HREF="#1"><FONT FACE="Verdana"><SUP>1</SUP></FONT></A><FONT FACE="Verdana">
+method. They suggest doing a Garbage Collection with
+GC()</FONT><A HREF="#2"><FONT FACE="Verdana"><SUP>2</SUP></FONT></A><FONT FACE="Verdana">
+before polling the heap value to ensure that all the cobwebs are
+blown out of memory before trying to assay how much is free.</FONT>
+
+<P><FONT FACE="Verdana">I can tell you that Stats() returns a number
+but since Newotnscript is good at coercing values depending on what
+you are doing with them, we'll just treat it like it was a string in
+our script.&nbsp;</FONT>
+
+<P><FONT FACE="Verdana">Form here on out, I am going to give you the
+Newtonscript code at once. The narrative will be in the //comment
+lines. If there are concepts that we just can't deal with in the
+comments, we'll get to them at the end of the script.</FONT>
+
+<H2><FONT FACE="Verdana">Heap Check</FONT></H2>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> Heap Check
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> HEAPSHOW
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE>//First, set up our local variable<BR>
+            <CODE>local theHeap;</CODE>
+            
+            <P>//Now, do that garbage collection to free up as much
+            RAM as we can<BR>
+            <CODE>GC();</CODE>
+            
+            <P>//Stuff the Stats() value into theHeap.<BR>
+            //Note that we then tack "Bytes" onto the end of it<BR>
+            //using the &amp;&amp; operator.<BR>
+            <CODE>theHeap:= Stats() &amp;&amp; "Bytes";</CODE>
+            
+            <P>//return theHeap variable<BR>
+            <CODE>return theHeap;</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+
+<P><FONT FACE="Verdana">The Heap, of course, will change all the
+time. You can also use this kind of script to just pull values out of
+the operating system or the Owner information or whatever else. For
+instance, this script will return the Fax number of the current Owner
+of your Newton. Since I didn't include a Fax SSI, this might come in
+handy.</FONT>
+
+<H2><FONT FACE="Verdana">My Fax</FONT></H2>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> My Fax
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> MYFAX
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE>//First, set up our local variable<BR>
+            <CODE>local theFax;</CODE>
+            
+            <P>//Retrieve the faxPhone<A HREF="#4"><SUP>4</SUP></A>
+            slot of the User Configuration frame using<BR>
+            //the NewtonOS API function<A HREF="#3"><SUP>3</SUP></A>
+            for fetching user data.<BR>
+            <CODE>theFax:= GetUserConfig('faxPhone);</CODE>
+            
+            <P>//return theHeap variable<BR>
+            <CODE>return theFax;</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+
+<P><FONT FACE="Verdana"><A NAME=1></A></FONT><FONT SIZE="-1" FACE="Verdana">1.
+NPR: 23-106<BR>
+<A NAME=2></A>2. NPR: 23-105<BR>
+<A NAME=3></A>3. NPR: 16-107<BR>
+<A NAME=4></A>4. NPR: 16-102</FONT>
+
+<CENTER><FONT SIZE="-1" FACE="Verdana">
+
+<HR>
+
+</FONT><A HREF="script3.html"><FONT FACE="Verdana">Next -&gt; Making
+Choices</FONT></A></CENTER>
+</BODY>
+</HTML>

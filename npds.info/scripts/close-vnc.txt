@@ -1,0 +1,11 @@
+// Close VNC
+// Copyright (c) 2002 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script closes VNC, possibly closing any connection it would have with a client.
+
+func(inUndocumentedRequestFrame)
+begin
+	GetRoot().|vnc:tknollsys|:close();
+	"VNC Closed"
+end

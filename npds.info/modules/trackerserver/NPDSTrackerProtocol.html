@@ -1,0 +1,689 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+
+<html>
+<head>
+<title>NPDS Tracker Protocol Specification - Versions 1.0 and 1.1</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta name="robots" content="all">
+	<meta name="author" content="Paul Guyot, Victor Rehorst, Matt Vaughn">
+	<meta name="description" content="Description and implementation of the Newton Personal Data Sharing Tracker Protocol versions 1.0 and 1.1">
+	<meta name="keywords" content="newton, apple, messagepad, emate, http, npds, tracker, tracking, server, client, application, protocol, software, source code, lightyear media, paul guyot, victor rehorst, matt vaughn">
+
+</head>
+
+<body bgcolor="#ffffff">
+
+<h1><b>Newton Personal Data Sharing - Tracker Protocol<br>NPDS/TP 1.0 and 1.1</b></h1>
+
+<p>Prepared by: <a href="mailto:chuma@chuma.org">V. Rehorst</a>, <a href="mailto:matt.vaughn@mindspring.com">M. Vaughn</a>, <a href="mailto:pguyot@kallisys.net">P. Guyot</a></p>
+<p>Content last revised: November 22nd, 2000</p>
+<p>Document last edited: March 3rd, 2003</p>
+
+<h2>Status of this memo</h2>
+
+<p>This memo describes the protocol version 1.0 and 1.1. Version 1.0 should be implemented in the new generation of servers, M. Vaughn's 4.x server and V. Rehorst's 1.0 server, and in the 2.1 version of the tracker client.</p>
+
+<p>Version 1.1 is still being drafted.</p>
+
+<p>Distribution is unlimited. This is the official standard to implement your own server or client. The protocol was initially developed by Matt Vaughn of Lightyear Media.</p>
+
+<h2>Abstract</h2>
+
+<p>The NPDS Tracker Protocol is an application-level protocol for registration and unregistration of online Newtons sharing their pages with NPDS.</p>
+
+<h2>Table of contents</h2>
+
+<ol>
+	<li>Introduction
+		<ol>
+			<li>Purpose</li>
+			<li>Requirements</li>
+			<li>Terms</li>
+		</ol>
+	</li>
+
+	<li>Definitions, Abbreviations and Notational Conventions
+		<ol>
+			<li>Augmented BNF</li>
+			<li>Basic Rules</li>
+		</ol>
+	</li>
+
+	<li>Normative References</li>
+
+	<li>Protocol Parameters
+		<ol>
+			<li>Protocol version</li>
+			<li>Date/Time formats</li>
+			<li>Character Sets</li>
+		</ol>
+	</li>
+
+	<li>Message
+		<ol>
+			<li>Message Types</li>
+			<li>Message Headers</li>
+			<li>Message Body</li>
+		</ol>
+	</li>
+
+	<li>Request
+		<ol>
+			<li>Request Message</li>
+			<li>Request Line</li>
+		</ol>
+	</li>
+
+	<li>Response
+		<ol>
+			<li>Request Message</li>
+			<li>Status Line</li>
+		</ol>
+	</li>
+
+	<li>Method Definitions
+		<ol>
+			<li>REGUP</li>
+			<li>REGDN</li>
+			<li>ABOUT</li>
+			<li>SHARE</li>
+			<li>QUERY</li>
+		</ol>
+	</li>
+
+	<li>Registration and Unregistration Processes</li>
+
+	<li>Status Code Definitions
+		<ol>
+			<li>200 OK</li>
+			<li>202 Accepted</li>
+			<li>400 Bad Request</li>
+			<li>404 Not Found</li>
+		</ol>
+	</li>
+</ol>
+
+<ol>
+	<li><h2>Introduction</h2>
+
+	<ol>
+		<li><h3>Purpose</h3>
+
+<p>Newton sharing pages may have different IPs and may be up or down at various moments. Therefore, there is a need for trackers to get a list of all online Newtons. This document specifies the protocol for those trackers, servers and clients.</p>
+
+<p>This protocol is based on Matt Vaughn's first protocol which was based on HTTP protocol. Therefore this specification is based on RFC 2616.</p>
+		</li>
+
+		<li><h3>Requirements</h3>
+
+<p>Like RFC 2616, this specification uses the same words as RFC 1123 for defining the significance of each particular requirement.</p>
+
+		<dl>
+			<dt>MUST or REQUIRED</dt>
+			<dd>These keywords mean that the item is an absolute requirement of the specification.</dd>
+		
+			<dt>SHOULD or RECOMMENDED</dt>
+			<dd>These keywords mean that there may exist valid reasons in particular circumstances to ignore this item, but the full implications should be understood and the case carefully weighed before choosing a different course.</dd>
+		
+			<dt>MAY or OPTIONAL</dt>
+			<dd>These keywords mean that this item is truly optional. One vendor may choose to include the item because a particular marketplace requires it or because it enhances the product, for example; another vendor may omit the same item.</dd>
+		</dl>
+	</li>
+	
+	<li><h3>Terms</h3>
+
+<p>This specification uses a number of terms as defined in RFC 2616, especially:</p>
+
+<dl>
+	<dt>connection</dt>
+	<dd>A transport layer virtual circuit established between two programs for the purpose of communication.</dd>
+
+	<dt>message</dt>
+	<dd>The basic unit of NPDS/TP communication, consisting of a structured sequence of octets matching the syntax defined in section "Message" and transmitted via the connection.</dd>
+
+	<dt>request</dt>
+	<dd>A NPDS/TP request message, as defined in section "Request".</dd>
+
+	<dt>response</dt>
+	<dd>A NPDS/TP response message, as defined in section "Response".</dd>
+</dl>
+
+<p>Remark: the terms "server" and "client" used here are as defined in RFC 2616. A "server" program can be in fact a client in some particular messages.</p>
+	</li>
+</ol>
+</li>
+
+<li><h2>Definitions, Abbreviations and Notational Conventions</h2>
+
+	<ol>
+		<li><h3>Augmented BNF</h3>
+
+<p>All of the mechanisms specified in this document are described in both prose and an augmented Backus-Naur Form (BNF) similar to that used by RFC 822 and RFC 2616. Implementors will need to be familiar with the notation in order to understand this specification.</p>
+		</li>
+
+		<li><h3>Basic Rules</h3>
+
+<p>This specification uses the basic rules defined in RFC 2616.</p>
+		</li>
+	</ol>
+</li>
+
+<li><h2>Normative References</h2>
+
+<p>The clients and the servers should implement at least all required features of the version 1.0 of the protocol. All implementors should be backward compatible.</p>
+
+</li>
+
+<li><h2>Protocol Parameters</h2>
+
+	<ol>
+
+		<li><h3>Protocol version</h3>
+
+<p>This specification uses the same protocol version numbering system than HTTP.
+
+See RFC 2616.</p>
+
+<p>The protocol version of the server should be transmitted by the ABOUT method (see below). The clients never tell which version they implement.</p>
+		</li>
+
+		<li><h3>Date/Time formats</h3>
+
+<p>All dates and/or times exchanged by the protocol should conform to the date standard set out in RFC 1123.</p>
+
+<pre><code>
+
+            NPDS-Date      = rfc1123-date
+
+            RFC1123-date   = WeekDay "," SP Date SP Time SP "GMT"
+
+            Date           = 2DIGIT SP Month SP 4DIGIT    ; e.g. 05 Nov 2000
+
+            Time           = 2DIGIT ":" 2DIGIT ":" 2DIGIT ; e.g. 17:21:35
+
+            WeekDay        = "Mon" | "Tue" | "Wed"
+                           | "Thu" | "Fri" | "Sat" | "Sun"
+
+            Month          = "Jan" | "Feb" | "Mar" | "Apr"
+                           | "May" | "Jun" | "Jul" | "Aug"
+                           | "Sep" | "Oct" | "Nov" | "Dec"
+
+</code></pre>
+
+<p>Note: NPDS/TP requirements for the date/time stamp format apply only to their usage within the protocol stream. Clients and servers are not required to use these formats for user presentation, request logging, etc.</p>
+	</li>
+
+	<li><h3>Character Sets</h3>
+
+<p>NPDS/TP uses the same definition of the term "character set" as that described for HTTP or MIME.</p>
+
+<p>When no explicit charset parameter is provided by the sender, media subtypes of the "text" type are defined to have a default charset value of "ISO-8859-1"</p>
+	</li>
+	</ol>
+</li>
+
+<li><h2>Message</h2>
+
+	<ol>
+
+		<li><h3>Message Types</h3>
+
+<p>NPDS/TP messages consist of requests from client to server and responses from server to client, exactly like HTTP messages. However, NPDS/TP messages are more simple concerning the kind of headers and the message length (see below).</p>
+
+<pre><code>
+
+            NPDS-message   = Request | Response
+
+</code></pre>
+
+<p>Request (1.1) and Response messages use the generic message format of RFC 822 for transferring entities (the payload of the message). Both types of message consist of a start-line, one or more header fields (also known as "headers"), an empty line (i.e., a line with nothing preceding the CRLF) indicating the end of the header fields, and an optional message-body.</p>
+
+<pre><code>
+
+            generic-message = start-line
+                              *message-header
+                              CRLF
+                              [ message-body ]
+
+            start-line      = Request-Line | Status-Line
+
+</code></pre>
+
+<p>In the interest of robustness, servers SHOULD ignore any empty line(s) received where a Request-Line is expected. In other words, if the server is reading the protocol stream at the beginning of a message and receives a CRLF first, it should ignore the CRLF.</p>
+	</li>
+
+	<li><h3>Message Headers</h3>
+
+<p>NPDS/TP header fields, alike HTTP header fields, follow the same generic format as that given in Section 3.1 of RFC 822. Each header field consists of a name followed by a colon (":") and the field value. Field names are case-insensitive. The field value may be preceded by any amount of LWS, though a single SP is preferred. Header fields can be extended over multiple lines by preceding each extra line with at least one SP or HT.</p>
+
+<pre><code>
+
+           message-header = field-name ":" field-value CRLF
+
+           field-name     = token
+
+           field-value    = *( field-content | LWS )
+
+           field-content  = &lt;the OCTETs making up the field-value
+                            and consisting of either *TEXT or combinations
+                            of token, tspecials, and quoted-string&gt;
+
+</code></pre>
+
+<p>The order in which header fields with differing field names are received is not significant.</p>
+	</li>
+
+	<li><h3>Message Body</h3>
+
+<p>The message-body (if any) of an NPDS/TP message is used to carry the entity-body associated with the request or response.</p>
+
+<pre><code>
+
+           message-body    = entity-body
+
+</code></pre>
+
+<p>The rules for when a message-body is allowed in a message differ for requests and responses. The presence of a message-body in requests depends on the request method. The presence of a message-body in responses depends on both the request method and the response status code.</p>
+	</li>
+	</ol>
+</li>	
+
+<li><h2>Request</h2>
+
+	<ol>
+
+		<li><h3>Request Formats</h3>
+
+<p>The format differs between version 1.0 and 1.1 of the protocol. The 1.0 format is based on a single line request. The 1.1 format supports headers, body and protocol version.</p>
+
+<p>The format negotiation works the following way. Servers may either implement the old format and returns a 400 error whenever a new format method is received or they may implement both formats. The fact that they accept both formats or just the 1.0 one is signaled by the ABOUT method with the protocol version.</p>
+
+<p>Some methods are only defined with NPDS/TP 1.1. They are not available in format 1.0</p>
+		</li>
+
+		<li><h3>Request Single Line Message</h3>
+
+<p>This is the 1.0 format of requests.</p>
+
+<p>A request line begins with a method token followed by arguments if the method requires it, and ended with CRLF. On the contrary to HTTP, elements are separated by tabulations (HT).</p>
+
+<pre><code>
+
+            1.0-Request-Message = Method HT Method-Syntax CRLF
+
+            Method              = "REGUP"       ; Use of this format is deprecated in version 1.1
+                                | "REGDN"		; Use of this format is discouraged in version 1.1
+                                | "ABOUT"		; Use of this format is discouraged in version 1.1
+                                | "QUERY"		; Use of this format is deprecated in the version 1.1 for the QUERY command
+
+            Method-Syntax       = 1*&lt;TEXT, excluding CR, LF&gt;
+
+</code></pre>
+		</li>
+
+		<li><h3>Request Messages 1.1</h3>
+
+<p>A request message from a client to a server is a generic message, but specifically with a request line.</p>
+
+<p>Request headers are like message headers. The usage depends on the method</p>
+
+<pre><code>
+
+            Request-Message = Request-Line
+                              *message-header
+                              CRLF
+                              [ message-body ]
+
+            Request-Line    = NPDS-Version Method LWS 
+*(Method-Argument LWS) CRLF
+
+            NPDS-Version    = "NPDS/TP" 1*DIGIT "." 1*DIGIT
+
+            Method-Argument = 1*&lt;TEXT, excluding CR, LF, LWS&gt;
+
+</code></pre>
+	</li>
+	</ol>
+</li>
+
+<li><h2>Response</h2>
+
+	<ol>
+
+		<li><h3>Response Message</h3>
+
+<p>A response message from a server to a client is a generic message, but specifically with a status line.</p>
+
+<p>Response headers are like message headers. The usage depends on
+the method</p>
+
+<pre><code>
+
+            Response-Message = Status-Line
+                              *message-header
+                              CRLF
+                              [ message-body ]
+
+</code></pre>
+		</li>
+	
+		<li><h3>Status Line</h3>
+
+<p>A status line begins with a status code and a reason phrase. Elements are separated by tabulations (HT) or spaces (SP).</p>
+
+<pre><code>
+
+            Status-Line      = Status-Code LWS Reason-Phrase CRLF
+
+            Status-Code      = "200"         ; For status code signification, 
+see section "Status Codes Definitions"
+                             | "202"
+                             | "400"
+                             | "404"
+
+            Reason-Phrase    = *&lt;TEXT, excluding CR, LF&gt;
+
+</code></pre>
+		</li>
+	</ol>
+</li>
+
+<li><h2>Method Definitions</h2>
+
+	<ol>
+
+		<li><h3>REGUP</h3>
+
+<p>The REGUP command is issued by the client to signal to the Tracker server that the NPDS service is running on that host.</p>
+
+<p>The REGUP method must be implemented in all Tracker servers.</p>
+
+		<ol>
+
+			<li><b>REGUP 1.0 format</b>
+
+<p>The method syntax with the 1.0 format is the host with an optional port and then the description.</p>
+
+<p>Host may be either a dotted-notation IP address (eg. 192.168.0.2) or a fully qualified hostname (eg. chiapet.dyn.dhs.org).</p>
+
+<p>The port is not used if the NPDS server is listening on port 80, but is required for any other port (eg. newt.dyndns.org:8080).</p>
+
+<p>The description is a plaintext description of the NPDS server encoded in ISO 8859-1.</p>
+
+<pre><code>
+
+            Deprecated-REGUP-Syntax  = Address HT Description
+
+            Address                  = Host [ ":" Port ]
+
+            Host                     = &lt;A legal Internet host domain name
+                                        or IP address (in dotted-decimal form),
+                                        as defined by Section 2.1 of 
+RFC 1123&gt;
+
+            Port                     = 1*DIGIT
+
+            Description              = 1*&lt;TEXT, excluding CR, LF&gt;
+
+</code></pre>
+			</li>
+
+			<li><b>REGUP 1.1 format</b>
+
+<p>The REGUP 1.1 method only takes one argument. This argument is required. It is the host followed by an optional port like in the REGUP 1.0 format. However, the port convention is different. If the header server is present and its value set to true, then the default port is 2110. Otherwise, it is 80.</p>
+
+<p>The REGUP 1.1 method takes required and optional headers. The body contains the description which is encoded in the provided charset or in ISO 8859-1 if no charset specification is provided. Please note that in both cases the description fits in a single line.</p>
+
+<pre><code>
+
+            REGUP-Argument           =  Address
+
+            REGUP-Headers            = "Charset"           ; Optional
+                                     | "Unique-ID"         ; Required
+                                     | "Location"          ; Optional
+
+            REGUP-Body               = Description
+
+            REGUP-Charset-Header     = Charset
+
+            REGUP-Unique-ID-Header   = Unique-ID
+
+            REGUP-Location-Header    = Location
+
+            Unique-ID                = 1*&lt;TEXT, excluding CR, LF, LWS&gt;
+		                              "-"
+                                       1*&lt;TEXT, excluding CR, LF, LWS&gt;
+
+            Location                 = 1*DIGIT "," 1*DIGIT ("N" | "S") 
+"-" 1*DIGIT "," 1*DIGIT ("E" | "W")
+
+</code></pre>
+
+<p>The charset header content is a charset as defined in RFC 2616. It only applies to the description.</p>
+
+<p>The Unique-ID header content is a text identifying the software and a text identifying the host. The Unique-ID is always encoded in ISO 8859-1.</p>
+
+<p>The location is the latitude and longitude of the host. It is optional.</p>
+			</li>
+
+			<li><b>REGUP result</b>
+
+<p>If the command is processed successfully, the Tracker server will respond with a 200 OK return code to the client.  If not, the Tracker server should return a 500 ERR return code optionally followed by a verbose description of the error.</p>
+			</li>
+		</ol>
+	</li>	
+
+		<li><h3>REGDN</h3>
+
+<p>The REGDN command is issued by the client or the server to signal to the Tracker server that the service is no longer running on that host.</p>
+
+<p>The REGDN method should be implemented in 1.0 Tracker servers and must be implemented in 1.1 servers.</p>
+
+		<ol>
+			<li><b>REGDN 1.0 format</b>
+
+<p>The method syntax with the 1.0 format is the host with an optional port. It must be the exact same string that the client issued the initial REGUP command with.</p>
+
+<pre><code>
+
+            Deprecated-REGDN-Syntax  =  Address
+
+</code></pre>
+			</li>
+
+			<li><b>REGDN 1.1 format</b>
+
+<p>The REGDN 1.1 only takes one argument. This argument is required. It is the Unique-ID. It must be the exact same string that the client issued the initial REGUP command with.</p>
+
+<p>The REGDN 1.1 method doesn't take any header.</p>
+
+<pre><code>
+
+            REGDN-Argument           =  Unique-ID
+
+</code></pre>
+			</li>
+
+			<li><b>REGDN result</b>
+
+<p>If the command is processed successfully, the Tracker server will respond with a 200 OK return code to the client.</p>
+
+<p>If this unique ID isn't found, the Tracker will respond with a 404 Not Found return code to the client.</p>
+			</li>
+		</ol>
+		</li>
+
+		<li><h3>ABOUT</h3>
+
+<p>The ABOUT command is issued by the client to retrieve information from the Tracker server concerning its configuration.  It requires no arguments.  The server must respond with a <code>200 OK</code> return code followed by the following information, one field per line:</p>
+
+<ul>
+	<li><code>protocol</code> - the highest protocol version that the server supports</li>
+	<li><code>period</code> - the duration (in minutes) that the server waits before attempting to (re-)validate a server - values are any integer greater than 0</li>
+	<li><code>tries</code> - the number of times the server will attempt to validate a host before it is removed from the online list - values are any integer 0 or greater</li>
+	<li><code>share</code> - whether or not this server is willing to share its entries with other Tracker servers - values are "true" or "false"</li>
+	<li><code>about</code> - a string describing the server in plain language - values are any string</li>
+</ul>
+
+<p>Query Syntax: <code>ABOUT</code></p>
+
+<p>Return Syntax: <i>see description below</i></p>
+
+<p>Example Output:</p>
+
+<pre>
+
+200 OK
+
+protocol: 1
+
+period: 30
+
+tries: 3
+
+share: true
+
+about: NPDSTracker for Java (single threaded) version 0.0.4 running on Java 1.1.7 FreeBSD x86 3.2-RELEASE
+
+</pre>
+		</li>
+
+		<li><h3>SHARE</h3>
+
+<p>The SHARE command is used to communicate between Tracker servers. It has several purposes.</p>
+
+<p>The first aim of the SHARE command is to ask a server about all the tracker clients and the tracker servers it knows.</p>
+
+<p>The SHARE method is also used by a server to tell another one that it exists.</p>
+
+<p>The SHARE method only exists in 1.1 format. It must be implemented on 1.1 trackers.</p>
+
+		<ol>
+
+			<li><b>SHARE format</b>
+
+<p>The SHARE command takes only one argument. This argument is required. It is the address of the client tracker. It is a host followed by an optional port. If no port is provided, 2110 is assumed.</p>
+
+<p>The SHARE method can take several headers. The Servers and the Clients headers tells the server that the client only wants to know about registered servers and/or clients. These headers arguments are a boolean. True is the default, i.e. the default is to return known servers and registered clients.</p>
+
+<pre><code>
+
+            SHARE-Argument           = Address
+
+            SHARE-Headers            = "Clients"           ; Optional
+                                     | "Servers"           ; Optional
+
+            SHARE-Clients-Header     = Boolean
+
+            SHARE-Servers-Header     = Boolean
+
+		   Boolean                  = "TRUE" | "FALSE"
+
+</code></pre>
+			</li>
+
+			<li><b>SHARE result</b>
+
+<p>If the command is processed successfully, the Tracker server will respond with a 200 OK if some records are found or with a 410 I know no client if no record is present. A server should always put the caller in the server list, hence there can only be no record in the case the caller asks for clients only.</p>
+
+<p>1.0 trackers should return a 400 Bad Request.</p>
+
+<p>If some records are found, the result may include a charset header and must include a body. The charset header defines the character set and is similar to the REGUP charset header. However, it applies to all descriptions. Therefore, it may be required to convert all descriptions to a common charset. It is recommended to use ISO 8859-1 whenever it can be used.</p>
+
+<p>The body includes a description of every server and client the tracker knows. The line structure differs between clients and servers. In both cases fields are separated by tabulations.</p>
+
+<p>The server description line starts with "SERVER" then the address (a host followed by an optional port), then the last time this server answered properly to a SHARE request or submitted a SHARE request. Please note that the tracker must tell server asking for SHARE that it knows it, since it has at least just heard about it.</p>
+
+<p>The client description line starts with "CLIENT" then the address, the unique-ID (this field can be empty), the location (this field can be empty), the address of the server this client is known to be registered on or "SELF" if the server owns this client, the last time this server was known to be up (either the last time another server told it was up or the last time this client confirmed to be up) and finally the description.</p>
+
+<pre><code>
+
+            SHARE-Result-Headers     = "Charset"           ; Optional
+
+            SHARE-Result-Header      = Charset
+
+            SHARE-Result-Body        = 1*( SHARE-Result-Description CRLF)
+		                            ; Encoded in the defined character set.
+
+            SHARE-Result-Description = ServerDescription
+		  	                        | ClientDescription
+
+            ServerDescription        = "SERVER"
+		                              HT Address
+ 
+	  HT NPDS-Date
+
+            ClientDescription        = DescriptionKind
+		                              HT [Unique-ID]
+ 
+	  HT [Location]
+ 
+	  HT (Address | "SELF") ; Who owns this client
+ 
+	  HT NPDS-Date
+ 
+	  HT Description
+
+</code></pre>
+			</li>
+		</ol>
+		</li>	
+
+		<li><h3>QUERY</h3>
+
+<p>Query Syntax: <code>QUERY&lt;single space&gt;&lt;host[:port]&gt;</code></p>
+
+<p>Return Syntax: <i>see description below</i></p>
+
+<p>The QUERY command is issued by the client to retrieve information from the Tracker server about host(s) it has registered.  When sent with no parameters, the server should return a <code>200 OK</code> return code followed by a plaintext list of the currently registered NPDS servers.  Each record should be on a single line and be in the following form:</p>
+
+<pre>
+
+&lt;host[:port]&gt;&lt;single tab&gt;&lt;time last 
+validated&gt;&lt;single tab&gt;&lt;status&gt;&lt;single 
+tab&gt;&lt;description&gt;
+
+</pre>
+
+Times must be in RFC1123 format, such as "Sun, 06 Nov 1994 08:49:37 GMT".
+		</li>
+	</ol>
+</li>
+
+<li><h2>Registration and Unregistration Processes</h2></li>
+
+<li><h2>Status Codes Definitions</h2>
+
+	<p>Status Codes follow the theory of Reply Codes as in Appendix E of RFC 0821.</p>
+	
+	<ol>
+		<li><h3>200 OK</h3>
+		
+		<p>This return code is returned by the server if the query was read and understood successfully.  This is usually returned for version 1 commands.</p>
+		</li>
+		
+		<li><h3>202 Accepted</h3>
+		
+		<p>This return code is returned by the server if the query was read and understood successfully.  This is usually returned for version 2 and higher commands.</p>
+		</li>
+		
+		<li><h3>400 Bad Request</h3>
+		
+		<p>This return code is returned by the server if it did not successfully read or understand successfully.  This code may be followed by a string giving a short description of the nature of the error.</p>
+		</li>	
+	</ol>
+</li>
+</ol>
+
+<hr>
+
+<p><b>Last modified</b> : <!--#echo var="LAST_MODIFIED" --></p>
+
+<!--#include virtual="/ssi/footer.ssi" -->
+
+</body>
+</html>

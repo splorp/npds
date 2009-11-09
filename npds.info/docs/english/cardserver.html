@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+   <TITLE>CardFile Server</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H2><IMG SRC="../images/shots/cardserv.gif" WIDTH=88 HEIGHT=86 ALIGN=left>CardFile
+Server</H2>
+
+<P><B>Path:</B> accessible via
+<FONT COLOR="#0000CC">/cards/index.html</FONT>
+
+<P><B>SSI:</B> <FONT COLOR="#0000CC">&lt;CARDS&gt;</FONT>
+
+<P><B>Sample Output: </B><A HREF="../example/cardserv.html" TARGET="_blank">CardServ
+Default Page</A> | <A HREF="../example/cardsearch.html" TARGET="_blank">CardServ
+Search Result</A>
+
+<P>CardServ allows users to search the Names (Cardfile) database,
+receive a ranked list of entries matching your search terms, then
+view any of those entries in one of two ways:
+
+<UL>
+   <LI>As a formatted HTML Page</LI>
+   
+   <LI>As a <A HREF="http://imc.org/pdi/" TARGET="_blank">Versit
+   vCard</A> for import into a vCard-capable Address Book such as
+   that which ships with Netscape Communicator 3.x and higher.</LI>
+</UL>
+
+<P>You can access CardServ via the inserting the URL path
+<FONT COLOR="#3333CC">/cards/index.html </FONT>or by embedding its
+SSI<FONT COLOR="#3333CC">, </FONT> or you can have the actual search
+form embedded in a note by using the SSI tag
+<FONT COLOR="#3333CC">&lt;NAME_SEARCH&gt;.</FONT>
+
+<H3>Configuring CardServ</H3>
+
+<P><B>Show Notes: </B>Since many of us store provate information in
+the Notes of our Name cards, un-check the "<I>Show Notes</I>" box to
+keep this information hidden. It is set to <B>TRUE </B>by default
+until you change it the first time.
+
+<P><B>Active:</B> NPDS Plugins are dynamically loadable/unloadable.
+If you wish to turn on or off service of Names data, open CardServ
+and de-check this box. To turn Names back on, re-check it. You no
+longer need to freeze most NPDS plugins to de-activate them.
+
+<H3>FAQ for CardServ</H3>
+
+<P>Q: I don't use Netscape Communicator. How can I utilize the
+wonderful vCard standard?
+
+<P>A: Well, some programs support importing of vCard data from a text
+file. You may choose to download a person's vCard to disk then import
+it manually. Other than that, I don't know. I wrote CardServ for my
+own use.
+
+<P>Q: Can I use CardServ as a sync tool with a Pilot or my desktop
+computer?
+
+<P>A: In its current state, no. Future development may head that way
+here in Lightyear Land or someone may decide to implement it on their
+own. One-way transmission of massive amounts Cards data is more
+likely to come soon than two-way syncing. For example, early
+experiemental builds of CardServ had an LDAP server built in as the
+query system for the Card file which supported transfer of the whole
+Cardfile as an LDAP database.
+
+<P>Q: How can I prevent access to my Names data from outside my
+intranet, LAN, etc?
+
+<P>A: At present you cannot. However, though NPDS 2.0 has barely
+shipped, the next version of NPDS will support basic password
+protection and IP range restriction for enhanced security of you
+sensitive data.
+
+<P>Q: Can I post to the Cardfile from the Web?
+
+<P>A: Not yet. I decided to wait for better security before
+implementing this feature in a publicly available package. MY Newton
+allows posting via the web ;-) so it's on it's way.
+</BODY>
+</HTML>

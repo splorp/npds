@@ -1,0 +1,9 @@
+// Backlight SSI
+// I think this one comes from the standard NPDS package.
+// It just turns the backlight on.
+
+func(inUndocumentedRequestFrame)
+begin
+	Backlight(true);
+	return "";
+end

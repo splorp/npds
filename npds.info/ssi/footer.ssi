@@ -1,0 +1,37 @@
+<ul>
+	<li><a href="/">Home</a></li>
+	<li><a href="/docs/">Documentation</a></li>
+	<li><a href="/software/">Software</a></li>
+	<li><a href="/trackers/">Trackers</a></li>
+	<li><a href="/list/">Mailing List</a></li>
+	<li><a href="http://twitter.com/npds">Twitter</a></li>
+</ul>
+
+<div id="mouse">
+	<p>Member of the <strong>Apple Newton Web Ring</strong></p>
+	<ul>
+		<li><a href="http://t.webring.com/go?ring=newtonring;id=181;hub">About</a></li>
+		<li><a href="http://t.webring.com/wrman?ring=newtonring;addsite">Join Now</a></li>
+		<li><a href="http://t.webring.com/go?ring=newtonring;id=181;prev">Previous Site</a></li>
+		<li><a href="http://t.webring.com/go?ring=newtonring;id=181;next">Next Site</a></li>
+		<li><a href="http://t.webring.com/go?ring=newtonring;id=181;random">Random Site</a></li>
+	</ul>
+
+	<p>Valid <a href="http://validator.w3.org/check/referer" title="What about yours?">XHTML 1.0 Strict</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer" title="Got style?">CSS</a></p>
+	<p>Copyright &#169; 2002-2009 Matt Vaughn, Paul Guyot, Victor Rehorst, Grant Hutchinson, Josh Burker, et al.</p>
+</div>
+
+<script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+<script type="text/javascript">
+re_("57nd6-20ox2m8197");
+</script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3915509-5");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>

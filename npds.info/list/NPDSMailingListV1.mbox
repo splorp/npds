@@ -1,0 +1,1859 @@
+From ???@??? Sat Oct 14 03:53:17 2000
+Date: Sat, 14 Oct 2000 03:20:05 +0200 (CEST)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #3
+Precedence: bulk
+Message-Id: <nospam_20001014012005.3AB9972E14_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Fri, 13 Oct 2000	Volume: 01  Issue: 003
+
+In This Issue:
+		[NPDS] Re: Search error?
+		[NPDS] Re: List Archive
+		[NPDS] PaleoNews is online
+
+----------------------------------------------------------------------
+
+Date: Fri, 13 Oct 2000 08:00:47 +0200
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: Search error?
+
+>I tried out the search notes function in NPDS and found the note I was looking
+>for, but with an odd url. The returned url is:
+>http://129.170.56.21/html/-183691048$45.nsd.nsd
+>
+>Obviously it has an extra.nsd. Is this a problem with other setups, or only on
+>my system?
+
+I haven't tried on my server (and currently we are the only two 
+online), but this is very likely a bug. I'll track it down and I'll 
+fix it with the next release.
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+Date: Fri, 13 Oct 2000 08:04:01 +0200
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: List Archive
+
+>Is this list being archived on the web somewhere and if so, where?
+
+Actually, no, this is not a service from the mailing lists hosted by 
+free. (but we have no ad in exchange, and I hate ads, spams, people 
+trying to sell things or distributing tracts to offer you to 
+participate to some casting, seminars, ads for carpets, etc. - there 
+are so many in the Quartier Latin (a district in inner Paris), it's a 
+real pain.
+
+I checked the help file, and it allows to subscribe in digest mode 
+and both digest and normal. (to get it, send a mail to 
+npds-request@ml.free.fr with help in the digest). I'll advertise this 
+feature in the welcome file, because some people may want to receive 
+digests only (we are not as busy as NTLK, but well, ...).
+
+Anyway, if ever you want to make some interface like NTLK, please do. 
+I'll advertise the page in the info text.
+I can send you in most formats the previous messages, I have them all.
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+Date: 13 Oct 2000 16:36:55 EDT
+From: Charles.P.Daghlian@Dartmouth.EDU (Charles P. Daghlian)
+Subject: [NPDS] PaleoNews is online
+
+Greetings,
+
+I have stopped the tracking of my MP NPDS since it now has a fixed IP address
+and name, so you won't see it listed there. I have integrated it into the
+Paleobotany section web site (http://www.dartmouth.edu/daghlian/paleo/ or go
+straight to PaleoNews at http://paleonews.dartmouth.edu), so it should get a
+little bit of a workout. Now to see how long it takes to crash. I have had to
+reset the machine once already due to the UndoEntryChanges call noted
+previously.
+
+I'm just trying to make the little MP earn its keep.
+
+Chuck
+********************************************
+Charles P. Daghlian, Ph. D.
+Director, Rippel E. M. Facility
+7605 Remsen
+Dartmouth College
+Hanover, NH 03755
+603-646-1039 / FAX 603-650-1637
+http://www.dartmouth.edu/~emczar/
+http://www.dartmouth.edu/~daghlian/paleo/
+********************************************
+
+
+------------------------------
+
+End of npds Digest V1 #3
+************************
+
+
+</x-charset>
+From ???@??? Mon Oct 16 07:33:37 2000
+Date: Mon, 16 Oct 2000 03:17:19 +0200 (CEST)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #4
+Precedence: bulk
+Message-Id: <nospam_20001016011720.05B6373072_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Sun, 15 Oct 2000	Volume: 01  Issue: 004
+
+In This Issue:
+		[NPDS] Upgrading...
+		[NPDS] Re: Upgrading...
+		[NPDS] [Bug Report] Searching a note
+
+----------------------------------------------------------------------
+
+Date: Sat, 14 Oct 2000 23:18:04 -0600
+From: "John I. Clark" <nospam_jiclark_at_independence_dot_net>
+Subject: [NPDS] Upgrading...
+
+Howdy...
+
+I've been meaning to upgrade all my NPDS components, but realized I have
+a few questions:
+
+1) Do I need to delete all the old pkgs before installing the new?
+2) If the answer to 1) is no, then can I just fire up the new pkgs when
+I'm done upgrading, and all my settings will be intact?
+3) I have a custom index.html note, will that still be automatically
+loaded when I fire up the upgraded pkgs?
+
+Sorry if these are stupid questions, and thanks for your help!
+
+I'll email when I'm back up and running...
+John
+
+--
+John I. Clark
+Glass artist & Mac aficionado
+Ridgway, CO 81432-0053
+970-626-5980
+1-888-898-5980
+970-626-3750(F)
+mailto:jiclark@independence.net
+http://home.independence.net/jiclark
+
+
+
+
+------------------------------
+
+Date: Sun, 15 Oct 2000 13:04:35 +0200
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: Upgrading...
+
+>1) Do I need to delete all the old pkgs before installing the new?
+
+All new packages have the same signature than the old one.
+The exception is the GIF Server, but the new one is not based at all 
+on the old one. They just use the same path (/screen/).
+
+You can remove them all, it's not a bad idea. Think about restarting 
+once all packages are installed.
+
+>2) If the answer to 1) is no, then can I just fire up the new pkgs when
+>I'm done upgrading, and all my settings will be intact?
+
+No, all your settings won't be intact. But this is the last time 
+settings are reset. This is because the old packages had another way 
+to handle settings. They are reverted to default when some important 
+upgrade occurs. Now, the packages try to guess what needs to be 
+updated/reverted/removed.
+
+Here is the upgrading note:
+>Don't forget to re-configure everything after upgrading. This is the 
+>last time you'll have to re-configure stuff since I updated the 
+>preferences overriding mechanism.
+>Few things (since there is no documentation yet):
+>a/ set the latency to a big value: NPDS now support multiple connections.
+>b/ there are now two folders in NoteServ. Both are the public notes. 
+>The first one is the one where index.html is searched for. All notes 
+>in the second appear in Notes List SSIs. (both from visitors and 
+>you). This fixes a security hole.
+>c/ Notes can still be accessed with the ID and the Store ID, but 
+>they also can be accessed with the name.
+>
+>Known Bugs I remember of:
+>a/ there is a bug with multiple connection and the log. Some 
+>requests will not appear. This is because the log code is not 
+>re-entrant.
+>b/ in the WebPager, I wrote Recieved instead of Received.
+>c/ the unregister mechanism doesn't work all the time with Matt's 
+>tracker, but this is likely a bug in Matt's tracker. (it works fine 
+>with Victor's tracker).
+
+There is another bug, but it probably was in the old packages: note 
+search's results give bad links.
+
+>3) I have a custom index.html note, will that still be automatically
+>loaded when I fire up the upgraded pkgs?
+
+I'm not sure about what you mean by firing up the upgraded packages 
+(I haven't found the expression in any of my dictionaries, including 
+The Chambers), but the index.html lookup method is still the same.
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+Date: Sun, 15 Oct 2000 19:50:03 +0200
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] [Bug Report] Searching a note
+
+Indeed as Chuck noticed it, there is a bug in the search results for 
+the notepad. It will be fixed in the next release of NoteServ.
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+End of npds Digest V1 #4
+************************
+
+
+</x-charset>
+From ???@??? Tue Oct 17 06:52:03 2000
+Date: Tue, 17 Oct 2000 03:20:39 +0200 (CEST)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #5
+Precedence: bulk
+Message-Id: <nospam_20001017012039.CA6B772E1B_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Mon, 16 Oct 2000	Volume: 01  Issue: 005
+
+In This Issue:
+		[NPDS] Online...
+		[NPDS] GIF Server 1.0: where?
+		[NPDS] Re: GIF Server 1.0: where?
+
+----------------------------------------------------------------------
+
+Date: Sun, 15 Oct 2000 22:29:14 -0600
+From: "John I. Clark" <nospam_jiclark_at_independence_dot_net>
+Subject: [NPDS] Online...
+
+Don't know if anyone else is up right now, but my Newt is online as of
+10:30PM MDT (USA). I'll probably leave it up overnight, just to see if
+anyone happens by...
+
+BTW, many thanks to Paul G., and anyone else who's been putting the
+effort into maintaining an improving NPDS... I really appreciate it!
+
+Good night...
+John
+
+--
+John I. Clark
+Glass artist & Mac aficionado
+Ridgway, CO 81432-0053
+970-626-5980
+1-888-898-5980
+970-626-3750(F)
+mailto:jiclark@independence.net
+http://home.independence.net/jiclark
+
+
+
+
+------------------------------
+
+Date: Sun, 15 Oct 2000 22:59:52 -0600
+From: "John I. Clark" <nospam_jiclark_at_independence_dot_net>
+Subject: [NPDS] GIF Server 1.0: where?
+
+Paul,
+
+I've loaded all the latest pkgs from the NPDS development page, but now
+I'm wondering where to find the latest version of GIF server... Can't
+seem to figure out where to look, could you help me out? Thanks, John
+
+--
+John I. Clark
+Glass artist & Mac aficionado
+Ridgway, CO 81432-0053
+970-626-5980
+1-888-898-5980
+970-626-3750(F)
+mailto:jiclark@independence.net
+http://home.independence.net/jiclark
+
+
+
+
+------------------------------
+
+Date: Mon, 16 Oct 2000 07:40:57 +0200
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: GIF Server 1.0: where?
+
+>I've loaded all the latest pkgs from the NPDS development page, but now
+>I'm wondering where to find the latest version of GIF server... Can't
+>seem to figure out where to look, could you help me out? Thanks, John
+
+Matt hasn't put it on the webserver yet. I sent it to you by mail.
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+End of npds Digest V1 #5
+************************
+
+
+</x-charset>
+From ???@??? Fri Oct 20 03:53:57 2000
+Date: Fri, 20 Oct 2000 03:20:55 +0200 (CEST)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #6
+Precedence: bulk
+Message-Id: <nospam_20001020012055.3E38972DF2_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Thu, 19 Oct 2000	Volume: 01  Issue: 006
+
+In This Issue:
+		[NPDS] .nsd.nsd fix?
+		[NPDS] Re: .nsd.nsd fix?
+		[NPDS] Re: .nsd.nsd fix?
+		[NPDS] Re: .nsd.nsd fix?
+		[NPDS] Re: .nsd.nsd fix?
+		[NPDS] Re: .nsd.nsd fix?
+
+----------------------------------------------------------------------
+
+Date: 19 Oct 2000 16:43:49 EDT
+From: Charles.P.Daghlian@Dartmouth.EDU (Charles P. Daghlian)
+Subject: [NPDS] .nsd.nsd fix?
+
+Hello,
+
+Am I the only one having trouble with the note-search call in NPDS? When I use
+it on my site (paleonews.dartmouth.edu), I get a page returned with links to
+notes , but the links have  an .nsd.nsd ending (like this:
+/html/-183691048$45.nsd.nsd). 
+
+Obviously the script is appending an extra .nsd. Is there an easy way to fix
+this? 
+
+In trying to keep  NPDS  going for as long as possible, I am slowly remioving
+(or freezing) lots of other packages. Still there are the occasional mystery
+freezes with no solution other than a complete power off, battery out, cards out
+rest period as fix. The EntryUndoChanges call still occasionally causes trouble,
+but less so now that I have frozen X-Port Custom.
+
+On a related note, does anyone know how to convert a list of names and addresses
+to Names format? I have used X-Port with limited success. The file was put away
+to names, but with the name being as much as three lines of the file. Searched
+in NPDS, the information is returned ok, but the formatting is a bit off.
+
+Regards,
+
+Chuck
+********************************************
+Charles P. Daghlian, Ph. D.
+Director, Rippel E. M. Facility
+7605 Remsen
+Dartmouth College
+Hanover, NH 03755
+603-646-1039 / FAX 603-650-1637
+http://www.dartmouth.edu/~emczar/
+http://www.dartmouth.edu/~daghlian/paleo/
+********************************************
+
+
+------------------------------
+
+Date: Thu, 19 Oct 2000 13:33:07 -0700
+Subject: [NPDS] Re: .nsd.nsd fix?
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+npds@ml.free.fr writes:
+>Hello,
+>
+>Am I the only one having trouble with the note-search call in NPDS? When
+>I use
+>it on my site (paleonews.dartmouth.edu), I get a page returned with links
+>to
+>notes , but the links have  an .nsd.nsd ending (like this:
+>/html/-183691048$45.nsd.nsd). 
+
+No, I'm experiencing it too.  Paul says it will be fixed in his next
+release.
+
+Josh Burker
+
+
+
+------------------------------
+
+From: "Filmer, Paul E" <nospam_pfilmer_at_nsf_dot_gov>
+Subject: [NPDS] Re: .nsd.nsd fix?
+Date: Thu, 19 Oct 2000 17:01:14 -0400
+
+I get an internal server error message very often when I call the
+<NOTE_LIST> SSI - but the server survives and can still serve any other page
+that does not have this included.  What is interesting is that it does not
+occur _every_ time - yesterday I was able to use this SSI with no problem.
+I have never seen the .nsd.nsd problem, but perhaps this is what is causing
+an internal error?  (Strange that it would behave so differently on
+different machines...)
+
+This new build of Paul's is not quite as stable as the old one (that's the
+price of the bleeding edge...) - my record for staying up without a freeze
+is about five to six hours (and that's without running RemoteCam, which
+brings the performance down into the ten to twenty minute range...).  I
+reckon that almost half of the hits are not resolved, either, and don't make
+it into the log.
+
+But dang that new pGIFServer is nice!
+
+My Newton Server (if I'm plugged in!): http://128.150.102.46
+
+> -----Original Message-----
+> From:	Josh Burker [SMTP:Josh_Burker@misd.wednet.edu]
+> 
+> No, I'm experiencing it too.  Paul says it will be fixed in his next
+> release.
+> 
+> Josh Burker
+
+
+------------------------------
+
+Date: Thu, 19 Oct 2000 13:51:22 -0700
+Subject: [NPDS] Re: .nsd.nsd fix?
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+npds@ml.free.fr writes:
+>
+>But dang that new pGIFServer is nice!
+
+Sho' 'nuff!
+
+Josh Burker
+
+
+
+------------------------------
+
+Date: Thu, 19 Oct 2000 16:12:02 -0500
+From: John Solon <nospam_jjsolon_at_facstaff.wisc_dot_edu>
+Subject: [NPDS] Re: .nsd.nsd fix?
+
+
+>I get an internal server error message very often when I call the
+><NOTE_LIST> SSI - but the server survives and can still serve any other page
+
+Doesn't seem to be an issue with <NOTE_TABLE> or <POST_TABLE>, fwiw...
+
+
+
+Cheers 'n' later... JOhn
+
+"One of the advantages of being disorderly is that one is
+constantly making exciting discoveries."  A.A. Milne.
+
+http://deva.engr.wisc.edu
+(M-F, 9AM-3PM, often earlier; sometimes later)
+
+
+
+------------------------------
+
+From: "Filmer, Paul E" <nospam_pfilmer_at_nsf_dot_gov>
+Subject: [NPDS] Re: .nsd.nsd fix?
+Date: Thu, 19 Oct 2000 17:14:18 -0400
+
+Hmm!  I should have mentioned that I have never been able to get those two
+SSIs to work, ever!
+
+> -----Original Message-----
+> From:	John Solon [SMTP:jjsolon@facstaff.wisc.edu]
+> 
+> >I get an internal server error message very often when I call the
+> ><NOTE_LIST> SSI - but the server survives and can still serve any other
+> page
+> 
+> Doesn't seem to be an issue with <NOTE_TABLE> or <POST_TABLE>, fwiw...
+> 
+> Cheers 'n' later... JOhn
+
+
+------------------------------
+
+Date: Thu, 19 Oct 2000 23:50:23 +0200
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: .nsd.nsd fix?
+
+>  >Am I the only one having trouble with the note-search call in NPDS? When
+>>I use
+>>it on my site (paleonews.dartmouth.edu), I get a page returned with links
+>>to
+>>notes , but the links have  an .nsd.nsd ending (like this:
+>>/html/-183691048$45.nsd.nsd).
+>
+>No, I'm experiencing it too.  Paul says it will be fixed in his next
+>release.
+
+This is a known bug. Sorry folks, I haven't a lot of spare time, and 
+when I do, I work on the ATA driver. Anyway, this is a known bug, 
+probably already in the previous versions of NPDS.
+
+Additionnally, there is the EntryUndoChanges stuff. I thought I 
+removed them all but I forgot this one. It is strictly useless and 
+even causes bug.
+
+>I get an internal server error message very often when I call the
+><NOTE_LIST> SSI - but the server survives and can still serve any other page
+>that does not have this included.  What is interesting is that it does not
+>occur _every_ time - yesterday I was able to use this SSI with no problem.
+
+Umm. Such behavior means hard to track bugs.
+I believe there is something wrong with your notes.
+
+>I have never seen the .nsd.nsd problem, but perhaps this is what is causing
+>an internal error?  (Strange that it would behave so differently on
+>different machines...)
+
+This is at the origin of no internal error. This should occur on all 
+MPs. It is in the notes search results.
+
+>This new build of Paul's is not quite as stable as the old one (that's the
+>price of the bleeding edge...) - my record for staying up without a freeze
+>is about five to six hours (and that's without running RemoteCam, which
+>brings the performance down into the ten to twenty minute range...).  I
+>reckon that almost half of the hits are not resolved, either, and don't make
+>it into the log.
+
+Hits are always counted.
+The problem comes from the fact that NPDS wasn't written to support 
+several connections at the same time. With a hack of the TCP Server 
+itself, I enabled this feature, but this causes a lot of bugs.
+
+You can increase the lifetime of the Newton by deactivating the 
+reverse DNS feature. (not perfect, but usually enough).
+
+To fix that, I have to rewrite the whole core of NPDS. I have started 
+that, it won't take too long.
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+Date: 19 Oct 2000 20:23:38 EDT
+From: Charles.P.Daghlian@Dartmouth.EDU (Charles P. Daghlian)
+Subject: [NPDS] Re: .nsd.nsd fix?
+
+--- You wrote:
+This is a known bug. Sorry folks, I haven't a lot of spare time, and 
+when I do, I work on the ATA driver.
+--- end of quote ---
+Paul,
+
+I didn't mean to imply you are not a hard worker. If it gets taken care of
+sometime, that's good enough for me. The ATA driver will be nice, too.
+
+I just got another MP2100, so I will be stripping down the stuff on the NPDS MP
+to maximize its stability (assuming other packages may cause problems,too).
+
+Chuck
+
+
+------------------------------
+
+End of npds Digest V1 #6
+************************
+
+
+</x-charset>
+From ???@??? Tue Oct 31 06:54:51 2000
+Date: Tue, 31 Oct 2000 03:21:59 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #7
+Precedence: bulk
+Message-Id: <nospam_20001031022159.F1F8272E14_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Mon, 30 Oct 2000	Volume: 01  Issue: 007
+
+In This Issue:
+		[NPDS] Problems with the tracker?
+		[NPDS] Re: Problems with the tracker?
+		[NPDS] Re: Problems with the tracker?
+
+----------------------------------------------------------------------
+
+From: "David Drew" <nospam_david_at_hydrowash.com_dot_au>
+Subject: [NPDS] Problems with the tracker?
+Date: Tue, 31 Oct 2000 09:15:24 +1100
+
+Hi,
+  This morning I decided to put my newton server up on the web. It naturally
+went to register with the tracker (130.126.50.66). Everything seemed fine,
+yet when I went to the tracker page, the server wasn't listed there, even
+after a few retries with both the page, and the tracker client.
+
+  I'm using the same settings that I've used previously, and it worked fine
+then. Is anyone else having this problem?
+
+Thanks,
+David Drew
+
+
+
+
+------------------------------
+
+From: "David Drew" <nospam_david_at_hydrowash.com_dot_au>
+Subject: [NPDS] Re: Problems with the tracker?
+Date: Mon, 30 Oct 2000 09:35:09 +1100
+
+Hi,
+  Ignore last message. Tracker seems to be working now.
+
+thanks,
+David Drew.
+
+
+
+
+------------------------------
+
+Date: Mon, 30 Oct 2000 23:29:37 +0100
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: Problems with the tracker?
+
+>   This morning I decided to put my newton server up on the web. It naturally
+>went to register with the tracker (130.126.50.66). Everything seemed fine,
+>yet when I went to the tracker page, the server wasn't listed there, even
+>after a few retries with both the page, and the tracker client.
+>
+>   I'm using the same settings that I've used previously, and it worked fine
+>then. Is anyone else having this problem?
+
+The problem was apparently caused by a bug in the tracker which 
+blocks it. (somehow related to REALBasic according to Matt).
+
+Anyway, I have just restarted the tracker. I should say it is the 
+very first time I do that, and it was successful. It even remembers 
+who was in the list. Nice job Matt.
+
+BTW, you can tell if the tracker is down or not: when you try to 
+register manually, if the tracker client is closed automatically, it 
+wasn't able to connect to the server. This can have two causes: the 
+tracker is down or NPDS/Something else but very probably NPDS 
+scrambled your internet connection. (to ensure that the tracker was 
+down, I telnet to the tracker and ask for the ABOUT command).
+
+The client currently doesn't tell about the server's status and the 
+command result.
+
+Another cause for being unregistered is when you are unreachable for 
+too long. This happens when NPDS scrambles the connection, you 
+provided a bad IP/name, the connection gets broken.
+
+If you upgraded to the latest suite (130.126.50.66/npds/current), 
+there is a bug which disconnects your Newton. (in fact, there are two 
+bugs and enabling DNS lookup worsen the problem). I'll fix that ASAP 
+(it means redesigning the interaction between the modules), but 
+currently, I'm working on another bug tracking project.
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+End of npds Digest V1 #7
+************************
+
+
+</x-charset>
+From ???@??? Tue Nov 07 06:14:00 2000
+Date: Tue, 07 Nov 2000 03:22:21 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #8
+Precedence: bulk
+Message-Id: <nospam_20001107022221.DA26972E1A_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Mon, 06 Nov 2000	Volume: 01  Issue: 008
+
+In This Issue:
+		[NPDS] Tracker Stuff.
+		[NPDS] Re: NPDS Crashes
+		[NPDS] Re: NPDS Crashes
+
+----------------------------------------------------------------------
+
+Date: Mon, 6 Nov 2000 12:08 -0500
+From: "Victor Rehorst" <nospam_chuma_at_chuma_dot_org>
+Subject: [NPDS] Tracker Stuff.
+
+I made a minor change to my tracker server that might fix the intermittent problem in the server verification code that was causing it to get stuck.
+
+It looks like sometimes a timeout out exception doesn't always fire properly for hosts that are down. Also on occasion I was getting buffer full errors from Java somewhere.
+
+I'd appreciate it if people running NPDS servers could use my tracker for the next few days to see if I've fixed the problem. Just point your Tracker Client to 131.104.48.34 port 2110.
+
+Matt, maybe you could put a link to my tracker from yours?
+--
+Victor Rehorst - Toronto, Ontario, Canada - chuma@chuma.org
+Sent from a Newton Messagepad 2100 w/SimpleMail 4.1.2 and Proxim RangeLAN2
+http://www.chuma.org
+--
+Victor Rehorst - Toronto, Ontario, Canada - chuma@chuma.org
+Sent from a Newton Messagepad 2100 w/SimpleMail 4.1.2 and Proxim RangeLAN2
+http://www.chuma.org
+
+
+------------------------------
+
+Date: Mon, 06 Nov 2000 11:40:43 -0800
+Subject: [NPDS] NPDS Crashes
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+Hello all:
+
+	I've been running my NPDS on my MP2100 for several weeks now with no
+problems.
+
+	However, this morning somebody (I'm not logging) dropped by my Newton and
+pulled up the screen (I'm running Paul's newest version of the GIFServer
+and have removed the two older GIFServer components).  This caused my
+Newton to crash:  it rebooted itself and told me that a system error had
+caused the crash (no error number was reported)
+
+	Subsequently, I was unable to take a screenshot without the Newton
+crashing.  I went through and removed a bunch of packages to make sure I
+had plenty of room (I have about a meg left on my 10mb card in the PCMCIA
+slot, about 800k left internally).  I also removed the GIFServer package
+and reinstalled it, trashed the NPDS storage and cleared the NPDS cache. 
+Additionally, I ran SBM Utilities on the Newton to make sure everything
+was in line there, which it seems to be.
+
+	It seemed to work again, so I left it running for a while then came back
+to it to make sure it was still running.  I got no response, so I
+restarted the Newton (by pressing the restart button, since I got no
+response from the Newton).  Upon bringing NPDS back up, I still got
+crashes.  Again, I trashed the NPDS cache (deleted the NPDS entry from the
+Storage area on the Newton) and deleted GIFServer.  I then rebooted the
+Newton and reinstalled GIFServer, and it served a screenshot for me.
+
+	I seem to have plenty of heap available when I'm doing the screenshots,
+and this has never been a problem in the past.  What has become corrupted?
+
+Any help is appreciated!
+
+Thanks,
+
+Josh Burker
+
+
+
+------------------------------
+
+Date: Mon, 6 Nov 2000 15:02:44 -0500 (EST)
+From: Victor Rehorst <nospam_victor_at_eddie.cis.uoguelph_dot_ca>
+Subject: [NPDS] Re: NPDS Crashes
+
+On Mon, 6 Nov 2000, Josh Burker wrote:
+
+> 	However, this morning somebody (I'm not logging) dropped by my Newton and
+> pulled up the screen (I'm running Paul's newest version of the GIFServer
+> and have removed the two older GIFServer components).  This caused my
+> Newton to crash:  it rebooted itself and told me that a system error had
+> caused the crash (no error number was reported)
+<snip>
+
+I was getting my server hanging every few hours when I had the screenshot
+(with the new GIFServer) on my homepage.  I think there's probably just
+some problems with the C++.  I dunno.
+
+-------Victor Rehorst - victor@eddie.cis.uoguelph.ca | chuma@chuma.org------
+-Secretary, College of Arts and CPES Student Councils, University of Guelph-
+-------------- Homepage and Newton Stuff: http://www.chuma.org -------------
+
+
+
+------------------------------
+
+Date: Mon, 6 Nov 2000 21:52:40 +0100
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: NPDS Crashes
+
+>  >	However, this morning somebody (I'm not logging) dropped by 
+>my Newton and
+>>  pulled up the screen (I'm running Paul's newest version of the GIFServer
+>>  and have removed the two older GIFServer components).  This caused my
+>>  Newton to crash:  it rebooted itself and told me that a system error had
+>>  caused the crash (no error number was reported)
+><snip>
+>
+>I was getting my server hanging every few hours when I had the screenshot
+>(with the new GIFServer) on my homepage.  I think there's probably just
+>some problems with the C++.  I dunno.
+
+Josh's story let me think NPDS stores the picture in the cache, but I 
+may be wrong. (as you probably already know, I have no MP2x00 left to 
+work on). Could you check with a soup browser?
+
+Otherwise, if you want, the GIF server I sent is still the debug 
+version. Connect to NTK and take a screen shot. See if it is verbose 
+(otherwise, it is verbose only to Hammer or Newtsbug). If it is, keep 
+it plugged. This may help me to find where the problem is until I get 
+my Newton back.
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+End of npds Digest V1 #8
+************************
+
+
+</x-charset>
+From ???@??? Mon Nov 13 07:24:59 2000
+Date: Mon, 13 Nov 2000 03:18:59 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #9
+Precedence: bulk
+Message-Id: <nospam_20001113021859.C85FA72E13_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Sun, 12 Nov 2000	Volume: 01  Issue: 009
+
+In This Issue:
+		[NPDS] [Protocol Draft] SHARE & QUERY - Or a network of trac
+
+----------------------------------------------------------------------
+
+Date: Sun, 12 Nov 2000 23:22:20 +0100
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] [Protocol Draft] SHARE & QUERY - Or a network of trackers?
+
+Hi all,
+
+Since I worked a little with Victor on his java tracker server, I 
+decided to resume the work on the protocol draft waiting for my 
+Newton to come back in order to work on the ATA Support.
+
+The draft is available at:
+http://eddie.cis.uoguelph.ca/~victor/npds/NPDS_Protocol_1.1.html
+
+And all contributions are welcomed.
+
+I was thinking about the SHARE & QUERY commands which were defined 
+for historical reasons. (With Victor, we are working on the SHARE 
+bug).
+
+Here's the plot: the trackers can share with others the Newtons they 
+know to be up. This feature was actually designed by Matt.
+
+Now, from that, I think that a good idea would be a network of 
+available trackers, each sharing with each others the Newtons that 
+are up. I also thought about a method of telling the Newtons which 
+became orphans that their tracker died and offering them to register 
+on ourself.
+
+With that, we'll have a strong network of trackers. (I admit that 
+this idea is probably not worth it for our faithful Newtons, but I 
+like the idea of a strong network for the Newton's sake).
+
+Now, this means some changes in the SHARE and QUERY methods. If I 
+understand what we drafted in July-August, the SHARE command is for 
+servers registered on a tracker and QUERY for them all. This doesn't 
+seem really worth it having two commands since it's better to know 
+all Newtons another tracker knows, even if those Newtons were not 
+registered on it. However, we need a command to know all data about 
+Newtons, such as the Hash (unimplemented and even not documented - a 
+unique hash of the unique ID to identify a Newton, so that we could 
+have ICQ like icons) and the tracker this Newton is registered on.
+
+However, we need a command for the Web Pager future design of getting 
+access to someone's Newton: I thought that we could have a built-in 
+dialog to send a message on the Web Pager and both bookmarks (well, 
+simply recents first) and a button to download the list of currently 
+up Newtons. For that, we need a simplified command, we don't need the 
+last verification date, the status is maybe worth it, and we of 
+course need the description and the URL.
+
+I think that the best would be to keep SHARE for the first command 
+and QUERY for the second.
+
+Now, we'll have to choose when the sharing is done.
+Here is a suggestion: (we could stick on what's currently half 
+implemented in Victor's tracker)
+
+A tracker server has three tasks:
+- waiting forever for commands as described in the protocol
+- verifying periodically that registered Newtons are alive
+- calling other trackers periodically about the Newtons they know. By 
+calling a tracker, a tracker tells the other it exists. A tracker 
+should maintain between resets a list of trackers it knows, and for 
+example have a mechanism like if a tracker is down for too long a 
+time, it is removed from the list. The developer should create some 
+interface to edit this list (e.g. Victor's console).
+
+When calling a tracker, the tracker looks into the list of Newtons it knows.
+If the tracker is down, it notes all the Newtons it knows belonging 
+to this tracker as orphan.
+Otherwise:
+If the tracker claims a Newton, it updates the list (either changing 
+the owner of the Newton and therefore clearing the orphan flag or 
+creating a new entry)
+If there are Newtons the tracker knew to belong to the tracker it 
+called and that the tracker didn't declared as up again, it removes 
+them from the list.
+
+Then, it processes all orphan Newtons and calls them telling them 
+announcing them the bad news and offering its services. It then 
+clears the list.
+
+On the client side, when receiving such a bad piece of news, the 
+Newton adds this tracker in its known tracker list. If it is the 
+first time it heard about the bad news, it answers "Yes, please 
+register me" and notes that it now belongs to someone else. If it 
+isn't the first time, it says "Thanks Pal, but I already belong to 
+XXXX" giving the tracker an opportunity to grow its list.
+
+Sounds a little complex, but well, I'm just waiting for your 
+agreement to document it and implement it with Victor. Of course, I'd 
+prefer first some comments.
+
+[Victor: about the GMT bug: Misato seems to have the same problem as 
+G3. Any idea?]
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+End of npds Digest V1 #9
+************************
+
+
+</x-charset>
+From ???@??? Tue Nov 14 06:40:21 2000
+Date: Tue, 14 Nov 2000 03:22:12 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #10
+Precedence: bulk
+Message-Id: <nospam_20001114022212.7D59972E68_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Mon, 13 Nov 2000	Volume: 01  Issue: 010
+
+In This Issue:
+		[NPDS] Re: [Protocol Draft] SHARE & QUERY - Or a network of 
+
+----------------------------------------------------------------------
+
+Date: Mon, 13 Nov 2000 07:27:51 -0800
+Subject: [NPDS] Re: [Protocol Draft] SHARE & QUERY - Or a network of trackers?
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+npds@ml.free.fr writes:
+>
+>Sounds a little complex, but well, I'm just waiting for your 
+>agreement to document it and implement it with Victor. Of course, I'd 
+>prefer first some comments.
+>Regards,
+>
+>Paul
+
+
+If you are able to build it (and I'm sure you will be able to), this
+implementation of the Tracker client sounds wonderful. 
+
+Josh Burker
+
+
+
+------------------------------
+
+Date: Mon, 13 Nov 2000 19:29 -0500
+From: "Victor Rehorst" <nospam_chuma_at_chuma_dot_org>
+Subject: [NPDS] Re: [Protocol Draft] SHARE & QUERY - Or a network of t
+
+On Sun, Nov 12 2000 Paul Guyot wrote:
+>
+>Since I worked a little with Victor on his java tracker server, I 
+>decided to resume the work on the protocol draft waiting for my 
+>Newton to come back in order to work on the ATA Support.
+>
+>The draft is available at:
+>http://eddie.cis.uoguelph.ca/~victor/npds/NPDS_Protocol_1.1.html
+>
+>And all contributions are welcomed.
+>
+>I was thinking about the SHARE & QUERY commands which were defined 
+>for historical reasons. (With Victor, we are working on the SHARE 
+>bug).
+
+SHARE was conceived by Matt Vaughn. I wrote QUERY, but I can't remember why.
+
+>
+>Now, this means some changes in the SHARE and QUERY methods. If I 
+>understand what we drafted in July-August, the SHARE command is for 
+>servers registered on a tracker and QUERY for them all. This doesn't 
+>seem really worth it having two commands since it's better to know 
+>all Newtons another tracker knows, even if those Newtons were not 
+>registered on it. However, we need a command to know all data about 
+>Newtons, such as the Hash (unimplemented and even not documented - a 
+>unique hash of the unique ID to identify a Newton, so that we could 
+>have ICQ like icons) and the tracker this Newton is registered on.
+
+Like I said, I don't remember why I wrote SHARE.
+
+>
+>Now, we'll have to choose when the sharing is done.
+>Here is a suggestion: (we could stick on what's currently half 
+>implemented in Victor's tracker)
+
+<snip>
+
+>
+>
+>
+>Sounds a little complex, but well, I'm just waiting for your 
+>agreement to document it and implement it with Victor. Of course, I'd 
+>prefer first some comments.
+
+If sounds good. I think I will try to get SHARE fixed soon and you can document the new protocol stuff for v2 or maybe V3.
+--
+Victor Rehorst - Toronto, Ontario, Canada - chuma@chuma.org
+Sent from a Newton Messagepad 2100 w/SimpleMail 4.1.3 and Proxim RangeLAN2
+http://www.chuma.org
+
+
+------------------------------
+
+End of npds Digest V1 #10
+*************************
+
+
+</x-charset>
+From ???@??? Wed Nov 15 08:22:32 2000
+Date: Wed, 15 Nov 2000 03:22:00 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #11
+Precedence: bulk
+Message-Id: <nospam_20001115022200.4894772E19_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Tue, 14 Nov 2000	Volume: 01  Issue: 011
+
+In This Issue:
+		[NPDS] Re: [Protocol Draft] SHARE & QUERY - Or a network of 
+
+----------------------------------------------------------------------
+
+Date: Tue, 14 Nov 2000 07:12:03 +0100
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: [Protocol Draft] SHARE & QUERY - Or a network of t
+
+>SHARE was conceived by Matt Vaughn. I wrote QUERY, but I can't remember why.
+
+You are probably right.
+
+>If sounds good. I think I will try to get SHARE fixed soon and you 
+>can document the new protocol stuff for v2 or maybe V3.
+
+I think that v1 should be limited to what Matt's tracker does 
+properly (and what yours also do), and what's implemented in the 
+client (well, partly because it should check the result).
+
+REGUP
+REGDN
+ABOUT
+
+and we forget about the QUERY command for the current QUERY format 
+doesn't fit our needs (anyway, Matt says 404 Not Found).
+
+Then, I'll document v1.1 with:
+NPDS/TP extension (already defined in the draft)
+Server sharing command (SHARE) & mechanism
+Tracker query command (QUERY)
+Tracker client orphan behavior
+
+We may divide this in two steps if you think it's worth it.
+
+Next step is additional REGUP (and therefore SHARE) data concerning 
+Newtons such as latitude & longitude, character encoding for the 
+description, etc.
+
+Regards,
+
+Paul
+-- 
+Attention, nouvelle adresse.
+New address, please update.
+
+
+------------------------------
+
+End of npds Digest V1 #11
+*************************
+
+
+</x-charset>
+From ???@??? Sat Nov 18 06:54:54 2000
+Date: Sat, 18 Nov 2000 03:24:35 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #12
+Precedence: bulk
+Message-Id: <nospam_20001118022435.49CD172E12_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Fri, 17 Nov 2000	Volume: 01  Issue: 012
+
+In This Issue:
+		[NPDS] Thanks for the testing
+
+----------------------------------------------------------------------
+
+Date: Fri, 17 Nov 2000 16:04:54 -0500 (EST)
+From: Victor Rehorst <nospam_chuma_at_chuma_dot_org>
+Subject: [NPDS] Thanks for the testing
+
+
+Thanks everyone who registered their Newtons on my tracker.  You can go
+back to using the usual tracker now if you like.  Paul Guyot and I are
+happily hacking away at my Java Tracker: some bugs have been squished,
+it's now multithreaded, adn right now I'm working on making it more
+user-friendly for people to run, and get a final (ha!) bug worked out.
+
+(Matt - Paul mentioned that you weren't on this list, so I'm CCing you.. 
+Once I'm done with this version of the Java tracker, I'll send you a copy
+so you can run it on your box.  It'll be much better from the one you
+tested before, I promise) 
+
+-------Victor Rehorst - victor@eddie.cis.uoguelph.ca | chuma@chuma.org------
+-Secretary, College of Arts and CPES Student Councils, University of Guelph-
+-------------- Homepage and Newton Stuff: http://www.chuma.org -------------
+
+
+
+
+------------------------------
+
+End of npds Digest V1 #12
+*************************
+
+
+</x-charset>
+From ???@??? Thu Nov 23 06:47:02 2000
+Date: Thu, 23 Nov 2000 03:23:14 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #13
+Precedence: bulk
+Message-Id: <nospam_20001123022314.A16C87312D_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Wed, 22 Nov 2000	Volume: 01  Issue: 013
+
+In This Issue:
+		[NPDS] [Protocol] SHARE & QUERY result
+
+----------------------------------------------------------------------
+
+Date: Wed, 22 Nov 2000 09:27:53 +0100
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] [Protocol] SHARE & QUERY result
+
+Hi all,
+
+I've been working a little bit on the protocol this morning. I remind 
+you where we're going to. There are two formats for commands, 1.0 and 
+1.1
+Everything that is 1.0 is what Matt's tracker does.
+
+Some new commands are introduced with 1.1
+
+Summary:
+
+Command		Version		Format(s)	Purpose
+ABOUT		1.0		1.0, 1.1	Tell about the server
+REGUP		1.0		1.0, 1.1	Register a Newton
+REGDN		1.0 (r)		1.0, 1.1	Unregister a Newton
+SHARE		1.1		1.1		Communication between servers
+QUERY		1.1		1.1		Get a list of known Newtons
+
+(REGDN is just recommanded in version 1.0)
+
+What's new in 1.1 is the ability to encode the Newton description in 
+any character encoding. Besides, there can be line feeds in this 
+description. (this can be restricted, it's one of the solutions to my 
+problem).
+
+The 1.0 format for REGUP is
+REGUP host[:port] Description
+
+And the description goes till the end of the line.
+
+The 1.1 format for REGUP has the charset in the header and the 
+description is in the body. Therefore the description goes till the 
+end of the request.
+
+Now, with the SHARE & QUERY methods, we need to return a list of the 
+available servers/Newtons. My problem is: which format to choose.
+
+I think that the best is to put in the headers the encoding of the whole body.
+Then in the body a description of each server/newtons.
+
+I found basically three options:
+a/ we limit the Newton description to anything but carriage 
+returns/line feeds. The structure of the SHARE & QUERY results will 
+look like Victor's current response to these commands, i.e. data at 
+the beginning of the line separated by tabulations, description at 
+the end, next line is a new server/newton.
+b/ we encode the carriage returns/line feeds with something like \n, \r.
+c/ we use XML for the whole structure.
+
+The easiest to implement (both the servers and the Newton should 
+decode this result, the servers for the SHARE method, the Newton for 
+the QUERY method) is point (a). But it has a serious limitation: the 
+data about a Newton should be limited to have a single text with 
+allowed tabulations.
+However, with this new 1.1 format, this could be changed in the 
+future if we need it.
+
+What do you think about it?
+
+Paul
+-- 
+http://www.kallisys.com/
+
+
+------------------------------
+
+Date: Wed, 22 Nov 2000 07:40:09 -0800
+Subject: [NPDS] Re: [Protocol] SHARE & QUERY result
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+npds@ml.free.fr writes:
+>Command		Version		Format(s)	Purpose
+>ABOUT		1.0		1.0, 1.1	Tell about the server
+>REGUP		1.0		1.0, 1.1	Register a Newton
+>REGDN		1.0 (r)		1.0, 1.1	Unregister a Newton
+>SHARE		1.1		1.1		Communication between servers
+>QUERY		1.1		1.1		Get a list of known Newtons
+
+<SNIP>
+
+>Now, with the SHARE & QUERY methods, we need to return a list of the 
+>available servers/Newtons. My problem is: which format to choose.
+>
+>I think that the best is to put in the headers the encoding of the whole
+>body.
+>Then in the body a description of each server/newtons.
+>
+>I found basically three options:
+>a/ we limit the Newton description to anything but carriage 
+>returns/line feeds. The structure of the SHARE & QUERY results will 
+>look like Victor's current response to these commands, i.e. data at 
+>the beginning of the line separated by tabulations, description at 
+>the end, next line is a new server/newton.
+>b/ we encode the carriage returns/line feeds with something like \n, \r.
+>c/ we use XML for the whole structure.
+>
+>The easiest to implement (both the servers and the Newton should 
+>decode this result, the servers for the SHARE method, the Newton for 
+>the QUERY method) is point (a). But it has a serious limitation: the 
+>data about a Newton should be limited to have a single text with 
+>allowed tabulations.
+>However, with this new 1.1 format, this could be changed in the 
+>future if we need it.
+>
+>What do you think about it?
+
+
+The (a) option would be close to how the Newton descriptions are currently
+offered on the Tracker page:  short and to the point, but customizable
+like John Solon's Newton Exobrain.  If (a) is the easiest to implement but
+changeable if you decide to revise the format I would suggest using (a). 
+I'd say keep it simple:  that's part of the beauty of NPDS.  But I also
+like the power behind the software, so implementing an option that can be
+built upon makes sense.
+
+Thanks,
+
+Josh Burker
+
+
+
+------------------------------
+
+End of npds Digest V1 #13
+*************************
+
+
+</x-charset>
+From ???@??? Wed Nov 29 07:19:23 2000
+Date: Wed, 29 Nov 2000 03:22:21 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #14
+Precedence: bulk
+Message-Id: <nospam_20001129022221.2F96B72DF1_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Tue, 28 Nov 2000	Volume: 01  Issue: 014
+
+In This Issue:
+		[NPDS] SSI
+		[NPDS] Re: SSI
+		[NPDS] Re: SSI
+		[NPDS] Re: SSI
+
+----------------------------------------------------------------------
+
+Date: Tue, 28 Nov 2000 07:10 -0800
+From: "Josh Burker" <nospam_josh_burker_at_misd.wednet_dot_edu>
+Subject: [NPDS] SSI
+
+Hello all:
+
+I've been running my NPDS server for a while now and I love the power of the SSI support that Matt Vaugh built into nHTTPd. I have also learned quite a bit about the supported SSI from Matt's <a href="http://homepage.mac.com/LightyearMedia/NPDS/4AAMagazine/">4AA Magazine</a> as well as the online <a href=" http://homepage.mac.com/LightyearMedia/NPDS/">NPDS</a> documentation. However, I know that there are a few SSIs that are not documented (for instance, the one that takes the poster's email address and puts it at the end of their post) or perhaps it's CGI that's doing the work (I'm new to this).
+
+Paul Filmer and the aforementioned resources have gotten me started on a serious lust for more SSI on my web server. Can some helpful individual help fill in some of the gaps in the documentation and help a serious geek spiff out his Newton web server? Of particular interest would be a means of collecting the poster's email address (this is already part of the NotePad server but I don't know how) so I could have the server, again using SSI or CGI (whatever it takes), generate a short thank you letter to be sent to the poster.
+
+Thanks for any information,
+
+Josh Burker
+
+Sent from a Newton MessagePad 2100
+SimpleMail 4.1.3
+- Ink Different! -
+
+
+------------------------------
+
+Date: 28 Nov 2000 11:56:48 EST
+From: Charles.P.Daghlian@Dartmouth.EDU (Charles P. Daghlian)
+Subject: [NPDS] Re: SSI
+
+--- You wrote:
+Of particular interest would be a means of collecting the poster's email address
+(this is already part of the NotePad server but I don't know how) so I could
+have the server, again using SSI or CGI (whatever it takes), generate a short
+thank you letter to be sent to the poster.
+--- end of quote ---
+This would be nice.
+
+I find that I cannot keep my server going for more than about 24 hours without a
+lockup. I have tried turning off tracking, logging, etc, but have not found any
+clear reason for the problems. How long can others keep their NPDS online
+without having to restart?
+
+Chuck
+********************************************
+Charles P. Daghlian, Ph. D.
+Director, Rippel E. M. Facility
+7605 Remsen
+Dartmouth College
+Hanover, NH 03755
+603-646-1039 / FAX 603-650-1637
+http://www.dartmouth.edu/~emczar/
+http://www.dartmouth.edu/~daghlian/paleo/
+********************************************
+
+
+------------------------------
+
+Date: Tue, 28 Nov 2000 08:55:35 -0800
+Subject: [NPDS] Re: SSI
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+npds@ml.free.fr writes:
+>--- You wrote:
+>Of particular interest would be a means of collecting the poster's email
+>address
+>(this is already part of the NotePad server but I don't know how) so I
+>could
+>have the server, again using SSI or CGI (whatever it takes), generate a
+>short
+>thank you letter to be sent to the poster.
+>--- end of quote ---
+>This would be nice.
+>
+>I find that I cannot keep my server going for more than about 24 hours
+>without a
+>lockup. I have tried turning off tracking, logging, etc, but have not
+>found any
+>clear reason for the problems. How long can others keep their NPDS online
+>without having to restart?
+>
+>Chuck
+
+It seems to vary from day to day.  Yesterday, for instance, I ran it all
+day without it locking up at all.  However, I didn't have much traffic. 
+Paul, any insight?
+
+Josh Burker
+
+
+
+------------------------------
+
+Date: Tue, 28 Nov 2000 22:52:12 +0100
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: SSI
+
+>  >How long can others keep their NPDS online
+>  >without having to restart?
+
+I was able to leave it for several days by disabling the reverse DNS 
+feature and by setting the latency to 7 seconds.
+
+>It seems to vary from day to day.  Yesterday, for instance, I ran it all
+>day without it locking up at all.  However, I didn't have much traffic.
+>Paul, any insight?
+
+It's a known bug. Sorry folks, I cannot work on it without my Newton.
+
+Regards,
+
+Paul
+-- 
+http://www.kallisys.com/
+
+
+------------------------------
+
+Date: Tue, 28 Nov 2000 23:09:32 +0100
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: SSI
+
+>I know that there are a few SSIs that are not documented (for 
+>instance, the one that takes the poster's email address and puts it 
+>at the end of their post)
+
+I don't remember exactly (no time to look at the source right now) 
+but I think this is not a SSI, just the normal behavior. (I modified 
+that to add a link).
+
+>or perhaps it's CGI that's doing the work (I'm new to this).
+
+OK, there are two different things. It's not a CGI since CGI means 
+Common Gateway Interface. Common Gateway Interface is based on old 
+rusty technology ( from the 70's) called Unix. Nobody uses it anymore 
+like Cobol except in some very particular cases. (Cobol is still used 
+in many French chemistries, although this is changing).
+
+SSI is a more general term.
+
+NPDS has two kind of active pages.
+In fact, all pages are active. They are processed by modules, and all 
+modules get the data from soups or predifined pages. NotesServ takes 
+the data from the Notes soup, and as you probably noticed, translates 
+text to HTML (yes, I planned to add styles and even images as Victor 
+suggested).
+NotesServ also defines the WhiteBoard to create new notes. Instead of 
+looking into the Notes soup, NotesServ processes the page.
+
+SSIs works at the server level (surprising with such a name, isn't it?).
+The interface doesn't look like usual SSIs. Instead, you define a 
+SGML tag without parameter (yes, I planned to add parameters) that 
+generates some text and can in fact do anything else.
+
+You can define SSIs in the Script Editor coming with NPDS. There are 
+SSIs defined by modules, too.
+SSIs takes a parameter which is undocumented. Please don't rely on it 
+as I planned to change it.
+
+>Paul Filmer and the aforementioned resources have gotten me started 
+>on a serious lust for more SSI on my web server. Can some helpful 
+>individual help fill in some of the gaps in the documentation and 
+>help a serious geek spiff out his Newton web server?
+
+Paul Filmer made great SSIs like the domain collecting.
+
+>Of particular interest would be a means of collecting the poster's 
+>email address (this is already part of the NotePad server but I 
+>don't know how) so I could have the server, again using SSI or CGI 
+>(whatever it takes), generate a short thank you letter to be sent to 
+>the poster.
+
+I think this is not simple to do, at least with the current 
+architecture of NPDS. It will be much more natural with some changes 
+I planned.
+
+Indeed, the poster address is added because the poster puts the address.
+
+I have an idea, though. You cannot know when the form is filled and processed.
+However, you can register a handler when a new note is added. If you 
+only register such a handler, you may have problems if the note is 
+moved from one store to another. There are several solutions. One of 
+them is that with a SSI, you can get called whenever a page (you 
+designed) is viewed. So, if the user clicked the home link once a 
+note is posted, and if there was 2 hits since the last note was added 
+and if this note is a note the visitor wrote, you can send him a 
+mail. Believe me, it's not very simple.
+
+Now, I have planned to define templates pages in Matt's modules. If 
+the template is defined in the NotesSoup, the server will use it 
+instead of the default page. This way, you will be able to change the 
+link a little bit and add your SSI there. I will consider your 
+problem when defining that.
+
+Regards,
+
+Paul
+-- 
+http://www.kallisys.com/
+
+
+------------------------------
+
+End of npds Digest V1 #14
+*************************
+
+
+</x-charset>
+From ???@??? Thu Nov 30 07:12:25 2000
+Date: Thu, 30 Nov 2000 03:24:34 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #15
+Precedence: bulk
+Message-Id: <nospam_20001130022435.122217306F_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Wed, 29 Nov 2000	Volume: 01  Issue: 015
+
+In This Issue:
+		[NPDS] Re: SSI
+		[NPDS] Re: SSI
+		[NPDS] Re: SSI
+
+----------------------------------------------------------------------
+
+From: "Filmer, Paul E" <nospam_pfilmer_at_nsf_dot_gov>
+Subject: [NPDS] Re: SSI
+Date: Wed, 29 Nov 2000 16:26:01 -0500
+
+ Same, usually less than 24 hrs. 
+Even with Matt Vaugh's last NPDS version, it would not run for more than a
+few days without crashing. I am suspicious of the heap cleaning in Avi's
+backdrop - it counts down to some very low values, and I have tried to see
+what happens when the server is queried in this state, but have no firm
+conclusions.
+Paul F.
+
+-----Original Message-----
+
+I find that I cannot keep my server going for more than about 24 hours
+without a
+lockup. I have tried turning off tracking, logging, etc, but have not
+found any
+clear reason for the problems. How long can others keep their NPDS
+online
+without having to restart?
+
+Chuck
+
+
+------------------------------
+
+From: "Filmer, Paul E" <nospam_pfilmer_at_nsf_dot_gov>
+Subject: [NPDS] Re: SSI
+Date: Wed, 29 Nov 2000 16:37:05 -0500
+
+I appreciate Paul Guyot's vote of confidence in my scripting skills, but
+unfortunately this is not done by any SSI I wrote, but by tedious manual
+labour!
+
+Paul F.
+
+-----Original Message-----
+From: Paul Guyot
+>Paul Filmer and the aforementioned resources have gotten me started 
+>on a serious lust for more SSI on my web server. Can some helpful 
+>individual help fill in some of the gaps in the documentation and 
+>help a serious geek spiff out his Newton web server?
+
+Paul Filmer made great SSIs like the domain collecting.
+
+
+------------------------------
+
+Date: Wed, 29 Nov 2000 13:41:20 -0800
+Subject: [NPDS] Re: SSI
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+npds@ml.free.fr writes:
+>I appreciate Paul Guyot's vote of confidence in my scripting skills, but
+>unfortunately this is not done by any SSI I wrote, but by tedious manual
+>labour!
+>
+>Paul F.
+
+
+All the more reason for one of us to develop an SSI that does this tedious
+work for us!  However, I might be biting off more than I can chew, as I
+did with my hopes of writing an SSI to automatically generate a reply to
+anyone who posts on my Newton.
+
+I for one cannot wait to see the revisions Paul plans on making to nHTTPd
+once his Newton is back from vacation!
+
+Josh Burker
+
+
+
+------------------------------
+
+Date: Wed, 29 Nov 2000 22:45:29 +0100
+From: Paul Guyot <nospam_pguyot_at_kallisys_dot_net>
+Subject: [NPDS] Re: SSI
+
+>I appreciate Paul Guyot's vote of confidence in my scripting skills, but
+>unfortunately this is not done by any SSI I wrote, but by tedious manual
+>labour!
+
+I thought is was a SSI because:
+a/ you wrote several SSIs
+b/ I think I read somewhere on your NPDS home page the expression 
+"domain SSI" or something like that. Unfortunately, your Newton isn't 
+up, so I cannot check.
+
+Remind me to write you the SSI when I get my Newton back.
+
+Paul
+-- 
+http://www.kallisys.com/
+
+
+------------------------------
+
+Date: Wed, 29 Nov 2000 13:57:01 -0800
+Subject: [NPDS] Re: SSI
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+npds@ml.free.fr writes:
+>>I appreciate Paul Guyot's vote of confidence in my scripting skills, but
+>>unfortunately this is not done by any SSI I wrote, but by tedious manual
+>>labour!
+>
+>I thought is was a SSI because:
+>a/ you wrote several SSIs
+>b/ I think I read somewhere on your NPDS home page the expression 
+>"domain SSI" or something like that. Unfortunately, your Newton isn't 
+>up, so I cannot check.
+>
+>Remind me to write you the SSI when I get my Newton back.
+>
+>Paul
+>-- 
+>http://www.kallisys.com/
+
+
+Would it be possible to come up with a central repository for all these
+cool SSIs that people are writing?  I know Matt distributed some as a
+"Scripties" package on both his NPDS page and AA Magazine, and Paul Filmer
+has some on his Newton Web server.  Perhaps on the NPDS Developer releases
+server with all the "parts" of the current NPDS we could have an SSI
+folder with SSIs that people can choose to install on their Newtons.
+
+Josh Burker
+
+
+
+------------------------------
+
+End of npds Digest V1 #15
+*************************
+
+
+</x-charset>
+From ???@??? Tue Jan 09 07:02:48 2001
+Date: Tue, 09 Jan 2001 03:18:35 +0100 (CET)
+From: Listar <nospam_listar_at_ml.free_dot_fr>
+To: npds digest users <nospam_listar_at_ml.free_dot_fr>
+Reply-To: npds@ml.free.fr
+Subject: npds Digest V1 #16
+Precedence: bulk
+Message-Id: <nospam_20010109021836.2FD5772F2E_at_ml.free_dot_fr>
+Sender: npds-owner@ml.free.fr
+
+<x-charset x-mac-text>------------------------------------
+npds Digest	Mon, 08 Jan 2001	Volume: 01  Issue: 016
+
+In This Issue:
+
+----------------------------------------------------------------------
+
+Date: Mon, 08 Jan 2001 07:49:45 -0800
+Subject: [NPDS] Re(2): NTLK NPDS Help
+From: "Josh Burker" <nospam_Josh_Burker_at_misd.wednet_dot_edu>
+
+cjkjlewis@home.com writes:
+>Hi Josh,
+>Thanks for your response!  Still pulling my hair out trying to get NPDS
+>up.
+>My Newt is assigned a dynamic address (DHCP) from my router.  I think you
+>are saying to give Newt a static address, is that right?  I have a Netgear
+>RT311 router, I have telneted into it's setup ("SUA Server Setup") and
+>told
+>it port 80 should point to my newt (i think).  Still no luck accessing
+>NPDS
+>from the outside though.  Also, I am not sure exactly which url to use
+>when
+>trying to access from outside.  Any other help would be MUCH appreciated
+>if
+>your time permits of course.
+>
+>Thx
+>Charles Lewis
+
+Let's see if we can puzzle this one out (I'm also cc'ing this to the NPDS
+mailing list).
+
+If there is any way to configure your router so you have assigned IP
+addresses, that's the easiest way to deal with trickier networking issues
+like we have here.  For instance, in my old home network I assigned my
+Newton the address 192.168.0.4.  That is a non-routing IP address:  the
+router will not pass that IP address into the outside world.  The router
+uses Network Address Translation (NAT) to route any requested information
+from the real IP address to this non-routed IP address.
+
+If you cannot turn off DHCP or would prefer not to, that's fine, too.  The
+IP addresses that the DHCP server built into your router offers are
+probably non-routing, too, and you'll find that your various computers
+behind the router will tend to pick up the same IP addresses if you pay
+attention over time.  
+
+The big thing is that you have your router configured to allow information
+on port 80 (or 8080) to be forwarded through the router to whatever
+computer is serving web pages.  You probably shouldn't have multiple
+servers running behind the router unless you can specifically configure
+your NAT to forward to specific IP addresses (again, the need for fixed IP
+addresses).
+
+That done, you might have to go into your NPDS Tracker Client and specify
+the IP address that you want your Newton to register with the Tracker. 
+This would be the IP address assigned to you by your ISP (not the
+DHCP-issued address for your Newton, nor the 192.168.x.x address, if you
+assign one).  Since you're behind the router, probably using NAT, if you
+bring NPDS up and register with the Tracker, the Newton will try to
+register its assigned IP address, which in this case might be a non-routed
+address.  Nobody can visit you if your IP address is 192.168.x.x or any of
+the other non-routed IP addresses.
+
+Even though you aren't running a huge server behind your router, keep in
+mind @home doesn't want people running any servers on their cable lines.
+
+I miss my Newton....
+
+Josh Burker
+
+
+
+
+------------------------------
+
+End of npds Digest V1 #16
+*************************
+
+
+</x-charset>

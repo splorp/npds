@@ -1,0 +1,22 @@
+InstallScript:=func(inPartFr, inFrameFr)
+begin
+
+//open the editor
+GetRoot().|Editor:MAVON|:open();
+
+local script:= 
+{name: "Script Name",
+active: TRUE,
+static: NIL,
+ssitag: "SSI_TAG",
+text: ""
+};
+
+local scriptsoup:= GetUnionSoup("UserScripts:MAVON");
+scriptsoup:AddToDefaultStoreXmit(script, NIL);
+
+GetRoot():Notify(4, "Cookbook", script.name && "Was Installed.");
+GetRoot().|Editor:MAVON|:updateScreen();
+
+
+end
