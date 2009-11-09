@@ -1,0 +1,17 @@
+// Launch VNC
+// Copyright (c) 2002 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script launches VNC, provided that it's configured as a server.
+// It's buggy, as in it will generate some crash log if you have BugTrap installed
+// but it works pretty well as in you can impress co-workers and show them your Newton
+// as a web server and a VNC server at the same time. Alternatively, you can control
+// your web server Newton from the other side of the planet.
+
+func(inUndocumentedRequestFrame)
+begin
+	local vncApp := GetRoot().|vnc:tknollsys|;
+	vncApp:open();
+	AddDelayedCall(func() GetRoot().|vnc:tknollsys|.authenticator.connectButton:buttonClickScript(), nil, 1000);
+	"VNC Started"
+end

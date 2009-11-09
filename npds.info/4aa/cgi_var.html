@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+   <TITLE>CGI Environment and Request Variables</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Appendix: CGI Environment and Request
+Variables</FONT></H1>
+
+<P><FONT FACE="Verdana"><TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><FONT FACE="Verdana" COLOR="#FFFFFF"><B>Variable</B></FONT>
+      </TD>
+      <TD BGCOLOR="#000000">
+         <P><FONT FACE="Verdana" COLOR="#FFFFFF"><B>String
+         Returned</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SERVER_SOFTWARE</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana"><B>nHTTPd/2.02 (Newton)</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SERVER_NAME</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">IP Address of Server</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SERVER_PROTOCOL</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana"><B>HTTP/1.0</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">GATEWAY_INTERFACE</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana"><B>CGI/1.0 (NPDS_SSA)</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SERVER_PORT</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Current Server Port</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">REMOTE_ADDR</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Client IP Address</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">REMOTE_HOST</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Client DNS (If Resolved*)</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">HTTP_USER_AGENT</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Client Browser</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SCRIPT_NAME</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Title of Current Script</FONT>
+      </TD>
+   </TR>
+</TABLE>
+</FONT>
+
+<P><FONT FACE="Verdana">*NPDS does DNS lookup in an odd way to
+increase its speed. It looks up the first instance of an IP AFTER
+that address makes its first request. Therefore, you can't have a
+script that uses the DNS entry for a user located on the first page
+that user will access. Also note that if the DNS lookup failed, this
+service will not be available and will return instead the IP address
+of the user.</FONT>
+</BODY>
+</HTML>

@@ -1,0 +1,373 @@
+<HTML>
+<HEAD>
+   <TITLE>Simple Scripting Architecture</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1>NPDS Simple Scripting Architecture</H1>
+
+<H2><IMG SRC="../images/shots/EditorIcon.gif" WIDTH=74 HEIGHT=102 ALIGN=left><A NAME=Intro></A>Introduction</H2>
+
+<P>During development of NPDS 2.0, I recieved a constant stream of
+requests for custom <A HREF="advanced.html#SSI">Server Side
+Includes</A>. However, since every SSI added means additional parsing
+time, I couldn't very well add in lots of neat (but often of dubious
+usefulness) items like temperature, Longitude &amp; Latitude, owner's
+Birthday, and so on, since not everyone would use them.
+
+<P>My answer to providing custom SSI is the <I>NPDS Simple Scripting
+Architecture</I>.
+
+<P>I've added the ability to link text-based scripts to user-defined
+HTML extensions. These scripts can return text values (most common)
+and/or can execute actions on the host machine. All that is required
+is a minimum of Newtonscript knowledge and the ability to follow the
+example scripts packaged with <B>Script Editor.</B>
+
+<H2><IMG SRC="../images/shots/editor.gif" WIDTH=242 HEIGHT=324 ALIGN=right><A NAME=Editor></A>Script
+Editor</H2>
+
+<P>On the right is a screenshot of your interface to NPDS Scripting,
+the Script Editor. The UI elements are as follows:
+
+<UL>
+   <LI><B>Script Info:</B> Tapping in the light gray box will opena
+   slip where you can define script name, its SSI, and whether the
+   script is active</LI>
+   
+   <LI><B>Script Length: </B>A visual cue to show you how close to
+   the limit of <I>4096 bytes</I> your script text is.</LI>
+   
+   <LI><B>Number</B> (on the far right): Count of scripts in the
+   Script Soup</LI>
+   
+   <LI><B>Dog-ear Fold</B> (Bottom Left): Flip through your scripts.
+   Gray-ish is forward, white is backward.</LI>
+   
+   <LI><B>Shiny Script: </B>Create a new template script</LI>
+   
+   <LI><B>Trash Can:</B> Delete current script (not reversible)</LI>
+   
+   <LI><B>Evaluate: </B>Invokes the actual compiler in nHTTPd and
+   returns either the text value or any error message your script
+   generates. It also reports how many ticks your script takes to
+   execute.</LI>
+   
+   <LI><B>Keyboard: </B>Pops open a keyboard to type with.</LI>
+   
+   <LI><B>Close Box:</B> Quit Script Editor</LI>
+   
+   <LI><B>Scrolling:</B> You can scroll up and down in a given
+   script. The overview button returns to the top of the page.</LI>
+</UL>
+
+<H2><A NAME=Writing></A>Writing Scripts</H2>
+
+<P>A NPDS Script is cast as a standard Newtonscript function that
+returns some value. Since most of what NPDS is used for is
+text-based, most NPDS Scripts should return Text. In this example,
+we're going to retrieve the version of NewtonOS in use on this
+Newton.
+
+<P>1. Open Script Editor and tap the "New Script" Button.
+
+<P>2. Enter the Following Text (<I>Note that some of it is already
+written for you on the Notepad</I>)
+
+<BLOCKQUOTE><FONT COLOR="#006600"><CODE>func(</CODE></FONT><FONT COLOR="#990000"><CODE>nullvar</CODE></FONT><FONT COLOR="#006600"><CODE>)</CODE></FONT>
+   
+   <P><FONT COLOR="#006600"><CODE>begin</CODE></FONT>
+   
+   <BLOCKQUOTE><FONT COLOR="#006600"><CODE>local
+      </CODE></FONT><CODE>theOutput</CODE><FONT COLOR="#006600"><CODE>:=
+      </CODE></FONT><CODE>"NewtonOS ROM
+      Version:"</CODE><FONT COLOR="#006600"><CODE> &amp;&amp;
+      Gestalt(0x1000003).ROMversionstring;</CODE></FONT>
+      
+      <P><FONT COLOR="#006600"><CODE>return
+      </CODE></FONT><CODE>theOutput</CODE><FONT COLOR="#006600"><CODE>;</CODE></FONT></BLOCKQUOTE>
+   
+   <P><FONT COLOR="#006600"><CODE>end</CODE></FONT></BLOCKQUOTE>
+
+<P>3. Tap on the "Script Info" Box and enter a Name and SSI for this
+script. If you wish it to be available to NPDS right away, tap the
+"Script Is Active" checkbox. You may activate and inactivate scripts
+at will simply by changing the value of this checkbox. For purpose of
+explaining how to use this script, I am going to assume you gave it
+the SSI value "VERSION".
+
+<P>4. Let's try this function out. Tap the "<B>Evaluate</B>" button.
+You'll get a window that should give you either the text output of
+your function (or a cryptic error message and the Newtonscript Error
+Code).
+
+<P>5. To use this function in your WWW content, place the "HTML" code
+&lt;VERSION&gt; wherever you wish to return the value of this script.
+When that page is served, you'll see that the text that was returned
+when you evaluated the script is subsituted in place of the
+&lt;VERSION&gt; tag. To turn off this script, open it under the
+script editor, tap the information line, and un-check the "Script is
+Active" box.
+
+<H3>Your Example Worked. What Do I Need to Know to Write My Own
+SSI?</H3>
+
+<P><B>Dummy Variable</B>
+
+<P>Look at the head of the script: "<I>func(nullvar)</I>". The
+<B>nullvar</B> is a dummy variable that is required by NPDS's
+Compiler. You can change its name, but the fact remains that a NPDS
+Script must accept <B>ONE and ONLY ONE</B> argument. You cannot pass
+your own arguments to your script. (There is a way around this that
+I'll mention later)
+
+<P><B>Script Length</B>
+
+<P>There is a limit on the length of NPDS Scripts to encourage you to
+write FAST and efficient code and currently that limit is 4096 Bytes.
+
+<P><B>Compiler Variables</B>
+
+<P>4096 Bytes isn't a lot, especially in light of the fact that in
+order to command, for instance, nHTTPd, you usually need lengthy code
+like
+
+<P><CODE>GetRoot().|nHTPd:ALLPEN|</CODE>
+
+<P>In anticipation of this, and also to save some typing, the NPDS
+Compiler supports symbols that stand for specific expressions.
+
+<P><TABLE BORDER=0 CELLPADDING=4>
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Compiler Variable</B></FONT>
+      </TD>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Actual Value</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>|NPDS|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GetRoot().|nHTTPd:ALLPEN|
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>|NoteServ|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GetRoot().|pHTML:MAVON|
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>|DateServ|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GetRoot().|pDATES:MAVON|
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>|CardServ|
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GetRoot().|pCARDS:MAVON|
+      </TD>
+   </TR>
+</TABLE>
+
+<H4>CGI Environment Variables</H4>
+
+<P>If you've ever programmed in Perl, you'll recognize the names of
+these variables. These are the standard names for specific values
+that pertain to HTTP transactions on your server. To use these, place
+them in your script in the same context as you would a string. For
+instance, if you wanted to create a fully qualified URL to your
+server's DateServ, you could use the SERVER_NAME and SERVER_PORT
+variables like so: 
+
+<P><FONT COLOR="#003399"><CODE>"http://SERVER_NAME:SERVER_PORT/dates"</CODE></FONT>
+
+<P>Notice that the variables aren't treated in any special manner.
+They will be substituted in at script-compile time with appropriate
+values.
+
+<P><TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>Environment Variable</B></FONT>
+      </TD>
+      <TD BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B>String Returned</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SERVER_SOFTWARE
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><B>nHTTPd/2.02 (Newton)</B>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SERVER_NAME
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>IP Address of Server
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SERVER_PROTOCOL
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><B>HTTP/1.0</B>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>GATEWAY_INTERFACE
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><B>CGI/1.0 (NPDS_SSA)</B>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SERVER_PORT
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Current Server Port
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>REMOTE_ADDR
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Client IP Address
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>REMOTE_HOST
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Client DNS (If Resolved*)
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>HTTP_USER_AGENT
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Client Browser
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P>SCRIPT_NAME
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>Name of the currently executing script
+      </TD>
+   </TR>
+</TABLE>
+
+<H4>Script Execution Time</H4>
+
+<P>When you Evaluate a script, also present in the results window
+will be a count of Ticks required for compiling and execution of your
+code. Script Editor will complain if your code takes longer than 360
+Ticks (6 Seconds) to Execute.
+
+<P>While there is no limit on the size of function you create, keep
+in mind that when a NPDS Script is invoked, it is parsed, compiled,
+and evaluated on the fly during service of the page that invokes it.
+A script that takes 360 Ticks to run will add 6 seconds to the 1-4
+seconds its takes NPDS to serve a page for a total of up to 10
+seconds. Many browsers will time out at 10 seconds and close their
+connections. Hence the suggestion of keeping your scripts short and
+sweet...
+
+<P>If you want real POWER, learn the NPDS API and write your own
+custom plugins. With my user proto and documentation you can create a
+simple NPDS plugin in an afternoon, with the limiting step being your
+ability to write your own data generation functions.
+
+<P><B>Limit on Output Size</B>
+
+<P>There is no longer a limit on output size. You're limited only by
+the free heap on your Newton. I'd suggest not generating more than
+about 2000 bytes, though.&nbsp;
+
+<H2><A NAME=FAQ></A>FAQ</H2>
+
+<P>Q: How many Scripts should I keep active at a given time?
+
+<P>A: Well, when a script is "Active", NPDS output is scanned for the
+presence of the SSI assigned to that scripts. This takes a couple of
+ticks per SSI. Not until an instance of the SSI is found is the
+script actually evaluated. However, since we're trying to keep things
+fast, I'd suggest no more than 10-12 User scripts active at any given
+time.
+
+<P>Q: How do I access the name of the file being requested?
+
+<P>A: During HTTP Request, nHTTPd fills a slot in its base frame
+called <B><CODE>CURRENT_HTTP_REQUEST </CODE></B>with the following
+data frame:
+
+<BLOCKQUOTE><CODE>{ip: user's IP address (string),</CODE>
+   
+   <P><CODE>path: the directory and filename requested
+   (string),</CODE>
+   
+   <P><CODE>time: HTTP formatted time of the request,</CODE>
+   
+   <P><CODE>request: the path and filename of the request,</CODE>
+   
+   <P><CODE>dns: the DNS value of the user's IP (if defined),</CODE>
+   
+   <P><CODE>agent: the browser the client is using}</CODE></BLOCKQUOTE>
+
+<P>To access these items, use the following code:
+
+<P><B><CODE>|NPDS|.CURRENT_HTTP_REQUEST.</CODE><I><CODE>slot</CODE></I></B>
+
+<P>Q: What is that "Script Returns a Static Value" option?
+
+<P>A: NPDS keeps its speed despite the additional features I keep
+adding by doing a lot of pre-processing and cacheing. Some of NPDS'
+own SSI are evaluated at Startup and are held in memory throughout
+the lifetime of the session.
+
+<P>This option within the Scripting Architecture will be similar in
+function, but is not yet implemented. If you have scripts that will
+return a static value (say, the Latitude and Longitude of your City),
+you can check this option and when support for pre-evaluation is
+included in NPDS, your scripts will run much faster since they can be
+pre-compiled and evaluated when the server starts up.
+
+<P>Q: I hit <B>Evaluate </B>and get an exception.. I am sure my code
+is OK. and all I did was try to do something using NPDS..
+
+<P>A: It's good policy to keep nHTTPd open (but minimized) when
+you're writing scripts. You'll get better results without having to
+do some sneaky stuff to fool the system into thinking its open. See
+if this helps..
+
+<P>Q: Can I use these scripts as real CGIs (Programs that can be
+accessed directly by a HTTP request)?
+
+<P>A: Not yet. Some issues remain with getting this up and going in
+an easy to use and secure manner. But it's a definite goal. For now,
+you can define a pretty complicated SSI tag and use it as the total
+content of a note. Remember that you can generate a pretty large and
+complex chunk of text from one of these SSIs.
+</BODY>
+</HTML>

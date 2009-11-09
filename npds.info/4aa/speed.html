@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+   <TITLE>Speed</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact"><I>Speeding Up NPDS 2.0x</I></FONT></H1>
+
+<H2><FONT FACE="Verdana"><A NAME=Opti></A>Optimizing Your Index
+Page</FONT></H2>
+
+<P><FONT FACE="Verdana">This is the first file that most people see
+when they visit your Newton. Since the "file" structure of NPDS is
+pretty flat, users will reload the index page more often than any
+other. If your index is lean and trim, your Newton server will run
+much faster, so let's talk about how to clean it up a bit.</FONT>
+
+<P><FONT FACE="Verdana">First of all, the index page that is default
+with NoteServ is pretty top heavy. I wrote it to show off the
+abilities of NPDS and not to save CPU cycles. So, let's make a copy
+of the default page and hack on it a bit. If you have your own
+favorite HTML already in your Notepad, just follow along and gather
+what you can from this. There ARE lessons to be learned..</FONT>
+
+<P><FONT FACE="Verdana">First of all, let's cut out the Notes Posted
+area of the index and move it to a second note. It'll behave more
+like a message board that way. So, go in and delete the heading and
+the SSI Tag that generates that listing then make a new note and call
+it something like "Message Board" or "Sign My Guest Book". Write in
+some text, add the <B>&lt;POST_LIST&gt;</B> SSI tag and the
+<B>&lt;NOTE_POST&gt;</B> tag and you'll have a guest book on a
+separate note. This cuts quite a bit of size from the default
+page.</FONT>
+
+<P><FONT FACE="Verdana">Now, depending on the version of NoteServ
+you're using, you may have the <B>&lt;AGENDA_DAY&gt;</B> tag on your
+index page. You may want to reconsider this since it consumes a lot
+of resources to make the daily agenda table. I find it better to
+allow my guests to choose to view that information.</FONT>
+
+<P><FONT FACE="Verdana">On the topic of DateServ and its role in the
+NPDS enviroment, consider NOT using the Javascript function for
+making a new where Dates entries appear. Every time your index page
+shows up with the daily agenda inlined into it, NPDS has to insert
+the Javascript into the document's header. So, if you want to have
+the <B>&lt;AGENDA_DAY&gt;</B> tag on your index page, perhaps avoid
+using the Javascript pop-up function by turning it off under the
+DateServ prefs panel.</FONT>
+
+<P><FONT FACE="Verdana">Next, if you've been with me for a while, you
+may have an index page full of FONT tags and such. Cut those out. You
+don't need them since we went to Style Sheets for formatting. They
+only serve to slow down serving and rendering time.</FONT>
+
+<P><FONT FACE="Verdana">Finally, speaking of style sheets, consider
+using the </FONT><A HREF="advstyle.html#Import"><FONT FACE="Verdana">linking
+trick </FONT></A><FONT FACE="Verdana">I described for storing your
+style sheet remotely. If you have no place to put it, I'd be glad to
+store one for you on my server. You can save up to 1 kB in size of
+every file served by storing it off the Newton and this translates to
+BIG savings.</FONT>
+
+<H2><FONT FACE="Verdana"><A NAME=Latency></A>The Latency
+Control</FONT></H2>
+
+<P><FONT FACE="Verdana">Often ignored is the Latency control of NPDS
+and yet, those running NPDS on a MP2x00 with an Ethernet card have
+much to gain from its proper use.</FONT>
+
+<P><FONT FACE="Verdana">Latency is a measure of how much time elapses
+before NPDS is ready to serve another page and is a hack for dealing
+with some weaknesses in the underlying server architecture. It ships
+at 4000 msec in a default NPDS install and you can safely bump it
+down to around 400 if you have a fast machine.</FONT>
+
+<P><FONT FACE="Verdana">The best way to do it to to hook up your
+Newton, crank down Latency, and do a range query in DateServ over 2
+weeks. If you don't get an error, your Latency is set fine. If you
+do, turn it up by 100 msec increments and repeat the DateServ query.
+We use the DateServ query because it's far and away the slowest
+function in all of NPDS so if it works, you're good to go for the
+others.</FONT>
+</BODY>
+</HTML>

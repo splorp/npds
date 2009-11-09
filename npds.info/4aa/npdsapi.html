@@ -1,0 +1,140 @@
+<HTML>
+<HEAD>
+   <TITLE>nHTTPd API Functions</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Useful Elements of the NPDS API</FONT></H1>
+
+<P><FONT FACE="Verdana">The NPDS API is actually a series of
+functions, methods, and data frames attached to the nHTTPd
+application that combine together to provide an environment where
+dynamic content CGIs can run. I've strived to provide functions that
+take the repetitive work out of creating dynamic WWW data.</FONT>
+
+<H2><FONT FACE="Verdana">Important nHTTPd Data Frames</FONT></H2>
+
+<H3><FONT FACE="Verdana">Current Request</FONT></H3>
+
+<P><FONT FACE="Verdana">NPDS has some defined structures inside it
+that help monitor and drive server transactions. The first of these,
+CURRENT_HTTP_REQUEST is used as a central store to collect data about
+a given transaction. Its current format is:</FONT>
+
+<P><CODE>GetRoot().|nHTTPd:ALLPEN|.CURRENT_HTTP_REQUEST :=</CODE>
+
+<BLOCKQUOTE><CODE>{</CODE>
+   
+   <P><CODE>ip: "0.0.0.0", //IP Address of the client</CODE>
+   
+   <P><CODE>time: "", //GMT time the request was initiated</CODE>
+   
+   <P><CODE>request: "", //directory and filename of requested
+   item</CODE>
+   
+   <P><CODE>agent: "", //browser being used to request this
+   item</CODE>
+   
+   <P><I><CODE>result: 0</CODE></I><CODE>, //result code of a
+   transaction</CODE>
+   
+   <P><I><CODE>bytes: 0</CODE></I><CODE>, //size of the file returned
+   in this transaction</CODE>
+   
+   <P><CODE>dns: "", //DNS entry of a client (if it's been resolved
+   already)</CODE>
+   
+   <P><CODE>}</CODE></BLOCKQUOTE>
+
+<P><FONT FACE="Verdana">You don't have access to <I>italicized
+values</I> because they aren't defined until after the Scripting
+system has processed your page.</FONT>
+
+<H3><FONT FACE="Verdana">Preference Frame</FONT></H3>
+
+<P><FONT FACE="Verdana">For your reference, the NPDS preferences
+format can be found in the Appendix </FONT><A HREF="npdsprefs.html"><FONT FACE="Verdana">NPDS
+Preferences Frame</FONT></A><FONT FACE="Verdana">. You can read from
+this frame but unless you're a proficient developer don't write to
+it. You may retrieve the frame containing this data at any time with
+the code GetAppPrefs('|nHTTPd:ALLPEN|, NIL). Savvy programmers may
+find other slots in this frame besides the ones specified in this
+document but please note that these are deprecated and are in place
+for backwards compatibility with previous versions of NPDS.</FONT>
+
+<H2><FONT FACE="Verdana">Useful nHTTPd Methods</FONT></H2>
+
+<P><FONT FACE="Verdana">nHTTPd Application Symbol:
+<B>'|nHTTPd:ALLPEN|</B></FONT>
+
+<H3><FONT FACE="Verdana">UsingNewtonBrowser()</FONT></H3>
+
+<P><FONT FACE="Verdana">Returns TRUE if user is using Newtscape,
+Nethopper, PocketWeb, LunaSuite</FONT>
+
+<H3><FONT FACE="Verdana">UsingAncientBrowser()</FONT></H3>
+
+<P><FONT FACE="Verdana">Returns TRUE if user is using a Newton
+browser or a browser returning "1.x", "2.x" in the agent field</FONT>
+
+<H3><FONT FACE="Verdana">RetrieveDNS(IP as string)</FONT></H3>
+
+<P><FONT FACE="Verdana">Looks into the log file for a resolved copy
+of the IP passed to it. Does NOT do a new lookup if there isn't one
+in the log.</FONT>
+
+<H3><FONT FACE="Verdana">LogToTextFile(symbol)</FONT></H3>
+
+<P><FONT FACE="Verdana">Takes the NPDS log and returns a plain text
+version of it. The symbol will be a sort key but for now pass NIL to
+it.</FONT>
+
+<H3><FONT FACE="Verdana">InitializeStaticVars()</FONT></H3>
+
+<P><FONT FACE="Verdana">Refreshes the static SSI values to be in line
+with the actual preferences. You may never need this but its
+there.</FONT>
+
+<H3><FONT FACE="Verdana">fReturnFormattedTime(time in
+seconds)</FONT></H3>
+
+<P><FONT FACE="Verdana">Returns an "HTTP" time string adhering to the
+RFC 822/1123 specification</FONT>
+
+<H3><FONT FACE="Verdana">fFormatOrCompress(Data, Boolean)</FONT></H3>
+
+<P><FONT FACE="Verdana">Quick and dirty compressor and formatting
+function. For a given block of text, if the Boolean value = NIL, all
+runs of spaces are compressed to single spaces and carriage-returns
+and line-feeds are replaced with &lt;BR&gt; tags. This is a major way
+that the texts of NoteServ notes are formatted.</FONT>
+
+<H3><FONT FACE="Verdana">fFilterPercentEscapesPlus(string)</FONT></H3>
+
+<P><FONT FACE="Verdana">Great, fast function for decoding the %00
+characters in a URL to their unicode equivalents. Works only for
+single byte characters.</FONT>
+
+<H3><FONT FACE="Verdana">fAddHyperlinks(string)</FONT></H3>
+
+<P><FONT FACE="Verdana">Scans the passed text for valid URIs (http,
+gopher, hotline, news, mailto, ftp) and wraps them in HTML anchor
+tags. Do NOT, I repeat, do NOT pass a string that already has anchor
+tags in it to this function or it'll go recursive on you. Otherwise,
+it's a great little method.</FONT>
+
+<H3><FONT FACE="Verdana">CheckIP(ip-t &#91;ip1, ip2&#93;)</FONT></H3>
+
+<P><FONT FACE="Verdana">Checks to see if ip-t is within the range
+specified by ip1 and ip2. You pass IPs as strings and recieve TRUE or
+FALSE as a result.</FONT>
+
+<H3><FONT FACE="Verdana">StartServing()</FONT></H3>
+
+<P><FONT FACE="Verdana">Sets "Show connect slip" to FALSE and starts
+your web server.</FONT>
+
+<H3><FONT FACE="Verdana">StopServing()</FONT></H3>
+
+<P><FONT FACE="Verdana">Shuts down your server.</FONT>
+</BODY>
+</HTML>

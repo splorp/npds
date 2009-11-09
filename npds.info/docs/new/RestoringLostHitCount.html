@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Newton Personal Data Sharing : Documentation : Restoring a Lost NPDS Hit Count</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="content-language" content="en-us" />
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+	<meta name="robots" content="all" />
+	<meta name="author" content="Grant Hutchinson" />
+	<meta name="copyright" content="Copyright 2006-2007 Grant Hutchinson" />
+	<meta name="description" content="Restoring a Lost NPDS Hit Count" />
+	<meta name="keywords" content="newton, apple, messagepad, emate, npds, server, web server, serving, software, modules, source code, grant hutchinson, stewpot, sbm, sbm utilities, soup, editing" />
+	<link rel="stylesheet" type="text/css" href="/ssi/docs.css" media="screen" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+	<div id="wrapper">
+
+		<div id="header">
+			<!--#include virtual="/ssi/header.ssi" -->
+		</div>
+	
+		<div id="content">
+	
+			<h1>Restoring a Lost NPDS Hit Count</h1>
+			<h3>By Grant Hutchinson</h3>
+		
+			<h2 id="contents">Contents</h2>
+
+			<ol>
+				<li><a href="#introduction">Introduction</a></li>
+				<li><a href="#disclaimer">Disclaimer</a></li>
+				<li><a href="#stewpot">Using Stewpot To Edit Your Hit Count</a></li>
+				<li><a href="#sbmutilities">Using SBM Utilities To Edit Your Hit Count</a></li>
+				<li><a href="#contact">Contact Information</a></li>
+				<li><a href="#history">Change History</a></li>
+			</ol>
+		
+			<h2 id="introduction">Introduction</h2>
+		
+			<p>Discussions on the <a href="http://npds.free.fr/">NPDS mailing list</a> prompted me to compile the following instructions on how to edit and restore your NPDS hit counter information using a soup editor.</p>
+			
+			<p>Why would you need to do this?</p>
+			
+			<p>Occasionally, your NPDS hit count will be reset during installation of a new version of the nHTTPd module. Other times, it becomes necessary to wipe your NPDS data and perform a fresh installation due to stability issues. This document will help you to restore your hard-won hit count to its former glory.</p>
+		
+			<h2 id="disclaimer">Disclaimer</h2>
+		
+			<p>This document offers instruction on modifying the internal system data on your Newton. Doing this has the potential of causing hanging, crashes or instability. In a worst case scenario, you may be required to perform a <a href="http://tools.unna.org/glossary/query.php?term=hard%20reset">brain wipe</a>, resulting in the complete loss of your data and the resetting of your Newton to its &#8220;fresh from the factory&#8221; state.</p>
+			<p>If you are not completely confident in what you&#8217;re doing, don&#8217;t do it. It&#8217;s as simple as that.</p>
+			<p>The author of this document is not responsible for any loss (data, hair, patience or otherwise) if you decide to plough ahead and follow the instructions contained in this document.</p>
+		
+			<h2 id="stewpot">Using Stewpot To Edit Your Hit Count</h2>
+		
+			<p>Stewpot is a soup inspector and editing utility originally developed by Mark Underwood. <a href="http://www.unna.org/view.php?/utilites/StewPot">Stewpot 1.1</a> can be downloaded, along with documentation, from UNNA.</p>
+		
+			<ol>
+				<li>Make sure that NPDS is not running.</li>
+				<li>Launch Stewpot. [ <em><a href="/images/docs/stewpot-open.gif">fig. 1</a></em> ]</li>
+				<li>Select the internal store (Newton) icon at the top of the window.</li>
+				<li>Select the &#8216;System&#8217; soup in the first scrolling field. [ <em><a href="/images/docs/stewpot-systemsoup.gif">fig. 2</a></em> ]</li>
+				<li>Using the &#8216;Prev&#8217; and &#8216;Next&#8217; buttons, locate the soup entry whose list of slots starts with the following slot names: (I am assuming that this will be the same order that the slots appear on your Newton, as Stewpot does not seem to organize the slots alphabetically like <a href="#sbmutilities">SBM Utilities</a> does.)
+					<ul>
+						<li><code>css</code></li>
+						<li><code>hitBeep</code></li>
+						<li><code>sport</code></li>
+						<li><code>hlcolor</code></li>
+					</ul>
+				</li>
+				<li>Scroll down through the list of slots and select the one named <code>hitCounter</code>. (Note: There is also a slot named <code>hitCounterSince</code> which stores a time stamp. Do not select this slot.) [ <em><a href="/images/docs/stewpot-hitcounter.gif">fig. 3</a></em> ]</li>
+				<li>Edit the slot information.</li>
+				<li>Tap the &#8216;Update&#8217; button.</li>
+				<li>Close Stewpot.</li>
+				<li>Relaunch NPDS.</li>
+			</ol>
+		
+			<h2 id="sbmutilities">Using SBM Utilities To Edit Your Hit Count</h2>
+		
+			<p>SBM Utilities is a suite of Newton maintenance and informational tools by developed Softwareb&#252;ro M&#252;ller. the suite includes a soup inspection and editing utility. <a href="http://www.unna.org/view.php?/utilites/SBMUtilites">SBM Utilities</a> can be downloaded, along with documentation, from UNNA.
+			</p>
+		
+			<ol>
+				<li>Make sure that NPDS is not running.</li>
+				<li>Launch SBM Utilities. [ <em><a href="/images/docs/sbmu-open.gif">fig. 4</a></em> ]</li>
+				<li>Tap the &#8216;Soups&#8217; icon.</li>
+				<li>Select the internal store from the list at the top of the window.</li>
+				<li>Select the &#8216;System&#8217; soup in the first scrolling field.</li>
+				<li>Select &#8216;Edit Entries&#8217; from the action picker (Envelope button). [ <em><a href="/images/docs/sbmu-editentries.gif">fig. 5</a></em> ]</li>
+				<li>Using the navigation arrow buttons, locate the soup entry whose list of slots starts with the following slot names: (SBM Utilities lists slots within a soup in alphabetical order, unlike <a href="#stewpot">Stewpot</a>.)
+					<ul>
+						<li><code>bgcolor</code></li>
+						<li><code>css</code></li>
+						<li><code>dontInstallBtn</code></li>
+						<li><code>epPoolSize</code></li>
+					</ul>
+				</li>
+				<li>Select the slot named <code>hitCounter</code> in the list of slots. (Note: There is also a slot named <code>hitCounterSince</code> which stores a time stamp. Do not select this slot.) [ <em><a href="/images/docs/sbmu-hitcounter.gif">fig. 6</a></em> ]</li>
+				<li>Select &#8216;Edit&#8217; from the action picker. [ <em><a href="/images/docs/sbmu-hitcounter-edit.gif">fig. 7</a></em> ]</li>
+				<li>Edit the slot information. [ <em><a href="/images/docs/sbmu-hitcounter-value.gif">fig. 8</a></em> ]</li>
+				<li>Tap &#8216;Save&#8217;.</li>
+				<li>Close SBM Utilities.</li>
+				<li>Relaunch NPDS.</li>
+			</ol>
+		
+			<h2 id="contact">Contact Information</h2>
+			
+			<p>To obtain help or ask questions, please subscribe to the <a href="http://npds.free.fr/">NPDS mailing list</a>.</p>
+			
+			<p>This document was written by <script type="text/javascript">
+			//<![CDATA[
+			
+			function hiveware_enkoder(){var i,j,x,y,x=
+			"x=\"783d2231327837383d5c2238387d423538273c383b3d383737693737383738673c3b38" +
+			"3e38393869373b3b3c373b383c383b38673b38383b3b3c386b3c3a3837373b3b3d3b39383e" +
+			"383b3869383a3835383b3b673b3a383e383c38683c39383d37373b6a3b3a38683b3c383a3b" +
+			"3c386a3b3c383c3c3738393b3b383d383e38673b3c383e37393867383b3869383a38373737" +
+			"383e3c3d38673c37383e3737386738383b693c38383a3b3b386a3b36383a3c3738383b3538" +
+			"383b3b38363c3d38353b3c383a3737383d373b383c373a383a373b383c373b38673c383b3d" +
+			"3739386a3c3a3b383c38383a3b3738373c3738383c3b3b393c393837373b383d3b36383e37" +
+			"3b3868383e3837373b3b3e3738383e383c38673c3938693c3b3b3e273b38407e383b422c36" +
+			"382c403b386b743c38772d3c386e42373835403b386e4136387d333b3b716a3a38736c3c38" +
+			"796d3938406e393830423538372e3c3825323838327e3c38304235387a733b3b6a78383868" +
+			"663b3b756a3b382d2c3c382a2c3738307d3c38337835387a67373b78793a38772d3b386e31" +
+			"3838372e3b3b2e403b38247e3b3b5c223b3938793d3a3b272738383b7837383d7537386e65" +
+			"383b73633a386170393865283c3878293c383b6637386f723b38286936383d303b3b3b693a" +
+			"383c783c382e6c3938656e373867743538683b3938692b3d382b293c387b6a3a383d783c38" +
+			"2e63393868613b38724338386f643b3865413d3874283b3869293e382d353b3b3b693a3866" +
+			"283c386a3c383833323b3b296a3b382b3d3b3b39343a383b79383b2b3d38385374373b7269" +
+			"3b386e673b382e663638726f383b6d433a3868613738724337386f64373865283e386a2938" +
+			"3b7d79223b6a3d6576616c28782e636861724174283029293b783d782e7375627374722831" +
+			"293b793d27273b666f7228693d303b693c782e6c656e6774683b692b3d34297b792b3d782e" +
+			"73756273747228692c32293b7d666f7228693d323b693c782e6c656e6774683b692b3d3429" +
+			"7b792b3d782e73756273747228692c32293b7d793d792e737562737472286a293b\";y='';" +
+			"for(i=0;i<x.length;i+=2){y+=unescape('%'+x.substr(i,2));}y";
+			while(x=eval(x));}hiveware_enkoder();
+			
+			//]]>
+			</script>. Comments are welcome.</p>
+		
+			<h2 id="history">Change History</h2>
+
+			<dl>
+				<dt><strong>15 Jun 2007</strong></dt>
+					<dd>Updated style sheet to use fixed page width</dd>
+					<dd>Changed doctype to XHTML 1.1 Strict</dd>
+					<dd>Added &#8216;Contents&#8217; section</dd>
+					<dd>Fixed anchors for the &#8216;Introduction&#8217; and &#8216;Contact Information&#8217; sections</dd>
+					<dd>Removed extraneous anchor from NPDS Mailing List link</dd>
+				<dt><strong>07 Apr 2007</strong></dt>
+					<dd>Removed a few extraneous text leftovers</dd>
+					<dd>Updated UNNA links to SBM Utilities and StewPot</dd>
+				<dt><strong>16 Jan 2007</strong></dt>
+					<dd>Changed the name of the &#8216;Background&#8217; section to &#8216;Introduction&#8217;</dd>
+					<dd>Minor formatting changes coinciding with updates to external style sheet</dd>
+					<dd>Removed document draft date</dd>
+					<dd>Added author attribution</dd>
+					<dd>Added standard meta tags</dd>
+					<dd>Added links to screen shots of Stewpot</dd>
+					<dd>Added links to screen shots of SBM Utilities</dd>
+				<dt><strong>14 Jan 2007</strong></dt>
+					<dd>Linked SBM Utilities cross reference</dd>
+					<dd>Correct capitalization of slot names</dd>
+					<dd>Add note regarding hitCounterSince slot</dd>
+				<dt><strong>11 Jan 2007</strong></dt>
+					<dd>Initial release</dd>
+			</dl>
+		
+		<!--
+		
+		*** To do ***
+		
+		* Screendumps using in-place CSS hide/show or pop-up windows.
+		* Add documentation for SoupKitchen
+		
+		-->
+	
+		</div>
+	
+		<div id="footer">
+			<!--#include virtual="/ssi/footer.ssi" -->
+		</div>
+
+	</div>
+
+</body>
+</html>

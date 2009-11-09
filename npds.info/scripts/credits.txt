@@ -1,0 +1,25 @@
+// Credits SSI
+// Copyright (c) 1998-1999 Matthew Vaughn
+// All Rights Reserved
+//
+// This is the original CREDITS SSI script from nHTTPd
+//
+// Note that this script gets executed by the SSI handler called within
+// the following definition, passing in the current version of nHTTPd.
+//
+// DefConst('kNativeSSI,
+// [ ...
+// 
+// {htmlCode: "<CREDITS>", subTextFn: func() call kReturnCredits with (kVersion)},
+// 
+// ... ]);
+//
+// If using this as a client script, the 'currentversion' value will need
+// to be accessed some other way.
+
+
+DefConst('kReturnCredits,
+func (currentversion)
+begin
+	return "<p><code>Served By: <a href=\"http://npds.free.fr\">NewtonOS Personal Data Sharing</a>" && currentversion & "</code>";
+end);

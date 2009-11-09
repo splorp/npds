@@ -1,0 +1,272 @@
+<HTML>
+<HEAD>
+   <TITLE>Chapter 5</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Responding to Client-Side Data</FONT></H1>
+
+<BLOCKQUOTE><A HREF="script5.html"><FONT FACE="Verdana">Next -&gt;
+   Example Scripts</FONT></A></BLOCKQUOTE>
+
+<P><FONT FACE="Verdana">One of the greatest things about scripting,
+in general, is the new level interactivity it engenders. If you've
+ever visited a web site where you filled out a form, navigated using
+a pop-up menu, or were served content based on your browser, you've
+benefited from scripting. The NPDS scripting system doesn't allow
+much in the way of actual interaction (YET) but it does have access
+to several parameters that tell you a bit about who the person is on
+the other end of the connection.</FONT>
+
+<P><FONT FACE="Verdana">In implementing SSA, I have made an effort to
+maintain syntax and variable names that are consistent with other
+platforms' scripting implementations. This will help users who come
+to us from other languages (ie Perl) as well as make applicable to
+NPDS scripting some of the literature on the web that pertains to
+CGIs.</FONT>
+
+<H2><FONT FACE="Verdana">Environment and Request
+Variables</FONT></H2>
+
+<P><FONT FACE="Verdana">Being a evolving subset of the Common Gateway
+Interface, NPDS SSA provides the scripter with the following run-time
+CGI variables. (<B>Bold Values</B> are literals, others are dynamic
+values).</FONT>
+
+<P><FONT FACE="Verdana"><TABLE BORDER=0 CELLSPACING=4 CELLPADDING=2 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#000000">
+         <P><FONT FACE="Verdana" COLOR="#FFFFFF"><B>Variable</B></FONT>
+      </TD>
+      <TD BGCOLOR="#000000">
+         <P><FONT FACE="Verdana" COLOR="#FFFFFF"><B>String
+         Returned</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SERVER_SOFTWARE</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana"><B>nHTTPd/2.02 (Newton)</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SERVER_NAME</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">IP Address of Server</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SERVER_PROTOCOL</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana"><B>HTTP/1.0</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">GATEWAY_INTERFACE</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana"><B>CGI/1.0 (NPDS_SSA)</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SERVER_PORT</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Current Server Port</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">REMOTE_ADDR</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Client IP Address</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">REMOTE_HOST</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Client DNS (If Resolved)</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">HTTP_USER_AGENT</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Client Browser</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">SCRIPT_NAME</FONT>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P><FONT FACE="Verdana">Title of Current Script</FONT>
+      </TD>
+   </TR>
+</TABLE>
+ </FONT>
+
+<P><FONT FACE="Verdana">Some of these are pretty useless for now but
+will not be in the future ;-) Note, however, what you DO have access
+to from your SSI scripts that you can exploit readily.. Client IP
+Address (DNS as well if it's already been determined) and Client
+Browser. Can you think of a situation where these might be of
+use?</FONT>
+
+<P><FONT FACE="Verdana">Let's go all out here and write an SSI that
+will show the notes posted via the web but only if the user is coming
+from within a specific LAN. Furthermore, let's return this listing in
+two different formats, table and list, depending on the
+browser/platform. Of course, visitors from outside the LAN are given
+a polite error message.. How's that for a "Simple" Script ? Getting
+pretty powerful here, eh?</FONT>
+
+<H2><FONT FACE="Verdana">Background</FONT></H2>
+
+<H3><FONT FACE="Verdana">IP Testing with CheckIP()</FONT></H3>
+
+<P><FONT FACE="Verdana">How do we check to see that an IP is within
+range? Luckily for you, NPDS has a built-in IP checker method called
+</FONT><A HREF="methods/checkip.html"><FONT FACE="Verdana">CheckIP</FONT></A><FONT FACE="Verdana">().
+To see if the IP "128.174.5.58" is within the range "128.174.4.255"
+to "128.174.5.255" you would use </FONT><A HREF="methods/checkip.html"><FONT FACE="Verdana">CheckIP</FONT></A><FONT FACE="Verdana">()
+like so:</FONT>
+
+<P><CODE>|NPDS|:</CODE><A HREF="methods/checkip.html"><CODE>CheckIP</CODE></A><CODE>("128.174.5.58",
+&#91;"128.174.4.255", "128.174.5.255"&#93;)</CODE>
+
+<H3><FONT FACE="Verdana">Using CGI Variables</FONT></H3>
+
+<P><FONT FACE="Verdana">The variables returned by the tokens such as
+SERVER_NAME, etc. are all simple string values. You treat them
+exactly like they were strings.</FONT>
+
+<H4><FONT FACE="Verdana">Example:</FONT></H4>
+
+<P><FONT FACE="Verdana">If the Remote Address of the Client was
+"127.0.0.1" then <CODE>theAddr:= "REMOTE_ADDR"</CODE> would evaluate
+to <CODE>theAddr:= "127.0.0.1"</CODE>.</FONT>
+
+<H3><FONT FACE="Verdana">Using NoteServ's ReturnNoteList()
+Method</FONT></H3>
+
+<P><FONT FACE="Verdana">The NoteServ Server Side Includes for
+displaying HTML-formatted lists of Notes are implemented using a
+common (and still under development) Method, </FONT><A HREF="methods/returnnotelist.html" TARGET=""><FONT FACE="Verdana">ReturnNoteList</FONT></A><FONT FACE="Verdana">.</FONT>
+
+<P><FONT FACE="Verdana">In order to return a list of posted notes,
+you write:</FONT>
+
+<P><CODE>|NoteServ|:</CODE><A HREF="methods/returnnotelist.html"><CODE>ReturnNoteList</CODE></A><CODE>({order:
+'ascending, criteria: 'timestamp}, '|pHTML:MAVON|,
+'</CODE><B><CODE>list</CODE></B><CODE>)</CODE>
+
+<P><FONT FACE="Verdana">While a table of the same notes is created
+by:</FONT>
+
+<P><CODE>|NoteServ|:</CODE><A HREF="methods/returnnotelist.html"><CODE>ReturnNoteList</CODE></A><CODE>({order:
+'ascending, criteria: 'timestamp}, '|pHTML:MAVON|,
+'</CODE><B><CODE>table</CODE></B><CODE>)</CODE>
+
+<H2><FONT FACE="Verdana">Restricted Access Script</FONT></H2>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> Restricted List
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> COOL_LIST
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE><CODE>//define the beginning and end of your LAN
+            here</CODE>
+            
+            <P><CODE>local lanstart:= "130.126.49.1";</CODE>
+            
+            <P><CODE>local lanend:= "130.126.49.255";</CODE>
+            
+            <P><CODE>//check the IP against a range</CODE>
+            
+            <P><FONT COLOR="#009900"><CODE>if</CODE></FONT><CODE>
+            |NPDS|:</CODE><A HREF="methods/checkip.html"><CODE>CheckIP</CODE></A><CODE>("REMOTE_ADDR",
+            &#91;lanstart, lanend&#93;)
+            </CODE><FONT COLOR="#009900"><CODE>then</CODE></FONT>
+            
+            <P><FONT COLOR="#009900"><CODE>begin</CODE></FONT>
+            
+            <BLOCKQUOTE><CODE>//Mozilla and compatibles get a Table
+               view and others get a list.</CODE>
+               
+               <P><FONT COLOR="#0000FF"><CODE>if</CODE></FONT><CODE>
+               </CODE><A HREF="#2"><CODE>StrPos</CODE></A><CODE>("HTTP_USER_AGENT",
+               "Mozilla", 0) &gt; 0
+               </CODE><FONT COLOR="#0000CC"><CODE>then</CODE></FONT>
+               
+               <P><CODE>//return a table view</CODE>
+               
+               <P><CODE>return |NoteServ|:</CODE><A HREF="methods/returnnotelist.html"><CODE>ReturnNoteList</CODE></A><CODE>({order:
+               'ascending, criteria: 'timestamp}, '|pHTML:MAVON|,
+               '</CODE><B><CODE>table</CODE></B><CODE>);</CODE>
+               
+               <P><FONT COLOR="#0000FF"><CODE>else</CODE></FONT>
+               
+               <P><CODE>//return a list view</CODE>
+               
+               <P><CODE>return |NoteServ|:</CODE><A HREF="methods/returnnotelist.html"><CODE>ReturnNoteList</CODE></A><CODE>({order:
+               'ascending, criteria: 'timestamp}, '|pHTML:MAVON|,
+               '</CODE><B><CODE>list</CODE></B><CODE>);</CODE></BLOCKQUOTE>
+            
+            <P><FONT COLOR="#009900"><CODE>end;</CODE></FONT>
+            
+            <P><FONT COLOR="#009900"><CODE>else</CODE></FONT>
+            
+            <P><CODE>return "&lt;STRONG&gt;Sorry! Access to this
+            discussion board is limited to my local
+            network.&lt;/STRONG&gt;";</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+
+<P><FONT FACE="Verdana">It's pretty much that easy. Note the syntax
+of the nested if..then..else statements</FONT><A HREF="#1"><FONT FACE="Verdana"><SUP>1</SUP></FONT></A><FONT FACE="Verdana">
+as well as the use of the StrPos()</FONT><A HREF="#2"><FONT FACE="Verdana"><SUP>2</SUP></FONT></A><FONT FACE="Verdana">
+method to search for a substring within the user agent field.
+Finally, make sure to notice the use of the |NoteServ|
+</FONT><A HREF="comp_var.html"><FONT FACE="Verdana">compiler
+variable</FONT></A><FONT FACE="Verdana"> to save us from having to
+type the full reference to NotePad server
+GetRoot().|pHTML:MAVON|</FONT>
+
+<H2><FONT FACE="Verdana">References</FONT></H2>
+
+<P><FONT FACE="Verdana"><A NAME=1></A>1. NPL: 3-1 to 3-3<BR>
+<A NAME=2></A>2. NPR: 23-26</FONT>
+
+<CENTER><FONT FACE="Verdana">
+
+<HR>
+
+</FONT><A HREF="script5.html"><FONT FACE="Verdana">Next -&gt; Example
+Scripts</FONT></A></CENTER>
+</BODY>
+</HTML>

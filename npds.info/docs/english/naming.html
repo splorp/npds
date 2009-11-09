@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+   <TITLE>Appendix A: NPDS Naming</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1>The NPDS Pseudo-Filename System</H1>
+
+<P><I>How To Be a Card-Based Computer in a Disk-Based World</I>
+
+<P>The Web is very much organized around the idea of "files" and
+"paths" and "directories" yet the Newton has no concept of these
+things. All storage on a Newton is in a single meta-store and divided
+into smaller units called soups. Soups are composed of entries. The
+Newton paradigm is much more fluid and adaptive than the fixed
+directory sructure of standard CLI -type filesystems but since we're
+trying to emulate the latter, some conventions have been established.
+
+<P>Newton Data is accessed via directories like in a standard
+filesystem, but NPDS uses the folder name (/dates/, /html/, etc) to
+determine which plugin to use to create data for service to the WWW.
+No physical information is encoded in the directory name.
+
+<P>Thusly: All NPDS Directories are one level deep. In other words,
+by default, all items in the /dates/ directory are the same level in
+the tree. There's no support for additional layers in the emulated
+filesystem and developers are welcome to use any subdirectory scheme
+they wish to implement.
+
+<P>NPDS paths look like: "<B>/html/224567867$967.xxx</B>"
+
+<P>What is encoded here is:
+
+<P><FONT SIZE="-1"><CODE>|NPDSPluginPath|/|NewtonStoreSignature|$|SoupEntryUniqueID|optionaldata|.|extension|</CODE></FONT>
+
+<P>This path, combining the directory, store, soup entry ID, and
+extension allow NPDS plugins to return the requested item just like
+it was being served off a big ol' Hard Disk.
+
+<P>
+</BODY>
+</HTML>

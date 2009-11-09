@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+   <TITLE>Document Template</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Installed Packages</FONT></H1>
+
+<P><FONT FACE="Verdana">Over at the </FONT><A HREF="http://www.newtontalk.com/"><FONT FACE="Verdana">Newtontalk</FONT></A><FONT FACE="Verdana">
+site, there's a series of surveys conducted a while ago titled
+"What's on Your Newt?" If I'd released NPDS back then, we could have
+figured all that out without having to have people send in forms and
+stuff. They could just have had this script running on a page on
+their Newtons and we could have dropped by to see what they had
+installed!</FONT>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> Packages
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> PKGLIST
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <BLOCKQUOTE>//We're just going to make a HTML list...
+            
+            <P><CODE>local list:= "&lt;B&gt;Installed
+            Packages&lt;/B&gt;&lt;BR&gt;&lt;UL&gt;";</CODE>
+            
+            <P>//Extract the English language title for each PKG<BR>
+            //and add it to the list
+            
+            <P><CODE>foreach pkg in GetPackages() do</CODE>
+            
+            <P><CODE>list:= StrConcat(list, "&lt;LI&gt;" &amp;
+            pkg.title);</CODE>
+            
+            <P>//Finish up the list with a /UL
+            
+            <P><CODE>list:= StrConcat(list, "&lt;/UL&gt;");</CODE>
+            
+            <P><CODE>return list; &nbsp;</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+</BODY>
+</HTML>

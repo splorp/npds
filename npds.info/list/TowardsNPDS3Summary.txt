@@ -1,0 +1,387 @@
+------- start of digest (RFC 934 encapsulation) -------
+
+Date: Thu, 19 Sep 2002 10:05:50 +0200
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Towards NPDS 3, let's summarize
+
+
+Hi all,
+
+First, even if there is that disconnecting bug (btw, it actually 
+disables an endpoint), I consider that the new nHTTPd is stable 
+enough to work as it for a while. So I can focus on NPDS 3.x.
+
+I would like to summarize the features of NPDS 3.x. I had a colleague 
+at INRIA who was convinced that HTTP-based personal data sharing for 
+PDAs is the way to go. And in fact, he convinced me as well. So I 
+would like to work towards Matt's initial idea, which is making NPDS 
+a web interface for the data on the Newton, instead of stressing the 
+pure web serving part which I was more interested it.
+
+I think that NPDS shall allow us to view and modify data on the 
+Newton. But not like on the Newton itself, it should rather be a 
+publish mechanism with some update mechanisms whenever a keyboard and 
+a big screen are more suitable than pen.
+
+My problem with that was that I don't really want to publish my card 
+file on the web. Some of us do it but I think that most don't. I 
+don't want to publish my agenda either, etc.
+
+Therefore we come to the core of NPDS features:
+- it shall have a user login/logout interface that must be optional 
+(guest mode). I hate it when I have to login on Apple's website. This 
+means handling cookies. This also means that there should be 
+permissions within the plug-ins. For example people in some group 
+could see your card file and only you can modify it. This login thing 
+will replace the Notes post/web pager identity.
+- it shall have a website aspect that can be customized with themes. 
+We can all customize the web pages but plug-ins shall be 
+customizable. Using CSS might be sufficient, however it means that 
+plug-ins must rely much more on CSSes. For that part, I wish the 
+talented web designers on the list make some mock NPDS 3.x websites 
+with various themes so the layman Newton user could just pick one in 
+a popup. I think we discussed that already. I trust the CSS experts 
+to tell me what should define a given theme.
+- the notes server will be merged with works and splitted in several parts:
+* web structure (including error documents, etc.) and themes notes 
+(which could be in works) will be merged into the core module. They 
+are always required. This also means that there will not be a default 
+module on the contrary to 2.x. I don't think anyone doesn't use Notes 
+as the default module. This module will include admin posting feature 
+(i.e. something that let you add notes to the Newton with 
+permissions).
+* there could be a bulletin board module (replacing posting 
+notes/listing of owner's notes).
+* there should be a Wiki module.
+* there might be a blog-like module.
+- the gif server module shall be splitted in two parts:
+* the gif encoder shall go into the core (and could be used to serve 
+themes picture elements). I might add png and jpeg encoding.
+* the screen module will display the screen content and let you (with 
+permissions) click on it. Like VNC but via HTTP with authentication.
+- the dates and card file modules shall let you modify/add entries
+- the binary module will be merged into core because it is required 
+for themes pictures.
+- the tracker will stay as a separate module. Some people here don't 
+use it and it's not because it brings instability, it's because they 
+don't want/can't share their Newton.
+- the watcher shall be merged into the core. The part that checks 
+that NPDS is still serving is mainly a workaround for bugs. But it 
+has two other interesting features that we might want to keep: (a) it 
+restarts NPDS on reboot (except at Paul Filmer's) and (b) it reboots 
+if the NS task seemed to crash (this can happen if some other 
+software crashed it).
+- there shall be some mechanism (probably HTTP based) to update pages 
+and content remotely. This will go into Core.
+
+So in the end, we'll have:
+- Core
+- BB
+- Wiki
+- Blog
+- Screen
+- Tracker
+- Dates
+- Card File
+- Pager
+
+What did I forget? Is there any feature that you would like to see?
+
+And the next question: do you want to help and how?
+
+Paul
+- -- 
+NPDS: http://newton.kallisys.net:8080/
+Apache: http://www.kallisys.com/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Thu, 19 Sep 2002 09:39:49 -0500
+Subject: [NPDS] Re: Towards NPDS 3, let's summarize
+From: John Skinner <john@johnskinner.net>
+
+
+I think it would be nice to be able to reply to a "Pager" message, like
+invoking a form of instant messaging.
+
+For example;
+If I had my Newton running (the future) NPDS 3 and someone sent me a Pager"
+message..
+
+I would have the choice to dismiss the message window (like WebPager),
+OR,
+I could tap a "Reply" button (that might even load a third-party messaging
+program, i.e. Chatbuddy, NewtCQ, NewtJabber etc.) and start a chat session.
+
+
+
+I know that not everyone might want this type of functionality from NPDS 3,
+but it's just my 2 cents!
+
+
+ 
+>> From: Paul Guyot <pguyot@kallisys.net>
+>> Reply-To: npds@ml.free.fr
+>> Date: Thu, 19 Sep 2002 10:05:50 +0200
+>> To: npds@ml.free.fr
+>> Subject: [NPDS] Towards NPDS 3, let's summarize
+>> 
+> <snip>
+>> So in the end, we'll have:
+>> - Core
+>> - BB
+>> - Wiki
+>> - Blog
+>> - Screen
+>> - Tracker
+>> - Dates
+>> - Card File
+>> - Pager
+>> 
+>> What did I forget? Is there any feature that you would like to see?
+>> 
+>> And the next question: do you want to help and how?
+>> 
+>> Paul
+> 
+> -----------------
+> John Skinner 
+> Computer Systems Administrator
+> Vanderbilt University
+> john.skinner@vanderbilt.edu
+> Got Problems?... click on the link below and fill out a request.
+> http://kls.kirkland.vanderbilt.edu/
+
+- ------ End of Forwarded Message
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Thu, 19 Sep 2002 10:43:51 -0400 (EDT)
+From: chuma@misato.chuma.org
+Subject: [NPDS] Re: Towards NPDS 3, let's summarize
+
+
+On Thu, 19 Sep 2002, John Skinner wrote:
+
+> I think it would be nice to be able to reply to a "Pager" message, like
+> invoking a form of instant messaging.
+> 
+> For example;
+> If I had my Newton running (the future) NPDS 3 and someone sent me a Pager"
+> message..
+> 
+> I would have the choice to dismiss the message window (like WebPager),
+> OR,
+> I could tap a "Reply" button (that might even load a third-party messaging
+> program, i.e. Chatbuddy, NewtCQ, NewtJabber etc.) and start a chat session.
+
+Yes.  This would probably mean that the alternative messaging method would 
+have to be sent along with the message, which means that the sender would 
+have to have the info entered somewhere - most logically, in their owner's 
+card.
+
+I actually used to have something like this running on a webpage a long 
+time ago.  I could send someone a webpager message from a special form I 
+had (entering their IP address), and then when they replied they would go 
+to another form (not on an NPDS server) where they could send an SMS in 
+reply.
+
+- -- 
+- ------Victor Rehorst -- victor@eddie.cis.uoguelph.ca | chuma@chuma.org------
+- ---- Webmaster, United Network of Newton Archives:  http://www.unna.org ----
+- -------------- Homepage and Newton Stuff: http://www.chuma.org -------------
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Thu, 19 Sep 2002 22:15:50 -0400 (EDT)
+From: chuma@misato.chuma.org
+Subject: [NPDS] Re: Towards NPDS 3, let's summarize
+
+
+On Thu, 19 Sep 2002, Paul Guyot wrote:
+
+> * there might be a blog-like module.
+
+I would put a blog-like module over a Wiki, personally.
+
+> - the gif server module shall be splitted in two parts:
+> * the gif encoder shall go into the core (and could be used to serve 
+> themes picture elements). I might add png and jpeg encoding.
+
+But this would mean that people who use Screen Shooter would have to keep 
+an old version of GIF server around, or have NPDS core installed... or am 
+I misunderstanding you?   Why not just make the GIF encoder a library like 
+zlib?
+
+> - the dates and card file modules shall let you modify/add entries
+
+Dates/Names should import/export vCalendar/vCard.
+
+> - the tracker will stay as a separate module. Some people here don't 
+> use it and it's not because it brings instability, it's because they 
+> don't want/can't share their Newton.
+
+The tracker and the tracker server should also implement the stuff that 
+we've dreamed about it doing: sending lon/lats for map graphing, possibly 
+other cool stuff.  I forget now, it's been so long since we talked about 
+it.  Maybe x-face images, for fun?
+
+> What did I forget? Is there any feature that you would like to see?
+
+Web*Pager could be so much cooler, as was already noted.  
+
+> And the next question: do you want to help and how?
+
+I mentioned the tracker stuff.  I'm not sure how else I can help...
+
+- -- 
+- ------Victor Rehorst -- victor@eddie.cis.uoguelph.ca | chuma@chuma.org------
+- ---- Webmaster, United Network of Newton Archives:  http://www.unna.org ----
+- -------------- Homepage and Newton Stuff: http://www.chuma.org -------------
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Subject: [NPDS] Re: Towards NPDS 3, let's summarize
+Date: Thu, 19 Sep 2002 22:04:31 -0600
+From: Grant [Chop House] Hutchinson <grant@splorp.com>
+
+
+In a previous message, Paul Guyot typed vigorously:
+
+>What did I forget? Is there any feature that you would like to see?
+
+I need more time to chew through all the options and possibilities, but I 
+think we've already got about 90% of my wish list covered already.
+
+>And the next question: do you want to help and how?
+
+I've already mentioned in previous threads that I'd like to be involved 
+in renovating the documentation, as well as designing a series of 
+html/xhtml/css compliant templates or perhaps something called NPDS 
+SiteSkins(tm).
+
+In order to work on the latter, I'd like to start compiling a list of 
+pages and web interfaces that each module would use, the various levels 
+of information hierarchy on those pages, and so forth.
+
+Oh, I'm so excited...
+
+g.
+
+......................................................................
+
+Grant Hutchinson                       Interface Considerations & Toys
+
+Live video served fresh since 1996.    http://www.splorp.com/cam/
+Now fortified with daily ramblings.    http://www.splorp.com/blog/
+Newton. It's the Palm with a brain.    http://www.splorp.com/newton/
+Online community web site handyman.    http://www.newted.net/
+
+
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Fri, 20 Sep 2002 08:00:53 +0200
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3, let's summarize
+
+
+>  > * there might be a blog-like module.
+>
+>I would put a blog-like module over a Wiki, personally.
+
+Sorry for this question that might seem dumb, but you mean that you 
+prefer that to Wiki or you want to run it on Wiki?
+
+>  > - the gif server module shall be splitted in two parts:
+>>  * the gif encoder shall go into the core (and could be used to serve
+>>  themes picture elements). I might add png and jpeg encoding.
+>
+>But this would mean that people who use Screen Shooter would have to keep
+>an old version of GIF server around, or have NPDS core installed... or am
+>I misunderstanding you?   Why not just make the GIF encoder a library like
+>zlib?
+
+Oh yeah, I forgot Screen Shooter. 'Kay, it should be a library-like 
+separate module. I'll have to discuss with Daniel.
+(and the png encoder will actually be part of the ZLib because of 
+their relationship).
+
+>  > - the dates and card file modules shall let you modify/add entries
+>
+>Dates/Names should import/export vCalendar/vCard.
+
+Noted.
+
+>  > - the tracker will stay as a separate module. Some people here don't
+>>  use it and it's not because it brings instability, it's because they
+>>  don't want/can't share their Newton.
+>
+>The tracker and the tracker server should also implement the stuff that
+>we've dreamed about it doing: sending lon/lats for map graphing, possibly
+>other cool stuff.  I forget now, it's been so long since we talked about
+>it.  Maybe x-face images, for fun?
+
+Great, a new dream-like idea for the tracker: x-faces.
+
+>Web*Pager could be so much cooler, as was already noted.
+
+Yes. In fact, we discussed about these improvements a while back on that list.
+
+Paul
+- -- 
+NPDS: http://newton.kallisys.net:8080/
+Apache: http://www.kallisys.com/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+
+Date: Fri, 20 Sep 2002 08:03:04 +0200
+From: Paul Guyot <pguyot@kallisys.net>
+Subject: [NPDS] Re: Towards NPDS 3, let's summarize
+
+
+>In order to work on the latter, I'd like to start compiling a list of
+>pages and web interfaces that each module would use, the various levels
+>of information hierarchy on those pages, and so forth.
+
+Indeed, this is what to start with. Please don't forget error pages 
+(with permissions, we'll have at least 404, 403 and 500). Everything 
+should wear the SiteSkin.
+
+>Oh, I'm so excited...
+
+All that is reasonable. Nobody asked for PHP support yet.
+
+Paul
+- -- 
+NPDS: http://newton.kallisys.net:8080/
+Apache: http://www.kallisys.com/
+
+[NPDS Mailing List: To unsubscribe: mailto:npds-request@ml.free.fr?subject=unsubscribe]
+
+
+--------------------------------------------------------------
+

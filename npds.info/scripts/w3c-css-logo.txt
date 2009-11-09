@@ -1,0 +1,10 @@
+// W3C CSS Logo SSI
+// Copyright (c) 2002 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script displays the W3C Valid CSS logo with a link to the validator.
+
+func(inUndocumentedRequestFrame)
+begin
+	return "<form action=\"http://jigsaw.w3.org/css-validator/validator\" method=\"get\"><input type=\"hidden\" name=\"uri\" value=\"http://SERVER_NAME:SERVER_PORTREQUEST_URI\"><input type=\"image\"  src=\"http://jigsaw.w3.org/css-validator/images/vcss\" alt=\"Valid CSS!\" name=\"submit\"></form>";
+end

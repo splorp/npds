@@ -1,0 +1,28 @@
+// Fortune SSI
+// Copyright (c) 2001 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script displays a randomly selected fortune from Fortunes application.
+// (or "" if Fortunes is not installed/activated).
+
+func(inUndocumentedRequestFrame)
+begin
+	// Reference to the application (or nil if it's not installed)
+	local app := GetRoot().|Fortunes:Kallisys|;
+	if (app) then
+	begin
+		// Get a random fortune.
+		local string theText := app:GetRandomFortune();
+		
+		// Format it to HTML.
+		StrReplace( theText, "<", "&lt;", nil );
+		StrReplace( theText, ">", "&gt;", nil );
+		StrReplace( theText, "&", "&amp;", nil );
+
+		StrReplace( theText, "\n", "<br>\n", nil );
+		StrReplace( theText, "  ", "&nbsp;&nbsp;", nil );
+		return theText;
+	end
+	else
+		return "";
+end

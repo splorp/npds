@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Newton Personal Data Sharing - Software Modules</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta name="robots" content="all">
+	<meta name="author" content="Paul Guyot, Victor Rehorst, Matt Vaughn, Grant Hutchinson">
+	<meta name="description" content="Newton Personal Data Sharing - or NPDS - is an HTTP server and associated support modules that allow you to serve information over the internet using an Apple Newton MessagePad or eMate device.">
+	<meta name="keywords" content="newton, apple, messagepad, emate, http, npds, file sharing, data sharing, server, web server, serving, tracker, tracking, download, packages, software, modules, source code, lightyear media, paul guyot, victor rehorst, matt vaughn, ray rischpater, adam tow, grant hutchinson, yoichi takezawa">
+
+</head>
+
+<body bgcolor="#ffffff">
+
+<h2>Newton Personal Data Sharing</h2>
+<h3><a href="/">Home</a> &gt; Software Modules</h3>
+
+<hr>
+
+<h4 id="binaryserver">Binary Server 1.11</h4>
+<p>This server allows you to serve binaries such as images, compressed archives, and documents from a soup.</p>
+<h4 id="bininstaller">BinInstaller 1.2</h4>
+<p>Binaries are installed in the soup using BinInstaller, an <a href="http://www.unna.org/view.php?/apple/development/NTK">Newton Toolkit</a> project script. You compile BinInstaller for each binary you want to have available and then install each compiled package onto the Newton.</p>
+<p>Preliminary documentation of these modules is covered in <a href="/docs/new/BinaryServerHowTo.html">GIF Server Syntax</a>.</p>
+<p><a href="/modules/binaryserver/">View Binary Server Software</a></p>
+
+<hr>
+
+<h4 id="cardfileserver">Cardfile Server 2.12</h4>
+<p>This server allows you to serve data from the Names application. General features and configuration for the 2.0 version of the Cardfile Server module are covered in the <a href="/docs/english/">NPDS 2.0 Documentation</a>.</p>
+<p><a href="/modules/cardfileserver/">View Cardfile Server Software</a></p>
+
+<hr>
+
+<h4 id="datebookserver">Datebook Server 2.12</h4>
+<p>This server allows you to serve data from the Dates application. General features and configuration for the 2.0 version of the Datebook Server module are covered in the <a href="/docs/english/">NPDS 2.0 Documentation</a>.</p>
+<p><a href="/modules/datebookserver/">View Datebook Server Software</a></p>
+
+<hr>
+
+<h4 id="gifserver">GIF Server 1.3</h4>
+<p>This is a 16-level grayscale (or greenscale) GIF Server, which lets you serve a screen shot of your Newton. When the backlight is turned on, the screen shot is black on green. It&#8217;s much faster than the GIF Server released with the original version 2.0 NPDS modules.</p>
+<p>Version 1.3 of the GIFServer module provides support for serving built-in bitmaps directly from the NewtonOS ROM. Preliminary documentation of this feature is covered in <a href="/docs/new/GIFServerSyntax.html">GIF Server Syntax</a>.</p>
+<p><a href="/modules/gifserver/">View GIF Server Software</a></p>
+
+<hr>
+
+<h4 id="httpserver">HTTP Server 2.107</h4>
+<h4 id="httpserversetup">HTTP Server Setup 2.102</h4>
+<p>This is the core HTTP server (also known as nHTTPd) and the associated configuration module. If you are setting up NPDS and the Tracker Client on a private network or behind a firewall, refer to the <a href="/docs/new/NPDSNetworkSetup.html">NPDS Network Setup</a> document for more information. General features and configuration for the 2.0 version of the HTTP Server module are covered in the <a href="/docs/english/">NPDS 2.0 Documentation</a>.</p>
+<p><a href="/modules/httpserver/">View HTTP Server Software</a></p>
+
+<hr>
+
+<h4 id="notepadserver">Notepad Server 2.104</h4>
+<p>This server allows you to serve data created the note, outline or checklist stationary from the Notes application. General features and configuration for the 2.0 version of the Notepad Server module are covered in the <a href="/docs/english/">NPDS 2.0 Documentation</a>.</p>
+<p>Updated documentation regarding the set up and configuration of the Notepad Server module is covered in <a href="/docs/new/NotepadServerConfiguration.html">Notepad Server Configuration</a>.</p>
+<p>Version 2.103 of the Notepad Server module introduces a new default tag syntax, as well as the ability to extend custom user tags through parameter definitions. Preliminary documentation of this feature is covered in <a href="/docs/new/NotepadServerSyntax.html">Notepad Server Syntax</a>.</p>
+<p><a href="/modules/notepadserver/">View Notepad Server Software</a></p>
+
+<hr>
+
+<h4 id="npdswatcher">NPDS Watcher 1.1a1</h4>
+<p>This module watches the server and reboots it when the server crashes or stops responding to requests.</p>
+<p>NPDS 2.1 and later requires latest NPDS Watcher 1.1a1.</p>
+<p><a href="/modules/npdswatcher/">View NPDS Watcher Software</a></p>
+
+<hr>
+
+<h4 id="trackerclient">Tracker Client 2.1</h4>
+<p>This module lets you register your Newton on one of the <a href="/index.html#trackers">NPDS Trackers</a>. If you are setting up NPDS and the Tracker Client on a private network or behind a firewall, refer to the <a href="/docs/new/NPDSNetworkSetup.html">NPDS Network Setup</a> document for more information. General features and configuration for the 2.0 version of the Tracker Client module are covered in the <a href="/docs/english/">NPDS 2.0 Documentation</a>.</p>
+<p><a href="/modules/trackerclient/">View Tracker Client Software</a></p>
+
+<hr>
+
+<h4 id="trackerserver">Tracker Server 0.1.34</h4>
+<p>This is the Java-based Tracker developed by Victor Rehorst and Paul Guyot. Basic information on how to compile the Java code and modify the configuration of the Tracker Server can be found in the <a href="/modules/trackerserver/NPDSTrackerReadme.txt">Read Me</a>. Includes a draft of the <a href="/modules/trackerserver/NPDSTrackerProtocol.html">tracker protocol</a> and source code.</p>
+<p><a href="/modules/trackerserver/">View Tracker Server Software</a></p>
+
+<hr>
+
+<h4 id="utilities">Utilities</h4>
+<h4 id="debug500page">Debug 500 Page 1.0</h4>
+<p>This module patches the default NPDS 500 error page by adding the name of the exception that occurred. A status code 500 is returned when the server encounters an unexpected condition preventing it from fulfilling the requested action. More information regarding <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP Status Codes</a> can be found on the W3C site.</p>
+
+<h4 id="scripteditor">Script Editor 2.1</h4>
+<p>The Script Editor allows you to create NewtonScript scripts for generating dynamic content on your Newton. Several other <a href="/scripts/">user-submitted scripts</a> are provided as examples, in addition to the ones included in the NPDS Scripts package. A good introductory scripting tutorial is available in the <a href="/4aa/">4AA Magazine</a>.</p>
+
+<h4 id="protosoupbrowser">ProtoSoupBrowser 1.1</h4>
+<p>This is the layout code for the cache browser used in the nHTTPd module.</p>
+
+<h4 id="wipe">Wipe 1.02</h4>
+<p>The Wipe utility has been updated to remove preferences of new modules. It also removes a ghost preference left by the NPDS server core.</p>
+<p>A copy of the <a href="http://www.tactile.com/bugTrap.html">BugTrap</a> debugging utility from Tactile Systems has also been included in this section. BugTrap can be used to help determine and isolate crashes and errors produced by the NPDS software. Please note that this package is not supported by the NPDS development team. Documentation is supplied with the BugTrap package.</p>
+
+<h4 id="wipe">AutoCloseNotif</h4>
+<p>The AutoCloseNotif package will automatically close most notification windows and card slips after a soft reset. Useful for NPDS users that have <a href="#npdswatcher">NPDS Watcher</a> set to reboot their Newton, and would like the backdrop visible for those nifty screen shots. Additional background information is available on the <a href="http://dev.newtontalk.net/~dpadilla/2004/05/victor-rehorst-started-thread-at-ntlk.htm">Newton Dose</a> site. Written by Daniel Padilla Rold&#225;n</p>
+
+<p><a href="/modules/utilities/">View Utilities Software</a></p>
+
+<hr>
+
+<h4 id="webpager">Web Pager 2.1</h4>
+<p>This module allows you to be paged by visitor through your Newton. Upon receiving a page, the Newton backlight flashes and a message is displayed. The message will also be spoken through the Newton&#8217;s built-in speaker if you have the <a href="http://www.unna.org/view.php?/apple/software/TextToSpeech">MacInTalk</a> and <a href="http://www.unna.org/view.php?/apple/software/TextToSpeech">SpeakText</a> packages installed.  Features and configuration for the 2.0 version of the Web Pager module are covered in the <a href="/docs/english/">NPDS 2.0 Documentation</a>.</p>
+<p><a href="/modules/webpager/">View Web Pager Software</a></p>
+
+<hr>
+
+<h3><a href="/">Home</a> &gt; Modules</h3>
+
+<hr>
+
+<p><b>Last modified</b> : <!--#echo var="LAST_MODIFIED" --></p>
+
+<!--#include virtual="/ssi/footer.ssi" -->
+
+</body>
+</html>

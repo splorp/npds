@@ -1,0 +1,16 @@
+// Client Status SSI
+// This is an update of the one from the standard NPDS package.
+// It displays less information but it actually works with recent NPDS versions
+// using the undocumented request frame. Please note that this script could
+// break without any notice.
+
+func(inUndocumentedRequestFrame)
+begin
+	local theResult := 
+		"<p />\n"
+		"<h2> Your IP: REMOTE_ADDR</h2>\n"
+		"<h2> Your Browser: HTTP_USER_AGENT</h2>\n";
+	if (|NPDS|:UsingNewtonBrowser(inUndocumentedRequestFrame)) then
+		theResult := theResult & "You are using a Newton Browser!\n";
+	return theResult & "<p />\n";
+end;

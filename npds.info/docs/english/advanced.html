@@ -1,0 +1,327 @@
+<HTML>
+<HEAD>
+   <TITLE>Advanced Topics</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1>Advanced NPDS Topics:</H1>
+
+<H2><A NAME=HTML></A>Using HTML With Notepad Server</H2>
+
+<H3>Introduction:</H3>
+
+<P>NPDS is designed to generate and serve Web content without your
+having any knowledge of HTML or Newtonscript, but it's also able to
+act as a much more traditional HTTP server in that if Notes you store
+in your selected WWW folder are written in strict HTML* they'll be
+served as "files" without any significant changes in their formatting
+or content.
+
+<P><FONT SIZE="-1">* NPDS automatically detects whether a page is
+HTML or plaintext by looking for the presence of any of the following
+tags: </FONT><FONT SIZE="-1" COLOR="#003399">&lt;HTML&gt;,
+&lt;HEAD&gt;, &lt;BODY&gt;,
+&lt;FRAMESET&gt;</FONT><FONT SIZE="-1" COLOR="#3333CC">.
+</FONT><FONT SIZE="-1">You can, of course, fool the parser with a
+phony tag, but why would you want to do that?</FONT>
+
+<H3><B>Naming: </B></H3>
+
+<P>Although your Notes may indeed be HTML files, they don't have to
+be named according to traditional file-naming protocols since
+NoteServ <B>doesn't usually use </B>the file name to retrieve a given
+Note. (Appendix: <A HREF="naming.html"><B>The NPDS Pseudo-Filename
+System</B></A> covers how NPDS handles files and folders)
+
+<P><B>Example: </B>
+
+<P>If you have a note about your train collection and it's written in
+HTML because you need a nicely formatted table of all the types of
+engines you have, you can name the Note "My Train Collection" and
+that's perfectly OK. Its URL when displayed in the list of Notes will
+be something like
+<FONT COLOR="#003399">/html/123456$007.nsd</FONT><FONT COLOR="#3333CC">
+</FONT>where
+<FONT COLOR="#666699">"</FONT><FONT COLOR="#003399">123456$007.nsd</FONT><FONT COLOR="#666699">"</FONT>
+is a special identifier NPDS uses to retrieve your particular Note.
+
+<P>Now, there's a <I>neat trick</I> you can do here... the Note is
+actually a container for a HTML object. What this means is that you
+write out your HTML page, give it a title between the
+<FONT COLOR="#003399">&lt;TITLE&gt;&lt;/TITLE&gt;</FONT> tags, then
+turn around and give the Note that contains it another title, quite
+likely the same one you put in the HTML.
+
+<P>If you want to logically link these two titles, put the following
+Server Side Include (SSI) <B>&lt;NOTE_TITLE&gt;</B> in between the
+&lt;TITLE&gt; tags in the HTML. When the page is served, the Note
+title will be substituted into the space between TITLE tags.
+
+<P>In our "My Train Collection" example: A note containing the HTML
+document is made. In the HEAD of the HTML doc is this code:
+<FONT COLOR="#3333CC">&lt;TITLE&gt;</FONT><FONT COLOR="#003399"><B>&lt;NOTE_TITLE&gt;</B></FONT><FONT COLOR="#3333CC">&lt;/TITLE&gt;.
+</FONT>The Note is titled "My Trains Collection." Now when the page
+is served, the name of the Note is substituted in place of the Server
+Side Include:
+<FONT COLOR="#3333CC">&lt;TITLE&gt;</FONT><FONT COLOR="#003399"><B>My
+Train
+Collection</B></FONT><FONT COLOR="#3333CC">&lt;/TITLE&gt;</FONT>
+
+<H2><A NAME=SSI></A>Server Side Includes: NPDS Extensions to
+HTML</H2>
+
+<P>As you've seen with the previous example, serving Pages and Data
+from your Newton doesn't have to be a static experience. You can
+create living, dynamic documents by writing into your notes variables
+called Server Side Includes (SSI). These variables are detected when
+a Note is served and substituted with specific data. You can put in
+variables for things as mundane as your name and email address to
+things a bit cooler like your daily schedule! You can also use SSI to
+access the NPDS formatting preferences. In later sections, you'll
+even find that you can write Newtonscripts to create your own custom
+SSI.
+
+<H4><A NAME=Table></A>Here, grouped by type, are the Server Side
+Includes currently supported in NPDS and the data they
+represent.</H4>
+
+<P>To use any of these extensions to standard HTML, enclose them in
+<FONT SIZE="+1"><B>&lt; &gt;</B></FONT> like so
+<FONT SIZE="+1"><B>&lt;CUSTOM_TAG&gt;</B></FONT>
+
+<P><A HREF="#User">User Data</A> | <A HREF="#Content">Content
+Variables</A> | <A HREF="#Prefs">Preference</A>s | <A HREF="#Paths">Paths</A>
+
+<P><TABLE BORDER=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD VALIGN=top COLSPAN=3 BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B><A NAME=User></A>User
+         Environment Variables</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_POST: Postal Zone
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_REGION: Current State/Province
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>TIME: Current Date/Time
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_TELE: Default Telephone
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>EMAIL: Current Default Email Address as mailto: hyperlink
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>USR_CITY: Current City
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_NAME: Name of Current Owner
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>USR_ADDR: Current Street Address
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+   </TR>
+</TABLE>
+<BR>
+<TABLE BORDER=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD VALIGN=top COLSPAN=3 BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B><A NAME=Content></A>NPDS Content
+         Variables</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>NOTE_LIST: List of Notes Filed in your selected WWW
+         folder
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>POST_LIST: List of Notes posted via the WWW
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>NOTE_POST: Insert a link to /html/postnote.html where you
+         can post Notes to your Newton from a browser.<BR>
+         *<FONT SIZE="-1">This obsoletes functionality of the old
+         <I>Whiteboard</I> plugin and its SSI tag "POST"</FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>NAME_SEARCH: Inserts a form for searching the Names
+         database.
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>AGENDA_DAY: Inserts a table containing the day's Events,
+         Meetings, ToDos.
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>NOTE_SEARCH: Inserts a form for searching the Notepad and
+         returning a ranked list of hits.
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>NOTE_TABLE: Table view of Notes sorted in ascending order
+         by creation date
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>POST_TABLE: Table view of WWW-posted Notes sorted in
+         ascending order by creation date
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>EVERY_TABLE: Table view of Both WWW-posted and Your Notes
+         sorted in ascending order by creation date
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>EVERY_LIST: List of Both WWW-posted and Your Notes
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+   </TR>
+</TABLE>
+<BR>
+<TABLE BORDER=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD VALIGN=top COLSPAN=3 BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B><A NAME=Prefs></A>NPDS-Wide
+         Preference Variables</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>DEF_FONT: Font face defined as default
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>DEF_SIZE: Default Font Size
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>DEF_COLR: Background color
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>HI_COLR: Preferred Background Highlight color
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>MOTD: Admin's Message of the day to his/her visitors
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>HOME: Inserts a hyperlink to the page defined by admin as
+         the "Home" page.
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>INSULT: This is a special treat for you, Thou artless,
+         beef-witted hedge pig.
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>COUNTER: Hit Counter
+      </TD>
+   </TR>
+</TABLE>
+<BR>
+<TABLE BORDER=0 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD VALIGN=top COLSPAN=3 BGCOLOR="#000000">
+         <P><FONT COLOR="#FFFFFF"><B><A NAME=Paths></A>Content Path
+         Variables</B></FONT>
+      </TD>
+   </TR>
+   <TR>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>NOTEPAD: Returns a link to NoteServ's /html/index.html
+      </TD>
+      <TD VALIGN=top WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>CALENDAR: Returns a link to DateServ's /dates/index.html
+      </TD>
+      <TD VALIGN=top BGCOLOR="#CCCCCC">
+         <P>CARDFILE: Returns a link to the CardFile Server default
+         page /cards/index.html
+      </TD>
+   </TR>
+   <TR>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>PAGER: Returns a link to WebPager's form-based paging
+         interface (/pager/index.html)
+      </TD>
+      <TD WIDTH="33%" BGCOLOR="#CCCCCC">
+         <P>CFG: Returns a link to the NPDS Administrator page
+      </TD>
+      <TD BGCOLOR="#CCCCCC">
+         <P>
+      </TD>
+   </TR>
+</TABLE>
+
+<P>&nbsp;
+
+<P><A NAME=Example></A><B>Real World Example:</B> You've written some
+pages in HTML and you want want the email address that associates
+with your current owner card available on each page. Since you have 5
+email addresses, this could be a problem, except that you know about
+the &lt;EMAIL&gt; tag. Insert it where you want your email address to
+go and the address will always be that of the current owner of the
+Newton.
+
+<P><A NAME=CustomSSI></A><B>Writing You Own Custom Server Side
+Includes:</B>
+
+<P>Version 2.0 of NPDS contains the <I>Simple Scripting Architecture
+</I>which allows you to write Newtonscripts that return substantial
+chunks of text and can be inlined into any NPDS Content by assigning
+then their own Server Side Includes. For more details and some
+examples, see the manual section on the "<A HREF="scripting.html">Simple
+Scripting Architecture</A>".
+
+<H2><A NAME=Custom></A>Making Your Own Default Page for Notepad
+Server:</H2>
+
+<P>When a client accesses the /html/ directory, NoteServ (actually
+most HTTP servers do) serves a built-in file called
+"<FONT COLOR="#3333CC">index.html</FONT>". You can easily over-ride
+the "index.html" that NoteServ delivers, though. Here's how.
+
+<OL>
+   <LI>Create a note and give it the title "<B>index.html</B>". Make
+   sure it's filed in your selected WWW directory. You can also open
+   NoteServ and tap the "<B>index.html</B>" button to create a
+   template version of the built-in index page in your web service
+   folder which you can then modify to your hearts content.</LI>
+   
+   <LI>Use <A HREF="http://www.w3.org/" TARGET="_blank">standard
+   HTML</A> 4.0 and any Server Side Includes you wish to create a
+   properly formatted and syntactically-correct home page.</LI>
+   
+   <LI>Keep in mind that most of the formatting will be done when the
+   <A HREF="stylesheet.html">NPDS Style Sheet</A> is applied to your
+   page so don't go crazy with FONT tags and such.</LI>
+   
+   <LI>Any time you change the folder that NoteServ looks in to find
+   pages to serve, you need to re-file this custom note or the
+   built-in <FONT COLOR="#3333CC">index.html</FONT> file will be
+   served instead</LI>
+</OL>
+
+<P>
+</BODY>
+</HTML>

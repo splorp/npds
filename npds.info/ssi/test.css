@@ -1,0 +1,16 @@
+body {
+	color: #FFF;
+	background: #030;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", verdana, lucida, helvetica, sans-serif;
+	font-size: x-small;
+	voice-family: "\"}\""; 
+	voice-family:inherit;
+	font-size: small;	
+	}
+
+html>body	{
+	font-size: small;	
+	} 

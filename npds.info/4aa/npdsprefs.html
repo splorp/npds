@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+   <TITLE>NPDS Prefs Format</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Appendix: NPDS Preferences Frame</FONT></H1>
+
+<P><CODE>{</CODE>
+
+<P><CODE>sport: int, //HTTP Port for your Server</CODE>
+
+<P><CODE>security: {</CODE>
+
+<BLOCKQUOTE><CODE>admin: {password: string, random: boolean},</CODE>
+   
+   <P><CODE>client: {password: string, random: boolean},</CODE>
+   
+   <P><CODE>securessi: boolean;}, //Security Frame</CODE></BLOCKQUOTE>
+
+<P><CODE>hitCounter:int, //Basic hit counter</CODE>
+
+<P><CODE>hitBeep: boolean, //Beep on HTTP Request</CODE>
+
+<P><CODE>showSlip: boolean, //Show connect Slip</CODE>
+
+<P><CODE>motd: string, //Admin Message of the Day</CODE>
+
+<P><CODE>font: string, //Base Font</CODE>
+
+<P><CODE>mime: string, //MIME Charset. "None" == No Charset</CODE>
+
+<P><CODE>fontsize: string, //Font Size (1-7)</CODE>
+
+<P><CODE>bgcolor: string, //Hex Code Background Color</CODE>
+
+<P><CODE>hlcolor: string, //Hex Code Highlight Color</CODE>
+
+<P><CODE>home: string, //Path to default file</CODE>
+
+<P><CODE>teardown: int, //HTTP Latency (500-8000 msec)</CODE>
+
+<P><CODE>logging: {</CODE>
+
+<BLOCKQUOTE><CODE>loghits: boolean, dnslookup: boolean,</CODE>
+   
+   <P><CODE>expire: int, maxreq: int}, //Logging Preferences</CODE></BLOCKQUOTE>
+
+<P><CODE>css: string, //NPDS Cascading Style Sheet</CODE>
+
+<P><CODE>version: real, //nHTTPd Version Number == Version of
+NPDS</CODE>
+
+<P><CODE>}</CODE>
+</BODY>
+</HTML>

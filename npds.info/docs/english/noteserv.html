@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+   <TITLE>Notepad Server</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1>Using Notepad Server</H1>
+
+<H2><IMG SRC="../images/shots/noteserv.gif" WIDTH=82 HEIGHT=76 ALIGN=right><B>Introduction:</B></H2>
+
+<P>NoteServ is simple extension with a lot of power behind it. Any
+note you write and file in a specially selected folder will be made
+available on the WWW when nHTTPd is active. These Notes can be
+
+<UL>
+   <LI>regular old <B>plaintext notes</B></LI>
+   
+   <LI><B>checklists</B>,</LI>
+   
+   <LI>or <B>outllines</B>.</LI>
+</UL>
+
+<P>and NoteServ will dish them up just the same, turning them from
+Notes to Web pages behind the scenes. You don't have to do a thing!
+
+<P>You're not limited to boring old notes, either. You can also serve
+up fancy hybrid HTML/text notes, straight HTML notes, or run CGI
+scripts from within your Notes. Information on how to do these tasks
+is in the <A HREF="advanced.html">"Advanced" Chapter</A>.
+
+<P>However, let me STRESS once again that you don't need to mess with
+the advanced stuff at all to make NoteServ and NPDS work for YOU.
+It's designed to be simple for the casual user but powerful for the
+super-user.
+
+<P>We've established that making Notes available to WWW visitors is
+as simple as writing down some text in a Note and filing that Note in
+the folder you have selected to be your WWW directory. There's no
+length limit on these notes other than the length imposed by the
+Newton Operating System.
+
+<P>Let's discuss some special features of <B>NoteServ</B> you can use
+to GREATLY enhance the content of your served Notes that don't
+require any work on your part.
+
+<H2>Posting Notes Via A Web Browser</H2>
+
+<P>NoteServ contains two services for submitting notes remotely via a
+WWW browser. Users can post to the directory designated as the WWW
+service directory. These are special notes and will be designated via
+an internal mechanism as being client posted. You, the administrator,
+can post notes using a separate service. You can post to any folder
+on your Newton (allowing you to send data to your Newt that's NOT
+available on the Web). You'll need to know your admin password and be
+able to limit your Notes to around 2048 bytes but other than that
+you're set. So how do these work?
+
+<H3>Client Posting</H3>
+
+<P>If you point the browser to
+<FONT COLOR="#0033FF"><U>http://your.newton.com/html/postnote.html
+</U></FONT>you'll get the Whiteboard for Public Users screen which
+contains a form for submitting Name, Title, and Note Text. One can
+easily embed this URL with the text "Whiteboard" by inserting the
+Server Side Include &lt;NOTE_POST&gt; where you want a link to the
+Public Whiteboard.
+
+<H3>Admin Posting</H3>
+
+<P>There is no SSI for this path (though you could write one..). To
+get to it, point to
+<FONT COLOR="#0033FF"><U>/html/admin-post.html</U></FONT> Once there,
+enter the title and text of the note, choose a folder, and enter your
+admin password. Your note will be posted into that folder. 
+
+<H2>LiveLinks:</H2>
+
+<P>Within note, any properly formatted URL will automatically be
+turned into a <I>clickable link.</I> For example, if you write
+<FONT SIZE="+1" FACE="Comic Sans MS"><B>http://www.apple.com/</B></FONT><FONT FACE="Comic Sans MS">
+</FONT>in a Note, it will be displayed on the client's web browser as
+<A HREF="http://www.apple.com/">http://www.apple.com/</A> The same is
+true for <FONT COLOR="#0033CC">gopher,</FONT>
+<FONT COLOR="#0033CC">ftp, mailto:</FONT>, and even
+<FONT COLOR="#0033CC">hotline</FONT> addresses. This is great for
+making lists of hyperlinks, etc for later viewing or sharing.
+
+<H2>Appearance Options:</H2>
+
+<P>You can apply preferences to the way NPDS formats your Notes. In
+the Appearance Panel of <B>NPDS Setup</B> program, you'll find
+several variables that you can set. You can specify
+
+<UL>
+   <LI>default font face,</LI>
+   
+   <LI>font size,</LI>
+   
+   <LI>background color</LI>
+   
+   <LI>"highlight color"</LI>
+</UL>
+
+<P>In addition, to facilitate display of non-American ASCII
+characters you may wish to specify a MIME character set.
+
+<H2>Variables:</H2>
+
+<P>Quickly,<B> NoteServ</B> supports a range of special variables
+called <I>Server Side Includes.</I> Basically, they're stand-ins for
+common things like your Name, City, etc as well as for specialized
+functions like a Search Form for your Notepad that are replaced an
+instant before a page containing them is sent to a WWW Client. We'll
+talk about these in later sections of the Manual but I thought I'd
+introduce them to you early on since they are a core NPDS concept.
+</BODY>
+</HTML>

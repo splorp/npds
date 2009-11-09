@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+   <TITLE>Troubleshooting</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1>Troubleshooting NPDS 2.0</H1>
+
+<H2>The Brute-Force Approach</H2>
+
+<H3>NPDS Wiper</H3>
+
+<P><IMG SRC="../images/shots/wiper.gif" ALT="NPDS Wiper" WIDTH=64 HEIGHT=96 BORDER=0 ALIGN=left><IMG SRC="../images/dogbert.gif" ALT="Demons" WIDTH=128 HEIGHT=120 ALIGN=right>One
+of the most common bugs in NPDS is corrupt or incompatible
+preferences for any of the installed components. This is due in part
+to the complexity of inter-module communication and in part to my
+relative inexperience with the NewtonOS. When confusion strikes, the
+best thing to do is Nuke the prefs entries. Since there are a LOT of
+installed prefs, I wrote NPDS Wiper to batch-erase all NPDS
+preferences.
+
+<P>To use NPDS Wiper, tap its icon, then choose "Clear". After a
+second, you'll be given the option to Reset. You should do allow the
+Newton to do so. (Choose 'Yes')
+
+<P><FONT COLOR="#003399"><B>WARNING:</B></FONT> If you erase the
+prefs but do not allow the Newton to reboot itself, NPDS will fail
+horribly if you try to start it up. It <B>REQUIRES</B> its
+preferences and they won't be re-initialized until all the packages
+are re-activated by a restart.
+
+<H3>Soup Cleaning</H3>
+
+<P>Sometimes, the soups that hold NPDS bits and pieces get messed up.
+Shut everything down and open your Storage folder in the Extras
+Drawer. You can tap on these two script and delete their entries:
+<B>NPDS Cache</B> and <B>NPDS Log</B>
+
+<H2>More Subtle Approaches</H2>
+
+<P>Please refer to this section in the Online Version of the Manual
+so that you can keep abreast of any new techniques for
+troubleshooting and optimizing NPDS Performance.
+
+<H2><A NAME=BugReport></A>Read The Latest Bug Report</H2>
+
+<P><A HREF="http://bushlab4.life.uiuc.edu/bugreport20.html">http://bushlab4.life.uiuc.edu/bugreport20.html</A>
+
+<P>&nbsp;
+
+<P>
+</BODY>
+</HTML>

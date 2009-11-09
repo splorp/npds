@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+   <TITLE>advancedstyles.html</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Advanced Style Sheet Techniques</FONT></H1>
+
+<H2><FONT FACE="Verdana"><A NAME=Revamp></A>Seriously Revamping your
+NPDS Layout</FONT></H2>
+
+<P><FONT FACE="Verdana">The Cascading Style Sheet Implementation I
+implemented in NPDS 2.0 was designed primarily as away to enforce the
+layout of NPDS HTML without generating and transmitting gross amounts
+of formatting data. For instance, according to HTML 3.2 specs, to
+apply font choice to a document, one must apply it to every "Block
+element" separately. That means every P, TR, LI, etc has to have a
+separate FONT wrapper. That can add up to a HUGE amount of
+non-informative data to your page that slows down generation,
+transmission, and rendering. To further exacerbate things, the
+rendering of HTML formatted in this manner is very inconsistent
+between browsers and platforms.</FONT>
+
+<P><FONT FACE="Verdana">Contrast the HTML 3.2 formatting approach to
+that defined in HTML 4.0 + Cascading Style Sheets. Under HTML 4.0,
+one declares all instances of a given tag's formatting before the
+document is rendered. Better yet, subclasses of each element can be
+defined with different properties from the parent. In NPDS, I defined
+a sub-class "HILITE" of TD (Table Cell) that is defined as having a
+highlighted background color. To make a TD element "light up", I
+define it as &lt;TD CLASS=HILITE&gt; instead of &lt;TD&gt; within the
+HTML.</FONT>
+
+<P><FONT FACE="Verdana">The LI (list item) element also has NPDS
+specific subclasses which are "CHECKED" and "UNCHECKED" since I use
+lists as the HTML markup for outlines and To-Do lists. In one of my
+style sheets, I set the UNCHECKED class to have a highlighted
+background and be rendered in bold text. It looked cool. In general,
+I have the checked items set to normal font and the unchecked items
+set to bold. It provides a nice visual delineation between the two
+kinds of list item.</FONT>
+
+<H2><FONT FACE="Verdana"><A NAME=Import></A>Importing your CSS from
+"Elsewhere"</FONT></H2>
+
+<P><FONT FACE="Verdana">While there's quite an advantage to sending
+all the style data at the beginning of the document, we're still
+making NPDS do more work than is 100% required. The common way of
+using style sheets is to reference a single style sheet file from
+several HTML files by using a forward link to import the Style sheet.
+Since my standard NPDS Style Sheet is about 500 bytes, this means we
+could save that 500 bytes every page we served by storing the NPDS
+Style sheet somewhere else and referencing it. Actually, using a
+remote style sheet would allow you to custominze the look of your
+Newton server by changing the REMOTE FILE! So, with all these
+advantages spelled out, let's get to work on this.</FONT>
+
+<P><FONT FACE="Verdana">On the UNIX account I use to administer
+Lightyear Media, I have stored a style sheet file named
+"lym_book.css" that I want to use to format my Newton server pages.
+To use this file, I'll open the CSS Editor and change the Style Sheet
+from a full CSS file wrapped by STYLE tags to the following:</FONT>
+
+<P><FONT COLOR="#000066"><CODE>&lt;LINK REL=stylesheet
+HREF="http://pop.life.uiuc.edu/~mwvaugh/lightyear/lym_book.css"
+TYPE="text/css"&gt;</CODE></FONT>
+
+<P><FONT FACE="Verdana">Now, when a NPDS page is served, the browser
+will be directed to look for the style sheet on my MUCH faster
+Solaris machine!</FONT>
+
+<P><FONT FACE="Verdana">You can |<B> </B></FONT><A HREF="http://pop.life.uiuc.edu/~mwvaugh/lightyear/lym_book.css" TARGET="_blank"><FONT FACE="Verdana"><B>click
+here</B></FONT></A><FONT FACE="Verdana"> | to access this CSS file to
+see a real Style Sheet. Feel free to modify it or use it verbatim.
+Keep in mind that this is my actual current style sheet and may
+change frequently!</FONT>
+
+<H2><FONT FACE="Verdana"><A NAME=Misc></A>Color-HexCode
+Table</FONT></H2>
+
+<P><FONT FACE="Verdana">We all want really cool looking Newtons,
+right? And the drab olive color I shipped as the highlight color in
+NPDS 2.02 is the pits, too, ain't it? Well, never fear.. I have found
+a small series of tables that present the 216 color Web-Safe Palette
+of colors along with their respective Hex codes. Hopefully, these
+will help you overcome the lack of a color picker on the Newton for
+choosing your Layout colors and lead to some snazzy-looking Newton
+sites. Usually, what's nice to do is keep the same level of
+brightness but vary the hue around 1/6 to 1/4 of the color wheel.
+Just fool around with it, eh? I am currently running a light salmon
+background with steel grey highlights. It looks really subdued but I
+like it since I keep my Newton open to my weekly overview in a
+browser on my desk.</FONT>
+
+<P><FONT FACE="Verdana">Since it's a goodly amount of HTML, the page
+containing this color guide is </FONT><A HREF="colortab.html"><FONT FACE="Verdana">here.</FONT></A>
+
+<H2><FONT FACE="Verdana">A Most Generous Offer...</FONT></H2>
+
+<P><FONT FACE="Verdana">You folks are really golden and I happen to
+think that linking to a remote style sheet is cool. So, if you create
+a neat-o style sheet using whatever method you choose, I'll host it
+on my server for you to reference from your Newton. I can give you
+one or two updates of it a month. What I'll need, if you want to do
+this, is an email containing the .css file </FONT><A HREF="mailto:LightyearDesign@mac.com"><FONT FACE="Verdana">sent
+to me</FONT></A><FONT FACE="Verdana"> along with your name and any
+other info I might need.</FONT>
+</BODY>
+</HTML>

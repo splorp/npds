@@ -1,0 +1,15 @@
+// Backlight link SSI
+// Copyright (c) 2001 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script displays "The light is on." when the backlight is on or a link
+// to "backlight-on" when it isn't.
+
+func(inUndocumentedRequestFrame)
+begin
+	if (backlightstatus()) then
+		return "The light is on."
+	else
+		return "<a href=\"backlight-on\">Switch the light on.</a>";
+//		return "The power switch is broken.";
+end

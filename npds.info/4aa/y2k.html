@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+   <TITLE>Y2k Countdown</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Y2K Countdown</FONT></H1>
+
+<P><FONT FACE="Verdana">Here, we're going to return a number of days
+until a specified event, in this case: January 1, 2000. With all the
+hulabaloo about Y2K compliance, we'll add in a jab at the PC camp by
+returning a different message about Y2k depending on the platform the
+request is coming from. How fun...</FONT>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> Doomsday Clock
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> Y2KCLOCK
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE><CODE>//easily change the </CODE><B><CODE>target
+            date</CODE></B><CODE><BR>
+            //by altering this string</CODE>
+            
+            <P><CODE>local thedate:= "January 1, 2000";</CODE>
+            
+            <P><CODE>local leftstr;</CODE>
+            
+            <P><CODE>local ldays;</CODE>
+            
+            <P><CODE>//Get # minutes from thedate till now,<BR>
+            //divide by 60 minutes per hour<BR>
+            //divided by 24 hours per day then round down.</CODE>
+            
+            <P><CODE>ldays:= Floor(StringToDate(thedate) -
+            time())/60/24);</CODE>
+            
+            <P><CODE>//Browsers usually transmit some platform
+            info<BR>
+            //after their browser agent data. We'll look<BR>
+            //for 'Mac' in the text of the user-agent field.</CODE>
+            
+            <P><CODE>if StrPos("HTTP_USER_AGENT", "Mac", 0)
+            then</CODE>
+            
+            <P><CODE>leftstr:= "'till D-day";</CODE>
+            
+            <P><CODE>else</CODE>
+            
+            <P><CODE>leftstr:= "to buy yourself a Macintosh!";</CODE>
+            
+            <P><CODE>//Roll values together and return!</CODE>
+            
+            <P><CODE>return ldays &amp;&amp; "days left" &amp;&amp;
+            leftstr;</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+</BODY>
+</HTML>

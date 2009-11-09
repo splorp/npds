@@ -1,0 +1,41 @@
+// Uptime SSI
+// Copyright (c) 2001 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script displays the uptime (the time spent since the Newton last booted, not
+// the time since NPDS last booted).
+// It requires uptime package.
+
+func(inUndocumentedRequestFrame)
+begin
+	// Number of minutes since boot.
+	local mins := ceiling(time() - GetGlobalVar('bootTime));
+	// Translate this in hours.
+	local hours := floor(mins / 60);
+	// Get the remains of minutes.
+	mins := mins mod 60;
+	// Translate hours in days.
+	local days := floor(hours / 24);
+	// Get the remains of hours.
+	hours := hours mod 24;
+	local theResult := nil;
+
+	// This block computes the string "((x day(s), )y hour(s) and )z minute(s)".
+	if days > 0 then
+	begin
+		theResult := days & " day";
+		if days > 1 then theResult := theResult & "s, ";
+		else theResult := theResult & ", ";
+	end; // days > 0
+	if theResult or (hours > 0) then
+	begin
+		theResult := theResult & hours & " hour";
+		if hours > 1 then theResult := theResult & "s and ";
+		else theResult := theResult & " and ";
+	end; // theResult or (hours > 0)
+
+	theResult := theResult & mins & " minute";
+	if mins > 1 then theResult := theResult & "s";
+
+	return theResult;
+end

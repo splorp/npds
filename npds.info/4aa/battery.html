@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+   <TITLE>Battery Level</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><FONT FACE="Impact">Battery Level</FONT></H1>
+
+<P><FONT FACE="Verdana">I made a pretty big deal about NPDS enabling
+you to have a battery-powered web server, so let's prove we're
+running on batteries. This script returns an unambiguous "Battery: XX
+%" which should be enough to convince all but the most skeptical
+visitors..</FONT>
+
+<P><TABLE BORDER=1 CELLPADDING=4 WIDTH="100%">
+   <TR>
+      <TD BGCOLOR="#9999CC">
+         <P><B>Name:</B> Battery
+      </TD>
+      <TD BGCOLOR="#9999CC">
+         <P><B>SSI:</B> BATTSTAT
+      </TD>
+   </TR>
+   <TR>
+      <TD COLSPAN=2>
+         <P><CODE>func(nullvar)</CODE>
+         
+         <P><CODE>begin</CODE>
+         
+         <BLOCKQUOTE>//This is a really simple script, eh? They don't
+            have to be complicated.
+            
+            <P><CODE>return "Battery:" &amp;&amp;
+            NumberStr(BatteryStatus(0).batteryCapacity) &amp;
+            "%";</CODE></BLOCKQUOTE>
+         
+         <P><CODE>end</CODE>
+      </TD>
+   </TR>
+</TABLE>
+</BODY>
+</HTML>

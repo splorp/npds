@@ -1,0 +1,59 @@
+// Last Seen SSI
+// Copyright (c) 2002 by Paul Guyot.
+// All rights reserved worldwide.
+//
+// This script will display a string (feel free to customize it)
+// saying when the last event from the user was processed.
+// Please note that this is not extremely accurate. It is based
+// on EventPause root method and it requires the Uptime package.
+
+func(inUndocumentedRequestFrame)
+begin
+	// Get the boottime from the uptime package.
+	local upTime := ceiling( time() - GetGlobalVar('bootTime));
+	
+	// Compute the number of minutes since last event.
+	local mins := ceiling( GetRoot():EventPause(nil) / 60);
+	
+	// If the uptime is lower or equal than the number of minutes
+	// since last event, it means that either user was seen during
+	// boot or it wasn't seen since boot.
+	if (upTime <= mins + 1) then
+		return "Pilot hasn't been seen for a while.";
+	else
+	begin
+		// Compute the number of hours.
+		local hours := floor(mins / 60);
+		// This is the number of minutes without the hours.
+		mins := mins mod 60;
+		// Compute the number of days.
+		local days := floor(hours / 24);
+		// This is the number of hours without the days.
+		hours := hours mod 24;
+		local theResult := nil;
+		// This block computes the string.
+		if days > 0 then
+		begin
+			theResult := days & " day";
+			if days > 1 then
+				theResult := theResult & "s, ";
+			else
+				theResult := theResult & ", ";
+		end; // days > 0
+		if theResult or (hours > 0) then
+		begin
+			theResult := theResult & hours & " hour";
+			if hours > 1 then
+				theResult := theResult & "s and ";
+			else	
+				theResult := theResult & " and ";
+		end; // theResult or (hours > 0)
+
+		theResult := theResult & mins & " minute";
+		if mins > 1 then
+			theResult := theResult & "s";
+
+		// Return the message.
+		return "Pilot was last seen in the <a href=\"/html/cockpit\">cockpit</a>" && theResult && "ago.";
+	end
+end
