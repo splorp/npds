@@ -2,6 +2,10 @@ npds.free.fr
 
 Site Change Log:
 
+05/12/2009	[Grant Hutchinson]
+	* Added redirect handlers for a couple of old legacy pages
+	* Finally got the pretty icons working for module directory listings
+
 09/11/2009	[Grant Hutchinson]
 	* Updated tracker server information on /trackers/index.html
 
