@@ -16,3 +16,4 @@ ErrorDocument 500 /error.html
 #AddIconByType (PKG,icons/pkg.gif) application/x-newton-compatible-pkg
 #AddIcon (IMG,icons/gif.gif) .gif .jpg .png
 
+Redirect 301 /docs/new/NPDS-Network-Setup-How-To.html http://npds.free.fr/docs/new/NPDSNetworkSetup.html
