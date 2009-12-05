@@ -10,10 +10,11 @@ ErrorDocument 403 /error.html
 ErrorDocument 404 /error.html
 ErrorDocument 500 /error.html
 
-#AddIconByType (TXT,icons/txt.gif) text/*
-#AddIconByType (SIT,icons/sit.gif) application/x-stuffit
-#AddIconByType (BIN,icons/bin.gif) application/octet-stream
-#AddIconByType (PKG,icons/pkg.gif) application/x-newton-compatible-pkg
-#AddIcon (IMG,icons/gif.gif) .gif .jpg .png
+AddIconByType (TXT,/images/icons/txt.gif) text/*
+AddIconByType (SIT,/images/icons/sit.gif) application/x-stuffit
+AddIconByType (BIN,/images/icons/bin.gif) application/octet-stream
+AddIconByType (PKG,/images/icons/pkg.gif) application/x-newton-compatible-pkg
+AddIcon (IMG,/images/icons/gif.gif) .gif .jpg .png
 
 Redirect 301 /docs/new/NPDS-Network-Setup-How-To.html http://npds.free.fr/docs/new/NPDSNetworkSetup.html
+Redirect 301 "/Tracker Client" http://npds.free.fr/modules/trackerclient
