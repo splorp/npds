@@ -2,6 +2,9 @@ npds.free.fr
 
 Site Change Log:
 
+08/09/2010	[Grant Hutchinson]
+	* Updated link to Matt Vaughn's site on the home page
+
 02/01/2010	[Grant Hutchinson]
 	* Updated the copyright notice
 
