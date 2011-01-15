@@ -2,6 +2,11 @@ npds.free.fr
 
 Site Change Log:
 
+15/01/2011	[Grant Hutchinson]
+	* Updated the copyright notice
+	* Added Glenn Baggott's server to /trackers/index.html
+	* Added Tony Kan's server to /trackers/index.html
+
 08/12/2010	[Grant Hutchinson]
 	* Updated tracker server information on /trackers/index.html
 
