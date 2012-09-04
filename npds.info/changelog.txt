@@ -2,6 +2,9 @@ npds.free.fr
 
 Site Change Log:
 
+02/09/2012	[Grant Hutchinson]
+	* Updated tracker server information on /trackers/index.html
+
 01/01/2012	[Grant Hutchinson]
 	* Updated the copyright notice
 
