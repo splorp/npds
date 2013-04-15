@@ -2,6 +2,10 @@ npds.free.fr
 
 Site Change Log:
 
+03/04/2013	[Grant Hutchinson]
+	* Fixed duplicate anchor on /modules/index.html
+	* Updated the copyright notice, finally
+
 02/09/2012	[Grant Hutchinson]
 	* Updated tracker server information on /trackers/index.html
 
