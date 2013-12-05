@@ -2,6 +2,9 @@ npds.free.fr
 
 Site Change Log:
 
+23/10/2013	[Grant Hutchinson]
+	* Finally removed the stupid webring navigation code
+
 03/04/2013	[Grant Hutchinson]
 	* Fixed duplicate anchor on /modules/index.html
 	* Updated the copyright notice, finally
