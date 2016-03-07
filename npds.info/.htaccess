@@ -1,3 +1,5 @@
+Options +Indexes
+
 AddHandler server-parsed html
 
 AddType application/x-stuffit sit

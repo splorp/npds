@@ -2,6 +2,29 @@ npds.free.fr
 
 Site Change Log:
 
+05/02/2016 (Grant Hutchinson)
+	* Added Pawel Piotrowski's server to /trackers/index.html
+
+02/11/2015 (Grant Hutchinson)
+	* Updated and edited mailing list instructions on /list/index.html
+
+29/10/2015 (Grant Hutchinson)
+	* Added Greg Goodwin's server to /trackers/index.html
+	* Simplified tracker and server URLs on /trackers/index.html
+
+15/01/2015 (Grant Hutchinson)
+	* Reenabled viewing of directories without indexes
+
+07/09/2014	[Grant Hutchinson]
+	* Added Sylvain Pilet's server to /trackers/index.html
+
+11/08/2014	[Grant Hutchinson]
+	* Added Peter Geremia's server to /trackers/index.html
+	* Removed all currently offline tracker servers
+
+07/01/2014	[Grant Hutchinson]
+	* Updated all copyright notices to be year agnostic
+
 23/10/2013	[Grant Hutchinson]
 	* Finally removed the stupid webring navigation code
 
