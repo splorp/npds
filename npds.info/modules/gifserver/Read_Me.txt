@@ -10,8 +10,9 @@ Change History:
 15/03/2003	1.2 [Paul Guyot]
 	Updated for NPDS 2.1
 
-??/??/2001	1.13 [Paul Guyot]
-
+07/01/2003	1.13 [Paul Guyot]
+	Unknown changes.
+	
 26/10/2001	1.12 [Paul Guyot]
 	Fixed version number.
 
@@ -30,4 +31,4 @@ Change History:
 		find the above items based on information from the NPDS mailing list archives.
 		[Grant Hutchinson (Sat, 22 Apr 2006 16:08:55 -0600)]
 
-03/10/1998	[Matt Vaughn/Todd Hollow]
+03/10/1998	Initial Release [Matt Vaughn/Todd Hollow]

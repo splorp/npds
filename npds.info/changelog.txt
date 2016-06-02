@@ -2,6 +2,9 @@ npds.free.fr
 
 Site Change Log:
 
+02/06/2016 (Grant Hutchinson)
+	* Updated GIF Server Read Me with additional release details
+
 05/02/2016 (Grant Hutchinson)
 	* Added Pawel Piotrowski's server to /trackers/index.html
 
