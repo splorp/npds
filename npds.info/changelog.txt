@@ -2,6 +2,9 @@ npds.free.fr
 
 Site Change Log:
 
+12/01/2021 (Grant Hutchinson)
+	* Clarified digest archives on /list/index.html
+
 03/01/2019 (Grant Hutchinson)
 	* Added OldServers' server to /trackers/index.html
 
