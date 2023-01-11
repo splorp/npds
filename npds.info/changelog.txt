@@ -2,110 +2,110 @@ npds.free.fr
 
 Site Change Log:
 
-11/01/2023	[Grant Hutchinson]
+11/01/2023 [Grant Hutchinson]
 	* Updated link to Matt Vaughn's site on the home page
 
-12/01/2022 (Grant Hutchinson)
+12/01/2022 [Grant Hutchinson]
 	* Clarified digest archives on /list/index.html
 
-03/01/2019 (Grant Hutchinson)
+03/01/2019 [Grant Hutchinson]
 	* Added OldServers' server to /trackers/index.html
 
-27/12/2018 (Grant Hutchinson)
+27/12/2018 [Grant Hutchinson]
 	* Updated tracker and server listings on /trackers/index.html
 
-11/11/2017 (Grant Hutchinson)
+11/11/2017 [Grant Hutchinson]
 	* Updated tracker and server listings on /trackers/index.html
 
-02/06/2016 (Grant Hutchinson)
+02/06/2016 [Grant Hutchinson]
 	* Updated GIF Server Read Me with additional release details
 
-05/02/2016 (Grant Hutchinson)
+05/02/2016 [Grant Hutchinson]
 	* Added Pawel Piotrowski's server to /trackers/index.html
 
-02/11/2015 (Grant Hutchinson)
+02/11/2015 [Grant Hutchinson]
 	* Updated and edited mailing list instructions on /list/index.html
 
-29/10/2015 (Grant Hutchinson)
+29/10/2015 [Grant Hutchinson]
 	* Added Greg Goodwin's server to /trackers/index.html
 	* Simplified tracker and server URLs on /trackers/index.html
 
-15/01/2015 (Grant Hutchinson)
+15/01/2015 [Grant Hutchinson]
 	* Reenabled viewing of directories without indexes
 
-07/09/2014	[Grant Hutchinson]
+07/09/2014 [Grant Hutchinson]
 	* Added Sylvain Pilet's server to /trackers/index.html
 
-11/08/2014	[Grant Hutchinson]
+11/08/2014 [Grant Hutchinson]
 	* Added Peter Geremia's server to /trackers/index.html
 	* Removed all currently offline tracker servers
 
-07/01/2014	[Grant Hutchinson]
+07/01/2014 [Grant Hutchinson]
 	* Updated all copyright notices to be year agnostic
 
-23/10/2013	[Grant Hutchinson]
+23/10/2013 [Grant Hutchinson]
 	* Finally removed the stupid webring navigation code
 
-03/04/2013	[Grant Hutchinson]
+03/04/2013 [Grant Hutchinson]
 	* Fixed duplicate anchor on /modules/index.html
 	* Updated the copyright notice, finally
 
-02/09/2012	[Grant Hutchinson]
+02/09/2012 [Grant Hutchinson]
 	* Updated tracker server information on /trackers/index.html
 
-01/01/2012	[Grant Hutchinson]
+01/01/2012 [Grant Hutchinson]
 	* Updated the copyright notice
 
-15/01/2011	[Grant Hutchinson]
+15/01/2011 [Grant Hutchinson]
 	* Updated the copyright notice
 	* Added Glenn Baggott's server to /trackers/index.html
 	* Added Tony Kan's server to /trackers/index.html
 
-08/12/2010	[Grant Hutchinson]
+08/12/2010 [Grant Hutchinson]
 	* Updated tracker server information on /trackers/index.html
 
-08/09/2010	[Grant Hutchinson]
+08/09/2010 [Grant Hutchinson]
 	* Updated link to Matt Vaughn's site on the home page
 
-02/01/2010	[Grant Hutchinson]
+02/01/2010 [Grant Hutchinson]
 	* Updated the copyright notice
 
-05/12/2009	[Grant Hutchinson]
+05/12/2009 [Grant Hutchinson]
 	* Added redirect handlers for a couple of old legacy pages
 	* Finally got the pretty icons working for module directory listings
 
-09/11/2009	[Grant Hutchinson]
+09/11/2009 [Grant Hutchinson]
 	* Updated tracker server information on /trackers/index.html
 
-24/01/2009	[Grant Hutchinson]
+24/01/2009 [Grant Hutchinson]
 	* Updated tracker server information on /trackers/index.html
 	* Added Paul Filmer's server to /trackers/index.html
 
-15/01/2009	[Grant Hutchinson]
+15/01/2009 [Grant Hutchinson]
 	* Added Twitter links to the header, footer, and /index.html
 
-10/01/2009	[Grant Hutchinson]
+10/01/2009 [Grant Hutchinson]
 	* Updated the copyright notice
 	* Nuked a gremlin that had been lurking in a meta element on /index.html
 
-06/11/2007	[Grant Hutchinson]
+06/11/2007 [Grant Hutchinson]
 	* Fixed links to /trackers/ and /list/ on /index.html
 
-27/10/2007	[Grant Hutchinson]
+27/10/2007 [Grant Hutchinson]
 	* Added mailing list unsubscribe information to /list/index.html
 	* Enkoder'd the email addresses on /list/index.html
 	* Other minor updates to the mailing list information
 
-22/10/2007	[Grant Hutchinson]
+22/10/2007 [Grant Hutchinson]
 	* Minor updates to common page footer and style sheet
 
-11/10/2007	[Grant Hutchinson]
+11/10/2007 [Grant Hutchinson]
 	* Added credits.txt to /scripts
 
-27/06/2007	[Grant Hutchinson]
+27/06/2007 [Grant Hutchinson]
 	* Added MicroID site claim meta tag to /index.html
 	
-18/06/2007	[Grant Hutchinson]
+18/06/2007 [Grant Hutchinson]
 	* Changed align attributes on home page image to use float:right style
 	* Renamed Port Number section on /trackers/index.html
 	* Fixed duplicate anchor id on /trackers/index.html
@@ -114,7 +114,7 @@ Site Change Log:
 	* Updated style sheet and default document structure to accommodate Internet Explorer flakiness
 	* Finagled the footer layout
 
-17/06/2007	[Grant Hutchinson]
+17/06/2007 [Grant Hutchinson]
 	* Corrected keyword and description meta tags on /list/index.html
 	* Moved software module information from /index.html to /software/index.html
 	* Moved bug reporting information from /index.html to /software/index.html
@@ -124,10 +124,10 @@ Site Change Log:
 	* Added standard site navigation links to footer
 	* Fixed busted webring navigation code
 
-16/06/2007	[Grant Hutchinson]
+16/06/2007 [Grant Hutchinson]
 	* Minor formatting adjustments to /index.html
 
-15/06/2007	[Grant Hutchinson]
+15/06/2007 [Grant Hutchinson]
 	* Updated Notepad Server Syntax documentation
 	* Updated Restoring a Lost NPDS Hit Count documentation
 	* Updated documentation style sheet
@@ -136,27 +136,27 @@ Site Change Log:
 	* Started implementing site-wide CSS
 	* Moved mailing list information from /index.html to /list/index.html
 
-29/05/2007	[Grant Hutchinson]
+29/05/2007 [Grant Hutchinson]
 	* Added AutoCloseNotif to directory /modules/utilities/
 
-20/04/2007	[Grant Hutchinson]
+20/04/2007 [Grant Hutchinson]
 	* Added Jeff Henry's J3ff to the Tracker Server list
 
-07/04/2007	[Grant Hutchinson]
+07/04/2007 [Grant Hutchinson]
 	* Updated Restoring a Lost NPDS Hit Count documentation
 
-16/01/2007	[Grant Hutchinson]
+16/01/2007 [Grant Hutchinson]
 	* Added Restoring a Lost NPDS Hit Count documentation to directory /docs/new/
 	* Added link to Restoring a Lost NPDS Hit Count documentation to /index.html
 	* Updated Notepad Server Syntax documentation to use documentation style sheet
 	* Updated documentation style sheet
 
-11/01/2007	[Grant Hutchinson]
+11/01/2007 [Grant Hutchinson]
 	* Happy new year, everyone!
 	* Added Notepad Server 2.104 to directory /modules/notepadserver/
 	* Added a note that the NPDS Bug Database is offline to /index.html
 
-14/12/2006	[Grant Hutchinson]
+14/12/2006 [Grant Hutchinson]
 	* Added preliminary Notepad Server Syntax to /docs/new/
 	* Added link to Notepad Server Syntax documentation to /index.html
 	* Added link to Notepad Server Syntax documentation to /modules/index.html
@@ -165,12 +165,12 @@ Site Change Log:
 	* Added link to Notepad Server Configuration documentation on /index.html
 	* Added preliminary style sheet for documentation to /ssi/
 	
-10/12/2006	[Grant Hutchinson]
-	* Standardized the version numbers for all releases of NPDS Watcher (no more cryptic 010ac numbers)
+10/12/2006 [Grant Hutchinson]
+	* Standardized the version numbers for all releases of NPDS Watcher [no more cryptic 010ac numbers]
 	* Current version of NPDS Watcher is now 1.1a1, updated /modules/index.html accordingly
 	* Replaced all NPDS Watcher StuffIt archives with binary encoded disk images
 
-07/12/2006	[Grant Hutchinson]
+07/12/2006 [Grant Hutchinson]
 	* Added Notepad Server 2.103 to directory /modules/notepadserver/
 	* Added nHTTPd 2.107 to /modules/httpserver/
 	* Added nHTTPd Setup 2.102 to /modules/httpserver/
@@ -183,22 +183,22 @@ Site Change Log:
 	* Removed references to supported versions of software on /modules/index.html
 	* Updated GIF Server Syntax documentation
 
-28/11/2006	[Grant Hutchinson]
+28/11/2006 [Grant Hutchinson]
 	* Added Notepad Server 2.102 to directory /modules/notepadserver/
 	* Added Debug 500 Page 1.0 to directory /modules/utilities/
 	* Added Debug 500 Page information to /modules/index.html
 	* Replaced all legacy Notepad Server StuffIt archives with binary encoded disk images
 
-22/05/2006	[Grant Hutchinson]
+22/05/2006 [Grant Hutchinson]
 	* Added link to Binary Server How-To documentation to /index.html
 	* Added link to Binary Server How-To documentation to /modules/index.html
 
-29/04/2006	[Grant Hutchinson]
+29/04/2006 [Grant Hutchinson]
 	* Added 4AA Magazine content to directory /4aa/
 	* Added link to 4AA Magazine content to /index.html
 	* Added link to scripting tutorial contained in 4AA Magazine content to /modules/index.html
 
-25/04/2006	[Grant Hutchinson]
+25/04/2006 [Grant Hutchinson]
 	* Added GIF Server Read Me to /modules/gifserver/
 	* Added preliminary GIF Server Syntax to /docs/new/
 	* Appended release notes for all 2.0x NPDS modules to the various Read Me documents
@@ -208,7 +208,7 @@ Site Change Log:
 	* Added link to GIF Server Syntax documentation to /modules/index.html
 	* Updated formatting and syntax in the NPDS Network Setup documentation
 
-15/04/2006	[Grant Hutchinson]
+15/04/2006 [Grant Hutchinson]
 	* Added Datebook Server 2.12 to /modules/datebookserver/
 	* Replaced the Date Book Server 2.01 archive with a binary encoded disk image
 	* Replaced the Card File Server 2.01 archive with a binary encoded disk image
@@ -217,13 +217,13 @@ Site Change Log:
 	* Fixed version number typo in the Binary Server Read Me
 	* Padded zeroes on package and archive version numbers for sort order consistency
 
-12/04/2006	[Grant Hutchinson]
+12/04/2006 [Grant Hutchinson]
 	* Added David Schultz' Capetracker to the Tracker Server list
 	* Added David Schultz' Newtontracker to the Tracker Server list
 	* Added Tracker Server link to the NPDS introduction on the home page
 	* Moved some other bits of information around on the home page as well
 
-06/04/2006	[Grant Hutchinson]
+06/04/2006 [Grant Hutchinson]
 	* Added NPDS Tracker 0.1.34 to directory /modules/trackerserver/
 	* Added NPDS Tracker Read Me to directory /modules/trackerserver/
 	* Modified file /index.html adding link to the Documentation section for the NPDS Tracker Read Me
@@ -233,11 +233,11 @@ Site Change Log:
 	* Renamed file NPDS_Protocol_1.1.html to NPDSTrackerProtocol.html in directory /modules/trackerserver/
 	* Alternate URLs for the Misato tracker added to the tracker list
 
-01/04/2006	[Grant Hutchinson]
+01/04/2006 [Grant Hutchinson]
 	* Huzzah! The Misato tracker is back in action and operating
 	* The tracker list has been updated accordingly
 
-19/02/2006	[Grant Hutchinson]
+19/02/2006 [Grant Hutchinson]
 	* Well, hi there. Long time, no see...
 	* Modified file /index.html updating link to the WikiWikiNewt site
 	* Modified file /modules/index.html updating link to the NTK directory on UNNA
@@ -247,63 +247,63 @@ Site Change Log:
 	* Removed the Xonxion tracker from the tracker list
 	* Updated the Tracker Server description to compensate for the current lack of trackers
 
-29/12/2004	[Grant Hutchinson]
+29/12/2004 [Grant Hutchinson]
 	* Added link to Yoichi Takezawa's recently resurfaced Newton site
 
-30/11/2004	[Grant Hutchinson]
+30/11/2004 [Grant Hutchinson]
 	* Silly me. The NPDS mailing list link hasn't been working for ages, but it's fixed now
 
-03/10/2004	[Grant Hutchinson]
+03/10/2004 [Grant Hutchinson]
 	* You can now access this site using the npds.info domain
 
-18/09/2004	[Grant Hutchinson]
+18/09/2004 [Grant Hutchinson]
 	* Added archive of Yoichi Takezawa's NPDS Unicode branch to /npdsu/
 	* I will organize and make this directory look prettier at a later date
 
-17/05/2004	[Grant Hutchinson]
-	* Obscured the email addresses in mailing list archive files (Thanks Dan)
+17/05/2004 [Grant Hutchinson]
+	* Obscured the email addresses in mailing list archive files [Thanks Dan]
 
-17/05/2004	[Paul Guyot]
+17/05/2004 [Paul Guyot]
 	* Added GIF Server 1.3 to /modules/gifserver/
 
-23/04/2004	[Paul Guyot]
+23/04/2004 [Paul Guyot]
 	* Added nHTTPd 2.106 to /modules/httpserver/
 
-03/04/2004	[Grant Hutchinson]
+03/04/2004 [Grant Hutchinson]
 	* The Mymacs.net tracker is running again and is back on the tracker list 
 
-23/03/2004	[Paul Guyot]
-	* Updated NPDS Network Setup documentation with input from Allen Russell and Victor Rehorst (Thanks guys)
+23/03/2004 [Paul Guyot]
+	* Updated NPDS Network Setup documentation with input from Allen Russell and Victor Rehorst [Thanks guys]
 
-15/03/2004	[Paul Guyot]
+15/03/2004 [Paul Guyot]
 	* Added Wipe 2.0 to /modules/utilities/
 
-28/02/2004	[Paul Guyot]
+28/02/2004 [Paul Guyot]
 	* Added nHTTPd Setup 2.101 to directory /modules/httpserver/
 
-23/02/2004	[Grant Hutchinson]
+23/02/2004 [Grant Hutchinson]
 	* Added BugTrap and documentation to directory /modules/utilities/
 	* Added BugTrap information to the utilities section of /modules/index.html
 
-22/02/2004	[Grant Hutchinson]
+22/02/2004 [Grant Hutchinson]
 	* Added NPDS Tracker 0.1.33 to directory /modules/trackerserver/
 	* Added .zip archives of all previous NPDS Tracker releases to directory /modules/trackerserver/
 	* Converted .sit archives of all previous NPDS Tracker releases to binary encoded disk images
 	* Updated the NPDS screen shot on the home page
 
-16/02/2004	[Grant Hutchinson]
+16/02/2004 [Grant Hutchinson]
 	* Added link for the previously secretive /scripts/ directory to /index.html
 	* Added link to the /scripts/ directory from the utilities section of /modules/index.html
 
-07/02/2004	[Paul Guyot]
+07/02/2004 [Paul Guyot]
 	* Added nHTTPd 2.105 to directory /modules/httpserver/
 
-22/01/2004	[Grant Hutchinson]
+22/01/2004 [Grant Hutchinson]
 	* Renamed file /images/npdslogo.jpg to /images/npds-logo.jpg
 	* Added file npds-serve1.gif to directory /images/
 	* Added file npds-serve2.gif to directory /images/
 
-17/01/2004	[Grant Hutchinson]
+17/01/2004 [Grant Hutchinson]
 	* Corrected a couple of typos on the home page
 	* Updated link to Matt Vaughn's site on the home page
 	* Updated meta tags /index.html
@@ -312,91 +312,91 @@ Site Change Log:
 	* Added placeholder file main.css to directory /ssi/
 	* Added placeholder file main.js to directory /ssi/
 
-07/01/2004	[Paul Guyot]
+07/01/2004 [Paul Guyot]
 	* Added mailing list archives V4
 
-14/12/2003	[Grant Hutchinson]
+14/12/2003 [Grant Hutchinson]
 	* Replaced corrupted NPDS-Scripts.pkg in directory /modules/utilities/
 	* Added NPDS-Scripts.pkg to the NPDS-Scripts source archive while I was at it
 	* Thanks to Manuel Probsthain for pointing out the problem
 	* Added the XonXion tracker to the Tracker Server section on the home page
 	* Removed the Mymacs.net tracker since it's been down for several months
 
-30/10/2003	[Grant Hutchinson]
+30/10/2003 [Grant Hutchinson]
 	* Added link pointing to the web server section of WikiWikiNewt to the home page
 	* Added descriptions and credits to the documentation links on the home page
 
-11/07/2003	[Paul Guyot]
-	* Updated the /modules/index.html page for latest watcher (101ac)
+11/07/2003 [Paul Guyot]
+	* Updated the /modules/index.html page for latest watcher [101ac]
 
-20/06/2003	[Paul Guyot]
+20/06/2003 [Paul Guyot]
 	* Added Notepad Server 2.101
 
-17/06/2003	[Paul Guyot]
+17/06/2003 [Paul Guyot]
 	* Added nHTTPd 2.104
 
-20/05/2003	[Paul Guyot]
+20/05/2003 [Paul Guyot]
 	* Added BinInstaller 1.2
 
-12/05/2003	[Paul Guyot]
+12/05/2003 [Paul Guyot]
 	* Added CardFile Server 2.12
 
-06/05/2003	[Grant Hutchinson]
+06/05/2003 [Grant Hutchinson]
 	* Added link and description for the NPDS Bug Database to the home page
 
-02/05/2003	[Paul Guyot]
+02/05/2003 [Paul Guyot]
 	* Finally updated the more than one month old NPDSTracker 0.1.32
 
-31/03/2003	[Grant Hutchinson]
+31/03/2003 [Grant Hutchinson]
 	* Updated the NPDS Modules and NPDS Trackers descriptions on the home page
 	* NPDS Modules are now referred to as Software Modules, as some folks had trouble finding the software
 	* Modified file /modules/index.html to reflect the above changes
 
-30/03/2003	[Grant Hutchinson]
+30/03/2003 [Grant Hutchinson]
 	* Modified file /.htaccess to include AddType application/x-stuffit sit directive
 	* Modified file /.htaccess to include AddType application/x-newton-compatible-pkg directive
 	* Modified file /.htaccess to correct file extension in the AddType application/octet-stream directive
 	* Newton packages and StuffIt archives are now downloaded as the correct file type
 	* Added file /error.html to handle type 400, 401, 403, 404, and 500 server error codes
 
-29/03/2003	[Paul Guyot]
-	* Added NPDS Watcher 1.1a1 (aka 101ac)
+29/03/2003 [Paul Guyot]
+	* Added NPDS Watcher 1.1a1 [aka 101ac]
 
-24/03/2003	[Grant Hutchinson]
+24/03/2003 [Grant Hutchinson]
 	* Added file TowardsNPDS3Themes.txt to directory /list/
 	* Added file TowardsNPDS3Summarize.txt to directory /list/
 
-24/03/2003	[Paul Guyot]
+24/03/2003 [Paul Guyot]
 	* Added nHTTPd 2.103
 
-24/03/2003	[Paul Guyot]
+24/03/2003 [Paul Guyot]
 	* Added Cardfile Server 2.11
 	* Added Datebook Server 2.11
 	* Added nHTTPd 2.102
 	* Added Script Editor 2.1
 
-23/03/2003	[Grant Hutchinson]
+23/03/2003 [Grant Hutchinson]
 	* Renamed BinInstaller.sit to BinInstaller-1.0.sit to reflect version number
 	* Added current BinInstaller version to the modules index page
 	* Updated the description of the Binary Server and BinInstaller on the modules index page
 	* Added link to the Newton Toolkit directory on UNNA to the modules index page
 	* Added links to the NPDS Network Setup documentation to the HTTP Server and Tracker Client module descriptions
 
-23/03/2003	[Paul Guyot]
+23/03/2003 [Paul Guyot]
 	* Added Binary Server 1.11
 	* Added BinInstaller 1.1
 
-18/03/2003	[Grant Hutchinson]
+18/03/2003 [Grant Hutchinson]
 	* Added mention of freezing NPDS Watcher when running the 2.1 modules
 
-18/03/2003	[Paul Guyot]
+18/03/2003 [Paul Guyot]
 	* Added nHTTPd 2.101
 
-16/03/2003	[Grant Hutchinson]
+16/03/2003 [Grant Hutchinson]
 	* Changed link in Tracker Client module section to point to the NPDS Trackers listing
 	* Modified and added more descriptive documentation links to the modules page
 
-15/03/2003	[Grant Hutchinson]
+15/03/2003 [Grant Hutchinson]
 	* Changed id value of NPDS Documentation header tag from "modules" to "documentation"
 	* Renamed all Read Me.txt files to Read_Me.txt
 	* Moved	the NPDS Modules information higher up on the home page
@@ -440,7 +440,7 @@ Site Change Log:
 	* Added NPDSTracker-0.1.30.sit to directory /modules/trackerserver/
 	* Added NPDSTracker-0.1.31.sit to directory /modules/trackerserver/
 
-15/03/2003	[Paul Guyot]
+15/03/2003 [Paul Guyot]
 	* Updated latest and supported version numbers for NPDS 2.1 modules
 	* Added nHTTPd 2.1
 	* Added Binary Server 1.1
@@ -452,7 +452,7 @@ Site Change Log:
 	* Added NPDS Tracker Client 2.1
 	* Added Web Pager 2.1
 
-14/03/2003	[Grant Hutchinson]
+14/03/2003 [Grant Hutchinson]
 	* Version number of NPDS Setup is now 2.022 as per latest package on site
 	* Added character set meta declaration to file /index.html so it validates properly
 	* Added other standard meta tags to file /index.html including keyword, description, robots, author
@@ -462,41 +462,41 @@ Site Change Log:
 	* Added validation link via footer include to file /index.html
 	* Added validation link via footer include to file NPDS_Protocol_1.1.html
 
-03/03/2003	[Grant Hutchinson]
+03/03/2003 [Grant Hutchinson]
 	* Reformatted file NPDS_Protocol_1.1.html to match HTML 4.01 Transitional validation
 	* Updated Matt Vaughn's email address in same
 	* Corrected several typos in same
 	* Added standard last_modified SSI statement footer of same
 
-29/01/2003	[Grant Hutchinson]
+29/01/2003 [Grant Hutchinson]
 	* Updated MyMacs tracker port number
 	* Modified file /.htaccess to include ErrorDocument directive
 	* 404 errors now redirect to /index.html
 
-28/01/2003	[Grant Hutchinson]
+28/01/2003 [Grant Hutchinson]
 	* Replaced old NPDS logo with screen shot of NPDS server window
 	* Modified file /index.html to add missing header tag id values
 	* Added file robots.txt to directory /
 
-27/01/2003	[Grant Hutchinson]
+27/01/2003 [Grant Hutchinson]
 	* Added links to NPDS developer and contributor web sites
 	* Relocated link for the change log to a less conspicuous location
 	* Minor editing to Introduction and NPDS Tracker sections
 
-26/01/2003	[Grant Hutchinson]
+26/01/2003 [Grant Hutchinson]
 	* Updated Misato tracker port number
 	* Added official IANA port number information
 	* Added alternate Continuity tracker port number for firewalled clients
 	* Modified file /index.html to include id values in all header tags
 
-17/01/2003	[Grant Hutchinson]
+17/01/2003 [Grant Hutchinson]
 	* Changed NPDS Tracker section to use a bulleted list
 	* Added Apple Newton Webring links to file /index.html
 
-17/01/2003	[Paul Guyot]
-	* Updated Shakti tracker URL and port number (now Continuity)
+17/01/2003 [Paul Guyot]
+	* Updated Shakti tracker URL and port number [now Continuity]
 
-16/01/2003	[Grant Hutchinson]
+16/01/2003 [Grant Hutchinson]
 	* Renamed directory / NPDS Mailing List Archives/ to /NPDS Mailing List Archives/
 	* Renamed directory / Tracker Server/ to /Tracker Server/
 	* Modified file /index.html to reflect changes to directory names
@@ -520,9 +520,9 @@ Site Change Log:
 	* Modified file /.htaccess to include AddHandler server-parsed html directive
 	* File /index.html now validates to HTML 4.01 Transitional
 
-08/01/2003	[Paul Guyot]
+08/01/2003 [Paul Guyot]
 	* Added NPDS Network Setup documentation to /docs/new/NPDS-Network-Setup-How-To.html
 
-29/12/2002	[Grant Hutchinson]
+29/12/2002 [Grant Hutchinson]
 	* Added NPDS documentation to /docs/english/
 
