@@ -2,6 +2,9 @@ npds.free.fr
 
 Site Change Log:
 
+11/01/2023	[Grant Hutchinson]
+	* Updated link to Matt Vaughn's site on the home page
+
 12/01/2022 (Grant Hutchinson)
 	* Clarified digest archives on /list/index.html
 
