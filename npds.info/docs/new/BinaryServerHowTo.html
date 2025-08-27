@@ -1,64 +1,58 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!DOCTYPE html>
 
 <html>
 	<head>
-	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-	<meta name="generator" content="BBEdit 7.0.1">
 	<title>Binary Server How-To</title>
+	<meta charset="utf-8">
 </head>
 
-<body bgcolor="#ffffff">
+<body>
 
 <h1>Binary Server How-To</h1>
-<h3>Draft (20060522)</h3>
+<h3>Draft (20250826)</h3>
 <p>By Josh Burker &amp; Grant Hutchinson</p>
 
-<p>The NPDS Binary Server is an optional component that allows NPDS to serve binaries such as images, compressed archives, and other documents from a Newton soup. The BinInstaller utility is used to create compatible binary packages that can be installed onto a Newton and served via NPDS using the Binary Server module.</p>
-
-<p><a href="http://npds.free.fr/modules/binaryserver/">http://npds.free.fr/modules/binaryserver/</a></p>
+<p>The NPDS Binary Server is an optional component that allows NPDS to serve binaries such as images, compressed archives, and other documents from a Newton soup. The BinInstaller utility is used to create compatible binary packages that can be installed onto a Newton and served via NPDS using the <a href="http://npds.free.fr/modules/binaryserver/">Binary Server</a> module.</p>
 
 <p>Unfortunately, creating the binaries for the the Binary Server to serve is not the most intuitive process. It is not difficult but it takes some patience and understanding of the tools that Paul so graciously provided us.</p>
 
 <p>Here is what is needed:</p>
 
 <ul>
-	<li>BinInstaller 1.2<br>
-	<a href="http://npds.free.fr/modules/binaryserver/">http://npds.free.fr/modules/binaryserver/</a></li>
-	<li>BinaryServer 1.11<br>
-	<a href="http://npds.free.fr/modules/binaryserver/">http://npds.free.fr/modules/binaryserver/</a></li>
-	<li>Macintosh capable of running OS 9 and OS X (or two different Macs)</li>
-	<li>OS X Developer Tools installed on your OS X Mac<br>
-	<a href="http://developer.apple.com/">http://developer.apple.com/</a></li>
-	<li>Newton ToolKit (NTK) 1.6.4 installed on your OS 9 or X Mac<br>
-	<a href="http://www.unna.org/">http://www.unna.org/</a></li>
+	<li><a href="http://npds.free.fr/modules/binaryserver/">BinInstaller 1.2</a></li>
+	<li><a href="http://npds.free.fr/modules/binaryserver/">BinaryServer 1.11</a></li>
+	<li>Mac OS 9 and Mac OS X</li>
+	<li>Mac OS X Developer Tools</li>
+	<li><a href="http://www.unna.org/view.php?/apple/development/NTK/macntk">Newton ToolKit (NTK) 1.6.4</a></li>
 	<li>ResEdit 2.1.3</li>
-	<li>OS X Terminal</li>
+	<li>Mac OS X Terminal</li>
 </ul>
 
-<p>If you are attempting to run NTK in Classic under OS X, you ought to take a look at this page: </p>
+<p>If you are attempting to run NTK in Classic under OS X, refer to the <a href="https://newtonfaq.com/newton-faq-development.html#VIIA1a">Newton Toolkit</a> information in the <a href="https://newtonfaq.com/">Newton FAQ</a>.</p>
 
-<p><a href="http://www.chuma.org/newton/faq/newton-faq-development.html#VIIA1a">http://www.chuma.org/newton/faq/newton-faq-development.html#VIIA1a</a></p>
+<p>Start by loading <strong>BinaryServer 1.11</strong> onto your Newton. It will be automatically filed into the Extensions folder in the Extras Drawer.</p>
 
-<p>Start by loading <b>BinaryServer 1.11</b> onto your Newton. It will be automatically filed into the Extensions drawer.</p>
+<p>Decompress the BinInstaller 1.2 archive. You will have a directory with <strong>BinInstaller</strong>, an NTK project; <strong>Install &amp; Remove.f</strong>, the “code” for the project that you will modify to include your binaries; and <strong>bin.rsrc</strong>, a ResEdit document that you will also edit to add the data from your binary.</p>
 
-<p>Decompress the BinInstaller 1.2 archive. You will have a directory with <b>BinInstaller</b>, an NTK project; <b>Install &amp; Remove.f</b>, the "code" for the project that you will modify to include your binaries; and <b>bin.rsrc</b>, a ResEdit document that you will also edit to add the data from your binary.</p>
+<p>The following are steps to add a JPEG file to the <code>bin.rsrc</code> file. Once a Newton package was built with the updated <code>bin.rsrc</code> file and the <code>Install &amp; Remove.f</code> that had also been modified I had a JPEG as well as the included <code>serve-npds.gif</code> loaded into a soup on my Newton. Here are the steps I took.</p>
 
-<p>The following are the steps that I took to add a 20k jpeg file to the bin.rsrc file. Once a Newton package was built with the updated bin.rsrc file and the Install &amp; Remove.f that had also been modified I had a jpeg as well as the included "serve-npds.gif" loaded into a soup on my Newton. Here are the steps I took.</p>
+<p>1. Move the JPEG image to your user home directory.</p>
 
-<p>1. Moved 20k jpeg image to my home directory on my OS X Mac.</p>
+<p>2. Issue the following command in the Terminal:</p>
 
-<p>2. Issued the following command in the Terminal:</p>
+<code>echo &#34;read 'JPEG' (1000) &#34;\&#34;&#34;chunk.jpg&#34;\&#34;&#34; ; &#34; | /Developer/Tools/Rez -o &#34;chunk.rsrc&#34; -t 'rsrc' -c 'RSED'</code>
 
-<p><code>echo &#34;read 'JPEG' (1000) &#34;\&#34;&#34;chunk.jpg&#34;\&#34;&#34; ; &#34; | /Developer/Tools/Rez -o &#34;chunk.rsrc&#34; -t 'rsrc' -c 'RSED'</code></p>
+<p>I wanted the resource to be named JPEG so I used <code>'JPEG'</code> instead of <code>'DATA'</code> in the command. You can make up any four letter name, but use a different name for each binary being loaded.</p>
 
-<p>I wanted the resource to be named JPEG so I used 'JPEG' instead of 'DATA' in the command. You can make up any four letter name; you want to have a distinct name for each binary you are loading.</p>
+<p>3. Open the resulting <code>chunk.rsrc</code> using ResEdit (in Classic). Click on the JPEG file inside the <code>.rsrc</code> document and select Edit &gt; Copy.</p>
 
-<p>3. Opened the resulting chunk.rsrc using ResEdit (in Classic). Single-clicked on the JPEG file inside the .rsrc document and did an Edit &gt; Copy.</p>
+<p>4. Open the default <code>bin.rsrc</code> file included with BinInstaller 1.2 in ResEdit. Paste the JPEG data into the bin.rsrc file and save.</p>
 
-<p>4. Opened the default bin.rsrc file included with BinInstaller 1.2 in ResEdit. Pasted the JPEG data into the bin.rsrc file and saved.</p>
+<p>5. Open the BinInstaller NTK project in NTK.</p>
 
-<p>5. Opened the BinInstaller NTK project in NTK. I had to boot my wife's iBook to OS 9.2.2 to run NTK because of the OS X NTK/port issue documented in the <a href="http://www.chuma.org/newton/faq/newton-faq-development.html#VIIA1a">Newton FAQ</a>. Added the following lines to the Install &amp; Remove.f file, after the included entry for the GIF:</p>
+<p>You may need to use a computer that natively runs Mac OS 9.2.2 to run NTK because of the Mac OS X NTK/port issue documented in the <a href="https://newtonfaq.com/newton-faq-development.html#VIIA1a">Newton FAQ</a>.</p>
+
+<p>Add the following lines to the <code>Install &amp; Remove.f</code> file, after the included entry for the GIF:</p>
 
 <code>{<br>
 class: 'binary,<br>
@@ -67,73 +61,41 @@ binary: GetResource( "JPEG ", 1000, '|image/jpeg| ),<br>
 mimetype: "image/jpeg"<br>
 }</code>
 
-<p>6. Built a package from NTK, Project &gt; Build Package.</p>
+<p>6. Build a package from NTK, selecting Project &gt; Build Package.</p>
 
-<p>7. Installed the resulting Bin Installer.pkg on the Newton.</p>
+<p>7. Install the resulting <code>Bin Installer.pkg</code> on the Newton.</p>
 
 <p>Now there are three binaries on my Newton:</p>
 
 <ol>
-	<li>a GIF <a href="http://24.18.247.199:8080/bin/images/serve-npds.gif" target="_blank">file</a></li>
-	<li>another GIF <a href="http://24.18.247.199:8080/bin/images/newtonroger.gif">file</a></li>
-	<li>a JPEG <a href="http://24.18.247.199:8080/bin/images/chunk.jpg" target="_blank">file</a></li>
+	<li>a GIF file</li>
+	<li>a second GIF file</li>
+	<li>a JPEG file</li>
 </ol>
 
-<p>And yes, that's me on the bike.</p>
-
-<p>The only issue I see is if I embed the following in my <a href="/html/index.html">index.html</a> page it seems that Safari usually times out before NPDS manages to serve the GIF:</p>
+<p>The only issue is if I embed the following in my <code>index.html</code> page it seems that Safari usually times out before NPDS manages to serve the GIF:</p>
 
 <code>&lt;img src=&#34;/bin/images/serve-npds.gif&#34;&gt;</code>
 
-<p>I have adjusted the Latency in NPDS Setup as far up as it will go, figuring the longer it has to time out the more likely it will serve. I notice John Skinner's 'Mean Green Sr.' server has the same tag embedded on it's index.html page and it usually doesn't load in Safari, either. Firefox, however, does load the image, so it appears that it is a Safari issue rather than a problem with the Binary Server.</p>
+<p>I adjusted the Latency in NPDS Setup as far up as it will go, figuring the longer it has to timeout the more likely it will serve the file. I notice John Skinner’s “Mean Green Sr.” server has the same tag embedded on it’s <code>index.html</code> page and it usually doesn’t load in Safari, either. Firefox, however, does load the image, so it appears that it is a Safari issue rather than a problem with the Binary Server.</p>
 
-<p>This was the first time I had ever goofed with NTK and it was a fun project.</p>
-
-<!--<p>There is a google cache of a page from Paul Guyot's NPDS server where he also describes the steps, and on which this document is based, of course. It is <a href="http://72.14.203.104/search?q=cache:z6y5DC2GKv0J:newton.kallisys.net:8080/html/33687461$3702.nsd NPDS BinInstaller&amp;hl=en&amp;gl=us&amp;ct=clnk&amp;cd=5" target="_blank">here</a>.</p>-->
-
-<h2>Update:</h2>
-
-<p>I found a copy of the PortShareDemo that Victor mentions on his Newton FAQ <a href="http://www.chuma.org/newton/faq/newton-faq-development.html#VIIA1a" target="_blank">page</a> (his page has a broken link).</p>
-
-<p>The correct page is <a href="http://www.stalker.com/pub/Legacy/" target="_blank">here</a>.</p>
+<p>Regarding the PortShareDemo mentioned in the <a href="https://newtonfaq.com/newton-faq-development.html#VIIA1a">Newton FAQ</a>:</p>
 
 <p>You can install the PortShare Demo Control Panel and the PortShareTask Extension then start Classic. Open the PortShare Control panel and create a virtual printer (or modem) port. NTK will then open in Classic, and you can do all your work from an OS X Mac.</p>
 
-<p>Additionally, I figured out a solution for the 'serve-npds.gif' issue where it is not being displayed properly. Instead of calling the graphic directly, I have used the "new-credits" SSI script that is included in the NPDS Scripts repository:</p>
+<p>Additionally, I figured out a solution for the <code>serve-npds.gif</code> issue where it is not being displayed properly. Instead of calling the graphic directly, I have used the <code>new-credits</code> SSI script that is included in the <a href="http://npds.free.fr/scripts/">NPDS Scripts</a> repository:</p>
 
-<p><a href="http://npds.free.fr/scripts/">http://npds.free.fr/scripts/</a></p>
-
-<p>I posted the script to my NPDS server using the 'admin-post' feature, then copied and pasted the script into the NPDS Script Editor, part of the NPDS <a href="http://npds.free.fr/modules/utilities/" target="_blank">Utilities</a> package. I had to name the script &lt;CREDITS&gt;, as Paul mentions in the comments, and had to activate the script through the Script Editor.</p>
+<p>I posted the script to my NPDS server using the <code>admin-post</code> feature, then copied and pasted the script into the NPDS Script Editor, part of the NPDS <a href="http://npds.free.fr/modules/utilities/">Utilities</a> package. I named the script <code>&lt;CREDITS&gt;</code> as Paul mentions in the comments, and activated the script through the Script Editor.</p>
 
 <p>Safari seems to be still a little hit-or-miss, but Firefox works fine.</p>
 
 <h2>Change history</h2>
 <ul>
+	<li>26 Aug 2025 - Updated links, edits for clarity, converted to HTML5 [Grant Hutchinson]</li>
 	<li>22 May 2006 - Minor formatting and syntax changes [Grant Hutchinson]</li>
 	<li>03 May 2006 - Minor clarifications and updated links [Josh Burker]</li>
 	<li>29 Apr 2006 - Initial release [Josh Burker]</li>
 </ul>
-
-<hr>
-
-<table summary="W3 icons">
-	<tr>
-		<td>
-			<a href="http://validator.w3.org/check/referer">
-				<img style="border:0;width:88px;height:31px"
-				src="http://www.w3.org/Icons/valid-html401"
-				alt="Valid HTML 4.01!" height="31" width="88">
-			</a>
-		</td>
-		<td>
-			<a href="http://jigsaw.w3.org/css-validator/">
-				<img style="border:0;width:88px;height:31px"
-				src="http://jigsaw.w3.org/css-validator/images/vcss" 
-				alt="Valid CSS!" height="31" width="88">
-			</a>
-		</td>
-	</tr>
-</table>
 
 </body>
 </html>
