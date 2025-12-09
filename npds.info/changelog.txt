@@ -2,6 +2,12 @@ npds.free.fr
 
 Site Change Log:
 
+07 December 2025 [Grant Hutchinson]
+	* Standardized change log date format
+
+16 November 2025 [Grant Hutchinson]
+	* Added link to Tom Chiverton’s Newton Magic Number Pictures page on /docs/new/GIFServerSyntax.html
+
 11 January 2023 [Grant Hutchinson]
 	* Updated link to Matt Vaughn's site on the home page
 
