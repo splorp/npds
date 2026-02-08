@@ -13,7 +13,7 @@
  *	snarfed via Zeldman
  */
 
-html { 
+html {
 	min-width : 800px;
 	}
 
@@ -25,7 +25,7 @@ body {
 	color : #333;
 	text-align : center;
 	}
-	
+
 #wrapper {
 	width : 900px;
 	margin : 0 auto;
@@ -35,7 +35,7 @@ body {
 #header {
 	margin : 0 50px;
 	}
-	
+
 #footer {
 	margin : 50px 100px;
 	border-top : 1px dotted #666;
@@ -44,7 +44,7 @@ body {
 #header ul {
 	margin : 10px 0 50px 50px;
 	}
-	
+
 #footer ul {
 	margin : 20px 0;
 	}
@@ -82,11 +82,11 @@ body {
 p {
 	margin : 1.2em 0;
 	}
-	
+
 em {
 	font-family : georgia, times, serif;
 	font-style : italic;
-	}	
+	}
 
 h1 {
 	font-family : 'gill sans', helvetica, arial, sans-serif;
@@ -103,7 +103,7 @@ h2 {
 	font-weight : normal;
 	font-size : 1.5em;
 	}
-	
+
 h3 {
 	margin : 20px 0 0 0;
 	font-family : 'gill sans', helvetica, arial, sans-serif;
@@ -142,4 +142,3 @@ a:hover, a:visited:hover, a:active {
 	background : #9CC;
 	text-decoration : none;
 	}
-	
