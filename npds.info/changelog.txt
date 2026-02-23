@@ -4,6 +4,7 @@ Site Change Log:
 
 23 February 2026 [Grant Hutchinson]
 	* Removed Twitter links
+	* Updated home page and header graphics for HiDPI screens
 
 07 December 2025 [Grant Hutchinson]
 	* Standardized change log date format
