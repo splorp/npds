@@ -2,6 +2,9 @@ npds.free.fr
 
 Site Change Log:
 
+23 February 2026 [Grant Hutchinson]
+	* Removed Twitter links
+
 07 December 2025 [Grant Hutchinson]
 	* Standardized change log date format
 
